@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/member_item_name_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Jack Hugh (pending)"
+        android:textColor="@color/tab_gray"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/member_item_location_image"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/member_item_location_image"
+        android:layout_width="@dimen/accessible_image_size"
+        android:layout_height="@dimen/accessible_image_size"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="@dimen/spacing_medium"
+        android:scaleType="fitCenter"
+        android:src="@drawable/baseline_location_on_white_48"
+        android:tint="@color/pete_light_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/member_item_check_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/member_item_check_image"
+        android:layout_width="@dimen/accessible_image_size"
+        android:layout_height="@dimen/accessible_image_size"
+        android:padding="@dimen/spacing_medium"
+        android:src="@drawable/baseline_edit_white_48"
+        android:tint="@color/gray7b"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/member_item_close_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/member_item_close_image"
+        android:layout_width="@dimen/accessible_image_size"
+        android:layout_height="@dimen/accessible_image_size"
+        android:padding="@dimen/spacing_medium"
+        android:scaleType="fitCenter"
+        android:src="@drawable/baseline_close_white_48"
+        android:tint="@color/tab_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/gray_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></View>
+
+</android.support.constraint.ConstraintLayout>
