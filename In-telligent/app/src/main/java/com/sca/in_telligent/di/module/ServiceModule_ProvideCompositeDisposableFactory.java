@@ -1,10 +1,10 @@
 package com.sca.in_telligent.di.module;
 
+
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class ServiceModule_ProvideCompositeDisposableFactory implements Factory<CompositeDisposable> {
     private final ServiceModule module;
 

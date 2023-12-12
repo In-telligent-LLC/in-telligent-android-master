@@ -1,6 +1,7 @@
 package com.sca.in_telligent.util;
 
 import com.sca.in_telligent.data.DataManager;
+import com.sca.in_telligent.di.module.ApplicationModule_ProvideCompositeDisposableFactory;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import dagger.internal.Factory;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -24,7 +25,7 @@ public final class AppLifecycleObserver_Factory implements Factory<AppLifecycleO
         return newInstance(this.dataManagerProvider.get(), this.schedulerProvider.get(), this.compositeDisposableProvider.get());
     }
 
-    public static AppLifecycleObserver_Factory create(Provider<DataManager> provider, Provider<SchedulerProvider> provider2, Provider<CompositeDisposable> provider3) {
+    public static AppLifecycleObserver_Factory create(Provider<DataManager> provider, Provider<SchedulerProvider> provider2, ApplicationModule_ProvideCompositeDisposableFactory provider3) {
         return new AppLifecycleObserver_Factory(provider, provider2, provider3);
     }
 

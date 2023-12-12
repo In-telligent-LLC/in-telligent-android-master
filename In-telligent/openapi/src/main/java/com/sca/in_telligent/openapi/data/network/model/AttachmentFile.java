@@ -2,22 +2,27 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import java.io.File;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AttachmentFile {
+    private final File file;
+    private final FileType fileType;
+    private final String path;
 
-    private FileType fileType;
-    private File file;
-
-    public AttachmentFile(final FileType fileType, final File file) {
+    public AttachmentFile(FileType fileType, File file, String str) {
         this.fileType = fileType;
         this.file = file;
+        this.path = str;
     }
 
     public File getFile() {
-        return file;
+        return this.file;
     }
 
     public FileType getFileType() {
-        return fileType;
+        return this.fileType;
     }
 
+    public String getPath() {
+        return this.path;
+    }
 }

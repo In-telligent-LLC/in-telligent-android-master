@@ -1,30 +1,31 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
+import com.sca.in_telligent.openapi.util.CommonUtils;
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class GoogleLoginRequest implements Serializable {
+    @SerializedName("adId")
+    private String adId;
+    @SerializedName("deviceId")
+    private String deviceId;
+    @SerializedName("googleAccessToken")
+    private String googleAccessToken;
+    @SerializedName("deviceModel")
+    private String deviceModel = CommonUtils.getDeviceInfo();
+    @SerializedName("osVersion")
+    private String osVersion = CommonUtils.getDeviceOs();
 
-  @SerializedName("deviceId")
-  private String deviceId;
+    public void setGoogleAccessToken(String str) {
+        this.googleAccessToken = str;
+    }
 
-  @SerializedName("googleAccessToken")
-  private String googleAccessToken;
+    public void setAdId(String str) {
+        this.adId = str;
+    }
 
-  @SerializedName("adId")
-  private String adId;
-
-  public void setGoogleAccessToken(String googleAccessToken) {
-    this.googleAccessToken = googleAccessToken;
-  }
-
-  public void setAdId(String adId) {
-    this.adId = adId;
-  }
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
+    public void setDeviceId(String str) {
+        this.deviceId = str;
+    }
 }

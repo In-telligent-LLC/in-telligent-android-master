@@ -1,12 +1,13 @@
 package com.sca.in_telligent.ui.contact.message.deliver;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.BuildingMember;
@@ -19,6 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+
 
 public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
@@ -97,15 +99,15 @@ public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHold
     public class ViewHolder extends BaseViewHolder {
 
         @BindView(R.id.contact_deliver_item_name_text)
-        TextView mailText;
+        String mailText = "";
 
         @BindView(R.id.contact_deliver_item_checkbox)
         CheckBox itemCheckbox;
 
-        @OnCheckedChanged(R.id.contact_deliver_item_checkbox)
-        void checkClick(CompoundButton compoundButton, boolean checked) {
-
-        }
+//        @OnCheckedChanged(R.id.contact_deliver_item_checkbox)
+//        void checkClick(CompoundButton compoundButton, boolean checked) {
+//
+//        }
 
         public ViewHolder(View itemView) {
             super(itemView);

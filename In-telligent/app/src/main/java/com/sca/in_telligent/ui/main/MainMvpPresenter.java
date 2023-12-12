@@ -1,38 +1,36 @@
 package com.sca.in_telligent.ui.main;
 
-
 import android.location.Location;
-
 import com.sca.in_telligent.di.PerActivity;
 import com.sca.in_telligent.ui.base.MvpPresenter;
+import com.sca.in_telligent.ui.main.MainMvpView;
 
 @PerActivity
-public interface MainMvpPresenter<V extends MainMvpView> extends
-        MvpPresenter<V> {
-
-    boolean isLoggedIn();
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
+    void getCommunityInfo(int i, int i2);
 
     void getSubscriber();
 
-    void getSubscriber(boolean showLoading);
+    void getSubscriber(boolean z);
 
     void getSuggestedGroups();
 
-    void requestLocationPermissions(boolean phone);
-
-    void requestPhonePermission();
-
-    void subscribeToCommunity(int buildingId);
-
-    void subscribeToCommunity(int buildingId, int inviteId);
+    boolean isLoggedIn();
 
     void onAppOpened();
 
-    void getCommunityInfo(int communityId, int inviteId);
+    void onClickAd(int i);
 
     void refreshGeofences(Location location);
 
+    void requestLocationPermissions(boolean z);
+
+    void requestPhonePermission();
+
     void startFetchingAds();
 
-    void onClickAd(int adId);
+    void subscribeToCommunity(int i);
+
+    void subscribeToCommunity(int i, int i2);
 }

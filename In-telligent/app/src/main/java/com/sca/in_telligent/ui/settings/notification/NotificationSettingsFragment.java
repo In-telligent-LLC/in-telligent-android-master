@@ -2,18 +2,23 @@ package com.sca.in_telligent.ui.settings.notification;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
+import io.reactivex.rxjava3.core.Observable;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.AlertSubscriptionRequest;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -22,7 +27,6 @@ import com.sca.in_telligent.openapi.data.network.model.SubscriberRequest;
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriberRequest;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.ui.base.BaseFragment;
-import io.reactivex.Observable;
 import java.util.ArrayList;
 import javax.inject.Inject;
 
@@ -75,7 +79,7 @@ public class NotificationSettingsFragment extends BaseFragment implements
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+                           @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_notification_settings, container, false);
     ActivityComponent component = getActivityComponent();
     if (component != null) {

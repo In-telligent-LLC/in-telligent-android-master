@@ -4,7 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.media.AudioManager;
 import android.util.Log;
-import androidx.lifecycle.LifecycleOwner;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -12,7 +12,6 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
-import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
@@ -64,7 +63,7 @@ public class ScaApplication extends Application {
     }
 
     private void initOpenApi() {
-        OpenAPI.init(this, new OpenAPI.Configuration.Builder().setAppVersion(BuildConfig.VERSION_CODE).setDebug(false).build());
+        OpenAPI.init(this, new OpenAPI.Configuration.Builder().setAppVersion(BuildConfig1.VERSION_CODE).setDebug(false).build());
     }
 
     public String getCurrentState() {

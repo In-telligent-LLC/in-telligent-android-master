@@ -1,6 +1,7 @@
 package com.sca.in_telligent.util;
 
-import android.arch.lifecycle.LifecycleObserver;
+
+import androidx.lifecycle.LifecycleObserver;
 
 public interface LifecycleInterface extends LifecycleObserver {
 

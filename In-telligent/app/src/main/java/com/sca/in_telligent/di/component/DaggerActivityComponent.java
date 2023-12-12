@@ -65,11 +65,10 @@ import com.sca.in_telligent.util.twilio.AppTwilioUtil_Factory;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.inject.Provider;
 
-public final class DaggerApplicationComponent implements ApplicationComponent {
+public final class DaggerActivityComponent implements ApplicationComponent {
     private Provider<AppDataManager> appDataManagerProvider;
     private Provider<AppGeofenceClient> appGeofenceClientProvider;
     private Provider<AppLifecycleObserver> appLifecycleObserverProvider;
@@ -79,12 +78,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     private Provider<AppTwilioUtil> appTwilioUtilProvider;
     private Provider<AppVideoDownloader> appVideoDownloaderProvider;
     private Provider<AppWeatherUtil> appWeatherUtilProvider;
-    private final DaggerApplicationComponent applicationComponent;
+    private final DaggerActivityComponent applicationComponent;
     private final ApplicationModule applicationModule;
     private Provider<ApiHelper> provideApiHelperProvider;
     private Provider<AudioHelper> provideAudioHelperProvider;
     private Provider<AudioManager> provideAudioManagerProvider;
-    private Provider<CompositeDisposable> provideCompositeDisposableProvider;
+    private ApplicationModule_ProvideCompositeDisposableFactory provideCompositeDisposableProvider;
     private Provider<Context> provideContextProvider;
     private Provider<DataManager> provideDataManagerProvider;
     private Provider<FirebaseJobDispatcher> provideFirebaseJobDispatcherProvider;
@@ -102,7 +101,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     private Provider<VideoDownloader> provideVideoDownloaderProvider;
     private Provider<WeatherUtil> provideWeatherUtilProvider;
 
-    private DaggerApplicationComponent(ApplicationModule applicationModule) {
+    private DaggerActivityComponent(ApplicationModule applicationModule) {
         this.applicationComponent = this;
         this.applicationModule = applicationModule;
         initialize(applicationModule);
@@ -265,7 +264,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
         public ApplicationComponent build() {
             Preconditions.checkBuilderRequirement(this.applicationModule, ApplicationModule.class);
-            return new DaggerApplicationComponent(this.applicationModule);
+            return new DaggerActivityComponent(this.applicationModule);
         }
     }
 }

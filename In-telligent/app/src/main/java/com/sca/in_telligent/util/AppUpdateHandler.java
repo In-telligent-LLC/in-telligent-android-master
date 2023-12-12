@@ -9,7 +9,7 @@ import android.util.Log;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
-import com.sca.in_telligent.BuildConfig;
+import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 
 import static java.util.Objects.requireNonNull;
@@ -29,20 +29,20 @@ public class AppUpdateHandler {
 
         FirebaseRemoteConfig firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+                .setDeveloperModeEnabled(BuildConfig1.DEBUG)
                 .build();
         firebaseRemoteConfig.setConfigSettings(configSettings);
         firebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
 
 
-        firebaseRemoteConfig.fetch(BuildConfig.DEBUG ? 0 : REMOTE_PARAMS_RELEASE_CACHE)
+        firebaseRemoteConfig.fetch(BuildConfig1.DEBUG ? 0 : REMOTE_PARAMS_RELEASE_CACHE)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         // After config data is successfully fetched, it must be activated before newly fetched
                         // values are returned.
                         firebaseRemoteConfig.activateFetched();
 
-                        if (BuildConfig.VERSION_CODE < firebaseRemoteConfig.getLong(MIN_SUPPORTED_VERSION_KEY)) {
+                        if (BuildConfig1.VERSION_CODE < firebaseRemoteConfig.getLong(MIN_SUPPORTED_VERSION_KEY)) {
                             showUpdateDialog(context);
                         }
 
@@ -76,7 +76,7 @@ public class AppUpdateHandler {
             return;
         }
 
-        final String appPackageName = BuildConfig.APPLICATION_ID;
+        final String appPackageName = BuildConfig1.APPLICATION_ID;
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("market://details?id=" + appPackageName)));

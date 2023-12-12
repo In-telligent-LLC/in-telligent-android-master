@@ -11,8 +11,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -25,10 +28,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.sca.in_telligent.permission.C2D_MESSAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -51,6 +51,9 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
         android:required="false" />
 
     <application
@@ -89,7 +92,8 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -192,13 +196,13 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             tools:replace="android:theme" />
 
-        <!--Mopub -->
-        <activity
-            android:name="com.mopub.common.MoPubBrowser"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+<!--        &lt;!&ndash;Mopub &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name="com.mopub.common.MoPubBrowser"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize" />-->
+<!--        <activity-->
+<!--            android:name="com.mopub.mobileads.MraidVideoPlayerActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize" />-->
 
 
         <activity
@@ -209,9 +213,9 @@
             android:name="com.smaato.soma.interstitial.InterstitialActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
 
-        <activity
-            android:name="com.amazon.device.ads.AdActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+<!--        <activity-->
+<!--            android:name="com.amazon.device.ads.AdActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize" />-->
 
         <activity
             android:name="com.aerserv.sdk.view.ASVastInterstitialActivity"
@@ -225,10 +229,10 @@
         <activity
             android:name="com.aerserv.sdk.view.AerServFullScreenAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-        <activity
-            android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+<!--        <activity-->
+<!--            android:name="com.yalantis.ucrop.UCropActivity"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
 
         <receiver android:name="com.factual.android.LocationUpdateReceiver" />
 
@@ -237,7 +241,8 @@
             android:label="Observation Graph Job Service"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name=".service.MyFirebaseMessagingService">
+        <service android:name=".service.MyFirebaseMessagingService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -248,17 +253,17 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service
-            android:name=".openapi.service.BeaconScannerService"
-            android:enabled="true" />
+<!--        <service-->
+<!--            android:name=".openapi.service.BeaconScannerService"-->
+<!--            android:enabled="true" />-->
 
-        <service
-            android:name=".openapi.service.OpenApiBeaconService"
-            tools:node="replace">
-            <meta-data
-                android:name="longScanForcingEnabled"
-                android:value="true" />
-        </service>
+<!--        <service-->
+<!--            android:name=".openapi.service.OpenApiBeaconService"-->
+<!--            tools:node="replace">-->
+<!--            <meta-data-->
+<!--                android:name="longScanForcingEnabled"-->
+<!--                android:value="true" />-->
+<!--        </service>-->
 
 
         <receiver

@@ -1,9 +1,7 @@
 package com.sca.in_telligent;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class R {
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class anim {
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -2912,7 +2910,6 @@ public final class R {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class id {
         public static final int ALT = 0x7f080000;
         public static final int ALWAYS = 0x7f080001;

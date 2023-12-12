@@ -1,12 +1,12 @@
 package com.sca.in_telligent.ui.base;
 
-import android.support.v4.app.Fragment;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-import io.reactivex.disposables.CompositeDisposable;
+
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
@@ -19,8 +19,8 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
   @Inject
   TwilioUtil twilioUtil;
 
-  @Inject
-  RxPermissions rxPermissions;
+//  @Inject
+//  RxPermissions rxPermissions;
 
   private V mMvpView;
 
@@ -70,13 +70,13 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     return mCompositeDisposable;
   }
 
-  public RxPermissions getRxPermissions() {
-    return rxPermissions;
-  }
+//  public RxPermissions getRxPermissions() {
+//    return rxPermissions;
+//  }
 
-  public RxPermissions getRxPermissionsFragment(Fragment fragment) {
-    return new RxPermissions(fragment);
-  }
+//  public RxPermissions getRxPermissionsFragment(Fragment fragment) {
+//    return new RxPermissions(fragment);
+//  }
 
   public TwilioUtil getTwilioUtil() {
     return twilioUtil;

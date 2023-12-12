@@ -1,31 +1,28 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AlertSubscriptionRequest implements Serializable {
+    @SerializedName("buildingId")
+    private String buildingId;
+    @SerializedName("subscription")
+    private String subscription;
 
-  @SerializedName("buildingId")
-  private String buildingId;
+    public void setBuildingId(String str) {
+        this.buildingId = str;
+    }
 
-  @SerializedName("subscription")
-  private String subscription;
+    public void setSubscription(String str) {
+        this.subscription = str;
+    }
 
-  public void setBuildingId(String buildingId) {
-    this.buildingId = buildingId;
-  }
+    public String getBuildingId() {
+        return this.buildingId;
+    }
 
-  public void setSubscription(String subscription) {
-    this.subscription = subscription;
-  }
-
-  public String getBuildingId() {
-    return buildingId;
-  }
-
-  public String getSubscription() {
-    return subscription;
-  }
-
+    public String getSubscription() {
+        return this.subscription;
+    }
 }

@@ -11,18 +11,19 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
@@ -37,6 +38,8 @@ import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.VideoDownloader;
 
 import javax.inject.Inject;
+
+import butterknife.Unbinder;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements
@@ -75,6 +78,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
   @Inject
   LocationUtil locationUtil;
+  private Unbinder mUnBinder;
+
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,9 +111,9 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
   protected abstract void setUp();
 
-//  public void setUnBinder(Unbinder unBinder) {
-//    mUnBinder = unBinder;
-//  }
+  public void setUnBinder(Unbinder unBinder) {
+    mUnBinder = unBinder;
+  }
 
   @Override
   public void onFragmentAttached() {
@@ -138,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         message, Snackbar.LENGTH_SHORT);
     View sbView = snackbar.getView();
     TextView textView = (TextView) sbView
-        .findViewById(android.support.design.R.id.snackbar_text);
+        .findViewById(android.R.id.text1);
     textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
     snackbar.show();
   }

@@ -1,129 +1,113 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Subscriber implements Serializable {
+    @SerializedName("betaEnabled")
+    private boolean betaEnabled;
+    @SerializedName("Buildings")
+    private ArrayList<Building> buildings;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("id")
+    private int id;
+    @SerializedName("Interests")
+    private ArrayList<Interest> interests;
+    @SerializedName("language")
+    private String language;
+    @SerializedName("languageName")
+    private String languageName;
+    @SerializedName("lightningAlertConfirmed")
+    private boolean lightningAlertConfirmed;
+    @SerializedName("lightningAlertEnabled")
+    private boolean lightningAlertEnabled;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("PersonalCommunity")
+    private ArrayList<Building> personalCommunities;
+    @SerializedName("SubscriberAutoSubscribeOptOut")
+    private ArrayList<SubscriberOptOut> subscriberOptOuts;
+    @SerializedName("User")
+    private User user;
+    @SerializedName("weatherAlertEnabled")
+    private boolean weatherAlertEnabled;
 
-  @SerializedName("id")
-  private int id;
+    public void setLanguage(String str) {
+        this.language = str;
+    }
 
-  @SerializedName("email")
-  private String email;
+    public void setLanguageName(String str) {
+        this.languageName = str;
+    }
 
-  @SerializedName("name")
-  private String name;
+    public void setWeatherAlertEnabled(boolean z) {
+        this.weatherAlertEnabled = z;
+    }
 
-  @SerializedName("language")
-  private String language;
+    public void setLightningAlertEnabled(boolean z) {
+        this.lightningAlertEnabled = z;
+    }
 
-  public void setLanguage(String language) {
-    this.language = language;
-  }
+    public void setBuildings(ArrayList<Building> arrayList) {
+        this.buildings = arrayList;
+    }
 
-  public void setLanguageName(String languageName) {
-    this.languageName = languageName;
-  }
+    public int getId() {
+        return this.id;
+    }
 
-  @SerializedName("languageName")
-  private String languageName;
+    public String getEmail() {
+        return this.email;
+    }
 
-  public void setWeatherAlertEnabled(boolean weatherAlertEnabled) {
-    this.weatherAlertEnabled = weatherAlertEnabled;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setLightningAlertEnabled(boolean lightningAlertEnabled) {
-    this.lightningAlertEnabled = lightningAlertEnabled;
-  }
+    public String getLanguage() {
+        return this.language;
+    }
 
-  @SerializedName("weatherAlertEnabled")
-  private boolean weatherAlertEnabled;
+    public String getLanguageName() {
+        return this.languageName;
+    }
 
-  @SerializedName("lightningAlertEnabled")
-  private boolean lightningAlertEnabled;
+    public boolean isWeatherAlertEnabled() {
+        return this.weatherAlertEnabled;
+    }
 
-  @SerializedName("lightningAlertConfirmed")
-  private boolean lightningAlertConfirmed;
+    public boolean isLightningAlertEnabled() {
+        return this.lightningAlertEnabled;
+    }
 
-  @SerializedName("betaEnabled")
-  private boolean betaEnabled;
+    public boolean isLightningAlertConfirmed() {
+        return this.lightningAlertConfirmed;
+    }
 
-  @SerializedName("User")
-  private User user;
+    public boolean isBetaEnabled() {
+        return this.betaEnabled;
+    }
 
-  @SerializedName("PersonalCommunity")
-  private ArrayList<Building> personalCommunities;
+    public User getUser() {
+        return this.user;
+    }
 
-  public void setBuildings(ArrayList<Building> buildings) {
-    this.buildings = buildings;
-  }
+    public ArrayList<Building> getPersonalCommunities() {
+        return this.personalCommunities;
+    }
 
-  @SerializedName("Buildings")
-  private ArrayList<Building> buildings;
+    public ArrayList<Building> getBuildings() {
+        return this.buildings;
+    }
 
-  @SerializedName("SubscriberAutoSubscribeOptOut")
-  private ArrayList<SubscriberOptOut> subscriberOptOuts;
+    public ArrayList<SubscriberOptOut> getSubscriberOptOuts() {
+        return this.subscriberOptOuts;
+    }
 
-  @SerializedName("Interests")
-  private ArrayList<Interest> interests;
-
-  public int getId() {
-    return id;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public String getLanguage() {
-    return language;
-  }
-
-
-  public String getLanguageName() {
-    return languageName;
-  }
-
-
-  public boolean isWeatherAlertEnabled() {
-    return weatherAlertEnabled;
-  }
-
-  public boolean isLightningAlertEnabled() {
-    return lightningAlertEnabled;
-  }
-
-  public boolean isLightningAlertConfirmed() {
-    return lightningAlertConfirmed;
-  }
-
-  public boolean isBetaEnabled() {
-    return betaEnabled;
-  }
-
-  public User getUser() {
-    return user;
-  }
-
-  public ArrayList<Building> getPersonalCommunities() {
-    return personalCommunities;
-  }
-
-  public ArrayList<Building> getBuildings() {
-    return buildings;
-  }
-
-  public ArrayList<SubscriberOptOut> getSubscriberOptOuts() {
-    return subscriberOptOuts;
-  }
-
-  public ArrayList<Interest> getInterests() {
-    return interests;
-  }
+    public ArrayList<Interest> getInterests() {
+        return this.interests;
+    }
 }

@@ -3,10 +3,11 @@ package com.sca.in_telligent.ui.findlocation;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,6 +29,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class FindLocationDialog extends BaseDialog implements FindLocationMvpView,
     OnMapReadyCallback {
@@ -50,6 +52,8 @@ public class FindLocationDialog extends BaseDialog implements FindLocationMvpVie
   private LocationModel lastLocation;
   private String subscriberId = "";
   private String name = "";
+  private Unbinder mUnBinder;
+
 
   public static FindLocationDialog newInstance(LocationModel locationModel, String subscriberId,
       String name) {
@@ -60,6 +64,9 @@ public class FindLocationDialog extends BaseDialog implements FindLocationMvpVie
     bundle.putString("name", name);
     fragment.setArguments(bundle);
     return fragment;
+  }
+  public void setUnBinder(Unbinder unBinder) {
+    mUnBinder = unBinder;
   }
 
   @Override

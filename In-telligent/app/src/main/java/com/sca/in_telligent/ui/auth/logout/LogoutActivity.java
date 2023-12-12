@@ -3,12 +3,13 @@ package com.sca.in_telligent.ui.auth.logout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;

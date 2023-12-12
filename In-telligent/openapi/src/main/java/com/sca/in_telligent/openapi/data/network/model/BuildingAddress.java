@@ -2,86 +2,75 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class BuildingAddress implements Serializable {
+    @SerializedName("City")
+    private City city;
+    @SerializedName("Country")
+    private Country country;
+    @SerializedName("formattedAddress")
+    private String formattedAddress;
+    @SerializedName("isVirtual")
+    @JsonAdapter(BooleanTypeAdapter.class)
+    private boolean isVirtual;
+    @SerializedName("lat")
+    private double latitude;
+    @SerializedName("lng")
+    private double longitude;
+    @SerializedName("postalCode")
+    private String postalCode;
+    @SerializedName("radius")
+    private int radius;
+    @SerializedName("route")
+    private String route;
+    @SerializedName("State")
+    private State state;
+    @SerializedName("streetNumber")
+    private String streetNumber;
 
-  @SerializedName("lat")
-  private double latitude;
+    public double getLatitude() {
+        return this.latitude;
+    }
 
-  @SerializedName("lng")
-  private double longitude;
+    public double getLongitude() {
+        return this.longitude;
+    }
 
-  @SerializedName("formattedAddress")
-  private String formattedAddress;
+    public String getFormattedAddress() {
+        return this.formattedAddress;
+    }
 
-  @SerializedName("streetNumber")
-  private String streetNumber;
+    public String getStreetNumber() {
+        return this.streetNumber;
+    }
 
-  @SerializedName("route")
-  private String route;
+    public String getRoute() {
+        return this.route;
+    }
 
-  @SerializedName("postalCode")
-  private String postalCode;
+    public String getPostalCode() {
+        return this.postalCode;
+    }
 
-  @SerializedName("radius")
-  private int radius;
+    public int getRadius() {
+        return this.radius;
+    }
 
-  @JsonAdapter(BooleanTypeAdapter.class)
-  @SerializedName("isVirtual")
-  private boolean isVirtual;
+    public boolean isVirtual() {
+        return this.isVirtual;
+    }
 
-  @SerializedName("City")
-  private City city;
+    public City getCity() {
+        return this.city;
+    }
 
-  @SerializedName("State")
-  private State state;
+    public State getState() {
+        return this.state;
+    }
 
-  @SerializedName("Country")
-  private Country country;
-
-  public double getLatitude() {
-    return latitude;
-  }
-
-  public double getLongitude() {
-    return longitude;
-  }
-
-  public String getFormattedAddress() {
-    return formattedAddress;
-  }
-
-  public String getStreetNumber() {
-    return streetNumber;
-  }
-
-  public String getRoute() {
-    return route;
-  }
-
-  public String getPostalCode() {
-    return postalCode;
-  }
-
-  public int getRadius() {
-    return radius;
-  }
-
-  public boolean isVirtual() {
-    return isVirtual;
-  }
-
-  public City getCity() {
-    return city;
-  }
-
-  public State getState() {
-    return state;
-  }
-
-  public Country getCountry() {
-    return country;
-  }
+    public Country getCountry() {
+        return this.country;
+    }
 }

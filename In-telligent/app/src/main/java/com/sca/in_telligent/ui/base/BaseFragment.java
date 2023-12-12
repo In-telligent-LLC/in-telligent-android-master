@@ -2,28 +2,31 @@ package com.sca.in_telligent.ui.base;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+
 import android.view.View;
 import android.widget.TextView;
-import butterknife.Unbinder;
+
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.VideoDownloader;
 import javax.inject.Inject;
+
+import butterknife.Unbinder;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 
 public abstract class BaseFragment extends Fragment implements MvpView {
@@ -102,8 +105,7 @@ public abstract class BaseFragment extends Fragment implements MvpView {
     Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content),
         message, Snackbar.LENGTH_SHORT);
     View sbView = snackbar.getView();
-    TextView textView = (TextView) sbView
-        .findViewById(android.support.design.R.id.snackbar_text);
+    TextView textView = null;
     textView.setTextColor(ContextCompat.getColor(getActivity(), android.R.color.white));
     snackbar.show();
   }
@@ -202,9 +204,9 @@ public abstract class BaseFragment extends Fragment implements MvpView {
 
   @Override
   public void onDestroy() {
-    if (mUnBinder != null) {
-      mUnBinder.unbind();
-    }
+//    if (mUnBinder != null) {
+//      mUnBinder.unbind();
+//    }
     super.onDestroy();
   }
 

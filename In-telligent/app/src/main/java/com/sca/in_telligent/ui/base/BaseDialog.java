@@ -11,26 +11,27 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
 import android.widget.RelativeLayout;
-import butterknife.Unbinder;
+
+import androidx.annotation.StringRes;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
+
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public abstract class BaseDialog extends DialogFragment implements DialogMvpView {
 
   private BaseActivity mActivity;
-  private Unbinder mUnBinder;
 
   @Override
   public void onAttach(Context context) {
@@ -116,9 +117,9 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
     return null;
   }
 
-  public void setUnBinder(Unbinder unBinder) {
-    mUnBinder = unBinder;
-  }
+//  public void setUnBinder(Unbinder unBinder) {
+//    mUnBinder = unBinder;
+//  }
 
   protected abstract void setUp(View view);
 
@@ -171,9 +172,9 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
 
   @Override
   public void onDestroy() {
-    if (mUnBinder != null) {
-      mUnBinder.unbind();
-    }
+//    if (mUnBinder != null) {
+//      mUnBinder.unbind();
+//    }
     super.onDestroy();
   }
 

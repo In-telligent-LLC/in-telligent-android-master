@@ -1,41 +1,25 @@
 package com.sca.in_telligent.openapi;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Vibrator;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
 import com.sca.in_telligent.openapi.data.ApiHelperProvider;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OpenApiNetworkHelper;
-import com.sca.in_telligent.openapi.receiver.BeaconScannerBroadcastReceiver;
-import com.sca.in_telligent.openapi.service.BeaconScannerService;
 import com.sca.in_telligent.openapi.util.AudioHelper;
-import com.sca.in_telligent.openapi.util.BluetoothUtil;
 import com.sca.in_telligent.openapi.util.FlashHelper;
 import com.sca.in_telligent.openapi.util.OpenApiAudioHelper;
 import com.sca.in_telligent.openapi.util.OpenApiFlashHelper;
+import java.util.Objects;
 
-import static java.util.Objects.requireNonNull;
-
-/**
- * Created by zacharyzeno on 3/15/18.
- */
-
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class OpenAPI {
-
-    private static final String TAG = OpenAPI.class.getSimpleName();
-
+    private static final String TAG = "OpenAPI";
     private static OpenAPI instance;
-    private Context context;
-
-    private final FlashHelper flashHelper;
     private final AudioHelper audioHelper;
     private final AudioManager audioManager;
     private final Configuration configuration;
-    private BeaconScannerBroadcastReceiver beaconScannerBroadcastReceiver;
+    private Context context;
+    private final FlashHelper flashHelper;
 
     private OpenAPI(Context context, AudioManager audioManager, FlashHelper flashHelper, AudioHelper audioHelper, Configuration configuration) {
         this.context = context;
@@ -45,49 +29,25 @@ public class OpenAPI {
         this.configuration = configuration;
     }
 
-    public static void init(@NonNull Context context, @NonNull Configuration configuration) {
-        requireNonNull(context, "A context is needed to initialize OpanAPI");
-        requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
-
-        android.media.AudioManager serviceAudioManager = (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        FlashHelper flashHelper = OpenApiFlashHelper.newInstance(context);
-
-        OpenApiAudioHelper audioHelper = OpenApiAudioHelper.newInstance(context, serviceAudioManager, vibrator, flashHelper);
-
-        AudioManager audioManager = new AudioManager(context);
-
-        OpenAPI.instance = new OpenAPI(context, audioManager, flashHelper, audioHelper, configuration);
+    public static void init(Context context, Configuration configuration) {
+        Objects.requireNonNull(context, "A context is needed to initialize OpanAPI");
+        Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
+        FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
+        instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService("audio"), (Vibrator) context.getSystemService("vibrator"), newInstance), configuration);
         ApiHelperProvider.initialize(context);
     }
 
     public static OpenAPI getInstance() {
-        if (instance == null || instance.context == null) {
+        OpenAPI openAPI = instance;
+        if (openAPI == null || openAPI.context == null) {
             throwNotInitializedException();
             return null;
         }
-        return instance;
+        return openAPI;
     }
 
     private static OpenAPI throwNotInitializedException() {
         throw new IllegalStateException("You must initialize OpenAPI by calling OpenApi.init before using any methods");
-    }
-
-    public void startScanningBeacons(@NonNull Context context) {
-        checkInitialized();
-        requireNonNull(context, "A context is needed to initialize OpenAPI");
-        if (BluetoothUtil.isBluetoothEnabled(context)) {
-            Log.d(TAG, "Bluetooth is enabled: starting beacon scanning service from OpenApi class");
-            Intent intent = BeaconScannerService.getIntent(context, BeaconScannerService.ACTION_START_FOREGROUND);
-            context.startService(intent);
-        }
-    }
-
-    public void stopScanningBeacons(@Nullable Context context) {
-        checkInitialized();
-        requireNonNull(context, "A context is needed to initialize OpenAPI");
-        Intent intent = BeaconScannerService.getIntent(context, BeaconScannerService.ACTION_STOP_FOREGROUND);
-        context.stopService(intent);
     }
 
     public AudioHelper getAudioHelper() {
@@ -97,29 +57,28 @@ public class OpenAPI {
 
     private AudioManager getAudioManager() {
         checkInitialized();
-        return audioManager;
+        return this.audioManager;
     }
 
     private void checkInitialized() {
-        if (instance == null || instance.context == null) {
+        OpenAPI openAPI = instance;
+        if (openAPI == null || openAPI.context == null) {
             throwNotInitializedException();
-            return;
         }
     }
 
     public static ApiHelper getApiHelper() {
-        return new OpenApiNetworkHelper(ApiHelperProvider.getAuthApiHelper(),
-                ApiHelperProvider.getPublicApiHelper(),
-                ApiHelperProvider.getUploadApiHelper());
+        return new OpenApiNetworkHelper(ApiHelperProvider.getAuthApiHelper(), ApiHelperProvider.getPublicApiHelper(), ApiHelperProvider.getUploadApiHelper());
     }
 
     public Configuration getConfiguration() {
         return this.configuration;
     }
 
+    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class Configuration {
-        private boolean debug;
         private int appVersion;
+        private boolean debug;
 
         protected Configuration(Builder builder) {
             this.debug = builder.debug;
@@ -127,24 +86,25 @@ public class OpenAPI {
         }
 
         public boolean isDebug() {
-            return debug;
+            return this.debug;
         }
 
         public int getAppVersion() {
-            return appVersion;
+            return this.appVersion;
         }
 
+        /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
         public static class Builder {
             private boolean debug = true;
             private int appVersion = 1;
 
-            public Builder setDebug(boolean debug) {
-                this.debug = debug;
+            public Builder setDebug(boolean z) {
+                this.debug = z;
                 return this;
             }
 
-            public Builder setAppVersion(int appVersion) {
-                this.appVersion = appVersion;
+            public Builder setAppVersion(int i) {
+                this.appVersion = i;
                 return this;
             }
 
@@ -152,7 +112,5 @@ public class OpenAPI {
                 return new Configuration(this);
             }
         }
-
     }
-
 }

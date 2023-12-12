@@ -1,0 +1,28 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
+	package
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.BLUETOOTH
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:3:5-68
+	android:name
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:3:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:4:5-74
+	android:name
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:4:22-71
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:5:22-63
+uses-sdk
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml

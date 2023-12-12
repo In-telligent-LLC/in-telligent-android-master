@@ -1,81 +1,73 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import android.location.Location;
-
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
+//import org.apache.http.cookie.;
 
 public class IntelligentGeofence implements Serializable {
+    @SerializedName("id")
+    private String id;
+    private String idString;
+    @SerializedName("lat")
+    private double lat;
+    @SerializedName("lng")
+    private double lng;
+    private Location location;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("priority")
+    private int priority;
+    @SerializedName("radius")
+    private int radius;
+    @SerializedName("secure")
+    private boolean secure;
+    @SerializedName("type")
+    private String type;
 
-  @SerializedName("id")
-  private String id;
+    public String getId() {
+        return this.id;
+    }
 
-  private String idString;
+    public String getName() {
+        return this.name;
+    }
 
-  @SerializedName("name")
-  private String name;
+    public int getRadius() {
+        return this.radius;
+    }
 
-  @SerializedName("radius")
-  private int radius;
+    public double getLat() {
+        return this.lat;
+    }
 
-  @SerializedName("lat")
-  private double lat;
+    public double getLng() {
+        return this.lng;
+    }
 
-  @SerializedName("lng")
-  private double lng;
+    public int getPriority() {
+        return this.priority;
+    }
 
-  @SerializedName("priority")
-  private int priority;
+    public boolean isSecure() {
+        return this.secure;
+    }
 
-  @SerializedName("secure")
-  private boolean secure;
+    public String getType() {
+        return this.type;
+    }
 
-  @SerializedName("type")
-  private String type;
+    public String getIdString() {
+        String str = this.type + "-" + this.id;
+        this.idString = str;
+        return str;
+    }
 
-  private Location location;
-
-  public String getId() {
-    return id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public int getRadius() {
-    return radius;
-  }
-
-  public double getLat() {
-    return lat;
-  }
-
-  public double getLng() {
-    return lng;
-  }
-
-  public int getPriority() {
-    return priority;
-  }
-
-  public boolean isSecure() {
-    return secure;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public String getIdString() {
-    return idString = type + "-" + id;
-  }
-
-  public Location getLocation() {
-    location = new Location("Geofence");
-    location.setLatitude(lat);
-    location.setLongitude(lng);
-    return location;
-  }
+    public Location getLocation() {
+        Location location = new Location("Geofence");
+        this.location = location;
+        location.setLatitude(this.lat);
+        this.location.setLongitude(this.lng);
+        return this.location;
+    }
 }

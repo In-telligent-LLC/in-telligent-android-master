@@ -1,7 +1,8 @@
 package com.sca.in_telligent.ui.contact.message;
 
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,12 +10,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +23,10 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.sca.in_telligent.BuildConfig;
+import androidx.appcompat.app.AlertDialog;
+import androidx.exifinterface.media.ExifInterface;
+
+import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.AttachmentFile;
@@ -51,12 +52,12 @@ import java.util.UUID;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
+import io.reactivex.rxjava3.core.Observable;
 
-import static com.yalantis.ucrop.util.FileUtils.getPath;
 
 public class ContactMessageFragment extends BaseFragment implements ContactMessageMvpView,
         ContactDeliverDialog.ContactDeliverSelector {
@@ -157,7 +158,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
-            setUnBinder(ButterKnife.bind(this, view));
+//            setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
 
@@ -452,7 +453,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
             if (data.getData() != null) {
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "data.getData() = " + data.getData());
                     Log.d("mikes", "data.getDataString() = " + data.getDataString());
                     Log.d("mikes", "data.getType() = " + data.getType());
@@ -462,7 +463,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 final String attachmentPath = getPath(getActivity(), selectedUri);
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "attachmentPath = " + attachmentPath);
                 }
 
@@ -482,7 +483,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 ClipData mClipData = data.getClipData();
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "mClipData.getItemCount = " + mClipData.getItemCount());
                 }
 
@@ -533,14 +534,14 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
         setLoadAttachmentViewState(LoadAttachmentViewState.COMPRESSING);
 
-        if (BuildConfig.LOG_DEBUG_MODE) {
+        if (BuildConfig1.LOG_DEBUG_MODE) {
             for (AttachmentFile attachmentFile : inputFiles) {
                 Log.d("CreateCommunityAlert",
                         "Input filesize: " + String.valueOf(attachmentFile.getFile().length() / 1024));
             }
         }
 
-        AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
+        @SuppressLint("StaticFieldLeak") AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
             @Override
             protected ArrayList<String> doInBackground(ArrayList<AttachmentFile>... files) {
 
@@ -618,7 +619,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 for (String newFilePath : newFilePaths) {
                     final long filesize = (new File(newFilePath).length() / 1024);
 
-                    if (BuildConfig.LOG_DEBUG_MODE) {
+                    if (BuildConfig1.LOG_DEBUG_MODE) {
                         Log.d("CreateCommunityAlert", "Output filepath: " + newFilePath);
                         Log.d("CreateCommunityAlert", "Output filesize: " + filesize);
                     }
@@ -631,7 +632,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 attachmentPaths.addAll(newFilePaths);
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "Selected Files: " + attachmentPaths.size());
                     for (String s : attachmentPaths) {
                         Log.d("mikes", "attachmentPaths: " + s);
@@ -699,13 +700,13 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             int rotation = exif
                     .getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
 
-            if (BuildConfig.LOG_DEBUG_MODE) {
+            if (BuildConfig1.LOG_DEBUG_MODE) {
                 Log.d("mikes", "rotate bitmap exif rotation = " + rotation);
             }
 
             int rotationInDegrees = exifToDegrees(rotation);
 
-            if (BuildConfig.LOG_DEBUG_MODE) {
+            if (BuildConfig1.LOG_DEBUG_MODE) {
                 Log.d("mikes", "rotate bitmap exif rotationInDegrees = " + rotationInDegrees);
             }
 

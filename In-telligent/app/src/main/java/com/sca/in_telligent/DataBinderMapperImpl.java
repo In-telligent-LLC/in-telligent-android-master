@@ -1,8 +1,10 @@
 package com.sca.in_telligent;
 
+import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.View;
+
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
@@ -10,8 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-public class DataBinderMapperImpl extends DataBinderMapper {
+public class DataBinderMapperImpl {
     private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(0);
 
     public ViewDataBinding getDataBinder(DataBindingComponent dataBindingComponent, View view, int i) {
@@ -28,6 +29,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
     }
 
+    @SuppressLint("RestrictedApi")
     public int getLayoutId(String str) {
         Integer num;
         if (str == null || (num = InnerLayoutIdLookup.sKeys.get(str)) == null) {
@@ -36,17 +38,18 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         return num.intValue();
     }
 
+    @SuppressLint("RestrictedApi")
     public String convertBrIdToString(int i) {
         return InnerBrLookup.sKeys.get(i);
     }
 
+    @SuppressLint("RestrictedApi")
     public List<DataBinderMapper> collectDependencies() {
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(new androidx.databinding.library.baseAdapters.DataBinderMapperImpl());
+        arrayList.add(new DataBinderMapperImpl());
         return arrayList;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     private static class InnerBrLookup {
         static final SparseArray<String> sKeys;
 
@@ -60,7 +63,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     private static class InnerLayoutIdLookup {
         static final HashMap<String, Integer> sKeys = new HashMap<>(0);
 

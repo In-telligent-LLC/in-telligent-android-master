@@ -1,80 +1,66 @@
-
 package com.sca.in_telligent.ui.splash;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import butterknife.ButterKnife;
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
+import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.intro.IntroActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import javax.inject.Inject;
 
-
 public class SplashActivity extends BaseActivity implements SplashMvpView {
-
+  private final int SPLASH_DISPLAY_LENGTH = 1000;
   @Inject
   SplashMvpPresenter<SplashMvpView> mPresenter;
 
-  private final int SPLASH_DISPLAY_LENGTH = 1000;
-
-  public static Intent getStartIntent(Context context) {
-    Intent intent = new Intent(context, SplashActivity.class);
-    return intent;
-  }
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    setContentView(R.layout.activity_splash);
-
-    getActivityComponent().inject(this);
-
-    setUnBinder(ButterKnife.bind(this));
-
-    new Handler().postDelayed(new Runnable() {
-      @Override
-      public void run() {
-        mPresenter.onAttach(SplashActivity.this);
-      }
-    }, SPLASH_DISPLAY_LENGTH);
-
-  }
-
   @Override
   protected void setUp() {
-
   }
 
-  @Override
-  protected void onDestroy() {
-    mPresenter.onDetach();
+  public static Intent getStartIntent(Context context) {
+    return new Intent(context, SplashActivity.class);
+  }
+
+
+  @Override // com.sca.in_telligent.ui.base.BaseActivity
+  public void onCreate(Bundle bundle) {
+    super.onCreate(bundle);
+    setContentView(R.layout.activity_splash);
+    getActivityComponent().inject(this);
+//    setUnBinder(ButterKnife.bind(this));
+    new Handler().postDelayed(new Runnable() { // from class: com.sca.in_telligent.ui.splash.SplashActivity.1
+      @Override // java.lang.Runnable
+      public void run() {
+        SplashActivity.this.mPresenter.onAttach(SplashActivity.this);
+      }
+    }, 1000L);
+  }
+
+  @Override // com.sca.in_telligent.ui.base.BaseActivity
+  public void onDestroy() {
+    this.mPresenter.onDetach();
     super.onDestroy();
   }
 
-
-  @Override
+  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
   public void openLoginActivity() {
-    Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
-    startActivity(intent);
+    startActivity(LoginActivity.getStartIntent(this));
     finish();
   }
 
-  @Override
+  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
   public void openMainActivity() {
-    Intent intent = MainActivity.getStartIntent(SplashActivity.this);
-    startActivity(intent);
+    startActivity(MainActivity.getStartIntent(this));
     finish();
   }
 
-  @Override
+  /* JADX WARN: Multi-variable type inference failed */
+  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
   public void openIntroActivity() {
-    Intent intent = IntroActivity.getStartIntent(SplashActivity.this);
-    startActivity(intent);
+    startActivity(IntroActivity.getStartIntent(this));
     finish();
   }
 }

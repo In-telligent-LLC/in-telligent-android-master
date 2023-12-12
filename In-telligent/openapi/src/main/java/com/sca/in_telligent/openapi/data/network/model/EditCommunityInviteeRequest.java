@@ -2,59 +2,53 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Marcos Ambrosi on 1/24/19.
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class EditCommunityInviteeRequest {
-
-    public EditCommunityInviteeRequest(int inviteeId, String name, String email, String phone) {
-        this.inviteeId = inviteeId;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-    }
-
-    @SerializedName("inviteeId")
-    private int inviteeId;
-
-    @SerializedName("name")
-    private String name;
-
     @SerializedName("email")
     private String email;
-
+    @SerializedName("inviteeId")
+    private int inviteeId;
+    @SerializedName("name")
+    private String name;
     @SerializedName("phone")
     private String phone;
 
-    public int getInviteeId() {
-        return inviteeId;
+    public EditCommunityInviteeRequest(int i, String str, String str2, String str3) {
+        this.inviteeId = i;
+        this.name = str;
+        this.email = str2;
+        this.phone = str3;
     }
 
-    public void setInviteeId(int inviteeId) {
-        this.inviteeId = inviteeId;
+    public int getInviteeId() {
+        return this.inviteeId;
+    }
+
+    public void setInviteeId(int i) {
+        this.inviteeId = i;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String str) {
+        this.name = str;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String str) {
+        this.email = str;
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String str) {
+        this.phone = str;
     }
 }

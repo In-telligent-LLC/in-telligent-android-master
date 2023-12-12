@@ -7,31 +7,31 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-
 import java.lang.reflect.Type;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class BooleanTypeAdapter implements JsonDeserializer<Boolean>, JsonSerializer<Boolean> {
-
-  public Boolean deserialize(JsonElement json, Type typeOfT,
-      JsonDeserializationContext context) throws JsonParseException {
-
-    if (((JsonPrimitive) json).isNumber()) {
-      int code = json.getAsInt();
-      return code == 0 ? false :
-          code == 1 || code > 1 ? true :
-              null;
-    } else {
-      return json.getAsBoolean();
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.google.gson.JsonDeserializer
+    public Boolean deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        boolean booleanValue;
+        if (((JsonPrimitive) jsonElement).isNumber()) {
+            int asInt = jsonElement.getAsInt();
+            if (asInt == 0) {
+                booleanValue = false;
+            } else {
+                booleanValue = ((asInt == 1 || asInt > 1) ? true : null).booleanValue();
+            }
+            return Boolean.valueOf(booleanValue);
+        }
+        return Boolean.valueOf(jsonElement.getAsBoolean());
     }
 
-  }
-
-  @Override
-  public JsonElement serialize(Boolean src, Type typeOfSrc, JsonSerializationContext context) {
-    if (src) {
-      return new JsonPrimitive(1);
-    } else {
-      return new JsonPrimitive(0);
+    @Override // com.google.gson.JsonSerializer
+    public JsonElement serialize(Boolean bool, Type type, JsonSerializationContext jsonSerializationContext) {
+        if (bool.booleanValue()) {
+            return new JsonPrimitive((Number) 1);
+        }
+        return new JsonPrimitive((Number) 0);
     }
-  }
 }

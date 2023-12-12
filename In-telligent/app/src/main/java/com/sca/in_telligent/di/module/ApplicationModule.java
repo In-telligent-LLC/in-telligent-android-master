@@ -5,6 +5,10 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.Vibrator;
 
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.google.android.gms.location.GeofencingClient;
+import com.google.android.gms.location.LocationServices;
 import com.sca.in_telligent.data.AppDataManager;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.data.prefs.AppPreferencesHelper;
@@ -39,7 +43,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 @Module
 public class ApplicationModule {

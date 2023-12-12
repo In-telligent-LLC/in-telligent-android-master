@@ -1,53 +1,45 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class CreateNotificationRequest implements Serializable {
+    @SerializedName("body")
+    private String body;
+    @SerializedName("buildingId")
+    private String buildingId;
+    @SerializedName("send_to_email")
+    private String send_to_email;
+    @SerializedName("subscribers")
+    private ArrayList<String> subscribers;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("type")
+    private String type;
 
-  @SerializedName("buildingId")
-  private String buildingId;
+    public void setBuildingId(String str) {
+        this.buildingId = str;
+    }
 
-  @SerializedName("title")
-  private String title;
+    public void setTitle(String str) {
+        this.title = str;
+    }
 
-  @SerializedName("body")
-  private String body;
+    public void setBody(String str) {
+        this.body = str;
+    }
 
-  @SerializedName("type")
-  private String type;
+    public void setType(String str) {
+        this.type = str;
+    }
 
-  @SerializedName("subscribers")
-  private ArrayList<String> subscribers;
+    public void setSubscribers(ArrayList<String> arrayList) {
+        this.subscribers = arrayList;
+    }
 
-  @SerializedName("send_to_email")
-  private String send_to_email;
-
-  public void setBuildingId(String buildingId) {
-    this.buildingId = buildingId;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public void setBody(String body) {
-    this.body = body;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public void setSubscribers(ArrayList<String> subscribers) {
-    this.subscribers = subscribers;
-  }
-
-  public void setSend_to_email(String send_to_email) {
-    this.send_to_email = send_to_email;
-  }
-
-
+    public void setSend_to_email(String str) {
+        this.send_to_email = str;
+    }
 }

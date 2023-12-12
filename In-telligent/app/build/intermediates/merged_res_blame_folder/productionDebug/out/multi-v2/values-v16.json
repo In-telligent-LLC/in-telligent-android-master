@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-42:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/marianesantana/.gradle/caches/transforms-3/84197832ba3c33b0d7f8bd7954b91c77/transformed/core-1.7.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/Users/marianesantana/.gradle/caches/transforms-3/25b5d7870970769fe89d9c61b54bfc34/transformed/appcompat-1.1.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}

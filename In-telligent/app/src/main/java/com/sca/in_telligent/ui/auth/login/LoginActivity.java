@@ -3,16 +3,15 @@ package com.sca.in_telligent.ui.auth.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
+
+import androidx.annotation.NonNull;
+
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -22,6 +21,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.tasks.Task;
 import com.sca.in_telligent.R;
+import com.sca.in_telligent.databinding.ActivityLoginBinding;
 import com.sca.in_telligent.openapi.data.network.model.FacebookLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.GoogleLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.LoginRequest;
@@ -33,6 +33,9 @@ import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 public class LoginActivity extends BaseActivity implements LoginMvpView,
     OnConnectionFailedListener {
@@ -42,28 +45,27 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   @Inject
   LoginMvpPresenter<LoginMvpView> mPresenter;
 
-  @BindView(R.id.inputUsername)
-  EditText inputUserName;
 
-  @BindView(R.id.inputPassword)
-  EditText inputPasword;
+  EditText inputUserName = findViewById(R.id.inputUsername);
 
-  @BindView(R.id.btnLogin)
-  Button buttonLogin;
+  EditText inputPasword = findViewById(R.id.inputPassword);
 
-  @BindView(R.id.btnGoToSignup)
-  TextView buttonGoToSignup;
+  Button buttonLogin = findViewById(R.id.btnLogin);
 
-  @BindView(R.id.btnForgotPassword)
-  TextView buttonForgotPassword;
+//  @BindView(R.id.btnGoToSignup)
+//  TextView buttonGoToSignup;
+//
+//  @BindView(R.id.btnForgotPassword)
+//  TextView buttonForgotPassword;
+//
+  ImageView buttonFacebook = findViewById(R.id.btnLoginFacebookCustom);
 
-  @BindView(R.id.btnLoginFacebookCustom)
-  ImageView buttonFacebook;
-
-  @BindView(R.id.btnLoginGooglePlus)
-  ImageView buttonGooglePlus;
+//
+//  @BindView(R.id.btnLoginGooglePlus)
+//  ImageView buttonGooglePlus;
 
   CallbackManager callbackManager;
+
 
   private static final int RC_SIGN_IN = 12332;
 
@@ -71,11 +73,17 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     Intent intent = new Intent(context, LoginActivity.class);
     return intent;
   }
+  private ActivityLoginBinding binding;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
+
+    binding = ActivityLoginBinding.inflate(getLayoutInflater());
+    View view = binding.getRoot();
+    setContentView(view);
+
 
     getActivityComponent().inject(this);
 
@@ -90,7 +98,8 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     setUp();
   }
 
-  @OnClick(R.id.btnLogin)
+
+
   void loginWithPassword(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -108,7 +117,11 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     hideKeyboard();
   }
 
-  @OnClick(R.id.btnLoginFacebookCustom)
+
+//  binding.buttonFacebook.setOnClickListener(new View.OnClickListener(){
+//    onClick
+//  })
+
   void facebookLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -117,7 +130,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     }
   }
 
-  @OnClick(R.id.btnLoginGooglePlus)
+//  @OnClick(R.id.btnLoginGooglePlus)
   void googleLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -126,12 +139,12 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     }
   }
 
-  @OnClick(R.id.btnGoToSignup)
+//  @OnClick(R.id.btnGoToSignup)
   void goToSignup(View v) {
     startActivityWithDeeplink(SignupDemographicsActivity.getStartIntent(this));
   }
 
-  @OnClick(R.id.btnForgotPassword)
+//  @OnClick(R.id.btnForgotPassword)
   void forgotPassword(View v) {
     showForgotPasswordDialog();
   }

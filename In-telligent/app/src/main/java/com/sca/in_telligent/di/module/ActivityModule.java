@@ -1,8 +1,9 @@
 package com.sca.in_telligent.di.module;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -126,13 +127,12 @@ import com.sca.in_telligent.ui.splash.SplashMvpView;
 import com.sca.in_telligent.ui.splash.SplashPresenter;
 import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 @Module
 public class ActivityModule {
@@ -164,10 +164,10 @@ public class ActivityModule {
         return new AppSchedulerProvider();
     }
 
-    @Provides
-    RxPermissions provideRxPermissions() {
-        return new RxPermissions(mActivity);
-    }
+//    @Provides
+//    RxPermissions provideRxPermissions() {
+//        return new RxPermissions(mActivity);
+//    }
 
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {

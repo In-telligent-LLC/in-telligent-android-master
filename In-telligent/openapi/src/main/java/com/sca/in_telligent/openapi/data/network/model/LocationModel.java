@@ -1,63 +1,57 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class LocationModel implements Serializable {
-    @SerializedName("lat")
-    Double lat;
-
-
-    @SerializedName("lng")
-    Double lng;
-
-    @SerializedName("success")
-    Boolean success;
-
     @SerializedName("accuracy")
     float accuracy;
+    @SerializedName("lat")
+    Double lat;
+    @SerializedName("lng")
+    Double lng;
+    @SerializedName("success")
+    Boolean success;
 
     public LocationModel() {
     }
 
-    public LocationModel(Double lat, Double lng, float accuracy) {
-        this.lat = lat;
-        this.lng = lng;
-        this.accuracy = accuracy;
+    public LocationModel(Double d, Double d2, float f) {
+        this.lat = d;
+        this.lng = d2;
+        this.accuracy = f;
     }
 
-    public void setLat(Double lat) {
-        this.lat = lat;
+    public void setLat(Double d) {
+        this.lat = d;
     }
 
-    public void setLng(Double lng) {
-        this.lng = lng;
+    public void setLng(Double d) {
+        this.lng = d;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    public void setSuccess(Boolean bool) {
+        this.success = bool;
     }
-
 
     public float getAccuracy() {
-        return accuracy;
+        return this.accuracy;
     }
 
-    public void setAccuracy(float accuracy) {
-        this.accuracy = accuracy;
+    public void setAccuracy(float f) {
+        this.accuracy = f;
     }
-
 
     public Double getLat() {
-        return lat;
+        return this.lat;
     }
 
     public Double getLng() {
-        return lng;
+        return this.lng;
     }
 
     public Boolean getSuccess() {
-        return success;
+        return this.success;
     }
 }

@@ -2,16 +2,13 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Marcos Ambrosi on 1/18/19.
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class SingleNotificationResponse {
-
     @SerializedName("Notification")
     private Notification notification;
 
     public Notification getNotification() {
-        return notification;
+        return this.notification;
     }
 
     public void setNotification(Notification notification) {

@@ -3,9 +3,10 @@ package com.sca.in_telligent.service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.v4.app.JobIntentService;
+
 import android.util.Log;
+
+import androidx.core.app.JobIntentService;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
@@ -32,9 +33,11 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+
 
 public class GeofenceTransitionsIntentService extends JobIntentService {
 
@@ -182,10 +185,10 @@ public class GeofenceTransitionsIntentService extends JobIntentService {
             return;
         }
 
-        if (target.getRequestId().contains("beacon")) {
-            OpenAPI.getInstance().startScanningBeacons(getApplicationContext());
-            return;
-        }
+//        if (target.getRequestId().contains("beacon")) {
+//            OpenAPI.getInstance().startScanningBeacons(getApplicationContext());
+//            return;
+//        }
 
         final IntelligentGeofence geofence = geofences.get(target.getRequestId());
 

@@ -1,45 +1,39 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
+import com.facebook.internal.AnalyticsEvents;
+import com.facebook.internal.NativeProtocol;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
 @Deprecated
-/***
- * Use {@link SubscribeToCommunityRequest} instead
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class UpdateSubscriptionRequest implements Serializable {
+    @SerializedName(NativeProtocol.WEB_DIALOG_ACTION)
+    private String action;
+    @SerializedName(AnalyticsEvents.PARAMETER_SHARE_DIALOG_SHOW_AUTOMATIC)
+    private boolean automatic;
+    @SerializedName("buildingId")
+    private String buildingId;
+    @SerializedName("inviteId")
+    private String inviteId;
 
-  @SerializedName("action")
-  private String action;
+    public void setAction(String str) {
+        this.action = str;
+    }
 
-  @SerializedName("buildingId")
-  private String buildingId;
+    public void setBuildingId(String str) {
+        this.buildingId = str;
+    }
 
-  @SerializedName("automatic")
-  private boolean automatic;
+    public void setAutomatic(boolean z) {
+        this.automatic = z;
+    }
 
-  @SerializedName("inviteId")
-  private String inviteId;
+    public void setInviteId(String str) {
+        this.inviteId = str;
+    }
 
-  public void setAction(String action) {
-    this.action = action;
-  }
-
-  public void setBuildingId(String buildingId) {
-    this.buildingId = buildingId;
-  }
-
-  public void setAutomatic(boolean automatic) {
-    this.automatic = automatic;
-  }
-
-  public void setInviteId(String inviteId) {
-    this.inviteId = inviteId;
-  }
-
-  public String getBuildingId() {
-    return buildingId;
-  }
-
+    public String getBuildingId() {
+        return this.buildingId;
+    }
 }

@@ -2,16 +2,13 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Marcos Ambrosi on 1/21/19.
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class CommunityResponse {
-
     @SerializedName("Building")
     private Building building;
 
     public Building getBuilding() {
-        return building;
+        return this.building;
     }
 
     public void setBuilding(Building building) {
