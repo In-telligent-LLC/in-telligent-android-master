@@ -5,33 +5,33 @@
     <string name="_30_mins">30 মিনিট</string>
     <string name="_60_mins">60 মিনিট</string>
     <string name="_8am_6pm_mon_fri">সকাল 8 টা - সন্ধ্যা 6 টা হতে CST সোম-শুক্র</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"হোমে নেভিগেট করুন"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"উপরে নেভিগেট করুন"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"আরও বিকল্প"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"হয়ে গেছে"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"সবগুলি দেখুন"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"একটি অ্যাপ বেছে নিন"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"বন্ধ আছে"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"চালু করুন"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"মুছুন"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"space"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"সার্চ করুন…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"কোয়েরি মুছে ফেলুন"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"সার্চ কোয়েরি"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"সার্চ করুন"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"কোয়েরি জমা দিন"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"ভয়েস সার্চ করুন"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"শেয়ার করুন"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-এর সাথে শেয়ার করুন"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"সঙ্কুচিত করুন"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"হোমে নেভিগেট করুন"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"উপরে নেভিগেট করুন"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"আরও বিকল্প"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"হয়ে গেছে"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"সবগুলি দেখুন"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"একটি অ্যাপ বেছে নিন"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"বন্ধ আছে"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"চালু করুন"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"মুছুন"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"সার্চ করুন…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"কোয়েরি মুছে ফেলুন"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"সার্চ কোয়েরি"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"সার্চ করুন"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"কোয়েরি জমা দিন"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"ভয়েস সার্চ করুন"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"শেয়ার করুন"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-এর সাথে শেয়ার করুন"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"সঙ্কুচিত করুন"</string>
     <string name="about">সম্পর্কিত</string>
     <string name="accept_call">কল গ্রহণ করুন</string>
     <string name="account">হিসাব</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">রিসেট লিঙ্ক জন্য আপনার ইমেইল চেক করুন।</string>
     <string name="clear_message">সাফ বার্তা</string>
     <string name="close">বন্ধ</string>
+    <string msgid="406453423630273620" name="close_drawer">"নেভিগেশন মেনু বন্ধ করুন"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"শিট বন্ধ করুন"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">&lt;b>facebook.com/device&lt;/b> -এ যান এবং উপরে দেখানো কোডটি লিখুন৷</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">একটি ছবি ডাউনলোড করার সময় অপ্রত্যাশিত ত্রুটি ঘটেছে৷</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">WebView লগ ইনের ইন্টারনেটের অনুমতি প্রয়োজন</string>
@@ -137,6 +139,7 @@
     <string name="created_on">তৈরি</string>
     <string name="critical_alert">জটিল সতর্কতা</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"ভুল ইনপুট"</string>
     <string name="default_thumbnail">ডিফল্ট থাম্বনেল</string>
     <string name="delete">মুছে ফেলা</string>
     <string name="delete_community">সম্প্রদায় মুছে দিন</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">ঘন্টা: 8am - 6pm পূর্ব সোমবার শুক্রবার</string>
     <string name="hours_of_silence">নীরবতার ঘন্টা</string>
     <string name="ignore">উপেক্ষা করা</string>
+    <string msgid="6827826412747255547" name="in_progress">"কাজ চলছে"</string>
     <string name="in_telligent_search_from_my_app">ইন-টেনিসেন্ট অ্যাপ থেকে অনুসন্ধানকারী:</string>
     <string name="in_telligent_searches">ইনভেস্টেন্ট অনুসন্ধান</string>
     <string name="inbox">ইনবক্স</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">ইনকামিং কল</string>
     <string name="incoming_call_from">আসন্ন কল থেকে</string>
     <string name="incoming_call_from_tenant">ভাড়াটে থেকে আসন্ন কল</string>
+    <string msgid="2486394087603402002" name="indeterminate">"টিক চিহ্ন দেওয়া বা টিকচিহ্ন সরান হয়নি"</string>
     <string name="intelligent_and_all">ইন-টেকসই এবং সব ইমেল</string>
     <string name="intelligent_and_imported">ইন-বুদ্ধিমান এবং আমদানিকৃত ইমেইল</string>
     <string name="intelligent_only">শুধুমাত্র জ্ঞানী</string>
@@ -256,6 +261,7 @@
     <string name="my_info">আমার তথ্য</string>
     <string name="name">নাম</string>
     <string name="name_your_community">আপনার সম্প্রদায়ের নাম দিন</string>
+    <string msgid="542007171693138492" name="navigation_menu">"নেভিগেশন মেনু"</string>
     <string name="near_me">আমার কাছে</string>
     <string name="never">না</string>
     <string name="never_mind">কিছু মনে করো না</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">না, ধন্যবাদ</string>
     <string name="none">না</string>
     <string name="normal">সাধারণ</string>
+    <string msgid="6610465462668679431" name="not_selected">"বেছে নেওয়া হয়নি"</string>
     <string name="notifications">বিজ্ঞপ্তিগুলি</string>
     <string name="number">সংখ্যা</string>
     <string name="off">বন্ধ</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">সম্প্রদায়ের জন্য অনুসন্ধান করুন</string>
     <string name="search_for_group">গ্রুপের জন্য অনুসন্ধান করুন</string>
     <string name="search_keywords">অনুসন্ধান মূলশব্দ</string>
-    <string msgid="730395136688082741" name="search_menu_title">"সার্চ করুন"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"সার্চ করুন"</string>
     <string name="search_nkeywords">অনুসন্ধান মূলশব্দ</string>
     <string name="see_full_message">সম্পূর্ণ বার্তা দেখুন</string>
     <string name="select_a_community">একটি সম্প্রদায় নির্বাচন করুন</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">থাম্বনেল নির্বাচন করুন:</string>
     <string name="select_your_age">আপনার বয়স নির্বাচন করুন</string>
     <string name="select_your_gender">আপনার লিঙ্গ নির্বাচন</string>
+    <string msgid="6043586758067023" name="selected">"বেছে নেওয়া হয়েছে"</string>
     <string name="send">পাঠান</string>
     <string name="send_a_message">বার্তা পাঠান</string>
     <string name="send_alert_to_community">সম্প্রদায় সতর্কতা পাঠান</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">প্রস্তাবিত গ্রুপ</string>
     <string name="support">সমর্থন</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"ট্যাব"</string>
     <string name="tap_here">এখানে ট্যাপ করুন</string>
     <string name="tap_icon_to_get_directions_to_community">সম্প্রদায়ের দিকনির্দেশ পেতে আইকন আলতো চাপুন</string>
     <string name="tap_to_enter_message">বার্তা লিখুন আলতো চাপুন</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> শতাংশ।"</string>
     <string name="text_to_speech">বক্তৃতা টেক্সট</string>
     <string name="the_tenant_has_already_ended_call">ভাড়াটে ইতিমধ্যে কল শেষ হয়েছে</string>
     <string name="there_are_no_available_community_managers_consider">কোন সম্প্রদায়ের পরিচালক উপলব্ধ নেই। পরিবর্তে একটি টেক্সট সতর্কতা পাঠানোর বিবেচনা করুন।</string>

@@ -5,9 +5,11 @@ import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.CallDetailResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class IncomingCallPresenter<V extends IncomingCallMvpView> extends
     BasePresenter<V> implements IncomingCallMvpPresenter<V> {
@@ -36,10 +38,15 @@ public class IncomingCallPresenter<V extends IncomingCallMvpView> extends
         }));
   }
 
-  @Override
-  public void requestRecordAudioPermission() {
-    getRxPermissions()
-        .request(permission.RECORD_AUDIO)
-        .subscribe(granted -> getMvpView().recordAudioPermissionResult(granted));
-  }
+    @Override
+    public void requestRecordAudioPermission() {
+
+    }
+
+//  @Override
+//  public void requestRecordAudioPermission() {
+//
+//        .request(permission.RECORD_AUDIO)
+//        .subscribe(granted -> getMvpView().recordAudioPermissionResult(granted));
+//  }
 }

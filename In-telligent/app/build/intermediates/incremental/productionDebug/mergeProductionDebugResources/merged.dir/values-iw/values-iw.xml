@@ -5,33 +5,33 @@
     <string name="_30_mins">30 דקות</string>
     <string name="_60_mins">60 דקות</string>
     <string name="_8am_6pm_mon_fri">08:00 - 06:00 CST שני עד שישי</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"ניווט לדף הבית"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"ניווט למעלה"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"עוד אפשרויות"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"סיום"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"הצגת הכול"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"בחירת אפליקציה"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"כבוי"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"מופעל"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"מחיקה"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"Enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"רווח"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"תפריט+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"חיפוש…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"מחיקת השאילתה"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"שאילתת חיפוש"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"חיפוש"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"שליחת שאילתה"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"חיפוש קולי"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"שיתוף עם"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"שיתוף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"כיווץ"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ניווט לדף הבית"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ניווט למעלה"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"עוד אפשרויות"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"סיום"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"הצגת הכול"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"בחירת אפליקציה"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"כבוי"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"מופעל"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"מחיקה"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"רווח"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"תפריט+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"חיפוש…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"מחיקת השאילתה"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"שאילתת חיפוש"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"חיפוש"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"שליחת שאילתה"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"חיפוש קולי"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"שיתוף עם"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"שיתוף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"כיווץ"</string>
     <string name="about">על אודות</string>
     <string name="accept_call">לקבל שיחה</string>
     <string name="account">חשבון</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">בדוק את הדוא"ל שלך עבור הקישור לאיפוס.</string>
     <string name="clear_message">נקה הודעה</string>
     <string name="close">סגור</string>
+    <string msgid="406453423630273620" name="close_drawer">"סגירת תפריט הניווט"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"סגירת הגיליון"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">יש לבקר ב-&lt;b>facebook.com/device&lt;/b> ולהזין את הקוד המוצג למעלה.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">שגיאה לא צפויה במהלך הורדת תמונה.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">התחברות WebView דורשת הרשאת אינטרנט</string>
@@ -137,6 +139,7 @@
     <string name="created_on">נוצר ב</string>
     <string name="critical_alert">התראה קריטית</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"הקלט לא תקין"</string>
     <string name="default_thumbnail">תמונה ממוזערת של ברירת מחדל</string>
     <string name="delete">מחק</string>
     <string name="delete_community">מחק קהילה</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">שעות: 8:00 - 18:00 EST שני-שישי</string>
     <string name="hours_of_silence">שעות של שקט</string>
     <string name="ignore">להתעלם</string>
+    <string msgid="6827826412747255547" name="in_progress">"בתהליך"</string>
     <string name="in_telligent_search_from_my_app">In-telligent חיפוש מתוך היישום שלי ב- Tigigent:</string>
     <string name="in_telligent_searches">חיפושים שקופים</string>
     <string name="inbox">תיבת הדואר הנכנס</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">שיחה נכנסת</string>
     <string name="incoming_call_from">שיחה נכנסת</string>
     <string name="incoming_call_from_tenant">שיחה נכנסת מן הדייר</string>
+    <string msgid="2486394087603402002" name="indeterminate">"עם סימון ובלי סימון"</string>
     <string name="intelligent_and_all">ב-מגלה את כל הודעות דוא"ל</string>
     <string name="intelligent_and_imported">In-telligent ו מיובאים הודעות דוא"ל</string>
     <string name="intelligent_only">ב-מקפיד בלבד</string>
@@ -256,6 +261,7 @@
     <string name="my_info">המידע שלי</string>
     <string name="name">שם</string>
     <string name="name_your_community">תן שם לקהילה שלך</string>
+    <string msgid="542007171693138492" name="navigation_menu">"תפריט הניווט"</string>
     <string name="near_me">לידי</string>
     <string name="never">לעולם לא</string>
     <string name="never_mind">לא משנה</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">לא תודה</string>
     <string name="none">אף אחד</string>
     <string name="normal">רגיל</string>
+    <string msgid="6610465462668679431" name="not_selected">"לא נבחר"</string>
     <string name="notifications">התראות</string>
     <string name="number">מספר</string>
     <string name="off">כבוי</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">חפש קהילות</string>
     <string name="search_for_group">חפש קבוצה</string>
     <string name="search_keywords">מילות מפתח לחיפוש</string>
-    <string msgid="730395136688082741" name="search_menu_title">"חיפוש"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"חיפוש"</string>
     <string name="search_nkeywords">מילות מפתח לחיפוש</string>
     <string name="see_full_message">ראה הודעה מלאה</string>
     <string name="select_a_community">בחר קהילה</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">בחר תמונה ממוזערת:</string>
     <string name="select_your_age">בחר את גילך</string>
     <string name="select_your_gender">בחר את מינך</string>
+    <string msgid="6043586758067023" name="selected">"נבחר"</string>
     <string name="send">שלח</string>
     <string name="send_a_message">שלח הודעה</string>
     <string name="send_alert_to_community">שלח התראה לקהילה</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">קבוצות מוצעות</string>
     <string name="support">תמיכה</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"‏מקש Tab"</string>
     <string name="tap_here">לחץ כאן</string>
     <string name="tap_icon_to_get_directions_to_community">הקש על הסמל כדי לקבל מסלול לקהילה</string>
     <string name="tap_to_enter_message">הקש על כדי להזין הודעה</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> אחוזים."</string>
     <string name="text_to_speech">טקסט לדיבור</string>
     <string name="the_tenant_has_already_ended_call">השוכר כבר סיים את השיחה</string>
     <string name="there_are_no_available_community_managers_consider">אין מנהלי קהילה זמינים. אנא שקול לשלוח התראת טקסט במקום זאת.</string>

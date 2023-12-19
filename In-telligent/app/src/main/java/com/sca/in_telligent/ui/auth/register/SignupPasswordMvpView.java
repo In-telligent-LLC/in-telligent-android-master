@@ -1,6 +1,7 @@
 package com.sca.in_telligent.ui.auth.register;
 
-import android.support.annotation.StringRes;
+
+import androidx.annotation.StringRes;
 
 import com.sca.in_telligent.ui.base.MvpView;
 

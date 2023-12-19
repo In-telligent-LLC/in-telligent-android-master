@@ -6,7 +6,8 @@ import com.sca.in_telligent.util.WeatherUtil;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import dagger.MembersInjector;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 import javax.inject.Provider;
 
 public final class GeofenceTransitionsIntentService_MembersInjector implements MembersInjector<GeofenceTransitionsIntentService> {

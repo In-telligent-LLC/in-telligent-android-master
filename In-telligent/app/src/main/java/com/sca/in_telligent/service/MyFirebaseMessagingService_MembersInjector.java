@@ -9,7 +9,6 @@ import com.sca.in_telligent.util.geofence.GeofenceClient;
 import dagger.MembersInjector;
 import javax.inject.Provider;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class MyFirebaseMessagingService_MembersInjector implements MembersInjector<MyFirebaseMessagingService> {
     private final Provider<AudioHelper> audioHelperProvider;
     private final Provider<DataManager> dataManagerProvider;

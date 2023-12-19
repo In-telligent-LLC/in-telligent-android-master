@@ -190,6 +190,7 @@
     <string name="no_personal_communities">No Personal Communities</string>
     <string name="edit_time">Edit Time</string>
     <string name="total_silence_on">Total Silence On:</string>
+    <string name="version" translatable="false">Version name</string>
     <string name="other_communities">Other Communities</string>
     <string name="location_services_timed_out">Location services timed out</string>
     <string name="no_results_found">No results found</string>
@@ -293,6 +294,7 @@
     <string name="search">Search</string>
     <string name="search_by_current_location">Search by Current Location</string>
     <string name="would_you_like_to_call_your_community_manager">Would you like to call your community manager?</string>
+    <string name="would_you_like_to_enable_your_location_all_the_time" translatable="false">Would you like to enable your location all the time?</string>
     <string name="no_thank_you">No Thank You</string>
     <string name="title">Title</string>
     <string name="body">Body</string>

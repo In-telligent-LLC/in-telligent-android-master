@@ -1,11 +1,12 @@
 package com.sca.in_telligent.ui.group.alert.detail;
 
-import android.support.annotation.NonNull;
 
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.ui.inbox.InboxNotificationType;
 
 import static java.util.Objects.*;
+
+import io.reactivex.rxjava3.annotations.NonNull;
 
 /**
  * Created by Marcos Ambrosi on 2/6/19.

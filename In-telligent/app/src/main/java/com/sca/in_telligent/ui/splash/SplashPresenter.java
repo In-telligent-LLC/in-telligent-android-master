@@ -5,8 +5,9 @@ import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.data.DataManager.LoggedInMode;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 
 public class SplashPresenter<V extends SplashMvpView> extends BasePresenter<V>

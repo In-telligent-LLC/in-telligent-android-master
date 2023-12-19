@@ -2,7 +2,10 @@
 manifest
 ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
 	package
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:11-69
@@ -22,7 +25,13 @@ uses-sdk
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 	android:targetSdkVersion
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 	android:minSdkVersion
+		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml

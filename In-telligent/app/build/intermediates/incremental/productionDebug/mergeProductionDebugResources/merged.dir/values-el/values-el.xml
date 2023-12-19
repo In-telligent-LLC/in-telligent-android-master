@@ -5,33 +5,33 @@
     <string name="_30_mins">30 λεπτά</string>
     <string name="_60_mins">60 λεπτά</string>
     <string name="_8am_6pm_mon_fri">Οκτώ - 18:00 CST Δευτέρα-Παρασκευή</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Πλοήγηση στην αρχική σελίδα"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Πλοήγηση προς τα επάνω"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Περισσότερες επιλογές"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"Τέλος"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Εμφάνιση όλων"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Επιλέξτε μια εφαρμογή"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"ΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"διάστημα"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"Αναζήτηση…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Διαγραφή ερωτήματος"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"Ερώτημα αναζήτησης"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Αναζήτηση"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Υποβολή ερωτήματος"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Φωνητική αναζήτηση"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Κοινοποίηση σε"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Κοινοποίηση στην εφαρμογή <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Σύμπτυξη"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Πλοήγηση στην αρχική σελίδα"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Πλοήγηση προς τα επάνω"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Περισσότερες επιλογές"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Τέλος"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Εμφάνιση όλων"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Επιλέξτε μια εφαρμογή"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"διάστημα"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Αναζήτηση…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Διαγραφή ερωτήματος"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Ερώτημα αναζήτησης"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Αναζήτηση"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Υποβολή ερωτήματος"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Φωνητική αναζήτηση"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Κοινοποίηση σε"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Κοινοποίηση στην εφαρμογή <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Σύμπτυξη"</string>
     <string name="about">Σχετικά με</string>
     <string name="accept_call">Αποδοχή κλήσης</string>
     <string name="account">λογαριασμός</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">Ελέγξτε το email σας για το σύνδεσμο επαναφοράς.</string>
     <string name="clear_message">Clear Message</string>
     <string name="close">ΚΟΝΤΑ</string>
+    <string msgid="406453423630273620" name="close_drawer">"Κλείσιμο του μενού πλοήγησης"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Κλείσιμο φύλλου"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Πηγαίνετε στο &lt;b>facebook.com/device&lt;/b> και πληκτρολογήστε τον κωδικό που φαίνεται παραπάνω.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Παρουσιάστηκε μη αναμενόμενο σφάλμα κατά τη λήψη μιας εικόνας.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">Για σύνδεση στην εφαρμογή WebView απαιτείται άδεια INTERNET</string>
@@ -137,6 +139,7 @@
     <string name="created_on">Δημιουργήθηκε στο</string>
     <string name="critical_alert">Κρίσιμη ειδοποίηση</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Μη έγκυρη καταχώριση"</string>
     <string name="default_thumbnail">Προεπιλεγμένη μικρογραφία</string>
     <string name="delete">Διαγράφω</string>
     <string name="delete_community">Διαγραφή κοινότητας</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">Ώρες: 8πμ - 6μμ EST Δευ-Παρ</string>
     <string name="hours_of_silence">Ώρες σιωπής</string>
     <string name="ignore">Αγνοώ</string>
+    <string msgid="6827826412747255547" name="in_progress">"Σε εξέλιξη"</string>
     <string name="in_telligent_search_from_my_app">Έξυπνη αναζήτηση από την εφαρμογή μου:</string>
     <string name="in_telligent_searches">Έξυπνες αναζητήσεις</string>
     <string name="inbox">Inbox</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">Εισερχόμενη κλήση</string>
     <string name="incoming_call_from">Εισερχόμενη κλήση από</string>
     <string name="incoming_call_from_tenant">Εισερχόμενη κλήση από τον ενοικιαστή</string>
+    <string msgid="2486394087603402002" name="indeterminate">"Ούτε επιλεγμένο ούτε μη επιλεγμένο"</string>
     <string name="intelligent_and_all">In-telligent και Όλα τα μηνύματα ηλεκτρονικού ταχυδρομείου</string>
     <string name="intelligent_and_imported">Εμπλουτισμένα και εισαγόμενα μηνύματα ηλεκτρονικού ταχυδρομείου</string>
     <string name="intelligent_only">Εντοπισμός μόνο</string>
@@ -256,6 +261,7 @@
     <string name="my_info">Πληροφορίες μου</string>
     <string name="name">Ονομα</string>
     <string name="name_your_community">Ονομάστε την κοινότητά σας</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Μενού πλοήγησης"</string>
     <string name="near_me">Κοντά μου</string>
     <string name="never">Ποτέ</string>
     <string name="never_mind">Δεν πειράζει</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">Οχι ευχαριστώ</string>
     <string name="none">Κανένας</string>
     <string name="normal">Κανονικός</string>
+    <string msgid="6610465462668679431" name="not_selected">"Δεν έχει επιλεχθεί"</string>
     <string name="notifications">Ειδοποιήσεις</string>
     <string name="number">Αριθμός</string>
     <string name="off">Μακριά από</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">Αναζήτηση Κοινοτήτων</string>
     <string name="search_for_group">Αναζήτηση ομάδας</string>
     <string name="search_keywords">Λέξεις-κλειδιά αναζήτησης</string>
-    <string msgid="730395136688082741" name="search_menu_title">"Αναζήτηση"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Αναζήτηση"</string>
     <string name="search_nkeywords">Λέξεις-κλειδιά αναζήτησης</string>
     <string name="see_full_message">Δείτε το πλήρες μήνυμα</string>
     <string name="select_a_community">Επιλέξτε μια κοινότητα</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">Επιλογή μικρογραφίας:</string>
     <string name="select_your_age">Επιλέξτε την ηλικία σας</string>
     <string name="select_your_gender">Επιλέξτε το φύλο σας</string>
+    <string msgid="6043586758067023" name="selected">"Επιλεγμένο"</string>
     <string name="send">Στείλετε</string>
     <string name="send_a_message">Στέλνω ένα μήνυμα</string>
     <string name="send_alert_to_community">Αποστολή ειδοποίησης στην κοινότητα</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">Προτεινόμενες ομάδες</string>
     <string name="support">Υποστήριξη</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Καρτέλα"</string>
     <string name="tap_here">Πατήστε εδώ</string>
     <string name="tap_icon_to_get_directions_to_community">Πατήστε το εικονίδιο για να λάβετε οδηγίες προς την κοινότητα</string>
     <string name="tap_to_enter_message">Πατήστε για να Εισάγετε μήνυμα</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> τοις εκατό."</string>
     <string name="text_to_speech">Κείμενο σε ομιλία</string>
     <string name="the_tenant_has_already_ended_call">Ο ενοικιαστής έχει ήδη ολοκληρώσει την κλήση</string>
     <string name="there_are_no_available_community_managers_consider">Δεν υπάρχουν διαθέσιμοι διαχειριστές κοινότητας. Σας παρακαλούμε να στείλετε μια ειδοποίηση κειμένου αντί.</string>

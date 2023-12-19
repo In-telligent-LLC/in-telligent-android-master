@@ -99,7 +99,7 @@ public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHold
     public class ViewHolder extends BaseViewHolder {
 
         @BindView(R.id.contact_deliver_item_name_text)
-        String mailText = "";
+        TextView mailText;
 
         @BindView(R.id.contact_deliver_item_checkbox)
         CheckBox itemCheckbox;

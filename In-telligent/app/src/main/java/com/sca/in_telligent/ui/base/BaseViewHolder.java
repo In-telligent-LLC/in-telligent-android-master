@@ -1,26 +1,24 @@
 package com.sca.in_telligent.ui.base;
 
-
 import android.view.View;
-
 import androidx.recyclerview.widget.RecyclerView;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
+    private int mCurrentPosition;
 
-  private int mCurrentPosition;
+    protected abstract void clear();
 
-  public BaseViewHolder(View itemView) {
-    super(itemView);
-  }
+    public BaseViewHolder(View view) {
+        super(view);
+    }
 
-  protected abstract void clear();
+    public void onBind(int i) {
+        this.mCurrentPosition = i;
+        clear();
+    }
 
-  public void onBind(int position) {
-    mCurrentPosition = position;
-    clear();
-  }
-
-  public int getCurrentPosition() {
-    return mCurrentPosition;
-  }
+    public int getCurrentPosition() {
+        return this.mCurrentPosition;
+    }
 }

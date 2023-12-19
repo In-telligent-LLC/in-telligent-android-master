@@ -156,8 +156,6 @@
     <attr format="reference" name="materialButtonStyle"/>
     <attr format="reference" name="materialCardViewStyle"/>
     <attr format="reference" name="navigationViewStyle"/>
-    <attr format="reference" name="nestedScrollViewStyle"/>
-    <attr format="reference" name="recyclerViewStyle"/>
     <attr format="color" name="rippleColor"/>
     <attr format="color|reference" name="scrimBackground"/>
     <attr format="reference" name="showMotionSpec"/>
@@ -180,10 +178,13 @@
     <attr format="reference" name="textInputStyle"/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
-    <bool name="abc_allow_stacked_button_bar">false</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="enable_system_alarm_service_default">true</bool>
+    <bool name="enable_system_job_service_default">false</bool>
     <bool name="mtrl_btn_textappearance_all_caps">true</bool>
-    <color name="abc_input_method_navigation_guard">@android:color/black</color>
+    <bool name="workmanager_test_configuration">false</bool>
+    <color name="abc_decor_view_status_guard">#ff000000</color>
+    <color name="abc_decor_view_status_guard_light">#ffffffff</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
@@ -330,6 +331,30 @@
     <color name="tooltip_background_light">#e6FFFFFF</color>
     <color name="translate_button_black">#383838</color>
     <color name="tts_button_blue">#448ac3</color>
+    <color name="ucrop_color_active_aspect_ratio">@color/ucrop_color_blaze_orange</color>
+    <color name="ucrop_color_active_controls_color">@color/ucrop_color_blaze_orange</color>
+    <color name="ucrop_color_black">#000</color>
+    <color name="ucrop_color_blaze_orange">#FF6300</color>
+    <color name="ucrop_color_crop_background">@color/ucrop_color_black</color>
+    <color name="ucrop_color_default_crop_frame">#ffffff</color>
+    <color name="ucrop_color_default_crop_grid">#80ffffff</color>
+    <color name="ucrop_color_default_dimmed">#8c000000</color>
+    <color name="ucrop_color_default_logo">#4f212121</color>
+    <color name="ucrop_color_ebony_clay">#20242F</color>
+    <color name="ucrop_color_heather">#B3BECE</color>
+    <color name="ucrop_color_inactive_aspect_ratio">@color/ucrop_color_ebony_clay</color>
+    <color name="ucrop_color_inactive_controls_color">@color/ucrop_color_heather</color>
+    <color name="ucrop_color_progress_wheel_line">@color/ucrop_color_ebony_clay</color>
+    <color name="ucrop_color_statusbar">#f5f5f5</color>
+    <color name="ucrop_color_toolbar">@color/ucrop_color_white</color>
+    <color name="ucrop_color_toolbar_widget">@color/ucrop_color_black</color>
+    <color name="ucrop_color_white">#FFF</color>
+    <color name="ucrop_color_widget">@color/ucrop_color_black</color>
+    <color name="ucrop_color_widget_active">@color/ucrop_color_white</color>
+    <color name="ucrop_color_widget_background">@color/ucrop_color_ebony_clay</color>
+    <color name="ucrop_color_widget_rotate_angle">@color/ucrop_color_ebony_clay</color>
+    <color name="ucrop_color_widget_rotate_mid_line">@color/ucrop_color_blaze_orange</color>
+    <color name="ucrop_color_widget_text">@color/ucrop_color_blaze_orange</color>
     <color name="white">#ffffff</color>
     <color name="yellow">#FFFF00</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
@@ -391,6 +416,9 @@
     <dimen name="abc_seekbar_track_background_height_material">2dp</dimen>
     <dimen name="abc_seekbar_track_progress_height_material">2dp</dimen>
     <dimen name="abc_select_dialog_padding_start_material">20dp</dimen>
+    <dimen name="abc_star_big">48dp</dimen>
+    <dimen name="abc_star_medium">36dp</dimen>
+    <dimen name="abc_star_small">16dp</dimen>
     <dimen name="abc_switch_padding">3dp</dimen>
     <dimen name="abc_text_size_body_1_material">14sp</dimen>
     <dimen name="abc_text_size_body_2_material">14sp</dimen>
@@ -583,6 +611,28 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+    <dimen name="ucrop_default_crop_frame_stoke_width">1dp</dimen>
+    <dimen name="ucrop_default_crop_grid_stoke_width">1dp</dimen>
+    <dimen name="ucrop_default_crop_logo_size">200dp</dimen>
+    <dimen name="ucrop_default_crop_rect_corner_touch_area_line_length">10dp</dimen>
+    <dimen name="ucrop_default_crop_rect_corner_touch_threshold">30dp</dimen>
+    <dimen name="ucrop_default_crop_rect_min_size">100dp</dimen>
+    <dimen name="ucrop_height_crop_aspect_ratio_text">40dp</dimen>
+    <dimen name="ucrop_height_divider_shadow">3dp</dimen>
+    <dimen name="ucrop_height_horizontal_wheel_progress_line">20dp</dimen>
+    <dimen name="ucrop_height_wrapper_controls">64dp</dimen>
+    <dimen name="ucrop_height_wrapper_states">72dp</dimen>
+    <dimen name="ucrop_margin_horizontal_wheel_progress_line">10dp</dimen>
+    <dimen name="ucrop_margin_top_controls_text">4dp</dimen>
+    <dimen name="ucrop_margin_top_widget_text">10dp</dimen>
+    <dimen name="ucrop_padding_crop_frame">16dp</dimen>
+    <dimen name="ucrop_progress_size">30dp</dimen>
+    <dimen name="ucrop_size_dot_scale_text_view">8dp</dimen>
+    <dimen name="ucrop_size_wrapper_rotate_button">50dp</dimen>
+    <dimen name="ucrop_text_size_controls_text">11sp</dimen>
+    <dimen name="ucrop_text_size_widget_text">13sp</dimen>
+    <dimen name="ucrop_width_horizontal_wheel_progress_line">2dp</dimen>
+    <dimen name="ucrop_width_middle_wheel_progress_line">4dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="accessibility_action_clickable_span" type="id"/>
@@ -622,12 +672,16 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="androidx_compose_ui_view_composition_context" type="id"/>
+    <item name="compose_view_saveable_id_tag" type="id"/>
     <item name="dataBinding" type="id"/>
     <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
+    <item name="ghost_view_holder" type="id"/>
     <item name="glide_custom_view_target_tag" type="id"/>
+    <item name="hide_in_inspector_tag" type="id"/>
     <item name="home" type="id"/>
-    <item name="is_pooling_container_tag" type="id"/>
+    <item name="inspection_slot_table_set" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>
     <item name="line3" type="id"/>
@@ -635,12 +689,10 @@
     <item name="mtrl_internal_children_alpha_tag" type="id"/>
     <item name="native_ad_sponsored_view_id" type="id"/>
     <item name="parent_matrix" type="id"/>
-    <item name="pooling_container_listener_holder_tag" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
-    <item name="save_image_matrix" type="id"/>
     <item name="save_non_transition_alpha" type="id"/>
-    <item name="save_scale_type" type="id"/>
+    <item name="save_overlay_view" type="id"/>
     <item name="snackbar_action" type="id"/>
     <item name="snackbar_text" type="id"/>
     <item name="special_effects_controller_view_tag" type="id"/>
@@ -675,6 +727,7 @@
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
     <item name="visible_removing_fragment_view_tag" type="id"/>
+    <item name="wrapped_composition_tag" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="app_bar_elevation_anim_duration">150</integer>
@@ -691,6 +744,7 @@
     <integer name="mtrl_tab_indicator_anim_duration_ms">250</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="ucrop_progress_loading_anim_time">1500</integer>
     <string name="_120_mins">120 mins</string>
     <string name="_15_mins">15 mins</string>
     <string name="_30_mins">30 mins</string>
@@ -772,6 +826,8 @@
     <string name="check_your_email_for_reset_link">Check your email for the reset link.</string>
     <string name="clear_message">Clear Message</string>
     <string name="close">CLOSE</string>
+    <string name="close_drawer">"Close navigation menu"</string>
+    <string name="close_sheet">"Close sheet"</string>
     <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> and enter the code shown above.</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
     <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
@@ -836,6 +892,7 @@
     <string name="critical_safety">Critical Safety</string>
     <string name="critical_weather_alert">Critical Weather Alert</string>
     <string name="d_e_f">D E F</string>
+    <string name="default_error_message">"Invalid input"</string>
     <string name="default_thumbnail">Default Thumbnail</string>
     <string name="delete">Delete</string>
     <string name="delete_community">Delete Community</string>
@@ -911,6 +968,7 @@
     <string name="hours_8am_6pm_est_mon_fri">Hours: 8am - 6pm EST Mon-Fri</string>
     <string name="hours_of_silence">Hours of Silence</string>
     <string name="ignore">Ignore</string>
+    <string name="in_progress">In progress</string>
     <string name="in_telligent_search_from_my_app">In-telligent Search from my In-telligent app:</string>
     <string name="in_telligent_searches">In-telligent Searches</string>
     <string name="inbox">Inbox</string>
@@ -918,6 +976,7 @@
     <string name="incoming_call">Incoming Call</string>
     <string name="incoming_call_from">Incoming Call From</string>
     <string name="incoming_call_from_tenant">Incoming call from tenant</string>
+    <string name="indeterminate">Neither checked nor unchecked</string>
     <string name="intelligent_and_all">In-telligent and All Emails</string>
     <string name="intelligent_and_imported">In-telligent and Imported Emails</string>
     <string name="intelligent_only">In-telligent Only</string>
@@ -968,6 +1027,7 @@
     <string name="my_info">My Info</string>
     <string name="name">Name</string>
     <string name="name_your_community">Name your Community</string>
+    <string name="navigation_menu">"Navigation menu"</string>
     <string name="near_me">Near Me</string>
     <string name="never">Never</string>
     <string name="never_mind">Never mind</string>
@@ -991,6 +1051,7 @@
     <string name="no_thank_you">No Thank You</string>
     <string name="none">None</string>
     <string name="normal">Normal</string>
+    <string name="not_selected">Not selected</string>
     <string name="notifications">Notifications</string>
     <string name="number">Number</string>
     <string name="off">Off</string>
@@ -1090,6 +1151,7 @@
     <string name="select_thumbnail">Select Thumbnail:</string>
     <string name="select_your_age">Select Your Age</string>
     <string name="select_your_gender">Select Your Gender</string>
+    <string name="selected">Selected</string>
     <string name="send">Send</string>
     <string name="send_a_message">Send a Message</string>
     <string name="send_alert_to_community">Send Alert to Community</string>
@@ -1119,9 +1181,11 @@
     <string name="suggested_groups">Suggested Groups</string>
     <string name="support">Support</string>
     <string name="t_u_v">T U V</string>
+    <string name="tab">Tab</string>
     <string name="tap_here">Tap Here</string>
     <string name="tap_icon_to_get_directions_to_community">Tap icon to get directions to community</string>
     <string name="tap_to_enter_message">Tap to Enter Message</string>
+    <string name="template_percent"><ns1:g id="percentage">%1$d</ns1:g> percent.</string>
     <string name="text_to_speech">Text to Speech</string>
     <string name="the_tenant_has_already_ended_call">The tenant has already ended the call</string>
     <string name="there_are_no_available_community_managers_consider">There are no available community managers. Please consider sending a text alert instead.</string>
@@ -1149,6 +1213,14 @@
     <string name="translate_to">Translate to</string>
     <string name="type_comment_here">Type Comment Here</string>
     <string name="type_of_alert">Type of Alert</string>
+    <string name="ucrop_crop">Crop</string>
+    <string name="ucrop_error_input_data_is_absent" translatable="false">Both input and output Uri must be specified</string>
+    <string name="ucrop_label_edit_photo">Edit Photo</string>
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_menu_crop">Crop</string>
+    <string name="ucrop_mutate_exception_hint" translatable="false">Therefore, override color resource (ucrop_color_toolbar_widget) in your app to make it work on pre-L devices</string>
+    <string name="ucrop_rotate">Rotate</string>
+    <string name="ucrop_scale">Scale</string>
     <string name="unable_to_create_community_check_connection">Unable to create community. Please check your connection and try again.</string>
     <string name="unable_to_save_changes_check_connetion">Unable to save changes. Please check your connection and try again.</string>
     <string name="unable_updated_location">Unable to get an up to date location.</string>
@@ -1164,6 +1236,7 @@
     <string name="uploading_attachment_for_personal_community">Uploading attachment for personal community</string>
     <string name="urgent">Urgent</string>
     <string name="user_invited">User Invited</string>
+    <string name="version" translatable="false">Version name</string>
     <string name="version_no_longer_available">Version no longer supported!</string>
     <string name="view">View</string>
     <string name="view_alerts">View Alerts</string>
@@ -1174,6 +1247,7 @@
     <string name="when_you_send_members_will_hear">*When you send an urgent or emergency alert to the community, members will hear the alert sound</string>
     <string name="would_you_like_to_call_your_community_manager">Would you like to call your community manager?</string>
     <string name="would_you_like_to_create_personal_community">Do you want to create a Personal Community to send messages to Family and Friends?</string>
+    <string name="would_you_like_to_enable_your_location_all_the_time" translatable="false">Would you like to enable your location all the time?</string>
     <string name="would_you_like_to_perm_delete_contact">Would you like to permanently delete this contact?</string>
     <string name="yes">Yes</string>
     <string name="you_are_now_subscribed_to">You are now subscribed to "<ns1:g example="Beans and Brews" id="community">%s</ns1:g>"</string>
@@ -1448,6 +1522,7 @@
         <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="actionBarWidgetTheme">@null</item>
         <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="actionModeTheme">?attr/actionBarTheme</item>
 
         
         <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
@@ -1816,7 +1891,6 @@
     <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog</item>
   </style>
     <style name="Base.V7.Theme.AppCompat" parent="Platform.AppCompat">
-        <item name="viewInflaterClass">androidx.appcompat.app.AppCompatViewInflater</item>
         <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
@@ -1857,9 +1931,11 @@
         <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
 
         
+        <item name="actionModeTheme">?attr/actionBarTheme</item>
         <item name="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
         <item name="actionModeBackground">@drawable/abc_cab_background_top_material</item>
         <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item name="actionModeCloseContentDescription">@string/abc_action_mode_done</item>
         <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_material</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
 
@@ -2012,8 +2088,6 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
     <style name="Base.V7.Theme.AppCompat.Light" parent="Platform.AppCompat.Light">
-        <item name="viewInflaterClass">androidx.appcompat.app.AppCompatViewInflater</item>
-
         <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
@@ -2051,9 +2125,11 @@
         <item name="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
 
         
+        <item name="actionModeTheme">?attr/actionBarTheme</item>
         <item name="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
         <item name="actionModeBackground">@drawable/abc_cab_background_top_material</item>
         <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item name="actionModeCloseContentDescription">@string/abc_action_mode_done</item>
         <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_material</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
 
@@ -2265,7 +2341,9 @@
         <item name="contentInsetStart">16dp</item>
         <item name="contentInsetStartWithNavigation">@dimen/abc_action_bar_content_inset_with_nav</item>
         <item name="android:paddingLeft">@dimen/abc_action_bar_default_padding_start_material</item>
+        <item name="android:paddingStart">@dimen/abc_action_bar_default_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_default_padding_end_material</item>
+        <item name="android:paddingEnd">@dimen/abc_action_bar_default_padding_end_material</item>
     </style>
     <style name="Base.Widget.AppCompat.ActionBar" parent="">
         <item name="displayOptions">showTitle</item>
@@ -2345,6 +2423,17 @@
         <item name="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Title</item>
         <item name="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle</item>
         <item name="closeItemLayout">@layout/abc_action_mode_close_item_material</item>
+
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleMargin">4dp</item>
+        <item name="maxButtonHeight">@dimen/abc_action_bar_default_height_material</item>
+        <item name="buttonGravity">top</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="contentInsetStartWithNavigation">@dimen/abc_action_bar_content_inset_with_nav</item>
+        <item name="android:paddingLeft">@dimen/abc_action_bar_default_padding_start_material</item>
+        <item name="android:paddingStart">@dimen/abc_action_bar_default_padding_start_material</item>
+        <item name="android:paddingRight">@dimen/abc_action_bar_default_padding_end_material</item>
+        <item name="android:paddingEnd">@dimen/abc_action_bar_default_padding_end_material</item>
     </style>
     <style name="Base.Widget.AppCompat.ActivityChooserView" parent="">
         <item name="android:gravity">center</item>
@@ -2641,6 +2730,9 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="DialogWindowTheme">
+        <item name="android:windowClipToOutline">false</item>
+    </style>
     <style name="MessengerButton">
     <item name="android:clickable">true</item>
   </style>
@@ -2764,9 +2856,9 @@
         <item name="android:actionModePasteDrawable">?actionModePasteDrawable</item>
         <item name="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
 
-        <item name="android:textSelectHandle">@drawable/abc_text_select_handle_middle_mtrl_dark</item>
-        <item name="android:textSelectHandleLeft">@drawable/abc_text_select_handle_left_mtrl_dark</item>
-        <item name="android:textSelectHandleRight">@drawable/abc_text_select_handle_right_mtrl_dark</item>
+        <item name="android:textSelectHandle">@drawable/abc_text_select_handle_middle_mtrl</item>
+        <item name="android:textSelectHandleLeft">@drawable/abc_text_select_handle_left_mtrl</item>
+        <item name="android:textSelectHandleRight">@drawable/abc_text_select_handle_right_mtrl</item>
     </style>
     <style name="Platform.AppCompat.Light" parent="android:Theme.Holo.Light">
         <item name="android:windowNoTitle">true</item>
@@ -2834,9 +2926,9 @@
         <item name="android:actionModePasteDrawable">?actionModePasteDrawable</item>
         <item name="android:actionModeSelectAllDrawable">?actionModeSelectAllDrawable</item>
 
-        <item name="android:textSelectHandle">@drawable/abc_text_select_handle_middle_mtrl_light</item>
-        <item name="android:textSelectHandleLeft">@drawable/abc_text_select_handle_left_mtrl_light</item>
-        <item name="android:textSelectHandleRight">@drawable/abc_text_select_handle_right_mtrl_light</item>
+        <item name="android:textSelectHandle">@drawable/abc_text_select_handle_middle_mtrl</item>
+        <item name="android:textSelectHandleLeft">@drawable/abc_text_select_handle_left_mtrl</item>
+        <item name="android:textSelectHandleRight">@drawable/abc_text_select_handle_right_mtrl</item>
     </style>
     <style name="Platform.MaterialComponents" parent="Theme.AppCompat"/>
     <style name="Platform.MaterialComponents.Dialog" parent="Theme.AppCompat.Dialog"/>
@@ -3152,6 +3244,7 @@
     <style name="Theme.AppCompat.Dialog.MinWidth" parent="Base.Theme.AppCompat.Dialog.MinWidth"/>
     <style name="Theme.AppCompat.DialogWhenLarge" parent="Base.Theme.AppCompat.DialogWhenLarge">
     </style>
+    <style name="Theme.AppCompat.Empty" parent=""/>
     <style name="Theme.AppCompat.Light" parent="Base.Theme.AppCompat.Light"/>
     <style name="Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar"/>
     <style name="Theme.AppCompat.Light.Dialog" parent="Base.Theme.AppCompat.Light.Dialog"/>
@@ -3710,6 +3803,53 @@
         <item name="android:shadowRadius">0.25</item>
         <item name="android:shadowColor">#40000000</item>
     </style>
+    <style name="ucrop_ImageViewWidgetIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+    <style name="ucrop_TextViewCropAspectRatio">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/ucrop_height_crop_aspect_ratio_text</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:textColor">@color/ucrop_scale_text_view_selector</item>
+    </style>
+    <style name="ucrop_TextViewWidget">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/ucrop_margin_top_controls_text</item>
+        <item name="android:textColor">@color/ucrop_color_widget_active</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/ucrop_text_size_controls_text</item>
+    </style>
+    <style name="ucrop_TextViewWidgetText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ucrop_color_widget_text</item>
+        <item name="android:layout_marginTop">@dimen/ucrop_margin_top_widget_text</item>
+        <item name="android:textSize">@dimen/ucrop_text_size_widget_text</item>
+    </style>
+    <style name="ucrop_WrapperIconState">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ucrop_WrapperRotateButton">
+        <item name="android:layout_width">@dimen/ucrop_size_wrapper_rotate_button</item>
+        <item name="android:layout_height">@dimen/ucrop_size_wrapper_rotate_button</item>
+        <item name="background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+    </style>
     <declare-styleable name="ActionBar">
         
         <attr name="navigationMode">
@@ -4060,6 +4200,8 @@
         
         <attr format="reference" name="actionBarTheme"/>
         
+        <attr format="reference" name="actionModeTheme"/>
+        
         <attr format="reference" name="actionBarWidgetTheme"/>
         
         <attr format="dimension" name="actionBarSize">
@@ -4104,8 +4246,10 @@
         <attr format="reference" name="actionModeWebSearchDrawable"/>
 
         
-        <attr format="reference" name="actionModePopupWindowStyle"/>
+        <attr format="string" name="actionModeCloseContentDescription"/>
 
+        
+        <attr format="reference" name="actionModePopupWindowStyle"/>
 
         
         
@@ -4358,9 +4502,9 @@
         <eat-comment/>
 
         
-        <attr format="reference" name="listChoiceIndicatorMultipleAnimated"/>
-        
         <attr format="reference" name="listChoiceIndicatorSingleAnimated"/>
+        
+        <attr format="reference" name="listChoiceIndicatorMultipleAnimated"/>
 
     </declare-styleable>
     <declare-styleable name="BottomAppBar"><attr name="backgroundTint"/><attr name="fabAlignmentMode">
@@ -4386,12 +4530,6 @@
     <declare-styleable name="ButtonBarLayout">
         
         <attr format="boolean" name="allowStacking"/>
-    </declare-styleable>
-    <declare-styleable name="Capability">
-        
-        <attr format="reference" name="queryPatterns"/>
-        
-        <attr format="boolean" name="shortcutMatchRequired"/>
     </declare-styleable>
     <declare-styleable name="CardView">
         
@@ -4480,9 +4618,6 @@
         
         <attr format="float" name="alpha"/>
         <attr name="android:alpha"/>
-        
-        <attr format="float" name="lStar"/>
-        <attr name="android:lStar"/>
     </declare-styleable>
     <declare-styleable name="CompoundButton">
         <attr name="android:button"/>
@@ -5051,7 +5186,6 @@
 
         <attr name="android:orientation"/>
         <attr name="android:descendantFocusability"/>
-        <attr name="android:clipToPadding"/>
         <attr format="integer" name="spanCount"/>
         <attr format="boolean" name="reverseLayout"/>
         <attr format="boolean" name="stackFromEnd"/>
@@ -5431,5 +5565,35 @@
             <enum name="large" value="-4"/>
         </attr>
         <attr format="boolean" name="com_facebook_is_cropped"/>
+    </declare-styleable>
+    <declare-styleable name="ucrop_AspectRatioTextView">
+
+        <attr format="string" name="ucrop_artv_ratio_title"/>
+
+        <attr format="float" name="ucrop_artv_ratio_x"/>
+        <attr format="float" name="ucrop_artv_ratio_y"/>
+
+    </declare-styleable>
+    <declare-styleable name="ucrop_UCropView">
+
+        
+        <attr format="float" name="ucrop_aspect_ratio_x"/>
+        <attr format="float" name="ucrop_aspect_ratio_y"/>
+
+        
+        <attr format="boolean" name="ucrop_show_oval_crop_frame"/>
+        <attr format="boolean" name="ucrop_circle_dimmed_layer"/>
+        <attr format="color" name="ucrop_dimmed_color"/>
+
+        <attr format="dimension" name="ucrop_grid_stroke_size"/>
+        <attr format="color" name="ucrop_grid_color"/>
+        <attr format="integer" name="ucrop_grid_row_count"/>
+        <attr format="integer" name="ucrop_grid_column_count"/>
+        <attr format="boolean" name="ucrop_show_grid"/>
+
+        <attr format="dimension" name="ucrop_frame_stroke_size"/>
+        <attr format="color" name="ucrop_frame_color"/>
+        <attr format="boolean" name="ucrop_show_frame"/>
+
     </declare-styleable>
 </resources>

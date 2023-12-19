@@ -5,33 +5,33 @@
     <string name="_30_mins">30 min</string>
     <string name="_60_mins">60 min</string>
     <string name="_8am_6pm_mon_fri">08:00-18:00 CST od ponedeljka do petka</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Krmarjenje na začetek"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Pomik navzgor"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Več možnosti"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"Končano"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Pokaži vse"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Izbira aplikacije"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"IZKLOP"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"VKLOP"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt +"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Fn +"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta +"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift +"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"preslednica"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym +"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Meni +"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"Iskanje …"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Izbris poizvedbe"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"Iskalna poizvedba"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Iskanje"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Pošiljanje poizvedbe"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Glasovno iskanje"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Skupna raba z:"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Skupna raba z drugimi prek aplikacije <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Strnitev"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Krmarjenje na začetek"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Pomik navzgor"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Več možnosti"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Končano"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Pokaži vse"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Izbira aplikacije"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"IZKLOP"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"VKLOP"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"preslednica"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Meni +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Iskanje …"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Izbris poizvedbe"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Iskalna poizvedba"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Iskanje"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Pošiljanje poizvedbe"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Glasovno iskanje"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Skupna raba z:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Skupna raba z drugimi prek aplikacije <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Strnitev"</string>
     <string name="about">O podjetju</string>
     <string name="accept_call">Sprejmi klic</string>
     <string name="account">račun</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">Preverite e-pošto za povezavo za ponastavitev.</string>
     <string name="clear_message">Počisti sporočilo</string>
     <string name="close">ZAPRTO</string>
+    <string msgid="406453423630273620" name="close_drawer">"Zapri meni za krmarjenje"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Zapri list"</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Omogoči</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text">Aplikacija %1$s ne bo delovala, če ne omogočite storitev Google Play.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Omogočanje storitev Google Play</string>
@@ -114,6 +116,7 @@
     <string name="created_on">Ustvarjeno dne</string>
     <string name="critical_alert">Kritična opozorila</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Neveljaven vnos"</string>
     <string name="default_thumbnail">Privzeto Thumbnail</string>
     <string name="delete">Izbriši</string>
     <string name="delete_community">Izbriši skupnost</string>
@@ -179,6 +182,7 @@
     <string name="hours_8am_6pm_est_mon_fri">Ure: od 8.00 do 18.00 EST pon-pet</string>
     <string name="hours_of_silence">Ura tišine</string>
     <string name="ignore">Prezri</string>
+    <string msgid="6827826412747255547" name="in_progress">"Poteka"</string>
     <string name="in_telligent_search_from_my_app">Prepričana preiskava iz mojega pripomočka za prepoznavo:</string>
     <string name="in_telligent_searches">Sočasna iskanja</string>
     <string name="inbox">Prejeto</string>
@@ -186,6 +190,7 @@
     <string name="incoming_call">Dohodni klic</string>
     <string name="incoming_call_from">Dohodni klic iz</string>
     <string name="incoming_call_from_tenant">Dohodni klic najemnika</string>
+    <string msgid="2486394087603402002" name="indeterminate">"Niti potrjeno niti nepotrjeno"</string>
     <string name="intelligent_and_all">In-telligent in vse e-pošte</string>
     <string name="intelligent_and_imported">Ugovorna in uvožena e-poštna sporočila</string>
     <string name="intelligent_only">Samo v sporočilu</string>
@@ -233,6 +238,7 @@
     <string name="my_info">Moja informacija</string>
     <string name="name">Ime</string>
     <string name="name_your_community">Poimenujte svojo skupnost</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Meni za krmarjenje"</string>
     <string name="near_me">Blizu mene</string>
     <string name="never">Nikoli</string>
     <string name="never_mind">Pozabi</string>
@@ -256,6 +262,7 @@
     <string name="no_thank_you">Ne, hvala</string>
     <string name="none">Nihče</string>
     <string name="normal">Normalno</string>
+    <string msgid="6610465462668679431" name="not_selected">"Ni izbrano"</string>
     <string name="notifications">Obvestila</string>
     <string name="number">Številka</string>
     <string name="off">Izključeno</string>
@@ -325,7 +332,7 @@
     <string name="search_for_communities">Išči skupnosti</string>
     <string name="search_for_group">Išči skupino</string>
     <string name="search_keywords">Iskanje ključnih besed</string>
-    <string msgid="730395136688082741" name="search_menu_title">"Iskanje"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Iskanje"</string>
     <string name="search_nkeywords">Iskanje ključnih besed</string>
     <string name="see_full_message">Glejte celotno sporočilo</string>
     <string name="select_a_community">Izberite skupnost</string>
@@ -337,6 +344,7 @@
     <string name="select_thumbnail">Izberite sličico:</string>
     <string name="select_your_age">Izberite svojo starost</string>
     <string name="select_your_gender">Izberite svoj spol</string>
+    <string msgid="6043586758067023" name="selected">"Izbrano"</string>
     <string name="send">Pošlji</string>
     <string name="send_a_message">Poslati sporočilo</string>
     <string name="send_alert_to_community">Pošlji opozorilo v skupnost</string>
@@ -365,9 +373,11 @@
     <string name="suggested_groups">Predlagane skupine</string>
     <string name="support">Podpora</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Zavihek"</string>
     <string name="tap_here">Tapnite tukaj</string>
     <string name="tap_icon_to_get_directions_to_community">Tapnite ikono, da dobite navodila za skupnost</string>
     <string name="tap_to_enter_message">Dotaknite se za vnos sporočila</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> odstotkov"</string>
     <string name="text_to_speech">Besedilo v govor</string>
     <string name="the_tenant_has_already_ended_call">Najemnik je že končal klic</string>
     <string name="there_are_no_available_community_managers_consider">Ni upravljavcev skupnosti, ki so na voljo. Prosimo, razmislite o pošiljanju opozorila.</string>

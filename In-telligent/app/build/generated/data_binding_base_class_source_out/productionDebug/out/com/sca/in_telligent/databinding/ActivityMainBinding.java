@@ -54,13 +54,16 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final TextView totalSilenceOn;
 
+  @NonNull
+  public final TextView version;
+
   private ActivityMainBinding(@NonNull DrawerLayout rootView, @NonNull ImageView adFooterImage,
       @NonNull BottomNavigationView bottomNavigation, @NonNull FrameLayout contentFrame,
       @NonNull DrawerLayout drawerLayout,
       @NonNull AlertController.RecycleListView navigationViewListview,
       @NonNull RelativeLayout totalSilenceBottomLayout, @NonNull TextView totalSilenceLabel,
       @NonNull TextView totalSilenceNumber, @NonNull TextView totalSilenceOff,
-      @NonNull TextView totalSilenceOn) {
+      @NonNull TextView totalSilenceOn, @NonNull TextView version) {
     this.rootView = rootView;
     this.adFooterImage = adFooterImage;
     this.bottomNavigation = bottomNavigation;
@@ -72,6 +75,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.totalSilenceNumber = totalSilenceNumber;
     this.totalSilenceOff = totalSilenceOff;
     this.totalSilenceOn = totalSilenceOn;
+    this.version = version;
   }
 
   @Override
@@ -157,9 +161,15 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.version;
+      TextView version = ViewBindings.findChildViewById(rootView, id);
+      if (version == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((DrawerLayout) rootView, adFooterImage, bottomNavigation,
           contentFrame, drawerLayout, navigationViewListview, totalSilenceBottomLayout,
-          totalSilenceLabel, totalSilenceNumber, totalSilenceOff, totalSilenceOn);
+          totalSilenceLabel, totalSilenceNumber, totalSilenceOff, totalSilenceOn, version);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

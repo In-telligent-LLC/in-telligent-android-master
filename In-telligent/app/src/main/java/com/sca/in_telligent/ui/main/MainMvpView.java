@@ -5,7 +5,8 @@ import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingIdItem;
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.ui.base.MvpView;
-import com.tbruyelle.rxpermissions2.Permission;
+
+import java.security.Permission;
 import java.util.ArrayList;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */

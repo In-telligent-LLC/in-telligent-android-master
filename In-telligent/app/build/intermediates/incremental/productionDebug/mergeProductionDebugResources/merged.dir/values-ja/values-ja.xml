@@ -5,33 +5,33 @@
     <string name="_30_mins">30分</string>
     <string name="_60_mins">60分</string>
     <string name="_8am_6pm_mon_fri">午前8時 - 午後6時CST月〜金</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"ホームに戻る"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"前に戻る"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"その他のオプション"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"完了"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"すべて表示"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"アプリの選択"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"OFF"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"ON"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"Delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"Enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"Space"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"検索…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"検索キーワードを削除"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"検索キーワード"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"検索"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"検索キーワードを送信"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"音声検索"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"共有"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>と共有"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"折りたたむ"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ホームに戻る"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"前に戻る"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"その他のオプション"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"完了"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"すべて表示"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"アプリの選択"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"OFF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ON"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"検索…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"検索キーワードを削除"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"検索キーワード"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"検索"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"検索キーワードを送信"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"音声検索"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"共有"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>と共有"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"折りたたむ"</string>
     <string name="about">約</string>
     <string name="accept_call">コールを受け入れる</string>
     <string name="account">アカウント</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">リセットリンクについては、電子メールを確認してください。</string>
     <string name="clear_message">メッセージをクリアする</string>
     <string name="close">閉じる</string>
+    <string msgid="406453423630273620" name="close_drawer">"ナビゲーションメニューを閉じる"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"シートを閉じる"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">&lt;b>facebook.com/device&lt;/b>にアクセスして、上記のコードを入力してください。</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">画像のダウンロードで何らかのエラーが発生しました。</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">WebViewにログインするには、インターネットへのアクセスが必要です</string>
@@ -137,6 +139,7 @@
     <string name="created_on">作成日</string>
     <string name="critical_alert">クリティカルアラート</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"入力値が無効です"</string>
     <string name="default_thumbnail">デフォルトサムネイル</string>
     <string name="delete">削除</string>
     <string name="delete_community">コミュニティを削除</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">時間：午前8時〜午後6時、月曜〜金曜</string>
     <string name="hours_of_silence">沈黙の時間</string>
     <string name="ignore">無視する</string>
+    <string msgid="6827826412747255547" name="in_progress">"処理しています"</string>
     <string name="in_telligent_search_from_my_app">In-telligentアプリからのIn-telligent Search：</string>
     <string name="in_telligent_searches">賢明な検索</string>
     <string name="inbox">受信トレイ</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">電話の着信</string>
     <string name="incoming_call_from">着信の発信元</string>
     <string name="incoming_call_from_tenant">テナントからの着信コール</string>
+    <string msgid="2486394087603402002" name="indeterminate">"オンでもオフでもありません"</string>
     <string name="intelligent_and_all">敏感なメールとすべてのメール</string>
     <string name="intelligent_and_imported">敏感な電子メールとインポートされた電子メール</string>
     <string name="intelligent_only">敏感な人のみ</string>
@@ -256,6 +261,7 @@
     <string name="my_info">私の情報</string>
     <string name="name">名</string>
     <string name="name_your_community">あなたのコミュニティに名前をつける</string>
+    <string msgid="542007171693138492" name="navigation_menu">"ナビゲーションメニュー"</string>
     <string name="near_me">私の近くに</string>
     <string name="never">絶対に</string>
     <string name="never_mind">気にしないで</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">いいえ、結構です</string>
     <string name="none">無し</string>
     <string name="normal">ノーマル</string>
+    <string msgid="6610465462668679431" name="not_selected">"未選択"</string>
     <string name="notifications">通知</string>
     <string name="number">数</string>
     <string name="off">オフ</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">コミュニティを検索する</string>
     <string name="search_for_group">グループを検索する</string>
     <string name="search_keywords">検索キーワード</string>
-    <string msgid="730395136688082741" name="search_menu_title">"検索"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"検索"</string>
     <string name="search_nkeywords">検索キーワード</string>
     <string name="see_full_message">メッセージ全体を見る</string>
     <string name="select_a_community">コミュニティを選択</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">サムネイルを選択：</string>
     <string name="select_your_age">あなたの年齢を選択</string>
     <string name="select_your_gender">性別を選んでください</string>
+    <string msgid="6043586758067023" name="selected">"選択済み"</string>
     <string name="send">送信</string>
     <string name="send_a_message">メッセージを送る</string>
     <string name="send_alert_to_community">コミュニティにアラートを送信する</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">推奨グループ</string>
     <string name="support">サポート</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"タブ"</string>
     <string name="tap_here">ここをタップ</string>
     <string name="tap_icon_to_get_directions_to_community">アイコンをタップしてコミュニティへのルートを表示する</string>
     <string name="tap_to_enter_message">タップしてメッセージを入力</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g>パーセント。"</string>
     <string name="text_to_speech">テキスト音声変換</string>
     <string name="the_tenant_has_already_ended_call">テナントは既にコールを終了しました</string>
     <string name="there_are_no_available_community_managers_consider">利用可能なコミュニティマネージャーはありません。代わりにテキストアラートを送信することを検討してください。</string>

@@ -2,14 +2,14 @@ package com.sca.in_telligent.ui.group.alert.delivery;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -20,6 +20,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class DeliveryInfoFragment extends BaseFragment implements DeliveryInfoMvpView {
 
@@ -69,7 +71,7 @@ public class DeliveryInfoFragment extends BaseFragment implements DeliveryInfoMv
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+                           @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_delivery_info, container, false);
     ActivityComponent component = getActivityComponent();
     if (component != null) {

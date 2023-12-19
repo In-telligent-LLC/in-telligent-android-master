@@ -1,6 +1,6 @@
 package com.sca.in_telligent.ui.base;
 
-import android.annotation.TargetApi;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,19 +9,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
+import butterknife.Unbinder;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
@@ -37,240 +33,223 @@ import com.sca.in_telligent.util.NetworkUtils;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.VideoDownloader;
 
+import java.security.Permission;
+
 import javax.inject.Inject;
 
-import butterknife.Unbinder;
+public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.Callback, MvpView {
+    @Inject
+    AudioHelper audioHelper;
+    @Inject
+    AudioManager audioManager;
+    @Inject
+    DataManager dataManager;
+    @Inject
+    FusedLocationProviderClient fusedLocationProviderClient;
+    @Inject
+    LocationUtil locationUtil;
+    private ActivityComponent mActivityComponent;
+    private Dialog mProgressDialog;
+    private Unbinder mUnBinder;
+    @Inject
+    Responder responder;
+    @Inject
+    VideoDownloader videoDownloader;
 
-
-public abstract class BaseActivity extends AppCompatActivity implements
-    BaseFragment.Callback, MvpView {
-
-  private Dialog mProgressDialog;
-
-  private ActivityComponent mActivityComponent;
-
-  @Inject
-  AudioManager audioManager;
-
-
-  @Inject
-  DataManager dataManager;
-
-  @Inject
-  Responder responder;
-
-  @Inject
-  FusedLocationProviderClient fusedLocationProviderClient;
-
-  @Inject
-  AudioHelper audioHelper;
-
-  public VideoDownloader getVideoDownloader() {
-    return videoDownloader;
-  }
-
-  @Inject
-  VideoDownloader videoDownloader;
-
-  public LocationUtil getLocationUtil() {
-    return locationUtil;
-  }
-
-  @Inject
-  LocationUtil locationUtil;
-  private Unbinder mUnBinder;
-
-
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-
-    super.onCreate(savedInstanceState);
-    mActivityComponent = DaggerActivityComponent.builder()
-        .activityModule(new ActivityModule(this))
-        .applicationComponent(((ScaApplication) getApplication()).getComponent())
-        .build();
-    if (!isNetworkConnected()) {
-      showNetworkDialog();
+    @Override
+    public void onFragmentAttached() {
     }
-  }
 
-  public ActivityComponent getActivityComponent() {
-    return mActivityComponent;
-  }
-
-  @TargetApi(Build.VERSION_CODES.M)
-  public boolean hasPermission(String permission) {
-    return checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
-  }
-
-  @Override
-  protected void onDestroy() {
-
-    super.onDestroy();
-  }
-
-  protected abstract void setUp();
-
-  public void setUnBinder(Unbinder unBinder) {
-    mUnBinder = unBinder;
-  }
-
-  @Override
-  public void onFragmentAttached() {
-
-  }
-
-  @Override
-  public void onFragmentDetached(String tag) {
-
-  }
-
-  @Override
-  public void showLoading() {
-    hideLoading();
-    mProgressDialog = CommonUtils.showLoadingDialog(this);
-  }
-
-  @Override
-  public void hideLoading() {
-    if (mProgressDialog != null && mProgressDialog.isShowing()) {
-      mProgressDialog.cancel();
+    @Override
+    public void onFragmentDetached(String str) {
     }
-  }
 
-  private void showSnackBar(String message) {
-    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
-        message, Snackbar.LENGTH_SHORT);
-    View sbView = snackbar.getView();
-    TextView textView = (TextView) sbView
-        .findViewById(android.R.id.text1);
-    textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
-    snackbar.show();
-  }
+    protected abstract void setUp();
 
-  @Override
-  public void onError(String message) {
-    if (message != null) {
-      showSnackBar(message);
-    } else {
-      showSnackBar(getString(R.string.some_error));
+    public VideoDownloader getVideoDownloader() {
+        return this.videoDownloader;
     }
-  }
 
-  @Override
-  public void onError(@StringRes int resId) {
-    onError(getString(resId));
-  }
-
-  @Override
-  public void showMessage(String message) {
-    if (message != null) {
-      Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    } else {
-      Toast.makeText(this, getString(R.string.some_error), Toast.LENGTH_LONG).show();
+    public LocationUtil getLocationUtil() {
+        return this.locationUtil;
     }
-  }
 
-  @Override
-  public void showPopup(String message) {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-    alertDialog.setTitle("UYARI");
-    alertDialog.setMessage(message);
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mActivityComponent = (ActivityComponent) DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build();
+        if (isNetworkConnected()) {
+            return;
+        }
+        showNetworkDialog();
+    }
 
-    alertDialog
-        .setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialogInterface, int i) {
+    public ActivityComponent getActivityComponent() {
+        return this.mActivityComponent;
+    }
 
-          }
+    public boolean hasPermission(String str) {
+        return checkSelfPermission(str) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onDestroy() {
+        Unbinder unbinder = this.mUnBinder;
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+        super.onDestroy();
+    }
+
+    public void setUnBinder(Unbinder unbinder) {
+        this.mUnBinder = unbinder;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    public void showLoading() {
+        hideLoading();
+        this.mProgressDialog = CommonUtils.showLoadingDialog(this);
+    }
+
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void hideLoading() {
+        Dialog dialog = this.mProgressDialog;
+        if (dialog == null || !dialog.isShowing()) {
+            return;
+        }
+        this.mProgressDialog.cancel();
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    @SuppressLint("ResourceType")
+    private void showSnackBar(String str) {
+        @SuppressLint("ResourceType") Snackbar make = Snackbar.make(findViewById(16908290), str, -1);
+        ((TextView) make.getView().findViewById(2131231390)).setTextColor(ContextCompat.getColor(this, 17170443));
+        make.show();
+    }
+
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void onError(String str) {
+        if (str != null) {
+            showSnackBar(str);
+        } else {
+            showSnackBar(getString(R.string.some_error));
+        }
+    }
+
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void onError(int i) {
+        onError(getString(i));
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessage(String str) {
+        if (str != null) {
+            Toast.makeText((Context) this, (CharSequence) str, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText((Context) this, (CharSequence) getString(R.string.some_error), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    @SuppressLint("ResourceType")
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showPopup(String str) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Alert");
+        builder.setMessage(str);
+        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.1
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
         });
-
-    alertDialog.show();
-  }
-
-  @Override
-  public void showMessage(@StringRes int resId) {
-    showMessage(getString(resId));
-  }
-
-  @Override
-  public void showMessageSnack(String message) {
-    showSnackBar(message);
-  }
-
-  @Override
-  public boolean isNetworkConnected() {
-    return NetworkUtils.isNetworkConnected(getApplicationContext());
-  }
-
-  @Override
-  public void startActivityWithDeeplink(Intent intent) {
-    final Uri deepLinkUri = getIntent().getParcelableExtra("deep_link_uri");
-    if (deepLinkUri != null) {
-      intent.putExtra("deep_link_uri", deepLinkUri);
+        builder.show();
     }
-    startActivity(intent);
-  }
 
-  public void hideKeyboard() {
-    View view = this.getCurrentFocus();
-    if (view != null) {
-      InputMethodManager imm = (InputMethodManager)
-          getSystemService(Context.INPUT_METHOD_SERVICE);
-      imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessage(int i) {
+        showMessage(getString(i));
     }
-  }
 
-  public AudioManager getAudioManager() {
-    int volume = audioManager.getStreamVolume(AudioManager.STREAM_ALARM);
-    Log.d("GcmIntentService", "volume was: " + volume);
-    if (volume == 0) {
-      volume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessageSnack(String str) {
+        showSnackBar(str);
     }
-    audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, volume, 0);
-    return audioManager;
-  }
 
-  public FusedLocationProviderClient getFusedLocationProviderClient() {
-    return fusedLocationProviderClient;
-  }
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public boolean isNetworkConnected() {
+        return NetworkUtils.isNetworkConnected(getApplicationContext());
+    }
 
-  public DataManager getDataManager() {
-    return dataManager;
-  }
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void startActivityWithDeeplink(Intent intent) {
+        Uri uri = (Uri) getIntent().getParcelableExtra("deep_link_uri");
+        if (uri != null) {
+            intent.putExtra("deep_link_uri", uri);
+        }
+        startActivity(intent);
+    }
 
-  public AudioHelper getAudioHelper() {
-    return audioHelper;
-  }
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void hideKeyboard() {
+        View currentFocus = getCurrentFocus();
+        if (currentFocus != null) {
+            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
+        }
+    }
 
-  public Responder getResponder() {
-    return responder;
-  }
+    public AudioManager getAudioManager() {
+        int streamVolume = this.audioManager.getStreamVolume(4);
+        Log.d("GcmIntentService", "volume was: " + streamVolume);
+        if (streamVolume == 0) {
+            streamVolume = this.audioManager.getStreamMaxVolume(3);
+        }
+        this.audioManager.setStreamVolume(3, streamVolume, 0);
+        return this.audioManager;
+    }
 
-  public void showNetworkDialog() {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-    alertDialog.setTitle("Alert");
-    alertDialog.setMessage(R.string.please_check_your_network_connection_try_again);
+    public FusedLocationProviderClient getFusedLocationProviderClient() {
+        return this.fusedLocationProviderClient;
+    }
 
-    alertDialog
-        .setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialogInterface, int i) {
+    public DataManager getDataManager() {
+        return this.dataManager;
+    }
 
-          }
+    public AudioHelper getAudioHelper() {
+        return this.audioHelper;
+    }
+
+    public Responder getResponder() {
+        return this.responder;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    @SuppressLint("ResourceType")
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showNetworkDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Alert");
+        builder.setMessage(R.string.please_check_your_network_connection_try_again);
+        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.2
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
         });
+        builder.show();
+    }
 
-    alertDialog.show();
-  }
+    protected void onPause() {
+        super.onPause();
+    }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onResume() {
+        super.onResume();
+    }
 
-  @Override
-  protected void onPause() {
-    super.onPause();
-  }
+    public abstract void phonePermissionResult(Permission permission);
 
-  @Override
-  protected void onResume() {
-    super.onResume();
-  }
+    // com.sca.in_telligent.ui.main.MainMvpView
+    public abstract void phonePermissionResult(boolean permission);
 }

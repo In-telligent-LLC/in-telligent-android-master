@@ -2,8 +2,7 @@ package com.sca.in_telligent.ui.group.member.edit;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +21,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class EditMemberFragment extends BaseFragment implements EditMemberMvpView {
 
@@ -77,7 +78,7 @@ public class EditMemberFragment extends BaseFragment implements EditMemberMvpVie
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+                           @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_edit_member, container, false);
     ActivityComponent component = getActivityComponent();
     if (component != null) {

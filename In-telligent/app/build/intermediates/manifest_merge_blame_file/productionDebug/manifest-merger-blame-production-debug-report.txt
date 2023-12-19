@@ -6,7 +6,9 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-9        android:targetSdkVersion="33" />
+8-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
 11-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:6:5-67
@@ -122,42 +124,42 @@
 56-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:57:9-33
 57
 58    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-58-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:23:5-77
-58-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:23:22-74
+58-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:23:5-77
+58-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:23:22-74
 59    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-59-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/33b681b1193bd5ce985cf2790c4cd262/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:5-79
-59-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/33b681b1193bd5ce985cf2790c4cd262/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:22-76
+59-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/17624f8d45176d4cac5aff2760765f3f/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:5-79
+59-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/17624f8d45176d4cac5aff2760765f3f/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:22-76
 60
 61    <queries>
-61-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:17:5-19:15
+61-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:17:5-19:15
 62        <package android:name="com.facebook.katana" />
-62-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:18:9-55
-62-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:18:18-52
+62-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:18:9-55
+62-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:18:18-52
 63        <!-- Needs to be explicitly declared on Android R+ -->
 64        <package android:name="com.google.android.apps.maps" />
-64-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
-64-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
+64-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
+64-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
 65    </queries>
 66
-67    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-67-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:5-110
-67-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
-68
-69    <uses-feature
-69-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
-70        android:glEsVersion="0x00020000"
-70-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
-71        android:required="true" />
-71-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
+67    <uses-feature
+67-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
+68        android:glEsVersion="0x00020000"
+68-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
+69        android:required="true" />
+69-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
+70
+71    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+71-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:5-110
+71-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
 72
 73    <application
-73-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-288:19
+73-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-284:19
 74        android:name="com.sca.in_telligent.ScaApplication"
 74-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:60:9-39
 75        android:allowBackup="true"
 75-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:61:9-35
 76        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-76-->[androidx.core:core:1.7.0] /Users/marianesantana/.gradle/caches/transforms-3/84197832ba3c33b0d7f8bd7954b91c77/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+76-->[androidx.core:core:1.5.0] /Users/marianesantana/.gradle/caches/transforms-3/9b6df9592e4491a01be545078da13db2/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
 77        android:debuggable="true"
 78        android:extractNativeLibs="false"
 79        android:icon="@mipmap/ic_launcher"
@@ -168,742 +170,870 @@
 81-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:64:9-69
 82        android:supportsRtl="true"
 82-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:65:9-35
-83        android:theme="@style/AppTheme" >
-83-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:66:9-40
-84        <activity
-84-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:69:9-89:20
-85            android:name="com.sca.in_telligent.ui.main.MainActivity"
-85-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:70:13-49
-86            android:exported="true"
-86-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:74:13-36
-87            android:launchMode="singleTop"
-87-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:71:13-43
-88            android:screenOrientation="portrait"
-88-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:72:13-49
-89            android:windowSoftInputMode="adjustPan" >
-89-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:73:13-52
-90            <intent-filter>
-90-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:76:13-86:29
-91                <action android:name="android.intent.action.VIEW" />
-91-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
-91-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
-92
-93                <category android:name="android.intent.category.DEFAULT" />
-93-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
-93-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
-94                <category android:name="android.intent.category.BROWSABLE" />
-94-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
-94-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
-95
-96                <data
-97                    android:host="app.in-telligent.com"
-97-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
-98                    android:pathPrefix="/subscribe/"
-98-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:84:21-53
-99                    android:scheme="https" />
-99-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
-100            </intent-filter>
-101        </activity>
-102
-103        <!-- Splash Screen -->
-104        <activity
-104-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:92:9-101:20
-105            android:name="com.sca.in_telligent.ui.splash.SplashActivity"
-105-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:93:13-53
-106            android:exported="true"
-106-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:96:13-36
-107            android:label="@string/app_name"
-107-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:94:13-45
-108            android:screenOrientation="portrait" >
-108-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:95:13-49
-109            <intent-filter>
-109-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:97:13-100:29
-110                <action android:name="android.intent.action.MAIN" />
-110-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:98:17-69
-110-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:98:25-66
-111
-112                <category android:name="android.intent.category.LAUNCHER" />
-112-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:99:17-77
-112-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:99:27-74
-113            </intent-filter>
-114        </activity>
-115        <activity
-115-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:103:9-108:61
-116            android:name="com.sca.in_telligent.ui.auth.login.LoginActivity"
-116-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:104:13-56
-117            android:label="@string/app_name"
-117-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:105:13-45
-118            android:launchMode="singleTask"
-118-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:106:13-44
-119            android:noHistory="true"
-119-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:107:13-37
-120            android:screenOrientation="portrait" />
-120-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:108:13-49
-121        <activity
-121-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:110:9-114:61
-122            android:name="com.sca.in_telligent.ui.auth.register.SignupPasswordActivity"
-122-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:111:13-68
-123            android:label="@string/app_name"
-123-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:112:13-45
-124            android:launchMode="singleTask"
-124-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:113:13-44
-125            android:screenOrientation="portrait" />
-125-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:114:13-49
-126        <activity
-126-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:116:9-121:61
-127            android:name="com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity"
-127-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:117:13-72
-128            android:label="@string/app_name"
-128-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:118:13-45
-129            android:launchMode="singleTask"
-129-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:119:13-44
-130            android:noHistory="true"
-130-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:120:13-37
-131            android:screenOrientation="portrait" />
-131-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:121:13-49
-132        <activity
-132-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:123:9-127:61
-133            android:name="com.sca.in_telligent.ui.auth.logout.LogoutActivity"
-133-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:124:13-58
-134            android:label="@string/app_name"
-134-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:125:13-45
-135            android:launchMode="singleTask"
-135-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:126:13-44
-136            android:screenOrientation="portrait" />
-136-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:127:13-49
-137        <activity
-137-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:129:9-133:61
-138            android:name="com.sca.in_telligent.ui.intro.IntroActivity"
-138-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:130:13-51
-139            android:label="@string/app_name"
-139-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:131:13-45
-140            android:launchMode="singleTask"
-140-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:132:13-44
-141            android:screenOrientation="portrait" />
-141-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:133:13-49
-142        <activity
-142-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:135:9-152:20
-143            android:name="com.sca.in_telligent.ui.auth.reset.ResetPasswordActivity"
-143-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:136:13-64
-144            android:exported="true"
-144-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:139:13-36
-145            android:label="@string/app_name"
-145-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:137:13-45
-146            android:launchMode="singleTop"
-146-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:138:13-43
-147            android:screenOrientation="portrait" >
-147-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:140:13-49
-148            <intent-filter android:autoVerify="true" >
-148-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:141:13-151:29
-148-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:141:28-53
-149                <action android:name="android.intent.action.VIEW" />
-149-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
-149-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
-150
-151                <category android:name="android.intent.category.DEFAULT" />
-151-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
-151-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
-152                <category android:name="android.intent.category.BROWSABLE" />
-152-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
-152-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
-153
-154                <data
-155                    android:host="app.in-telligent.com"
-155-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
-156                    android:pathPrefix="/subscribers/reset"
-156-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:84:21-53
-157                    android:scheme="https" />
-157-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
-158            </intent-filter>
-159        </activity>
-160        <activity
-160-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:154:9-157:75
-161            android:name="com.sca.in_telligent.ui.popup.LifeSafetyPopupActivity"
-161-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:155:13-61
-162            android:label="@string/app_name"
-162-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:156:13-45
-163            android:theme="@style/Theme.AppCompat.Translucent" />
-163-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:157:13-63
-164        <activity
-164-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:159:9-162:56
-165            android:name="com.sca.in_telligent.ui.popup.PersonalSafetyPopupActivity"
-165-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:160:13-65
-166            android:label="@string/app_name"
-166-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:161:13-45
-167            android:theme="@style/AppTheme" />
-167-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:162:13-44
-168        <activity
-168-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:164:9-167:56
-169            android:name="com.sca.in_telligent.ui.popup.IncomingCallActivity"
-169-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:165:13-58
-170            android:label="@string/app_name"
-170-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:166:13-45
-171            android:theme="@style/AppTheme" />
-171-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:167:13-44
-172
-173        <meta-data
-173-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:72
-174            android:name="com.crashlytics.ApiKey"
-174-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:171:13-50
-175            android:value="7ca8d63a6bb601f03f788e3057f838ae1baad344" />
-175-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-69
-176        <meta-data
-176-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:174:9-176:69
-177            android:name="com.google.android.gms.version"
-177-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:175:13-58
-178            android:value="@integer/google_play_services_version" />
-178-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:176:13-66
-179        <meta-data
-179-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:178:9-180:55
-180            android:name="com.facebook.sdk.ApplicationId"
-180-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:179:13-58
-181            android:value="@string/facebook_app_id" />
-181-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:180:13-52
-182        <meta-data
-182-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:181:9-183:55
-183            android:name="com.google.android.geo.API_KEY"
-183-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:182:13-58
-184            android:value="@string/google_maps_key" />
-184-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:183:13-52
-185        <meta-data
-185-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:185:9-187:36
-186            android:name="com.tamoco.APP_ID"
-186-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:186:13-45
-187            android:value="2473" />
-187-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:187:13-33
-188        <meta-data
-188-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:188:9-190:72
-189            android:name="com.tamoco.APP_SECRET"
-189-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:189:13-49
-190            android:value="f8f7033793882e399610e6c30c6830ba5ffdcbf0" />
-190-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:190:13-69
-191
-192        <activity
-192-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:192:9-197:45
-193            android:name="com.facebook.FacebookActivity"
-193-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:193:13-57
-194            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-194-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:194:13-96
-195            android:label="@string/app_name"
-195-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:195:13-45
-196            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-196-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:196:13-72
-197
-198        <!-- &lt;!&ndash;Mopub &ndash;&gt; -->
-199        <!-- <activity -->
-200        <!-- android:name="com.mopub.common.MoPubBrowser" -->
-201        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
-202        <!-- <activity -->
-203        <!-- android:name="com.mopub.mobileads.MraidVideoPlayerActivity" -->
-204        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
-205
-206        <activity
-206-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:208:9-210:77
-207            android:name="com.smaato.soma.ExpandedBannerActivity"
-207-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:209:13-66
-208            android:configChanges="keyboardHidden|orientation|screenSize" />
-208-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:210:13-74
-209        <activity
-209-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:212:9-214:77
-210            android:name="com.smaato.soma.interstitial.InterstitialActivity"
-210-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:213:13-77
-211            android:configChanges="keyboardHidden|orientation|screenSize" />
-211-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:214:13-74
-212
-213        <!-- <activity -->
-214        <!-- android:name="com.amazon.device.ads.AdActivity" -->
-215        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
-216
-217        <activity
-217-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:220:9-222:125
-218            android:name="com.aerserv.sdk.view.ASVastInterstitialActivity"
-218-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:221:13-75
-219            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-219-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:222:13-122
-220        <activity
-220-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:223:9-225:125
-221            android:name="com.aerserv.sdk.view.ASWebviewInterstitialActivity"
-221-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:224:13-78
-222            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-222-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:225:13-122
-223        <activity
-223-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:226:9-228:125
-224            android:name="com.aerserv.sdk.view.ASVpaidInterstitalActivity"
-224-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:227:13-75
-225            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-225-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:228:13-122
-226        <activity
-226-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:229:9-231:125
-227            android:name="com.aerserv.sdk.view.AerServFullScreenAdActivity"
-227-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:230:13-76
-228            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-228-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:231:13-122
-229        <!-- <activity -->
-230        <!-- android:name="com.yalantis.ucrop.UCropActivity" -->
-231        <!-- android:screenOrientation="portrait" -->
-232        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> -->
-233
-234        <receiver android:name="com.factual.android.LocationUpdateReceiver" />
-234-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:237:9-79
-234-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:237:19-76
-235
-236        <service
-236-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:239:9-242:72
-237            android:name="com.factual.android.ObservationGraphJobService"
-237-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:240:13-74
-238            android:label="Observation Graph Job Service"
-238-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:241:13-58
-239            android:permission="android.permission.BIND_JOB_SERVICE" />
-239-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:242:13-69
-240        <service
-240-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-249:19
-241            android:name="com.sca.in_telligent.service.MyFirebaseMessagingService"
-241-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:18-68
-242            android:exported="true" >
-242-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-36
-243            <intent-filter>
-243-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
-244                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-244-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
-244-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
-245            </intent-filter>
-246        </service>
-247        <service
-247-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:251:9-254:72
-248            android:name="com.sca.in_telligent.service.GeofenceTransitionsIntentService"
-248-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:13-69
-249            android:exported="true"
-249-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-36
-250            android:permission="android.permission.BIND_JOB_SERVICE" />
-250-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-69
-251
-252        <!-- <service -->
-253        <!-- android:name=".openapi.service.BeaconScannerService" -->
-254        <!-- android:enabled="true" /> -->
-255
+83        android:testOnly="true"
+84        android:theme="@style/AppTheme" >
+84-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:66:9-40
+85        <activity
+85-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:69:9-89:20
+86            android:name="com.sca.in_telligent.ui.main.MainActivity"
+86-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:70:13-49
+87            android:exported="true"
+87-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:74:13-36
+88            android:launchMode="singleTop"
+88-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:71:13-43
+89            android:screenOrientation="portrait"
+89-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:72:13-49
+90            android:windowSoftInputMode="adjustPan" >
+90-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:73:13-52
+91            <intent-filter>
+91-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:76:13-86:29
+92                <action android:name="android.intent.action.VIEW" />
+92-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
+92-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
+93
+94                <category android:name="android.intent.category.DEFAULT" />
+94-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
+94-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
+95                <category android:name="android.intent.category.BROWSABLE" />
+95-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
+95-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
+96
+97                <data
+98                    android:host="app.in-telligent.com"
+98-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
+99                    android:pathPrefix="/subscribe/"
+99-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:84:21-53
+100                    android:scheme="https" />
+100-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
+101            </intent-filter>
+102        </activity>
+103
+104        <!-- Splash Screen -->
+105        <activity
+105-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:92:9-101:20
+106            android:name="com.sca.in_telligent.ui.splash.SplashActivity"
+106-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:93:13-53
+107            android:exported="true"
+107-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:96:13-36
+108            android:label="@string/app_name"
+108-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:94:13-45
+109            android:screenOrientation="portrait" >
+109-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:95:13-49
+110            <intent-filter>
+110-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:97:13-100:29
+111                <action android:name="android.intent.action.MAIN" />
+111-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:98:17-69
+111-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:98:25-66
+112
+113                <category android:name="android.intent.category.LAUNCHER" />
+113-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:99:17-77
+113-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:99:27-74
+114            </intent-filter>
+115        </activity>
+116        <activity
+116-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:103:9-108:61
+117            android:name="com.sca.in_telligent.ui.auth.login.LoginActivity"
+117-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:104:13-56
+118            android:label="@string/app_name"
+118-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:105:13-45
+119            android:launchMode="singleTask"
+119-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:106:13-44
+120            android:noHistory="true"
+120-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:107:13-37
+121            android:screenOrientation="portrait" />
+121-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:108:13-49
+122        <activity
+122-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:110:9-114:61
+123            android:name="com.sca.in_telligent.ui.auth.register.SignupPasswordActivity"
+123-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:111:13-68
+124            android:label="@string/app_name"
+124-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:112:13-45
+125            android:launchMode="singleTask"
+125-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:113:13-44
+126            android:screenOrientation="portrait" />
+126-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:114:13-49
+127        <activity
+127-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:116:9-121:61
+128            android:name="com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity"
+128-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:117:13-72
+129            android:label="@string/app_name"
+129-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:118:13-45
+130            android:launchMode="singleTask"
+130-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:119:13-44
+131            android:noHistory="true"
+131-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:120:13-37
+132            android:screenOrientation="portrait" />
+132-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:121:13-49
+133        <activity
+133-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:123:9-127:61
+134            android:name="com.sca.in_telligent.ui.auth.logout.LogoutActivity"
+134-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:124:13-58
+135            android:label="@string/app_name"
+135-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:125:13-45
+136            android:launchMode="singleTask"
+136-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:126:13-44
+137            android:screenOrientation="portrait" />
+137-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:127:13-49
+138        <activity
+138-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:129:9-133:61
+139            android:name="com.sca.in_telligent.ui.intro.IntroActivity"
+139-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:130:13-51
+140            android:label="@string/app_name"
+140-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:131:13-45
+141            android:launchMode="singleTask"
+141-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:132:13-44
+142            android:screenOrientation="portrait" />
+142-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:133:13-49
+143        <activity
+143-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:135:9-152:20
+144            android:name="com.sca.in_telligent.ui.auth.reset.ResetPasswordActivity"
+144-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:136:13-64
+145            android:exported="true"
+145-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:139:13-36
+146            android:label="@string/app_name"
+146-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:137:13-45
+147            android:launchMode="singleTop"
+147-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:138:13-43
+148            android:screenOrientation="portrait" >
+148-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:140:13-49
+149            <intent-filter android:autoVerify="true" >
+149-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:141:13-151:29
+149-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:141:28-53
+150                <action android:name="android.intent.action.VIEW" />
+150-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
+150-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
+151
+152                <category android:name="android.intent.category.DEFAULT" />
+152-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
+152-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
+153                <category android:name="android.intent.category.BROWSABLE" />
+153-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
+153-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
+154
+155                <data
+156                    android:host="app.in-telligent.com"
+156-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
+157                    android:pathPrefix="/subscribers/reset"
+157-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:84:21-53
+158                    android:scheme="https" />
+158-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
+159            </intent-filter>
+160        </activity>
+161        <activity
+161-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:154:9-157:75
+162            android:name="com.sca.in_telligent.ui.popup.LifeSafetyPopupActivity"
+162-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:155:13-61
+163            android:label="@string/app_name"
+163-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:156:13-45
+164            android:theme="@style/Theme.AppCompat.Translucent" />
+164-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:157:13-63
+165        <activity
+165-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:159:9-162:56
+166            android:name="com.sca.in_telligent.ui.popup.PersonalSafetyPopupActivity"
+166-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:160:13-65
+167            android:label="@string/app_name"
+167-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:161:13-45
+168            android:theme="@style/AppTheme" />
+168-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:162:13-44
+169        <activity
+169-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:164:9-167:56
+170            android:name="com.sca.in_telligent.ui.popup.IncomingCallActivity"
+170-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:165:13-58
+171            android:label="@string/app_name"
+171-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:166:13-45
+172            android:theme="@style/AppTheme" />
+172-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:167:13-44
+173
+174        <meta-data
+174-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:72
+175            android:name="com.crashlytics.ApiKey"
+175-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:171:13-50
+176            android:value="7ca8d63a6bb601f03f788e3057f838ae1baad344" />
+176-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-69
+177        <meta-data
+177-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:174:9-176:69
+178            android:name="com.google.android.gms.version"
+178-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:175:13-58
+179            android:value="@integer/google_play_services_version" />
+179-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:176:13-66
+180        <meta-data
+180-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:178:9-180:55
+181            android:name="com.facebook.sdk.ApplicationId"
+181-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:179:13-58
+182            android:value="@string/facebook_app_id" />
+182-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:180:13-52
+183        <meta-data
+183-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:181:9-183:55
+184            android:name="com.google.android.geo.API_KEY"
+184-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:182:13-58
+185            android:value="@string/google_maps_key" />
+185-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:183:13-52
+186        <meta-data
+186-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:185:9-187:36
+187            android:name="com.tamoco.APP_ID"
+187-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:186:13-45
+188            android:value="2473" />
+188-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:187:13-33
+189        <meta-data
+189-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:188:9-190:72
+190            android:name="com.tamoco.APP_SECRET"
+190-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:189:13-49
+191            android:value="f8f7033793882e399610e6c30c6830ba5ffdcbf0" />
+191-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:190:13-69
+192
+193        <activity
+193-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:192:9-197:45
+194            android:name="com.facebook.FacebookActivity"
+194-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:193:13-57
+195            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+195-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:194:13-96
+196            android:label="@string/app_name"
+196-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:195:13-45
+197            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+197-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:196:13-72
+198
+199        <!-- &lt;!&ndash;Mopub &ndash;&gt; -->
+200        <!-- <activity -->
+201        <!-- android:name="com.mopub.common.MoPubBrowser" -->
+202        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
+203        <!-- <activity -->
+204        <!-- android:name="com.mopub.mobileads.MraidVideoPlayerActivity" -->
+205        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
+206
+207        <activity
+207-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:208:9-210:77
+208            android:name="com.smaato.soma.ExpandedBannerActivity"
+208-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:209:13-66
+209            android:configChanges="keyboardHidden|orientation|screenSize" />
+209-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:210:13-74
+210        <activity
+210-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:212:9-214:77
+211            android:name="com.smaato.soma.interstitial.InterstitialActivity"
+211-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:213:13-77
+212            android:configChanges="keyboardHidden|orientation|screenSize" />
+212-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:214:13-74
+213
+214        <!-- <activity -->
+215        <!-- android:name="com.amazon.device.ads.AdActivity" -->
+216        <!-- android:configChanges="keyboardHidden|orientation|screenSize" /> -->
+217
+218        <activity
+218-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:220:9-222:125
+219            android:name="com.aerserv.sdk.view.ASVastInterstitialActivity"
+219-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:221:13-75
+220            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+220-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:222:13-122
+221        <activity
+221-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:223:9-225:125
+222            android:name="com.aerserv.sdk.view.ASWebviewInterstitialActivity"
+222-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:224:13-78
+223            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+223-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:225:13-122
+224        <activity
+224-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:226:9-228:125
+225            android:name="com.aerserv.sdk.view.ASVpaidInterstitalActivity"
+225-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:227:13-75
+226            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+226-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:228:13-122
+227        <activity
+227-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:229:9-231:125
+228            android:name="com.aerserv.sdk.view.AerServFullScreenAdActivity"
+228-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:230:13-76
+229            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+229-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:231:13-122
+230        <!-- <activity -->
+231        <!-- android:name="com.yalantis.ucrop.UCropActivity" -->
+232        <!-- android:screenOrientation="portrait" -->
+233        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> -->
+234
+235        <receiver android:name="com.factual.android.LocationUpdateReceiver" />
+235-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:237:9-79
+235-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:237:19-76
+236
+237        <service
+237-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:239:9-242:72
+238            android:name="com.factual.android.ObservationGraphJobService"
+238-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:240:13-74
+239            android:label="Observation Graph Job Service"
+239-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:241:13-58
+240            android:permission="android.permission.BIND_JOB_SERVICE" />
+240-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:242:13-69
+241        <service
+241-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-249:19
+242            android:name="com.sca.in_telligent.service.MyFirebaseMessagingService"
+242-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:18-68
+243            android:exported="true" >
+243-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-36
+244            <intent-filter>
+244-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
+245                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+245-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
+245-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
+246            </intent-filter>
+247        </service>
+248        <service
+248-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:251:9-254:72
+249            android:name="com.sca.in_telligent.service.GeofenceTransitionsIntentService"
+249-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:13-69
+250            android:exported="true"
+250-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-36
+251            android:permission="android.permission.BIND_JOB_SERVICE" />
+251-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-69
+252
+253        <!-- <service -->
+254        <!-- android:name=".openapi.service.BeaconScannerService" -->
+255        <!-- android:enabled="true" /> -->
 256
-257        <!-- <service -->
-258        <!-- android:name=".openapi.service.OpenApiBeaconService" -->
-259        <!-- tools:node="replace"> -->
-260        <!-- <meta-data -->
-261        <!-- android:name="longScanForcingEnabled" -->
-262        <!-- android:value="true" /> -->
-263        <!-- </service> -->
-264
-265        <receiver
-265-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:269:9-272:39
-266            android:name="com.sca.in_telligent.receiver.GeofenceBroadcastReceiver"
-266-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:13-63
-267            android:enabled="true"
-267-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-35
-268            android:exported="true" />
-268-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-36
-269
-270        <service
-270-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:275:9-277:39
-271            android:name="com.sca.in_telligent.service.GeofencesUpdateService"
-271-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:13-59
-272            android:exported="true" />
-272-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-36
-273
-274        <meta-data
-274-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:279:9-281:56
-275            android:name="com.google.firebase.messaging.default_notification_icon"
-275-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:280:13-83
-276            android:resource="@drawable/ic_launcher" />
-276-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:13-53
-277        <!--
-278             Set color used with incoming notification messages. This is used when no color is set for the incoming
-279             notification message. See README(https://goo.gl/6BKBk7) for more.
-280        -->
-281        <meta-data
-281-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:284:9-286:53
-282            android:name="com.google.firebase.messaging.default_notification_color"
-282-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:285:13-84
-283            android:resource="@color/colorAccent" />
-283-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:286:13-50
-284
-285        <provider
-285-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/d4c6f9183dba5c6c52412e57d49deddc/transformed/jetified-picasso-2.8/AndroidManifest.xml:8:9-11:40
-286            android:name="com.squareup.picasso.PicassoProvider"
-286-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/d4c6f9183dba5c6c52412e57d49deddc/transformed/jetified-picasso-2.8/AndroidManifest.xml:9:13-64
-287            android:authorities="com.sca.in_telligent.com.squareup.picasso"
-287-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/d4c6f9183dba5c6c52412e57d49deddc/transformed/jetified-picasso-2.8/AndroidManifest.xml:10:13-72
-288            android:exported="false" />
-288-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/d4c6f9183dba5c6c52412e57d49deddc/transformed/jetified-picasso-2.8/AndroidManifest.xml:11:13-37
-289
-290        <receiver
-290-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:29:9-40:20
-291            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-291-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:30:13-78
-292            android:exported="true"
-292-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:31:13-36
-293            android:permission="com.google.android.c2dm.permission.SEND" >
-293-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:32:13-73
-294            <intent-filter>
-294-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:33:13-35:29
-295                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-295-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:34:17-81
-295-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:34:25-78
-296            </intent-filter>
-297
-298            <meta-data
-298-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:37:13-39:40
-299                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
-299-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:38:17-92
-300                android:value="true" />
-300-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:39:17-37
-301        </receiver>
-302        <!--
-303             FirebaseMessagingService performs security checks at runtime,
-304             but set to not exported to explicitly avoid allowing another app to call it.
-305        -->
-306        <service
-306-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:46:9-53:19
-307            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-307-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:47:13-82
-308            android:directBootAware="true"
-308-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:48:13-43
-309            android:exported="false" >
-309-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:49:13-37
-310            <intent-filter android:priority="-500" >
-310-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
-311                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-311-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
-311-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
-312            </intent-filter>
-313        </service>
-314        <service
-314-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:54:9-63:19
-315            android:name="com.google.firebase.components.ComponentDiscoveryService"
-315-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:55:13-84
-316            android:directBootAware="true"
-316-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
-317            android:exported="false" >
-317-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:56:13-37
+257
+258        <!-- <service -->
+259        <!-- android:name=".openapi.service.OpenApiBeaconService" -->
+260        <!-- tools:node="replace"> -->
+261        <!-- <meta-data -->
+262        <!-- android:name="longScanForcingEnabled" -->
+263        <!-- android:value="true" /> -->
+264        <!-- </service> -->
+265
+266        <receiver
+266-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:269:9-272:39
+267            android:name="com.sca.in_telligent.receiver.GeofenceBroadcastReceiver"
+267-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:13-63
+268            android:enabled="true"
+268-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-35
+269            android:exported="true" />
+269-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-36
+270
+271        <meta-data
+271-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:275:9-277:56
+272            android:name="com.google.firebase.messaging.default_notification_icon"
+272-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:13-83
+273            android:resource="@drawable/ic_launcher" />
+273-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-53
+274        <!--
+275             Set color used with incoming notification messages. This is used when no color is set for the incoming
+276             notification message. See README(https://goo.gl/6BKBk7) for more.
+277        -->
+278        <meta-data
+278-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:280:9-282:53
+279            android:name="com.google.firebase.messaging.default_notification_color"
+279-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:13-84
+280            android:resource="@color/colorAccent" />
+280-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:282:13-50
+281
+282        <provider
+282-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:8:9-11:40
+283            android:name="com.squareup.picasso.PicassoProvider"
+283-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:9:13-64
+284            android:authorities="com.sca.in_telligent.com.squareup.picasso"
+284-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:10:13-72
+285            android:exported="false" />
+285-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:11:13-37
+286
+287        <receiver
+287-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:29:9-40:20
+288            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+288-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:30:13-78
+289            android:exported="true"
+289-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:31:13-36
+290            android:permission="com.google.android.c2dm.permission.SEND" >
+290-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:32:13-73
+291            <intent-filter>
+291-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:33:13-35:29
+292                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+292-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:34:17-81
+292-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:34:25-78
+293            </intent-filter>
+294
+295            <meta-data
+295-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:37:13-39:40
+296                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+296-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:38:17-92
+297                android:value="true" />
+297-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:39:17-37
+298        </receiver>
+299        <!--
+300             FirebaseMessagingService performs security checks at runtime,
+301             but set to not exported to explicitly avoid allowing another app to call it.
+302        -->
+303        <service
+303-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:46:9-53:19
+304            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+304-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:47:13-82
+305            android:directBootAware="true"
+305-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:48:13-43
+306            android:exported="false" >
+306-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:49:13-37
+307            <intent-filter android:priority="-500" >
+307-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
+308                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+308-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
+308-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
+309            </intent-filter>
+310        </service>
+311        <service
+311-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:54:9-63:19
+312            android:name="com.google.firebase.components.ComponentDiscoveryService"
+312-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:55:13-84
+313            android:directBootAware="true"
+313-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
+314            android:exported="false" >
+314-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:56:13-37
+315            <meta-data
+315-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:57:13-59:85
+316                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+316-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:58:17-122
+317                android:value="com.google.firebase.components.ComponentRegistrar" />
+317-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:59:17-82
 318            <meta-data
-318-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:57:13-59:85
-319                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
-319-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:58:17-122
+318-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:60:13-62:85
+319                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+319-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:61:17-119
 320                android:value="com.google.firebase.components.ComponentRegistrar" />
-320-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:59:17-82
+320-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:62:17-82
 321            <meta-data
-321-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:60:13-62:85
-322                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-322-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:61:17-119
+321-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/17624f8d45176d4cac5aff2760765f3f/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:31:13-33:85
+322                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+322-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/17624f8d45176d4cac5aff2760765f3f/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:32:17-139
 323                android:value="com.google.firebase.components.ComponentRegistrar" />
-323-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/474e0cbe0348b27ddca8b946c3d90166/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:62:17-82
+323-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/17624f8d45176d4cac5aff2760765f3f/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:33:17-82
 324            <meta-data
-324-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/33b681b1193bd5ce985cf2790c4cd262/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:31:13-33:85
-325                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-325-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/33b681b1193bd5ce985cf2790c4cd262/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:32:17-139
+324-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+325                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+325-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
 326                android:value="com.google.firebase.components.ComponentRegistrar" />
-326-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/33b681b1193bd5ce985cf2790c4cd262/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:33:17-82
+326-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
 327            <meta-data
-327-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
-328                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
-328-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+327-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+328                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+328-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
 329                android:value="com.google.firebase.components.ComponentRegistrar" />
-329-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+329-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/7dadb26f4c133f0d955fc1e0feef5415/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
 330            <meta-data
-330-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
-331                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-331-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+330-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/b243ef9bdc67c20a802412b48a621d69/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:12:13-14:85
+331                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+331-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/b243ef9bdc67c20a802412b48a621d69/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:13:17-116
 332                android:value="com.google.firebase.components.ComponentRegistrar" />
-332-->[com.google.firebase:firebase-installations:17.2.0] /Users/marianesantana/.gradle/caches/transforms-3/d6866012fa810f55b6d7b9df610583dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+332-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/b243ef9bdc67c20a802412b48a621d69/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:14:17-82
 333            <meta-data
-333-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/aaa99cb748d7c3384b2a505d895be968/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:12:13-14:85
-334                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-334-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/aaa99cb748d7c3384b2a505d895be968/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:13:17-116
+333-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:35:13-37:85
+334                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+334-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:36:17-109
 335                android:value="com.google.firebase.components.ComponentRegistrar" />
-335-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/aaa99cb748d7c3384b2a505d895be968/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:14:17-82
+335-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:37:17-82
 336            <meta-data
-336-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:35:13-37:85
-337                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-337-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:36:17-109
+336-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/4c66c1bef238b25c9b9870b89857ab76/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+337                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+337-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/4c66c1bef238b25c9b9870b89857ab76/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
 338                android:value="com.google.firebase.components.ComponentRegistrar" />
-338-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:37:17-82
-339            <meta-data
-339-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/03bc7eb1f9a070067ff4b985d80e2947/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
-340                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-340-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/03bc7eb1f9a070067ff4b985d80e2947/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
-341                android:value="com.google.firebase.components.ComponentRegistrar" />
-341-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/03bc7eb1f9a070067ff4b985d80e2947/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
-342        </service>
-343
-344        <provider
-344-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:23:9-28:39
-345            android:name="com.google.firebase.provider.FirebaseInitProvider"
-345-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:24:13-77
-346            android:authorities="com.sca.in_telligent.firebaseinitprovider"
-346-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:25:13-72
-347            android:directBootAware="true"
-347-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:26:13-43
-348            android:exported="false"
-348-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:27:13-37
-349            android:initOrder="100" />
-349-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/3ff66f5dde6a6a7fac3e42126c7b7cb3/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:28:13-36
-350
-351        <activity android:name="com.facebook.CustomTabMainActivity" />
-351-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:26:9-71
-351-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:26:19-68
-352        <activity
-352-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:27:9-41:20
-353            android:name="com.facebook.CustomTabActivity"
-353-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:28:13-58
-354            android:exported="true" >
-354-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:29:13-36
-355            <intent-filter>
-355-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/b57d5dd41547dcafe2c5a6748650cc3a/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:31:13-40:29
-356                <action android:name="android.intent.action.VIEW" />
-356-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
-356-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
+338-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/marianesantana/.gradle/caches/transforms-3/4c66c1bef238b25c9b9870b89857ab76/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+339        </service>
+340
+341        <provider
+341-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:23:9-28:39
+342            android:name="com.google.firebase.provider.FirebaseInitProvider"
+342-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:24:13-77
+343            android:authorities="com.sca.in_telligent.firebaseinitprovider"
+343-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:25:13-72
+344            android:directBootAware="true"
+344-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:26:13-43
+345            android:exported="false"
+345-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:27:13-37
+346            android:initOrder="100" />
+346-->[com.google.firebase:firebase-common:20.4.2] /Users/marianesantana/.gradle/caches/transforms-3/1aa87567ea3d8971223ba1a5adb5859a/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:28:13-36
+347
+348        <activity android:name="com.facebook.CustomTabMainActivity" />
+348-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:26:9-71
+348-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:26:19-68
+349        <activity
+349-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:27:9-41:20
+350            android:name="com.facebook.CustomTabActivity"
+350-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:28:13-58
+351            android:exported="true" >
+351-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:29:13-36
+352            <intent-filter>
+352-->[com.facebook.android:facebook-common:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/3574bdfeca6b7fdd00f8d6f61d0a480c/transformed/jetified-facebook-common-16.2.0/AndroidManifest.xml:31:13-40:29
+353                <action android:name="android.intent.action.VIEW" />
+353-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:17-69
+353-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:77:25-66
+354
+355                <category android:name="android.intent.category.DEFAULT" />
+355-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
+355-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
+356                <category android:name="android.intent.category.BROWSABLE" />
+356-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
+356-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
 357
-358                <category android:name="android.intent.category.DEFAULT" />
-358-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:17-76
-358-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:79:27-73
-359                <category android:name="android.intent.category.BROWSABLE" />
-359-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:17-78
-359-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:80:27-75
-360
-361                <data
-362                    android:host="cct.com.sca.in_telligent"
-362-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
-363                    android:scheme="fbconnect" />
-363-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
-364            </intent-filter>
-365        </activity>
-366        <!--
-367             Receives GooglePlay execution requests and forwards them to the
-368             appropriate internal service.
-369        -->
-370        <service
-370-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:32:9-39:19
-371            android:name="com.firebase.jobdispatcher.GooglePlayReceiver"
-371-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:33:13-73
-372            android:exported="true"
-372-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:34:13-36
-373            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
-373-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:35:13-93
-374            <intent-filter>
-374-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:36:13-38:29
-375                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
-375-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:37:17-87
-375-->[com.firebase:firebase-jobdispatcher:0.8.5] /Users/marianesantana/.gradle/caches/transforms-3/f5846a5a6b92da2769a2bcef96df9c18/transformed/jetified-firebase-jobdispatcher-0.8.5/AndroidManifest.xml:37:25-84
-376            </intent-filter>
-377        </service>
-378
-379        <receiver
-379-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:29:9-33:20
-380            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-380-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:30:13-85
-381            android:enabled="true"
-381-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:31:13-35
-382            android:exported="false" >
-382-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:32:13-37
-383        </receiver>
-384
-385        <service
-385-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:35:9-38:40
-386            android:name="com.google.android.gms.measurement.AppMeasurementService"
-386-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:36:13-84
-387            android:enabled="true"
-387-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:37:13-35
-388            android:exported="false" />
-388-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:38:13-37
-389        <service
-389-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:39:9-43:72
-390            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-390-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:40:13-87
-391            android:enabled="true"
-391-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:41:13-35
-392            android:exported="false"
-392-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:42:13-37
-393            android:permission="android.permission.BIND_JOB_SERVICE" />
-393-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/32d9e05bebd8d932dc9bdf0aa5ce2083/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:43:13-69
-394        <!--
-395         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
-396         with the application context. This config is merged in with the host app's manifest,
-397         but there can only be one provider with the same authority activated at any given
-398         point; so if the end user has two or more different apps that use Facebook SDK, only the
-399         first one will be able to use the provider. To work around this problem, we use the
-400         following placeholder in the authority to identify each host application as if it was
-401         a completely different provider.
-402        -->
-403        <provider
-403-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:29:9-32:40
-404            android:name="com.facebook.internal.FacebookInitProvider"
-404-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:30:13-70
-405            android:authorities="com.sca.in_telligent.FacebookInitProvider"
-405-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:31:13-72
-406            android:exported="false" />
-406-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:32:13-37
-407
+358                <data
+359                    android:host="cct.com.sca.in_telligent"
+359-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:83:21-47
+360                    android:scheme="fbconnect" />
+360-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:85:21-43
+361            </intent-filter>
+362        </activity>
+363
+364        <provider
+364-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:28:9-34:35
+365            android:name="androidx.work.impl.WorkManagerInitializer"
+365-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:29:13-69
+366            android:authorities="com.sca.in_telligent.workmanager-init"
+366-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:30:13-68
+367            android:directBootAware="false"
+367-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:31:13-44
+368            android:exported="false"
+368-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:32:13-37
+369            android:multiprocess="true" />
+369-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:33:13-40
+370
+371        <service
+371-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:36:9-41:35
+372            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+372-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:37:13-88
+373            android:directBootAware="false"
+373-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:38:13-44
+374            android:enabled="@bool/enable_system_alarm_service_default"
+374-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:39:13-72
+375            android:exported="false" />
+375-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:40:13-37
+376        <service
+376-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:42:9-48:35
+377            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+377-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:43:13-84
+378            android:directBootAware="false"
+378-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:44:13-44
+379            android:enabled="@bool/enable_system_job_service_default"
+379-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:45:13-70
+380            android:exported="true"
+380-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:46:13-36
+381            android:permission="android.permission.BIND_JOB_SERVICE" />
+381-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:47:13-69
+382
+383        <receiver
+383-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:50:9-55:35
+384            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+384-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:51:13-88
+385            android:directBootAware="false"
+385-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:52:13-44
+386            android:enabled="true"
+386-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:53:13-35
+387            android:exported="false" />
+387-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:54:13-37
+388        <receiver
+388-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:56:9-66:20
+389            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+389-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:57:13-106
+390            android:directBootAware="false"
+390-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:58:13-44
+391            android:enabled="false"
+391-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:59:13-36
+392            android:exported="false" >
+392-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:60:13-37
+393            <intent-filter>
+393-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:62:13-65:29
+394                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+394-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:63:17-87
+394-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:63:25-84
+395                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+395-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:64:17-90
+395-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:64:25-87
+396            </intent-filter>
+397        </receiver>
+398        <receiver
+398-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:67:9-77:20
+399            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+399-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:68:13-104
+400            android:directBootAware="false"
+400-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:69:13-44
+401            android:enabled="false"
+401-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:70:13-36
+402            android:exported="false" >
+402-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:71:13-37
+403            <intent-filter>
+403-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:73:13-76:29
+404                <action android:name="android.intent.action.BATTERY_OKAY" />
+404-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:74:17-77
+404-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:74:25-74
+405                <action android:name="android.intent.action.BATTERY_LOW" />
+405-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:75:17-76
+405-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:75:25-73
+406            </intent-filter>
+407        </receiver>
 408        <receiver
-408-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:34:9-40:20
-409            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
-409-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:35:13-86
-410            android:exported="false" >
-410-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:36:13-37
-411            <intent-filter>
-411-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:37:13-39:29
-412                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
-412-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:38:17-95
-412-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:38:25-92
-413            </intent-filter>
-414        </receiver>
-415        <receiver
-415-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:41:9-47:20
-416            android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver"
-416-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:42:13-118
-417            android:exported="false" >
-417-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:43:13-37
-418            <intent-filter>
-418-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:44:13-46:29
-419                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED" />
-419-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:45:17-103
-419-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/9aaac45df60ee36270a467219eab6e70/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:45:25-100
-420            </intent-filter>
-421        </receiver>
-422
-423        <activity
-423-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
-424            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-424-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
-425            android:excludeFromRecents="true"
-425-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
-426            android:exported="false"
-426-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
-427            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-427-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
-428        <!--
-429            Service handling Google Sign-In user revocation. For apps that do not integrate with
-430            Google Sign-In, this service will never be started.
-431        -->
-432        <service
-432-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
-433            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-433-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
-434            android:exported="true"
-434-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
-435            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-435-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
-436            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
-436-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/33474f0bbce1db28ce20a36185b600f7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
-437        <uses-library
-437-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
-438            android:name="org.apache.http.legacy"
-438-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
-439            android:required="false" />
-439-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/142fda7c640b227e68fd8ce8a44e372b/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
-440
-441        <activity
-441-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d18a4416e46a3ffa21c2ebbac8bd3957/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-442            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-442-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d18a4416e46a3ffa21c2ebbac8bd3957/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-443            android:exported="false"
-443-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d18a4416e46a3ffa21c2ebbac8bd3957/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-444            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-444-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d18a4416e46a3ffa21c2ebbac8bd3957/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-445
-446        <provider
-446-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:24:9-32:20
-447            android:name="androidx.startup.InitializationProvider"
-447-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:25:13-67
-448            android:authorities="com.sca.in_telligent.androidx-startup"
-448-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:26:13-68
-449            android:exported="false" >
-449-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:27:13-37
-450            <meta-data
-450-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
-451                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-451-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
-452                android:value="androidx.startup" />
-452-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/marianesantana/.gradle/caches/transforms-3/49df4db462cf24ed67782e22caafa357/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
-453            <meta-data
-453-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-454                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-454-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-455                android:value="androidx.startup" />
-455-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-456        </provider>
-457        <provider
-457-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/88726225169e3dc9775b3b50a59d381f/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:19:9-23:38
-458            android:name="com.crashlytics.android.CrashlyticsInitProvider"
-458-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/88726225169e3dc9775b3b50a59d381f/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:20:13-75
-459            android:authorities="com.sca.in_telligent.crashlyticsinitprovider"
-459-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/88726225169e3dc9775b3b50a59d381f/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:21:13-75
-460            android:exported="false"
-460-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/88726225169e3dc9775b3b50a59d381f/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:22:13-37
-461            android:initOrder="90" />
-461-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/88726225169e3dc9775b3b50a59d381f/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:23:13-35
-462
+408-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:78:9-88:20
+409            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+409-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:79:13-104
+410            android:directBootAware="false"
+410-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:80:13-44
+411            android:enabled="false"
+411-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:81:13-36
+412            android:exported="false" >
+412-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:82:13-37
+413            <intent-filter>
+413-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:84:13-87:29
+414                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+414-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:85:17-83
+414-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:85:25-80
+415                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+415-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:86:17-82
+415-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:86:25-79
+416            </intent-filter>
+417        </receiver>
+418        <receiver
+418-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:89:9-98:20
+419            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+419-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:90:13-103
+420            android:directBootAware="false"
+420-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:91:13-44
+421            android:enabled="false"
+421-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:92:13-36
+422            android:exported="false" >
+422-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:93:13-37
+423            <intent-filter>
+423-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:95:13-97:29
+424                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+424-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:96:17-79
+424-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:96:25-76
+425            </intent-filter>
+426        </receiver>
+427        <receiver
+427-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:99:9-110:20
+428            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+428-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:100:13-88
+429            android:directBootAware="false"
+429-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:101:13-44
+430            android:enabled="false"
+430-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:102:13-36
+431            android:exported="false" >
+431-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:103:13-37
+432            <intent-filter>
+432-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:105:13-109:29
+433                <action android:name="android.intent.action.BOOT_COMPLETED" />
+433-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:106:17-79
+433-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:106:25-76
+434                <action android:name="android.intent.action.TIME_SET" />
+434-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:107:17-73
+434-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:107:25-70
+435                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+435-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:108:17-81
+435-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:108:25-78
+436            </intent-filter>
+437        </receiver>
+438        <receiver
+438-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:111:9-120:20
+439            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+439-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:112:13-99
+440            android:directBootAware="false"
+440-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:113:13-44
+441            android:enabled="@bool/enable_system_alarm_service_default"
+441-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:114:13-72
+442            android:exported="false" >
+442-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:115:13-37
+443            <intent-filter>
+443-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:117:13-119:29
+444                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+444-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:118:17-98
+444-->[androidx.work:work-runtime:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/4febd8edd6a6536b51bd4dffb6bdaa41/transformed/work-runtime-2.0.0/AndroidManifest.xml:118:25-95
+445            </intent-filter>
+446        </receiver>
+447
+448        <provider
+448-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/bb37714f6662357223cd3bde562ca941/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:19:9-23:38
+449            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+449-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/bb37714f6662357223cd3bde562ca941/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:20:13-75
+450            android:authorities="com.sca.in_telligent.crashlyticsinitprovider"
+450-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/bb37714f6662357223cd3bde562ca941/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:21:13-75
+451            android:exported="false"
+451-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/bb37714f6662357223cd3bde562ca941/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:22:13-37
+452            android:initOrder="90" />
+452-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/marianesantana/.gradle/caches/transforms-3/bb37714f6662357223cd3bde562ca941/transformed/jetified-crashlytics-2.10.1/AndroidManifest.xml:23:13-35
+453
+454        <activity
+454-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+455            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+455-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+456            android:excludeFromRecents="true"
+456-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+457            android:exported="false"
+457-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+458            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+458-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+459        <!--
+460            Service handling Google Sign-In user revocation. For apps that do not integrate with
+461            Google Sign-In, this service will never be started.
+462        -->
 463        <service
-463-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
-464            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-464-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
-465            android:exported="false" >
-465-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
-466            <meta-data
-466-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
-467                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-467-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
-468                android:value="cct" />
-468-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/bea4b775798972b54364b21412ec52cc/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
-469        </service>
-470        <service
-470-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
-471            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-471-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
-472            android:exported="false"
-472-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
-473            android:permission="android.permission.BIND_JOB_SERVICE" >
-473-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
-474        </service>
-475
-476        <receiver
-476-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
-477            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-477-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
-478            android:exported="false" />
-478-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/a7e5105568dc48d65185c23282c8b855/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
-479        <receiver
-479-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-480            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-480-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-481            android:directBootAware="false"
-481-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-482            android:enabled="true"
-482-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-483            android:exported="true"
-483-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-484            android:permission="android.permission.DUMP" >
-484-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-485            <intent-filter>
-485-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-486                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-486-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-486-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-487            </intent-filter>
-488            <intent-filter>
-488-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-489                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-489-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-489-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-490            </intent-filter>
-491            <intent-filter>
-491-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-492                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-492-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-492-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-493            </intent-filter>
-494            <intent-filter>
-494-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-495                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-495-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-495-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/marianesantana/.gradle/caches/transforms-3/bed42456f4080a61a26a6da6bb649f2c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-496            </intent-filter>
-497        </receiver>
-498    </application>
-499
-500</manifest>
+463-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+464            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+464-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+465            android:exported="true"
+465-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+466            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+466-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+467            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
+467-->[com.google.android.gms:play-services-auth:20.7.0] /Users/marianesantana/.gradle/caches/transforms-3/9f7db083180a2384b2f79d347fa44492/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+468        <uses-library
+468-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
+469            android:name="org.apache.http.legacy"
+469-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
+470            android:required="false" />
+470-->[com.google.android.gms:play-services-maps:18.2.0] /Users/marianesantana/.gradle/caches/transforms-3/f102f39632f494c0b6317194215d84d8/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
+471
+472        <receiver
+472-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:29:9-33:20
+473            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+473-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:30:13-85
+474            android:enabled="true"
+474-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:31:13-35
+475            android:exported="false" >
+475-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:32:13-37
+476        </receiver>
+477
+478        <service
+478-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:35:9-38:40
+479            android:name="com.google.android.gms.measurement.AppMeasurementService"
+479-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:36:13-84
+480            android:enabled="true"
+480-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:37:13-35
+481            android:exported="false" />
+481-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:38:13-37
+482        <service
+482-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:39:9-43:72
+483            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+483-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:40:13-87
+484            android:enabled="true"
+484-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:41:13-35
+485            android:exported="false"
+485-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:42:13-37
+486            android:permission="android.permission.BIND_JOB_SERVICE" />
+486-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:43:13-69
+487        <!--
+488         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+489         with the application context. This config is merged in with the host app's manifest,
+490         but there can only be one provider with the same authority activated at any given
+491         point; so if the end user has two or more different apps that use Facebook SDK, only the
+492         first one will be able to use the provider. To work around this problem, we use the
+493         following placeholder in the authority to identify each host application as if it was
+494         a completely different provider.
+495        -->
+496        <provider
+496-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:29:9-32:40
+497            android:name="com.facebook.internal.FacebookInitProvider"
+497-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:30:13-70
+498            android:authorities="com.sca.in_telligent.FacebookInitProvider"
+498-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:31:13-72
+499            android:exported="false" />
+499-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:32:13-37
+500
+501        <receiver
+501-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:34:9-40:20
+502            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+502-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:35:13-86
+503            android:exported="false" >
+503-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:36:13-37
+504            <intent-filter>
+504-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:37:13-39:29
+505                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+505-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:38:17-95
+505-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:38:25-92
+506            </intent-filter>
+507        </receiver>
+508        <receiver
+508-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:41:9-47:20
+509            android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver"
+509-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:42:13-118
+510            android:exported="false" >
+510-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:43:13-37
+511            <intent-filter>
+511-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:44:13-46:29
+512                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED" />
+512-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:45:17-103
+512-->[com.facebook.android:facebook-core:16.2.0] /Users/marianesantana/.gradle/caches/transforms-3/a4b018a6988492231b714df3c745dd6e/transformed/jetified-facebook-core-16.2.0/AndroidManifest.xml:45:25-100
+513            </intent-filter>
+514        </receiver>
+515
+516        <service
+516-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+517            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+517-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+518            android:exported="false" >
+518-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+519            <meta-data
+519-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+520                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+520-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+521                android:value="cct" />
+521-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/9ede54a87dafc40cad80ec9e655d6667/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+522        </service>
+523        <service
+523-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+524            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+524-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+525            android:exported="false"
+525-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+526            android:permission="android.permission.BIND_JOB_SERVICE" >
+526-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+527        </service>
+528
+529        <receiver
+529-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+530            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+530-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+531            android:exported="false" />
+531-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/marianesantana/.gradle/caches/transforms-3/f6d9fc48bbc16696aee7b148684ccf5d/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+532
+533        <activity
+533-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d157f662c8b5860119366ae872550f42/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+534            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+534-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d157f662c8b5860119366ae872550f42/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+535            android:exported="false"
+535-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d157f662c8b5860119366ae872550f42/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+536            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+536-->[com.google.android.gms:play-services-base:18.1.0] /Users/marianesantana/.gradle/caches/transforms-3/d157f662c8b5860119366ae872550f42/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+537
+538        <provider
+538-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:26:9-34:20
+539            android:name="androidx.startup.InitializationProvider"
+539-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:27:13-67
+540            android:authorities="com.sca.in_telligent.androidx-startup"
+540-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:28:13-68
+541            android:exported="false" >
+541-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:29:13-37
+542            <meta-data
+542-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:31:13-33:52
+543                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+543-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:32:17-85
+544                android:value="androidx.startup" />
+544-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:33:17-49
+545        </provider>
+546
+547        <receiver
+547-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:36:9-45:20
+548            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+548-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:37:13-76
+549            android:directBootAware="false"
+549-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:38:13-44
+550            android:enabled="true"
+550-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:39:13-35
+551            android:exported="true"
+551-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:40:13-36
+552            android:permission="android.permission.DUMP" >
+552-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:41:13-57
+553            <intent-filter>
+553-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:42:13-44:29
+554                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+554-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:43:17-91
+554-->[androidx.profileinstaller:profileinstaller:1.0.0] /Users/marianesantana/.gradle/caches/transforms-3/f6107dcdd346d2cc1c7ca83cce2f0131/transformed/jetified-profileinstaller-1.0.0/AndroidManifest.xml:43:25-88
+555            </intent-filter>
+556        </receiver>
+557
+558        <provider
+558-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/44910760cf255ecc89b3e76f60967a44/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+559            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+559-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/44910760cf255ecc89b3e76f60967a44/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+560            android:authorities="com.sca.in_telligent.lifecycle-process"
+560-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/44910760cf255ecc89b3e76f60967a44/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+561            android:exported="false"
+561-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/44910760cf255ecc89b3e76f60967a44/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+562            android:multiprocess="true" />
+562-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/marianesantana/.gradle/caches/transforms-3/44910760cf255ecc89b3e76f60967a44/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+563    </application>
+564
+565</manifest>

@@ -5,33 +5,33 @@
     <string name="_30_mins">30 minutos</string>
     <string name="_60_mins">60 min</string>
     <string name="_8am_6pm_mon_fri">08:00-6:00 CST Mon-Fri</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Navegar para a página inicial"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Navegar para cima"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Mais opções"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"Concluído"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Ver tudo"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Selecionar um app"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"DESATIVADO"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"ATIVADO"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"espaço"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"Pesquisar…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Limpar consulta"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"Consulta de pesquisa"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Pesquisar"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Enviar consulta"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Pesquisa por voz"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Recolher"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navegar para a página inicial"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navegar para cima"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Mais opções"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Concluído"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Ver tudo"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Selecionar um app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESATIVADO"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ATIVADO"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"espaço"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Pesquisar…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Limpar consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Consulta de pesquisa"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Pesquisar"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Pesquisa por voz"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Recolher"</string>
     <string name="about">Sobre</string>
     <string name="accept_call">Aceitar chamada</string>
     <string name="account">Conta</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">Verifique seu e-mail para o link de redefinição.</string>
     <string name="clear_message">Mensagem clara</string>
     <string name="close">PERTO</string>
+    <string msgid="406453423630273620" name="close_drawer">"Fechar menu de navegação"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Fechar planilha"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Acesse &lt;b>facebook.com/device&lt;/b> e insira o código mostrado acima.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Erro inesperado ao baixar uma imagem.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">O login do WebView exige permissão da INTERNET</string>
@@ -119,6 +121,7 @@
     <string name="created_on">Criado em</string>
     <string name="critical_alert">Alerta Crítico</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Entrada inválida"</string>
     <string name="default_thumbnail">Miniatura Padrão</string>
     <string name="delete">Excluir</string>
     <string name="delete_community">Excluir comunidade</string>
@@ -184,6 +187,7 @@
     <string name="hours_8am_6pm_est_mon_fri">Horário: das 8h às 18h, de segunda a sexta</string>
     <string name="hours_of_silence">Horas de silêncio</string>
     <string name="ignore">Ignorar</string>
+    <string msgid="6827826412747255547" name="in_progress">"Em andamento"</string>
     <string name="in_telligent_search_from_my_app">In-telligent Search do meu aplicativo In-telligent:</string>
     <string name="in_telligent_searches">Pesquisas contundentes</string>
     <string name="inbox">Caixa de entrada</string>
@@ -191,6 +195,7 @@
     <string name="incoming_call">Chamada recebida</string>
     <string name="incoming_call_from">Chamada recebida de</string>
     <string name="incoming_call_from_tenant">Chamada recebida do inquilino</string>
+    <string msgid="2486394087603402002" name="indeterminate">"Nem marcada nem desmarcada"</string>
     <string name="intelligent_and_all">In-telligent e todos os emails</string>
     <string name="intelligent_and_imported">E-mails importados e importados</string>
     <string name="intelligent_only">In-telligent Only</string>
@@ -238,6 +243,7 @@
     <string name="my_info">Minha informação</string>
     <string name="name">Nome</string>
     <string name="name_your_community">Nomeie sua comunidade</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Menu de navegação"</string>
     <string name="near_me">Perto de mim</string>
     <string name="never">Nunca</string>
     <string name="never_mind">Deixa pra lá</string>
@@ -261,6 +267,7 @@
     <string name="no_thank_you">Não obrigado</string>
     <string name="none">Nenhum</string>
     <string name="normal">Normal</string>
+    <string msgid="6610465462668679431" name="not_selected">"Não selecionado"</string>
     <string name="notifications">Notificações</string>
     <string name="number">Número</string>
     <string name="off">Fora</string>
@@ -330,7 +337,7 @@
     <string name="search_for_communities">Pesquisar comunidades</string>
     <string name="search_for_group">Procurar por grupo</string>
     <string name="search_keywords">Procure palavras-chave</string>
-    <string msgid="730395136688082741" name="search_menu_title">"Pesquisar"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Pesquisar"</string>
     <string name="search_nkeywords">Procure palavras-chave</string>
     <string name="see_full_message">Ver mensagem completa</string>
     <string name="select_a_community">Selecione uma comunidade</string>
@@ -342,6 +349,7 @@
     <string name="select_thumbnail">Selecione Miniatura:</string>
     <string name="select_your_age">Selecione sua idade</string>
     <string name="select_your_gender">Selecione o seu sexo</string>
+    <string msgid="6043586758067023" name="selected">"Selecionado"</string>
     <string name="send">Mandar</string>
     <string name="send_a_message">Envie uma mensagem</string>
     <string name="send_alert_to_community">Enviar alerta para a comunidade</string>
@@ -370,6 +378,7 @@
     <string name="suggested_groups">Grupos Sugeridos</string>
     <string name="support">Apoio, suporte</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Guia"</string>
     <string name="tap_here">Toque aqui</string>
     <string name="tap_icon_to_get_directions_to_community">Toque no ícone para obter direcções para a comunidade</string>
     <string name="tap_to_enter_message">Toque para entrar na mensagem</string>
@@ -400,6 +409,12 @@
     <string name="translate_to">Traduza para</string>
     <string name="type_comment_here">Tipo Comente Aqui</string>
     <string name="type_of_alert">Tipo de Alerta</string>
+    <string name="ucrop_crop">Cortar</string>
+    <string name="ucrop_label_edit_photo">Editar Foto</string>
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_menu_crop">Cortar</string>
+    <string name="ucrop_rotate">Girar</string>
+    <string name="ucrop_scale">Tamanho</string>
     <string name="unable_to_create_community_check_connection">Não é possível criar comunidade. Por favor verifique sua conexão e tente novamente.</string>
     <string name="unable_to_save_changes_check_connetion">Não é possível salvar as alterações. Por favor verifique sua conexão e tente novamente.</string>
     <string name="unable_updated_location">Não é possível obter um local atualizado.</string>

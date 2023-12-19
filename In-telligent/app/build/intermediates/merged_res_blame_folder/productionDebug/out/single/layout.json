@@ -1,230 +1,230 @@
 [
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_reset_password.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_reset_password.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_notification_detail.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_notification_detail.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_main.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_main.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_incoming_call_popup.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_incoming_call_popup.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_invite_member.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_invite_member.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_signup_demographics.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_signup_demographics.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_delivery_info.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_delivery_info.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_login.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_login.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/spinner_dropdown_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/spinner_dropdown_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/message_view_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/message_view_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_contact_call.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_contact_call.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/toolbar_layout.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/toolbar_layout.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_splash.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_splash.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_invite_member.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_invite_member.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/notification_settings_empty_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/notification_settings_empty_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/group_suggested_list_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/group_suggested_list_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_intro.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_intro.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_created_group_detail.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_created_group_detail.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_signup_demographics.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_signup_demographics.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/find_location_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/find_location_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_group_list.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_group_list.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/group_list_empty_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/group_list_empty_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_inbox.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_inbox.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/member_list_item_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/member_list_item_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_contact_message.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_contact_message.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/contact_deliver_invitee_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/contact_deliver_invitee_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_signup_password.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_signup_password.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_alert_list.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_alert_list.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_logout.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_logout.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/spinner_dropdown_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/spinner_dropdown_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/inbox_notification_empty_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/inbox_notification_empty_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_contact_list.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_contact_list.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_account_support.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_account_support.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/field_required_layout.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/field_required_layout.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/find_location_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/find_location_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_account_support.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_account_support.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_personal_safety_popup.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_personal_safety_popup.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/forgot_password_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/forgot_password_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/notification_attachment_item_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/notification_attachment_item_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_group_list.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_group_list.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/message_view_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/message_view_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_contact_call.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_contact_call.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/delivery_info_item_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/delivery_info_item_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/notification_settings_empty_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/notification_settings_empty_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_incoming_call_popup.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_incoming_call_popup.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/contact_deliver_empty_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/contact_deliver_empty_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_notification_settings.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_notification_settings.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/contact_list_group_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/contact_list_group_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/group_gray_header_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/group_gray_header_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_main.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_main.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_alert_list.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_alert_list.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_member_list.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_member_list.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/inbox_notification_item_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/inbox_notification_item_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_life_safety_popup.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_life_safety_popup.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_created_group_detail.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_created_group_detail.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_alert_detail.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_alert_detail.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/contact_deliver_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/contact_deliver_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_edit_member.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_edit_member.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/progress_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/progress_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_personal_safety_popup.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_personal_safety_popup.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/item_navigation_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/item_navigation_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_intro.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_intro.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_account_settings.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_account_settings.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/contact_deliver_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/contact_deliver_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_edit_member.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_edit_member.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_settings.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_settings.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/group_normal_list_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/group_normal_list_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_splash.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_splash.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_group_detail_container.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_group_detail_container.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/group_normal_list_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/group_normal_list_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_generate_group.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_generate_group.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_account_settings.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_account_settings.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_group_detail.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_group_detail.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/inbox_notification_item_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/inbox_notification_item_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_login.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_login.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/attachment_preview_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/attachment_preview_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/contact_list_group_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/contact_list_group_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_signup_password.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_signup_password.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/activity_life_safety_popup.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/activity_life_safety_popup.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_logout.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_logout.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/field_required_layout.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/field_required_layout.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_contact_message.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_contact_message.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/contact_deliver_invitee_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/contact_deliver_invitee_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/delivery_info_item_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/delivery_info_item_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_member_list.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_member_list.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/notification_settings_list_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/notification_settings_list_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_alert_detail.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_alert_detail.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_notification_settings.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_notification_settings.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_contact_list.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_contact_list.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_group_detail.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_group_detail.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/notification_settings_list_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/notification_settings_list_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/inbox_notification_empty_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/inbox_notification_empty_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/contact_deliver_empty_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/contact_deliver_empty_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/activity_reset_password.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/activity_reset_password.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/group_suggested_list_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/group_suggested_list_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_group_detail_container.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_group_detail_container.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/attachment_preview_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/attachment_preview_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/spinner_list_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/spinner_list_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_notification_detail.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_notification_detail.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/group_gray_header_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/group_gray_header_item.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/toolbar_layout.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/toolbar_layout.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_inbox.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_inbox.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/group_suggested_header_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/group_suggested_header_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_delivery_info.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_delivery_info.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/forgot_password_dialog.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/forgot_password_dialog.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/progress_dialog.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/progress_dialog.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/group_list_empty_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/group_list_empty_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/notification_attachment_item_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/notification_attachment_item_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/spinner_list_item.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/spinner_list_item.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/item_navigation_view.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/item_navigation_view.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/fragment_settings.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/fragment_settings.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/fragment_generate_group.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/fragment_generate_group.xml"
     },
     {
-        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-43:/layout/member_list_item_view.xml",
-        "source": "com.sca.in_telligent.app-main-46:/layout/member_list_item_view.xml"
+        "merged": "com.sca.in_telligent.app-mergeProductionDebugResources-55:/layout/group_suggested_header_item.xml",
+        "source": "com.sca.in_telligent.app-main-58:/layout/group_suggested_header_item.xml"
     }
 ]

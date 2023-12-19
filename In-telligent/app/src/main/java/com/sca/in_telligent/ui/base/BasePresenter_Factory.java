@@ -1,0 +1,43 @@
+package com.sca.in_telligent.ui.base;
+
+import com.sca.in_telligent.data.DataManager;
+import com.sca.in_telligent.ui.base.MvpView;
+import com.sca.in_telligent.util.rx.SchedulerProvider;
+import com.sca.in_telligent.util.twilio.TwilioUtil;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+import dagger.internal.Factory;
+import io.reactivex.disposables.CompositeDisposable;
+import javax.inject.Provider;
+
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+public final class BasePresenter_Factory<V extends MvpView> implements Factory<BasePresenter<V>> {
+    private final Provider<CompositeDisposable> compositeDisposableProvider;
+    private final Provider<DataManager> dataManagerProvider;
+    private final Provider<RxPermissions> rxPermissionsProvider;
+    private final Provider<SchedulerProvider> schedulerProvider;
+    private final Provider<TwilioUtil> twilioUtilProvider;
+
+    public BasePresenter_Factory(Provider<DataManager> provider, Provider<SchedulerProvider> provider2, Provider<CompositeDisposable> provider3, Provider<TwilioUtil> provider4, Provider<RxPermissions> provider5) {
+        this.dataManagerProvider = provider;
+        this.schedulerProvider = provider2;
+        this.compositeDisposableProvider = provider3;
+        this.twilioUtilProvider = provider4;
+        this.rxPermissionsProvider = provider5;
+    }
+
+    @Override // javax.inject.Provider
+    public BasePresenter<V> get() {
+        BasePresenter<V> newInstance = newInstance(this.dataManagerProvider.get(), this.schedulerProvider.get(), this.compositeDisposableProvider.get());
+        BasePresenter_MembersInjector.injectTwilioUtil(newInstance, this.twilioUtilProvider.get());
+        BasePresenter_MembersInjector.injectRxPermissions(newInstance, this.rxPermissionsProvider.get());
+        return newInstance;
+    }
+
+    public static <V extends MvpView> BasePresenter_Factory<V> create(Provider<DataManager> provider, Provider<SchedulerProvider> provider2, Provider<CompositeDisposable> provider3, Provider<TwilioUtil> provider4, Provider<RxPermissions> provider5) {
+        return new BasePresenter_Factory<>(provider, provider2, provider3, provider4, provider5);
+    }
+
+    public static <V extends MvpView> BasePresenter<V> newInstance(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
+        return new BasePresenter<>(dataManager, schedulerProvider, compositeDisposable);
+    }
+}

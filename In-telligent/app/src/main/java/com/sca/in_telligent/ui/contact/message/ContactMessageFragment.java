@@ -129,8 +129,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     private ArrayList<BuildingMember> buildingMembers = new ArrayList<>();
 
     public static ContactMessageFragment newInstance(boolean managed, boolean isPersonalCommunity,
-                                                     boolean canSendLSA,
-                                                     String buildingId) {
+                                                     boolean canSendLSA, String buildingId) {
         Bundle args = new Bundle();
         args.putBoolean("managed", managed);
         args.putBoolean("isPersonalCommunity", isPersonalCommunity);
@@ -309,10 +308,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
     }
 
-    @OnClick(R.id.contact_send_attachment_layout)
-    void attachmentButtonClick(View v) {
-        mPresenter.getStoragePermission();
-    }
+//    @OnClick(R.id.contact_send_attachment_layout)
+//    void attachmentButtonClick(View v) {
+//        mPresenter.getStoragePermission();
+//    }
 
     @OnClick(R.id.contact_send_message_button)
     void sendMessage(View v) {
@@ -461,7 +460,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 Uri selectedUri = data.getData();
 
-                final String attachmentPath = getPath(getActivity(), selectedUri);
+                final String attachmentPath = selectedUri.getPath();
 
                 if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "attachmentPath = " + attachmentPath);
@@ -471,9 +470,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 attachmentText.setText("\t" + file.getName());
 
                 if (selectedUri.toString().contains("video")) {
-                    attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file));
+                    attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                 } else {
-                    attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file));
+                    attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
 //                    attachmentPaths.add(attachmentPath);
                 }
 
@@ -492,14 +491,14 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                     ClipData.Item item = mClipData.getItemAt(i);
                     Uri selectedUri = item.getUri();
 
-                    final String attachmentPath = getPath(getActivity(), selectedUri);
+                    final String attachmentPath = selectedUri.getPath();
 
                     final File file = new File(attachmentPath);
 
                     if (selectedUri.toString().contains("video")) {
-                        attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file));
+                        attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                     } else {
-                        attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file));
+                        attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
                     }
                 }
                 compressFiles(attachmentFiles);

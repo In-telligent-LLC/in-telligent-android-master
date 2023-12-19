@@ -5,33 +5,33 @@
     <string name="_30_mins">30 ደቂቃዎች</string>
     <string name="_60_mins">60 ደቂቃዎች</string>
     <string name="_8am_6pm_mon_fri">8am - 6pm CST ሰኞ-አርብ</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"መነሻ ዳስስ"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"ወደ ላይ ያስሱ"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"ተጨማሪ አማራጮች"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"ተከናውኗል"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"ሁሉንም ይመልከቱ"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"አንድ መተግበሪያ ይምረጡ"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"አጥፋ"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"አብራ"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"ሰርዝ"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"ክፍተት"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"ይፈልጉ…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"መጠይቅ አጽዳ"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"የፍለጋ መጠይቅ"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"ፍለጋ"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"መጠይቅ አስገባ"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"የድምጽ ፍለጋ"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"አጋራ በ"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"ለ<ns1:g id="APPLICATION_NAME">%s</ns1:g> አጋራ"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"ሰብስብ"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"መነሻ ዳስስ"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ወደ ላይ ያስሱ"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ተጨማሪ አማራጮች"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ተከናውኗል"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ሁሉንም ይመልከቱ"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"አንድ መተግበሪያ ይምረጡ"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"አጥፋ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"አብራ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ሰርዝ"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"ክፍተት"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ይፈልጉ…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"መጠይቅ አጽዳ"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"የፍለጋ መጠይቅ"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ፍለጋ"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"መጠይቅ አስገባ"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"የድምጽ ፍለጋ"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"አጋራ በ"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"ለ<ns1:g id="APPLICATION_NAME">%s</ns1:g> አጋራ"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ሰብስብ"</string>
     <string name="about">ስለ</string>
     <string name="accept_call">ጥሪ ተቀበል</string>
     <string name="account">መለያ</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">ለ ዳግም ማስጀመሪያ አገናኝ ኢሜልዎን ይመልከቱ.</string>
     <string name="clear_message">መልዕክት አጽዳ</string>
     <string name="close">ገጠመ</string>
+    <string msgid="406453423630273620" name="close_drawer">"የዳሰሳ ምናሌን ዝጋ"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"ሉህን ዝጋ"</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">አንቃ</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play አገልግሎቶችን ካላነቁ በስተቀር %1$s አይሰራም።</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play አገልግሎቶችን ያንቁ</string>
@@ -114,6 +116,7 @@
     <string name="created_on">ተፈጠረ በ</string>
     <string name="critical_alert">ወሳኝ ማስጠንቀቂያ</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"ልክ ያልሆነ ግቤት"</string>
     <string name="default_thumbnail">ነባሪ ድንክዬ</string>
     <string name="delete">ሰርዝ</string>
     <string name="delete_community">ማህበረሰብ ሰርዝ</string>
@@ -179,6 +182,7 @@
     <string name="hours_8am_6pm_est_mon_fri">ከሰዓት 8am እስከ 6pm ኤ.ኤ.ቢ.-እኩይ</string>
     <string name="hours_of_silence">የእረፍት ሰዓቶች</string>
     <string name="ignore">ችላ በል</string>
+    <string msgid="6827826412747255547" name="in_progress">"በሂደት ላይ"</string>
     <string name="in_telligent_search_from_my_app">In -ntigent ፍለጋ ከኔ-አስተማማኝ መተግበሪያ ውስጥ:</string>
     <string name="in_telligent_searches">In -ntigent Searches</string>
     <string name="inbox">Inbox</string>
@@ -186,6 +190,7 @@
     <string name="incoming_call">ገቢ ጥሪ</string>
     <string name="incoming_call_from">ገቢ ጥሪ ከ</string>
     <string name="incoming_call_from_tenant">ተከራዩ የሚደወል ጥሪ</string>
+    <string msgid="2486394087603402002" name="indeterminate">"ምልክት የተደረገበትም ያልተደረገበትም"</string>
     <string name="intelligent_and_all">In -ntigent እና ሁሉም ኢሜይሎች</string>
     <string name="intelligent_and_imported">ኢንፎርሜንት እና የተላኩ ኢሜይሎች</string>
     <string name="intelligent_only">ኢን-ነግር ብቻ</string>
@@ -233,6 +238,7 @@
     <string name="my_info">የእኔ መረጃ</string>
     <string name="name">ስም</string>
     <string name="name_your_community">ማህበረሰብዎን ይሰይሙ</string>
+    <string msgid="542007171693138492" name="navigation_menu">"የዳሰሳ ምናሌ"</string>
     <string name="near_me">ቅርብ ነው</string>
     <string name="never">በጭራሽ</string>
     <string name="never_mind">ምንም አይደለም</string>
@@ -256,6 +262,7 @@
     <string name="no_thank_you">አይ አመሰግናለሁ</string>
     <string name="none">ምንም</string>
     <string name="normal">መደበኛ</string>
+    <string msgid="6610465462668679431" name="not_selected">"ያልተመረጡ"</string>
     <string name="notifications">ማሳወቂያዎች</string>
     <string name="number">ቁጥር</string>
     <string name="off">ጠፍቷል</string>
@@ -325,7 +332,7 @@
     <string name="search_for_communities">ማህበረሰቦችን ይፈልጉ</string>
     <string name="search_for_group">ቡድን ይፈልጉ</string>
     <string name="search_keywords">ቁልፍ ቃላትን ፈልግ</string>
-    <string msgid="730395136688082741" name="search_menu_title">"ፍለጋ"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ፍለጋ"</string>
     <string name="search_nkeywords">ቁልፍ ቃላትን ፈልግ</string>
     <string name="see_full_message">ሙሉ መልዕክቱን ይመልከቱ</string>
     <string name="select_a_community">አንድ ማህበረሰብ ይምረጡ</string>
@@ -337,6 +344,7 @@
     <string name="select_thumbnail">ድንክዬውን ይምረጡ</string>
     <string name="select_your_age">ዕድሜዎን ይምረጡ</string>
     <string name="select_your_gender">ፆታዎን ይምረጡ</string>
+    <string msgid="6043586758067023" name="selected">"ተመርጧል"</string>
     <string name="send">ላክ</string>
     <string name="send_a_message">አንድ መልዕክት ይላኩ</string>
     <string name="send_alert_to_community">ለማህበረሰብ ማንቂያ ላክ</string>
@@ -365,9 +373,11 @@
     <string name="suggested_groups">የተጠቆሙ ቡድኖች</string>
     <string name="support">ድጋፍ</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"ትር"</string>
     <string name="tap_here">እዚህ ንካ</string>
     <string name="tap_icon_to_get_directions_to_community">ወደ ማህበረሰብ አቅጣጫዎችን ለማግኘት አዶን መታ ያድርጉ</string>
     <string name="tap_to_enter_message">መልዕክት ለማስገባት መታ ያድርጉ</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> በመቶ።"</string>
     <string name="text_to_speech">ጽሑፍ ወደ ንግግር</string>
     <string name="the_tenant_has_already_ended_call">ተከራዩ ጥሪውን ጨርሷል</string>
     <string name="there_are_no_available_community_managers_consider">የሚገኙ የማህበረሰብ አስተዳዳሪዎች የሉም. እባክዎን በምትኩ የጽሑፍ ማንቂያ ይላኩ.</string>

@@ -1,215 +1,195 @@
 package com.sca.in_telligent.ui.base;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
-
-import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
+import butterknife.Unbinder;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.annotations.Nullable;
-
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public abstract class BaseDialog extends DialogFragment implements DialogMvpView {
+    private BaseActivity mActivity;
+    private Unbinder mUnBinder;
 
-  private BaseActivity mActivity;
+    protected abstract void setUp(View view);
 
-  @Override
-  public void onAttach(Context context) {
-    super.onAttach(context);
-    if (context instanceof BaseActivity) {
-      BaseActivity mActivity = (BaseActivity) context;
-      this.mActivity = mActivity;
-      mActivity.onFragmentAttached();
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessageSnack(String str) {
     }
-  }
 
-  @Override
-  public void showLoading() {
-    if (mActivity != null) {
-      mActivity.showLoading();
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showPopup(String str) {
     }
-  }
 
-  @Override
-  public void hideLoading() {
-    if (mActivity != null) {
-      mActivity.hideLoading();
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) context;
+            this.mActivity = baseActivity;
+            baseActivity.onFragmentAttached();
+        }
     }
-  }
 
-  @Override
-  public void onError(String message) {
-    if (mActivity != null) {
-      mActivity.onError(message);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showLoading() {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.showLoading();
+        }
     }
-  }
 
-  @Override
-  public void onError(@StringRes int resId) {
-    if (mActivity != null) {
-      mActivity.onError(resId);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void hideLoading() {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.hideLoading();
+        }
     }
-  }
 
-  @Override
-  public void showMessage(String message) {
-    if (mActivity != null) {
-      mActivity.showMessage(message);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void onError(String str) {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.onError(str);
+        }
     }
-  }
 
-  @Override
-  public void showMessage(@StringRes int resId) {
-    if (mActivity != null) {
-      mActivity.showMessage(resId);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void onError(int i) {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.onError(i);
+        }
     }
-  }
 
-  @Override
-  public boolean isNetworkConnected() {
-    if (mActivity != null) {
-      return mActivity.isNetworkConnected();
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessage(String str) {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.showMessage(str);
+        }
     }
-    return false;
-  }
 
-  @Override
-  public void onDetach() {
-    mActivity = null;
-    super.onDetach();
-  }
-
-  @Override
-  public void hideKeyboard() {
-    if (mActivity != null) {
-      mActivity.hideKeyboard();
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showMessage(int i) {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.showMessage(i);
+        }
     }
-  }
 
-  public BaseActivity getBaseActivity() {
-    return mActivity;
-  }
-
-  public ActivityComponent getActivityComponent() {
-    if (mActivity != null) {
-      return mActivity.getActivityComponent();
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public boolean isNetworkConnected() {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            return baseActivity.isNetworkConnected();
+        }
+        return false;
     }
-    return null;
-  }
 
-//  public void setUnBinder(Unbinder unBinder) {
-//    mUnBinder = unBinder;
-//  }
-
-  protected abstract void setUp(View view);
-
-  @NonNull
-  @Override
-  public Dialog onCreateDialog(Bundle savedInstanceState) {
-    // the content
-    final RelativeLayout root = new RelativeLayout(getActivity());
-    root.setLayoutParams(new ViewGroup.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        LayoutParams.MATCH_PARENT));
-
-    // creating the fullscreen dialog
-    final Dialog dialog = new Dialog(getContext());
-//    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    dialog.setContentView(root);
-    if (dialog.getWindow() != null) {
-      dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-      dialog.getWindow().setLayout(
-          ViewGroup.LayoutParams.MATCH_PARENT,
-          LayoutParams.MATCH_PARENT);
-
+    public void onDetach() {
+        this.mActivity = null;
+        super.onDetach();
     }
-    dialog.setCanceledOnTouchOutside(false);
 
-    return dialog;
-  }
-
-  @Override
-  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-    setUp(view);
-  }
-
-  public void show(FragmentManager fragmentManager, String tag) {
-    FragmentTransaction transaction = fragmentManager.beginTransaction();
-    Fragment prevFragment = fragmentManager.findFragmentByTag(tag);
-    if (prevFragment != null) {
-      transaction.remove(prevFragment);
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void hideKeyboard() {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            baseActivity.hideKeyboard();
+        }
     }
-    transaction.addToBackStack(null);
-    show(transaction, tag);
-  }
 
-  @Override
-  public void dismissDialog(String tag) {
-    dismiss();
-    getBaseActivity().onFragmentDetached(tag);
-  }
-
-  @Override
-  public void onDestroy() {
-//    if (mUnBinder != null) {
-//      mUnBinder.unbind();
-//    }
-    super.onDestroy();
-  }
-
-  @Override
-  public void startActivityWithDeeplink(Intent intent) {
-    final Uri deepLinkUri = getActivity().getIntent().getParcelableExtra("deep_link_uri");
-    if (deepLinkUri != null) {
-      intent.putExtra("deep_link_uri", deepLinkUri);
+    public BaseActivity getBaseActivity() {
+        return this.mActivity;
     }
-    startActivity(intent);
-  }
 
-  @Override
-  public void showMessageSnack(String message) {
+    public ActivityComponent getActivityComponent() {
+        BaseActivity baseActivity = this.mActivity;
+        if (baseActivity != null) {
+            return baseActivity.getActivityComponent();
+        }
+        return null;
+    }
 
-  }
+    public void setUnBinder(Unbinder unbinder) {
+        this.mUnBinder = unbinder;
+    }
 
-  @Override
-  public void showPopup(String message) {
+    public Dialog onCreateDialog(Bundle bundle) {
+        RelativeLayout relativeLayout = new RelativeLayout(getActivity());
+        relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(relativeLayout);
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            dialog.getWindow().setLayout(-1, -1);
+        }
+        dialog.setCanceledOnTouchOutside(false);
+        return dialog;
+    }
 
-  }
+    public void onViewCreated(View view, Bundle bundle) {
+        super.onViewCreated(view, bundle);
+        setUp(view);
+    }
 
-  public void showNetworkDialog() {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mActivity);
-    alertDialog.setTitle("Alert");
-    alertDialog.setMessage(R.string.please_check_your_network_connection_try_again);
+    public void show(FragmentManager fragmentManager, String str) {
+        FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+        Fragment findFragmentByTag = fragmentManager.findFragmentByTag(str);
+        if (findFragmentByTag != null) {
+            beginTransaction.remove(findFragmentByTag);
+        }
+        beginTransaction.addToBackStack((String) null);
+        show(beginTransaction, str);
+    }
 
-    alertDialog
-        .setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.sca.in_telligent.ui.base.DialogMvpView
+    public void dismissDialog(String str) {
+        dismiss();
+        getBaseActivity().onFragmentDetached(str);
+    }
 
-          }
+    public void onDestroy() {
+        Unbinder unbinder = this.mUnBinder;
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+        super.onDestroy();
+    }
+
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void startActivityWithDeeplink(Intent intent) {
+        Uri uri = (Uri) getActivity().getIntent().getParcelableExtra("deep_link_uri");
+        if (uri != null) {
+            intent.putExtra("deep_link_uri", uri);
+        }
+        startActivity(intent);
+    }
+
+    @Override // com.sca.in_telligent.ui.base.MvpView
+    public void showNetworkDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
+        builder.setTitle("Alert");
+        builder.setMessage(R.string.please_check_your_network_connection_try_again);
+        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseDialog.1
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
         });
-
-    alertDialog.show();
-  }
+        builder.show();
+    }
 }

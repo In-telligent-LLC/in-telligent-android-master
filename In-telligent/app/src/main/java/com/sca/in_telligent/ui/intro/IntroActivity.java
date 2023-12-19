@@ -3,7 +3,6 @@ package com.sca.in_telligent.ui.intro;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -17,10 +16,15 @@ import android.widget.ViewFlipper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
 
 public class IntroActivity extends BaseActivity implements IntroMvpView {
@@ -47,7 +51,7 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
   @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_intro);
     getActivityComponent().inject(this);
@@ -75,9 +79,19 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
   @Override
-  protected void onDestroy() {
+  public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
 

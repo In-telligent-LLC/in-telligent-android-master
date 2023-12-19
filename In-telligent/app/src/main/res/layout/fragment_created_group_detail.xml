@@ -57,7 +57,7 @@
                 android:layout_marginEnd="8dp"
                 android:padding="@dimen/spacing_medium"
                 android:src="@drawable/baseline_edit_white_48"
-                android:tint="@color/gray7b"
+                app:tint="@color/gray2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

@@ -3,8 +3,7 @@ package com.sca.in_telligent.ui.auth.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +13,9 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
+
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -69,7 +71,7 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   }
 
   @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_signup_demographics);
     getActivityComponent().inject(this);
@@ -161,9 +163,14 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   }
 
   @Override
-  protected void onDestroy() {
+  public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
 

@@ -5,33 +5,33 @@
     <string name="_30_mins">30 минут</string>
     <string name="_60_mins">60 мин.</string>
     <string name="_8am_6pm_mon_fri">8 утра - 6 вечера CST пн-пт</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Перейти вверх"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Ещё"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"Готово"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Показать все"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Выберите приложение"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"ВЫКЛ"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"ВКЛ"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt +"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"Delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"Ввод"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Fn +"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta +"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift +"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"Пробел"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym +"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Меню +"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"Введите запрос"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Удалить запрос"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"Поисковый запрос"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Поиск"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Отправить запрос"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Голосовой поиск"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перейти вверх"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ещё"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Показать все"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Выберите приложение"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ВЫКЛ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ВКЛ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Ввод"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Пробел"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Введите запрос"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Удалить запрос"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Поисковый запрос"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Поиск"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Отправить запрос"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Голосовой поиск"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Свернуть"</string>
     <string name="about">Около</string>
     <string name="accept_call">Принять вызов</string>
     <string name="account">учетная запись</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">Проверьте свой адрес электронной почты для ссылки на сброс.</string>
     <string name="clear_message">Очистить сообщение</string>
     <string name="close">БЛИЗКО</string>
+    <string msgid="406453423630273620" name="close_drawer">"Закрыть меню навигации"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Закрыть лист"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Перейдите на &lt;b>facebook.com/device&lt;/b> и введите код, указанный выше.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Неожиданная ошибка при скачивании изображения.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">Для входа через WebView необходимо разрешение INTERNET</string>
@@ -137,6 +139,7 @@
     <string name="created_on">Создано на</string>
     <string name="critical_alert">Критическое предупреждение</string>
     <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Неправильный ввод"</string>
     <string name="default_thumbnail">Миниатюра по умолчанию</string>
     <string name="delete">удалять</string>
     <string name="delete_community">Удалить сообщество</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">Часы работы: с 8:00 до 18:00 по восточному стандартному времени</string>
     <string name="hours_of_silence">Часы молчания</string>
     <string name="ignore">игнорировать</string>
+    <string msgid="6827826412747255547" name="in_progress">"Выполняется"</string>
     <string name="in_telligent_search_from_my_app">In-telligent Search из моего In-telligent приложения:</string>
     <string name="in_telligent_searches">In-telligent Searches</string>
     <string name="inbox">входящие</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">Входящий звонок</string>
     <string name="incoming_call_from">Входящий звонок от</string>
     <string name="incoming_call_from_tenant">Входящий звонок от арендатора</string>
+    <string msgid="2486394087603402002" name="indeterminate">"Флажок не установлен и не снят"</string>
     <string name="intelligent_and_all">In-telligent и все письма</string>
     <string name="intelligent_and_imported">In-telligent и импортированные электронные письма</string>
     <string name="intelligent_only">Только для собеседования</string>
@@ -256,6 +261,7 @@
     <string name="my_info">Моя информация</string>
     <string name="name">название</string>
     <string name="name_your_community">Назовите свое сообщество</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Меню навигации"</string>
     <string name="near_me">Около меня</string>
     <string name="never">Никогда</string>
     <string name="never_mind">Не берите в голову</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">Нет, спасибо</string>
     <string name="none">Никто</string>
     <string name="normal">Нормальный</string>
+    <string msgid="6610465462668679431" name="not_selected">"Не выбрано"</string>
     <string name="notifications">Уведомления</string>
     <string name="number">Число</string>
     <string name="off">от</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">Поиск сообществ</string>
     <string name="search_for_group">Поиск группы</string>
     <string name="search_keywords">Ключевые слова поиска</string>
-    <string msgid="730395136688082741" name="search_menu_title">"Поиск"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Поиск"</string>
     <string name="search_nkeywords">Ключевые слова поиска</string>
     <string name="see_full_message">Смотрите полное сообщение</string>
     <string name="select_a_community">Выберите сообщество</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">Выберите миниатюру:</string>
     <string name="select_your_age">Выберите свой возраст</string>
     <string name="select_your_gender">Выбери свой пол</string>
+    <string msgid="6043586758067023" name="selected">"Выбрано"</string>
     <string name="send">послать</string>
     <string name="send_a_message">Отправить сообщение</string>
     <string name="send_alert_to_community">Отправить сообщение для сообщества</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">Рекомендуемые группы</string>
     <string name="support">Служба поддержки</string>
     <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Вкладка"</string>
     <string name="tap_here">Нажмите здесь</string>
     <string name="tap_icon_to_get_directions_to_community">Нажмите значок, чтобы получить направление в сообщество.</string>
     <string name="tap_to_enter_message">Нажмите, чтобы ввести сообщение</string>
+    <string msgid="5946805113151406391" name="template_percent">"Процентов: <ns1:g id="PERCENTAGE">%1$d</ns1:g>."</string>
     <string name="text_to_speech">Текст в речь</string>
     <string name="the_tenant_has_already_ended_call">Арендатор уже завершил звонок</string>
     <string name="there_are_no_available_community_managers_consider">Нет доступных менеджеров сообщества. Вместо этого отправьте текстовое предупреждение.</string>
@@ -418,6 +428,12 @@
     <string name="translate_to">Перевести на</string>
     <string name="type_comment_here">Введите комментарий здесь</string>
     <string name="type_of_alert">Тип предупреждения</string>
+    <string name="ucrop_crop">Обрезать</string>
+    <string name="ucrop_label_edit_photo">Редактировать фото</string>
+    <string name="ucrop_label_original">Оригинал</string>
+    <string name="ucrop_menu_crop">Обрезать</string>
+    <string name="ucrop_rotate">Повернуть</string>
+    <string name="ucrop_scale">Масштабировать</string>
     <string name="unable_to_create_community_check_connection">Не удалось создать сообщество. Проверьте подключение и повторите попытку.</string>
     <string name="unable_to_save_changes_check_connetion">Не удалось сохранить изменения. Проверьте подключение и повторите попытку.</string>
     <string name="unable_updated_location">Невозможно получить актуальное местоположение.</string>

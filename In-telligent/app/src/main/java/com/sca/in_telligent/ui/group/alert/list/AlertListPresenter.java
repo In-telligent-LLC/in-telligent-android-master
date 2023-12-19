@@ -8,8 +8,8 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class AlertListPresenter<V extends AlertListMvpView> extends BasePresenter<V> implements
         AlertListMvpPresenter<V> {

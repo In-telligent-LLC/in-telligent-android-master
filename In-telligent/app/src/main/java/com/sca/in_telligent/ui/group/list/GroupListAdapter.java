@@ -2,7 +2,6 @@ package com.sca.in_telligent.ui.group.list;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.sca.in_telligent.R;
@@ -26,7 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 
 public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 

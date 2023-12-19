@@ -5,33 +5,33 @@
     <string name="_30_mins">तीस मिनट</string>
     <string name="_60_mins">60 मिनट</string>
     <string name="_8am_6pm_mon_fri">08:00-18:00 सीएसटी सोम-शुक्र</string>
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"होम पेज पर जाएं"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"वापस जाएं"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"ज़्यादा विकल्प"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"हो गया"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"कोई ऐप्लिकेशन चुनें"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"बंद"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"चालू"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"space"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"खोजें…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"क्‍वेरी हटाएं"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"सर्च क्वेरी"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"खोजें"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"बोलकर खोजें"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"इससे शेयर करें:"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> से शेयर करें"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"छोटा करें"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"होम पेज पर जाएं"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"वापस जाएं"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ज़्यादा विकल्प"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"हो गया"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"कोई ऐप्लिकेशन चुनें"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"बंद"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"चालू"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"खोजें…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"क्‍वेरी हटाएं"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"सर्च क्वेरी"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"खोजें"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"बोलकर खोजें"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"इससे शेयर करें:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> से शेयर करें"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"छोटा करें"</string>
     <string name="about">के बारे में</string>
     <string name="accept_call">कॉल लेना</string>
     <string name="account">लेखा</string>
@@ -75,6 +75,8 @@
     <string name="check_your_email_for_reset_link">रीसेट लिंक के लिए अपना ईमेल देखें।</string>
     <string name="clear_message">संदेश साफ़ करें</string>
     <string name="close">बंद करे</string>
+    <string msgid="406453423630273620" name="close_drawer">"नेविगेशन मेन्यू बंद करें"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"शीट बंद करें"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">&lt;b>facebook.com/device&lt;/b> पर जाएँ और ऊपर दिया गया कोड डालें.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">चित्र डाउनलोड करते समय अनपेक्षित त्रुटि हुई.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">WebView लॉग इन के लिए इंटरनेट अनुमति आवश्यक है</string>
@@ -137,6 +139,7 @@
     <string name="created_on">को निर्मित</string>
     <string name="critical_alert">गंभीर चेतावनी</string>
     <string name="d_e_f">डीईएफ़</string>
+    <string msgid="8038256446254964252" name="default_error_message">"अमान्य इनपुट"</string>
     <string name="default_thumbnail">डिफ़ॉल्ट थंबनेल</string>
     <string name="delete">हटाना</string>
     <string name="delete_community">समुदाय हटाएं</string>
@@ -202,6 +205,7 @@
     <string name="hours_8am_6pm_est_mon_fri">घंटे: 8 बजे - 6 बजे ईएसटी सोम-शुक्र</string>
     <string name="hours_of_silence">मौन के घंटे</string>
     <string name="ignore">नज़रअंदाज़ करना</string>
+    <string msgid="6827826412747255547" name="in_progress">"जारी है"</string>
     <string name="in_telligent_search_from_my_app">इन-टेलिगेंट ऐप से इन-टेलिगेंट सर्च:</string>
     <string name="in_telligent_searches">इन-टेलिगेंट खोजें</string>
     <string name="inbox">इनबॉक्स</string>
@@ -209,6 +213,7 @@
     <string name="incoming_call">आने वाली कॉल</string>
     <string name="incoming_call_from">आने वाली कॉल से</string>
     <string name="incoming_call_from_tenant">किरायेदार से आने वाली कॉल</string>
+    <string msgid="2486394087603402002" name="indeterminate">"चेकबॉक्स पर न तो सही का निशान लगाया गया, न ही पहले से लगा सही का निशान हटाया गया"</string>
     <string name="intelligent_and_all">इन-टेलिगेंट और सभी ईमेल</string>
     <string name="intelligent_and_imported">इन-टेलिगेंट और आयातित ईमेल</string>
     <string name="intelligent_only">केवल इन-टेलिगेंट</string>
@@ -256,6 +261,7 @@
     <string name="my_info">मेरी जानकारी</string>
     <string name="name">नाम</string>
     <string name="name_your_community">अपने समुदाय का नाम दें</string>
+    <string msgid="542007171693138492" name="navigation_menu">"नेविगेशन मेन्यू"</string>
     <string name="near_me">मेरे पास</string>
     <string name="never">कभी नहीँ</string>
     <string name="never_mind">कोई बात नहीं</string>
@@ -279,6 +285,7 @@
     <string name="no_thank_you">नहीं धन्यवाद</string>
     <string name="none">कोई नहीं</string>
     <string name="normal">साधारण</string>
+    <string msgid="6610465462668679431" name="not_selected">"नहीं चुना गया"</string>
     <string name="notifications">सूचनाएं</string>
     <string name="number">संख्या</string>
     <string name="off">बंद</string>
@@ -348,7 +355,7 @@
     <string name="search_for_communities">समुदायों के लिए खोजें</string>
     <string name="search_for_group">समूह के लिए खोजें</string>
     <string name="search_keywords">मुख्य शब्द खोजे</string>
-    <string msgid="730395136688082741" name="search_menu_title">"खोजें"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"खोजें"</string>
     <string name="search_nkeywords">मुख्य शब्द खोजे</string>
     <string name="see_full_message">पूरा संदेश देखें</string>
     <string name="select_a_community">एक समुदाय का चयन करें</string>
@@ -360,6 +367,7 @@
     <string name="select_thumbnail">थंबनेल का चयन करें:</string>
     <string name="select_your_age">अपनी आयु का चयन करें</string>
     <string name="select_your_gender">अपना लिंग चुनें</string>
+    <string msgid="6043586758067023" name="selected">"चुना गया"</string>
     <string name="send">भेजना</string>
     <string name="send_a_message">एक संदेश भेजें</string>
     <string name="send_alert_to_community">समुदाय को अलर्ट भेजें</string>
@@ -388,9 +396,11 @@
     <string name="suggested_groups">सुझाए गए समूह</string>
     <string name="support">समर्थन</string>
     <string name="t_u_v">टीयूवी</string>
+    <string msgid="1672349317127674378" name="tab">"टैब"</string>
     <string name="tap_here">यहां टैप करें</string>
     <string name="tap_icon_to_get_directions_to_community">समुदाय के लिए दिशा-निर्देश प्राप्त करने के लिए आइकन टैप करें</string>
     <string name="tap_to_enter_message">संदेश दर्ज करने के लिए टैप करें</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> प्रतिशत."</string>
     <string name="text_to_speech">लिखे हुए को बोलने में बदलना</string>
     <string name="the_tenant_has_already_ended_call">किरायेदार पहले ही कॉल समाप्त कर चुका है</string>
     <string name="there_are_no_available_community_managers_consider">कोई समुदाय समुदाय उपलब्ध नहीं है। कृपया इसके बजाय एक टेक्स्ट अलर्ट भेजने पर विचार करें।</string>

@@ -6,7 +6,8 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 
 public class SettingsPresenter<V extends SettingsMvpView> extends BasePresenter<V> implements
         SettingsMvpPresenter<V> {

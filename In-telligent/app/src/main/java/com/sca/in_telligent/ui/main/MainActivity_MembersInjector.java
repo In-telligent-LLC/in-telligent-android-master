@@ -2,7 +2,8 @@ package com.sca.in_telligent.ui.main;
 
 import android.media.AudioManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import androidx.work.WorkManager;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -20,7 +21,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
     private final Provider<AudioHelper> audioHelperProvider;
     private final Provider<AudioManager> audioManagerProvider;
     private final Provider<DataManager> dataManagerProvider;
-    private final Provider<FirebaseJobDispatcher> firebaseJobDispatcherProvider;
+    private final Provider<WorkManager> firebaseJobDispatcherProvider;
     private final Provider<FusedLocationProviderClient> fusedLocationProviderClientProvider;
     private final Provider<LocationUtil> locationUtilProvider;
     private final Provider<GeofenceClient> mGeofenceClientProvider;
@@ -29,7 +30,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
     private final Provider<Responder> responderProvider;
     private final Provider<VideoDownloader> videoDownloaderProvider;
 
-    public MainActivity_MembersInjector(Provider<AudioManager> provider, Provider<DataManager> provider2, Provider<Responder> provider3, Provider<FusedLocationProviderClient> provider4, Provider<AudioHelper> provider5, Provider<VideoDownloader> provider6, Provider<LocationUtil> provider7, Provider<MainMvpPresenter<MainMvpView>> provider8, Provider<NavigationDrawerAdapter> provider9, Provider<LinearLayoutManager> provider10, Provider<GeofenceClient> provider11, Provider<FirebaseJobDispatcher> provider12) {
+    public MainActivity_MembersInjector(Provider<AudioManager> provider, Provider<DataManager> provider2, Provider<Responder> provider3, Provider<FusedLocationProviderClient> provider4, Provider<AudioHelper> provider5, Provider<VideoDownloader> provider6, Provider<LocationUtil> provider7, Provider<MainMvpPresenter<MainMvpView>> provider8, Provider<NavigationDrawerAdapter> provider9, Provider<LinearLayoutManager> provider10, Provider<GeofenceClient> provider11, Provider<WorkManager> provider12) {
         this.audioManagerProvider = provider;
         this.dataManagerProvider = provider2;
         this.responderProvider = provider3;
@@ -44,7 +45,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
         this.firebaseJobDispatcherProvider = provider12;
     }
 
-    public static MembersInjector<MainActivity> create(Provider<AudioManager> provider, Provider<DataManager> provider2, Provider<Responder> provider3, Provider<FusedLocationProviderClient> provider4, Provider<AudioHelper> provider5, Provider<VideoDownloader> provider6, Provider<LocationUtil> provider7, Provider<MainMvpPresenter<MainMvpView>> provider8, Provider<NavigationDrawerAdapter> provider9, Provider<LinearLayoutManager> provider10, Provider<GeofenceClient> provider11, Provider<FirebaseJobDispatcher> provider12) {
+    public static MembersInjector<MainActivity> create(Provider<AudioManager> provider, Provider<DataManager> provider2, Provider<Responder> provider3, Provider<FusedLocationProviderClient> provider4, Provider<AudioHelper> provider5, Provider<VideoDownloader> provider6, Provider<LocationUtil> provider7, Provider<MainMvpPresenter<MainMvpView>> provider8, Provider<NavigationDrawerAdapter> provider9, Provider<LinearLayoutManager> provider10, Provider<GeofenceClient> provider11, Provider<WorkManager> provider12) {
         return new MainActivity_MembersInjector(provider, provider2, provider3, provider4, provider5, provider6, provider7, provider8, provider9, provider10, provider11, provider12);
     }
 
@@ -80,7 +81,7 @@ public final class MainActivity_MembersInjector implements MembersInjector<MainA
         mainActivity.mGeofenceClient = geofenceClient;
     }
 
-    public static void injectFirebaseJobDispatcher(MainActivity mainActivity, FirebaseJobDispatcher firebaseJobDispatcher) {
-        mainActivity.firebaseJobDispatcher = firebaseJobDispatcher;
+    public static void injectFirebaseJobDispatcher(MainActivity mainActivity, WorkManager workManagerDispatcher) {
+        mainActivity.workManager = workManagerDispatcher;
     }
 }

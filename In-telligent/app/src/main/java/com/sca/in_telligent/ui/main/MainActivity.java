@@ -1,6 +1,6 @@
 package com.sca.in_telligent.ui.main;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,20 +22,18 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.viewmodel.CreationExtras;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
 
 import com.bumptech.glide.Glide;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -60,7 +58,6 @@ import com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailSelector;
 import com.sca.in_telligent.ui.group.list.GroupListFragment;
 import com.sca.in_telligent.ui.inbox.InboxFragment;
-import com.sca.in_telligent.ui.locationprompt.LocationPromptActivity;
 import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
 import com.sca.in_telligent.ui.preview.MessageViewDialog;
 import com.sca.in_telligent.ui.settings.SettingsFragment;
@@ -68,17 +65,19 @@ import com.sca.in_telligent.ui.settings.account.AccountSettingsFragment;
 import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
 import com.sca.in_telligent.util.AppUpdateHandler;
 import com.sca.in_telligent.util.CommonUtils;
-import com.sca.in_telligent.util.LocationUtil;
+import com.sca.in_telligent.util.LocationUtils;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
 
 import java.io.IOException;
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -90,6 +89,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
     private static final String TAG = "MainActivity";
@@ -107,7 +108,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @Inject
-    FirebaseJobDispatcher firebaseJobDispatcher;
+    WorkManager workManager;
     @BindView(R.id.content_frame)
     FrameLayout frameLayout;
     @Inject
@@ -205,10 +206,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     /* JADX WARN: Multi-variable type inference failed */
     private void showLocationInformation() {
-        if (LocationUtil.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
+        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
             return;
         }
-        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
+//        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -235,6 +236,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     /* JADX WARN: Multi-variable type inference failed */
+    @SuppressLint("ResourceType")
     @Override // com.sca.in_telligent.ui.main.MainMvpView
     public void showSubscribeToCommunityDialog(String str, final int i, final int i2) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -292,7 +294,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     private void configureToolbar() {
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         this.appBarLayout = appBarLayout;
-        Toolbar toolbar = (Toolbar) appBarLayout.findViewById(2131231479);
+        @SuppressLint("ResourceType") Toolbar toolbar = (Toolbar) appBarLayout.findViewById(2131231479);
         this.toolbar = toolbar;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -303,13 +305,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     private void configureNavigationDrawer() {
         this.adapter.setCallback(this);
         this.adapter.addItems(addItemsToList());
-        this.mLayoutManager.setOrientation(1);
+        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
         this.navigationViewListView.setLayoutManager(this.mLayoutManager);
         this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
         this.navigationViewListView.setAdapter(this.adapter);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private void configureTotalSilence() {
         NumberPicker numberPicker = new NumberPicker(this);
         this.silenceTimePicker = numberPicker;
@@ -361,7 +362,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.total_silence_on})
     public void silenceOnClick(View view) {
-        androidx.appcompat.app.AlertDialog alertDialog = this.silenceTimeDialog;
+        AlertDialog alertDialog = this.silenceTimeDialog;
         if (alertDialog != null) {
             alertDialog.show();
         }
@@ -488,7 +489,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @Override // com.sca.in_telligent.ui.contact.list.ContactListFragment.ContactListCallback
     public void messageClick(Building building) {
         int id = building.getId();
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add((int) R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add((int) R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), isPersonalCommunity(building), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
     }
 
     @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
@@ -571,17 +572,16 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         });
     }
 
-    private Single<Building> getBuilding(final int i) {
-        return Observable.fromIterable(this.buildings).concatWith(Observable.fromIterable(this.personalCommunities)).filter(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda9
-            @Override // io.reactivex.functions.Predicate
-            public final boolean test(Object obj) {
-                return MainActivity.lambda$getBuilding$2(i, (Building) obj);
-            }
-        }).firstOrError();
+    private Single<Building> getBuilding(int buildingId) {
+
+        return Observable.fromIterable(buildings)
+                .concatWith(Observable.fromIterable(personalCommunities))
+                .filter(building -> building.getId() == buildingId).
+                firstOrError();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$getBuilding$2(int i, Building building) throws Exception {
+
+    public static  boolean lambda$getBuilding$2(int i, Building building) {
         return building.getId() == i;
     }
 
@@ -611,34 +611,43 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.subscriber = subscriber;
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void loadSuggestedGroups(ArrayList<Building> arrayList) {
-        if (arrayList.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda2
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                return MainActivity.this.m263xbe3ce7c6((Building) obj);
-            }
-        })) {
-            this.mPresenter.getSuggestedGroups();
-            return;
+    @Override
+    public void loadSuggestedGroups(ArrayList<Building> suggestedGroups) {
+
+        // TODO: 14.12.2018 isSubscribedAlready logic should be moved to backend
+        boolean isSubscribedAlready = suggestedGroups.stream()
+                .anyMatch(suggestedBuilding -> groups.stream()
+                        .anyMatch(building -> building.equals(suggestedBuilding)));
+
+        if (isSubscribedAlready) {
+            mPresenter.getSuggestedGroups();
+
+        } else {
+
+            setBuildingType(suggestedGroups, Building.Type.SUGGESTED_ITEM);
+            suggestedBuildings = suggestedGroups;
+
+            addSuggestedHeaderIfNeeded();
+
+            hideLoading();
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_frame,
+                            GroupListFragment.newInstance(groups,
+                                    suggestedGroups, subscriber.getId()),
+                            GroupListFragment.TAG)
+                    .commit();
+
+
         }
-        setBuildingType(arrayList, Building.Type.SUGGESTED_ITEM);
-        this.suggestedBuildings = arrayList;
-        addSuggestedHeaderIfNeeded();
-        hideLoading();
-        getSupportFragmentManager().beginTransaction().replace((int) R.id.content_frame, GroupListFragment.newInstance(this.groups, arrayList, this.subscriber.getId()), GroupListFragment.TAG).commit();
     }
 
-    /* renamed from: lambda$loadSuggestedGroups$4$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-    public /* synthetic */ boolean m263xbe3ce7c6(final Building building) {
-        return this.groups.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda1
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                boolean equals;
-                equals = ((Building) obj).equals(Building.this);
-                return equals;
-            }
-        });
+
+    private boolean isPersonalCommunity(Building building) {
+        boolean isPersonal =
+                building.getSubscriberId() != null && (building.getSubscriberId().intValue() == subscriber.getId());
+        return isPersonal;
     }
 
     ArrayList<Building> setBuildingType(ArrayList<Building> arrayList, Building.Type type) {
@@ -680,23 +689,27 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     }
 
-    private void prepareContactBuildings(ArrayList<Building> arrayList, ArrayList<Building> arrayList2) {
-        ArrayList arrayList3 = new ArrayList();
-        this.contactableBuildings = new ArrayList<>();
-        arrayList3.addAll(arrayList);
-        arrayList3.addAll(arrayList2);
-        Observable.fromIterable(arrayList3).filter(new io.reactivex.functions.Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda10
-            @Override // io.reactivex.functions.Predicate
-            public final boolean test(Object obj) {
-                return MainActivity.this.m264x564d339c((Building) obj);
-            }
-        }).toList().subscribe(new Consumer() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda8
-            @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) {
-                MainActivity.this.m265x3b8ea25d((List) obj);
-            }
-        });
+    private void prepareContactBuildings(ArrayList<Building> contactBuildings,
+                                         ArrayList<Building> contactPersonalCommunities) {
+
+        ArrayList<Building> combinedBuildings = new ArrayList<>();
+        contactableBuildings = new ArrayList<>();
+        combinedBuildings.addAll(contactBuildings);
+        combinedBuildings.addAll(contactPersonalCommunities);
+
+        Observable.fromIterable(combinedBuildings)
+                .filter(building -> isContactable(building)).toList().subscribe(
+                        filteredCombinedBuildings -> {
+                            contactableBuildings = (ArrayList<Building>) filteredCombinedBuildings.stream()
+                                    .distinct()
+                                    .collect(Collectors.toList());
+
+                            markManagedBuildings(contactableBuildings);
+                            contactableBuildings.sort(Comparator.comparing(Building::getName));
+                        });
+
     }
+
 
     /* renamed from: lambda$prepareContactBuildings$6$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
     public /* synthetic */ void m265x3b8ea25d(List list) throws Exception {
@@ -716,13 +729,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: isContactable */
-    public boolean m264x564d339c(Building building) {
+    public boolean isContactable(Building building) {
         return isManaged(building.getId()) || building.isTextEnabled() || (building.isVoipEnabled() && !building.getBuildingAddress().isVirtual());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.sos_button})
     public void sosClick(View view) {
         this.mPresenter.requestPhonePermission();
@@ -751,129 +761,168 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    @Override
     public void phonePermissionResult(Permission permission) {
-        if (permission.granted) {
-            Intent intent = new Intent("android.intent.action.CALL");
+
+    }
+
+//    @Override
+//    public void phonePermissionResult(Permission permission) {
+//        if (permission) {
+//            Intent intent = new Intent(Intent.ACTION_CALL);
+//            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
+//            startActivity(intent);
+////        } else if (permission.shouldShowRequestPermissionRationale) {
+////        } else {
+////            showPopup(getResources().getString(R.string.permission_call_message));
+////        }
+//        }
+//
+//
+//    }
+
+    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    public void phonePermissionResult(boolean permission) {
+        if (permission) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
             startActivity(intent);
-        } else if (permission.shouldShowRequestPermissionRationale) {
-        } else {
-            showPopup(getResources().getString(R.string.permission_call_message));
+//        } else if (permission.shouldShowRequestPermissionRationale) {
+//        } else {
+//            showPopup(getResources().getString(R.string.permission_call_message));
+//        }
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    private void getLocation() {
-        try {
-            getFusedLocationProviderClient().getLastLocation().addOnCompleteListener((Activity) this, new OnCompleteListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda7
-                @Override // com.google.android.gms.tasks.OnCompleteListener
-                public final void onComplete(Task task) {
-                    MainActivity.this.m259lambda$getLocation$7$comscain_telligentuimainMainActivity(task);
-                }
-            });
-        } catch (SecurityException e) {
-            Log.e("Exception: %s", e.getMessage());
-        }
-    }
+        private void getLocation() {
 
-    /* renamed from: lambda$getLocation$7$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-    public /* synthetic */ void m259lambda$getLocation$7$comscain_telligentuimainMainActivity(Task task) {
-        if (task.isSuccessful()) {
-            Location location = (Location) task.getResult();
-            this.mLastKnownLocation = location;
-            if (location != null) {
-                this.mPresenter.refreshGeofences(location);
-                try {
-                    List<Address> fromLocation = new Geocoder(getApplicationContext(), new Locale("en", "US")).getFromLocation(this.mLastKnownLocation.getLatitude(), this.mLastKnownLocation.getLongitude(), 1);
-                    if (fromLocation == null || fromLocation.size() <= 0) {
+            try {
+                Task<Location> locationResult = getFusedLocationProviderClient().getLastLocation();
+                locationResult.addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Set the map's camera position to the current location of the device.
+                        mLastKnownLocation = (Location) task.getResult();
+
+                        if (mLastKnownLocation != null) {
+
+                            mPresenter.refreshGeofences(mLastKnownLocation);
+
+                            Locale locale = new Locale("en", "US");
+                            Geocoder geocoder = new Geocoder(getApplicationContext(), locale);
+                            try {
+                                List<Address> addresses = geocoder.getFromLocation(mLastKnownLocation.getLatitude(),
+                                        mLastKnownLocation.getLongitude(), 1);
+                                if (addresses != null && addresses.size() > 0) {
+                                    countryName = addresses.get(0).getCountryName();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            getLocationUtil().getLastKnownLocation();
+                        }
+                    } else {
+                        Log.d(TAG, "Current location is null. Using defaults.");
+                        Log.e(TAG, "Exception: %s", task.getException());
+                    }
+                });
+
+            } catch (SecurityException e) {
+                Log.e("Exception: %s", e.getMessage());
+            }
+        }
+
+        /* renamed from: lambda$getLocation$7$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
+        public /* synthetic */ void m259lambda$getLocation$7$comscain_telligentuimainMainActivity
+        (Task task){
+            if (task.isSuccessful()) {
+                Location location = (Location) task.getResult();
+                this.mLastKnownLocation = location;
+                if (location != null) {
+                    this.mPresenter.refreshGeofences(location);
+                    try {
+                        List<Address> fromLocation = new Geocoder(getApplicationContext(), new Locale("en", "US")).getFromLocation(this.mLastKnownLocation.getLatitude(), this.mLastKnownLocation.getLongitude(), 1);
+                        if (fromLocation == null || fromLocation.size() <= 0) {
+                            return;
+                        }
+                        this.countryName = fromLocation.get(0).getCountryName();
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
                         return;
                     }
-                    this.countryName = fromLocation.get(0).getCountryName();
-                    return;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return;
                 }
-            }
-            getLocationUtil().getLastKnownLocation();
-            return;
-        }
-        Log.d(TAG, "Current location is null. Using defaults.");
-        Log.e(TAG, "Exception: %s", task.getException());
-    }
-
-    private boolean isManaged(final int i) {
-        return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$isManaged$8(int i, BuildingIdItem buildingIdItem) {
-        return buildingIdItem.getId() == i;
-    }
-
-    @Override // com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment.NotificationSettingsSelector
-    public void alertSubscriptionUpdated(String str, String str2) {
-        System.out.println();
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void showSubscriptionSuccessfulMessage() {
-        this.mPresenter.getSubscriber();
-        Toast.makeText((Context) this, (int) R.string.you_are_now_subscribed_to_the_community, 0).show();
-    }
-
-    @Override // com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment.NotificationSettingsSelector
-    public void weatherWarningUpdated(boolean z, boolean z2) {
-        this.subscriber.setWeatherAlertEnabled(z);
-        this.subscriber.setLightningAlertEnabled(z2);
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    private void handlePush(Bundle bundle) {
-        String string = bundle.getString("from", "");
-        Log.i("information", "handlePush from");
-        final PushNotification pushNotification = (PushNotification) bundle.getSerializable("pushNotification");
-        if (pushNotification != null && "alert".equals(pushNotification.getType()) && bundle.getBoolean("show_popup", false)) {
-            final MessageViewDialog newInstance = MessageViewDialog.newInstance(pushNotification);
-            if (!string.isEmpty() && string.equals("background")) {
-                if (getAudioHelper() != null) {
-                    getAudioHelper().stopRingtone();
-                }
-                CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
-                newInstance.show(getSupportFragmentManager());
+                getLocationUtil().getLastKnownLocation();
                 return;
             }
-            new AlertDialog.Builder(this).setTitle(pushNotification.getTitle()).setMessage(pushNotification.getBody()).setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda4
-                @Override // android.content.DialogInterface.OnClickListener
-                public final void onClick(DialogInterface dialogInterface, int i) {
-                    MainActivity.this.m261lambda$handlePush$9$comscain_telligentuimainMainActivity(pushNotification, dialogInterface, i);
-                }
-            }).setPositiveButton(R.string.view, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda5
-                @Override // android.content.DialogInterface.OnClickListener
-                public final void onClick(DialogInterface dialogInterface, int i) {
-                    MainActivity.this.m260lambda$handlePush$10$comscain_telligentuimainMainActivity(pushNotification, newInstance, dialogInterface, i);
-                }
-            }).show();
+            Log.d(TAG, "Current location is null. Using defaults.");
+            Log.e(TAG, "Exception: %s", task.getException());
         }
-    }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* renamed from: lambda$handlePush$9$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
+        private boolean isManaged ( final int i){
+            return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
+                @Override // java.util.function.Predicate
+                public final boolean test(Object obj) {
+                    return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
+                }
+            });
+        }
+
+        public static /* synthetic */ boolean lambda$isManaged$8 ( int i, BuildingIdItem
+        buildingIdItem){
+            return buildingIdItem.getId() == i;
+        }
+
+        @Override // com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment.NotificationSettingsSelector
+        public void alertSubscriptionUpdated (String str, String str2){
+            System.out.println();
+        }
+
+        @Override
+        public void showSubscriptionSuccessfulMessage () {
+            this.mPresenter.getSubscriber();
+            Toast.makeText((Context) this, (int) R.string.you_are_now_subscribed_to_the_community, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void weatherWarningUpdated ( boolean z, boolean z2){
+            this.subscriber.setWeatherAlertEnabled(z);
+            this.subscriber.setLightningAlertEnabled(z2);
+        }
+
+        private void handlePush(Bundle extras) {
+            String from = extras.getString("from", "");
+            PushNotification pushNotification = (PushNotification) extras
+                    .getSerializable("pushNotification");
+
+            if (pushNotification != null && "alert".equals(pushNotification.getType())) {
+                if (extras.getBoolean("show_popup", false)) {
+                    MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
+                    if (!from.isEmpty() && from.equals("background")) {
+                        messageViewDialog.show(getSupportFragmentManager());
+                    } else {
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setTitle(pushNotification.getTitle())
+                                .setMessage(pushNotification.getBody())
+                                .setNegativeButton(R.string.ok, (dialog, which) -> {
+                                    dialog.dismiss();
+                                })
+                                .setPositiveButton(R.string.view, (dialog, which) -> {
+                                    dialog.dismiss();
+                                    messageViewDialog.show(getSupportFragmentManager());
+                                })
+                                .show();
+                    }
+                }
+            }
+        }
+
     public /* synthetic */ void m261lambda$handlePush$9$comscain_telligentuimainMainActivity(PushNotification pushNotification, DialogInterface dialogInterface, int i) {
         getAudioHelper().stopRingtone();
         CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
         dialogInterface.dismiss();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* renamed from: lambda$handlePush$10$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
     public /* synthetic */ void m260lambda$handlePush$10$comscain_telligentuimainMainActivity(PushNotification pushNotification, MessageViewDialog messageViewDialog, DialogInterface dialogInterface, int i) {
         getAudioHelper().stopRingtone();
         dialogInterface.dismiss();
@@ -881,8 +930,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         messageViewDialog.show(getSupportFragmentManager());
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    private androidx.appcompat.app.AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {
+    private AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(numberPicker);
         builder.setTitle(str);
@@ -896,7 +944,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         return builder.create();
     }
 
-    @Override // com.sca.in_telligent.ui.settings.account.AccountSettingsFragment.AccountSettingsSelector
+    @Override
     public void updateSubscriberLanguage(String str, String str2) {
         this.subscriber.setLanguageName(str);
         this.subscriber.setLanguage(str2);
@@ -926,7 +974,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void cancelJobs() {
-        this.firebaseJobDispatcher.cancelAll();
+
+        List<WorkRequest> scheduledJobs = (List<WorkRequest>) workManager.getWorkInfosByTag("job");
+
+        for (WorkRequest workRequest : scheduledJobs) {
+            UUID uuid = workRequest.getId();
+            workManager.cancelWorkById(uuid);
+        }
     }
 
     @Override // com.sca.in_telligent.ui.main.MainMvpView
@@ -940,8 +994,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         });
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* renamed from: lambda$loadImage$11$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
     public /* synthetic */ void m262lambda$loadImage$11$comscain_telligentuimainMainActivity(AdResponse.BannerAd bannerAd, View view) {
         this.mPresenter.onClickAd(bannerAd.getAdId());
         if (TextUtils.isEmpty(bannerAd.getUrl())) {
@@ -955,9 +1007,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onPointerCaptureChanged(hasCapture);
     }
 
-    @NonNull
-    @Override
-    public CreationExtras getDefaultViewModelCreationExtras() {
-        return super.getDefaultViewModelCreationExtras();
-    }
+//    @NonNull
+//    @Override
+//    public CreationExtras getDefaultViewModelCreationExtras() {
+//        return super.getDefaultViewModelCreationExtras();
+//    }
 }

@@ -5,8 +5,8 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.Vibrator;
 
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
+import androidx.work.WorkManager;
+
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.LocationServices;
 import com.sca.in_telligent.data.AppDataManager;
@@ -174,8 +174,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    FirebaseJobDispatcher provideFirebaseJobDispatcher(
-            @ApplicationContext Context context) {
-        return new FirebaseJobDispatcher(new GooglePlayDriver(context));
+    WorkManager provideWorkManager(Context context) {
+        return WorkManager.getInstance(context);
     }
+
 }

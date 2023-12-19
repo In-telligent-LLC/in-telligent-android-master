@@ -7,7 +7,7 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 public class InboxPresenter<V extends InboxMvpView> extends BasePresenter<V> implements
         InboxMvpPresenter<V> {

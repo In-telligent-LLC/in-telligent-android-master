@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Chronometer;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,6 +21,7 @@ import com.sca.in_telligent.util.twilio.AppTwilioUtil.TwilioUtilListener;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
 import com.twilio.voice.Call;
 
+import java.security.Permission;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.inject.Inject;
@@ -71,7 +74,7 @@ public class IncomingCallActivity extends BaseActivity implements TwilioUtilList
   }
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_incoming_call_popup);
@@ -154,8 +157,18 @@ public class IncomingCallActivity extends BaseActivity implements TwilioUtilList
   }
 
   @Override
-  protected void onDestroy() {
+  public void onDestroy() {
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override
