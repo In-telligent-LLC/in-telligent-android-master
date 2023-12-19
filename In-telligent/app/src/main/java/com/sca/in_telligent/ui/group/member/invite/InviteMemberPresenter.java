@@ -5,9 +5,11 @@ import com.sca.in_telligent.openapi.data.network.model.InviteOthersRequest;
 import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class InviteMemberPresenter<V extends InviteMemberMvpView> extends
     BasePresenter<V> implements InviteMemberMvpPresenter<V> {

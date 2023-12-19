@@ -7,7 +7,8 @@ import com.sca.in_telligent.di.module.ApplicationModule_ProvideCompositeDisposab
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import dagger.internal.Factory;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 import javax.inject.Provider;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */

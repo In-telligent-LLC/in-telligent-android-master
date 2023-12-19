@@ -13,6 +13,8 @@ import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.util.AppResponder.ResponderListener;
+
+import java.security.Permission;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,7 +50,7 @@ public class PersonalSafetyPopupActivity extends BaseActivity implements Respond
   }
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_personal_safety_popup);
@@ -58,6 +60,16 @@ public class PersonalSafetyPopupActivity extends BaseActivity implements Respond
     setUnBinder(ButterKnife.bind(this));
 
     setUp();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override

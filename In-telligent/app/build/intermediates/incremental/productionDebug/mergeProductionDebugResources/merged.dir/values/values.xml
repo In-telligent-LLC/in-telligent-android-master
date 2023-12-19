@@ -1075,6 +1075,8 @@
     <string name="pending">Pending</string>
     <string name="people">People</string>
     <string name="permission_read_storage_rationale">Storage read permission is needed to pick files.</string>
+    <string name="permission_to_manage_dnd">Permission to DND</string>
+    <string name="permission_to_manage_dnd_description">Permission to DND</string>
     <string name="personal_alert">Personal Alert</string>
     <string name="personal_communities">Personal Communities</string>
     <string name="personal_community">Personal Community</string>
@@ -3376,6 +3378,20 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="WhiteBackgroundDialogTheme" parent="@android:style/Theme.Holo.Dialog.NoActionBar">
+<item name="android:windowNoTitle">true</item>
+<item name="android:windowFullscreen">false</item>
+<item name="android:fadingEdge">none</item>
+<item name="android:windowBackground">@android:color/white</item>
+<item name="android:windowAnimationStyle">@null</item>
+</style>
+    <style name="WhiteBackgroundTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+<item name="android:windowNoTitle">true</item>
+<item name="android:windowFullscreen">false</item>
+<item name="android:fadingEdge">none</item>
+<item name="android:windowBackground">@android:color/white</item>
+<item name="android:windowAnimationStyle">@null</item>
+</style>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Base.Widget.AppCompat.ActionBar.Solid">

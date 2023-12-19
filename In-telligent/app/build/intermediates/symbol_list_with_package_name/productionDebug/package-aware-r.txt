@@ -2820,6 +2820,8 @@ string path_password_strike_through
 string pending
 string people
 string permission_read_storage_rationale
+string permission_to_manage_dnd
+string permission_to_manage_dnd_description
 string personal_alert
 string personal_communities
 string personal_community
@@ -3410,6 +3412,8 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
 style TwinButton
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

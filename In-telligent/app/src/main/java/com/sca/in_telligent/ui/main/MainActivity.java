@@ -37,7 +37,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sca.in_telligent.BuildConfig;
+import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -91,6 +91,8 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
+import android.app.AlertDialog;
+
 
 public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
     private static final String TAG = "MainActivity";
@@ -118,9 +120,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     LinearLayoutManager mLayoutManager;
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
-    @BindView(R.id.navigation_view_listview)
-    RecyclerView navigationViewListView;
-    AlertDialog silenceTimeDialog;
+//    @BindView(R.id.navigation_view_listview)
+//    RecyclerView navigationViewListView;
+
     private NumberPicker silenceTimePicker;
     Subscriber subscriber;
     Toolbar toolbar;
@@ -142,6 +144,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     private boolean savedClicked = false;
     private boolean groupCreated = false;
     private Unbinder mUnBinder;
+    AlertDialog silenceTimeDialog;
 
 
     protected void onNewIntent(Intent intent) {
@@ -180,7 +183,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     /* JADX WARN: Multi-variable type inference failed */
     private void checkAppUpdates() {
-        new AppUpdateHandler().start(this);
+//        new AppUpdateHandler().start(this);
     }
 
     protected void onSaveInstanceState(Bundle bundle) {
@@ -191,9 +194,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.sca.in_telligent.ui.base.BaseActivity
     protected void setUp() {
-        this.version_name.setText(getString(R.string.version) + " " + BuildConfig.VERSION_NAME);
+        this.version_name.setText(getString(R.string.version) + " " + BuildConfig1.VERSION_NAME);
         showLocationInformation();
-        configureNavigationDrawer();
+//        configureNavigationDrawer();
         configureToolbar();
         initSilence();
         configureTotalSilence();
@@ -302,29 +305,33 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         getSupportActionBar().setHomeAsUpIndicator((int) R.drawable.ic_menu_icon);
     }
 
-    private void configureNavigationDrawer() {
-        this.adapter.setCallback(this);
-        this.adapter.addItems(addItemsToList());
-        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
-        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
-        this.navigationViewListView.setAdapter(this.adapter);
-    }
+//    private void configureNavigationDrawer() {
+//        this.adapter.setCallback(this);
+//        this.adapter.addItems(addItemsToList());
+//        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
+//        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
+//        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
+//        this.navigationViewListView.setAdapter(this.adapter);
+//    }
+
 
     private void configureTotalSilence() {
-        NumberPicker numberPicker = new NumberPicker(this);
-        this.silenceTimePicker = numberPicker;
-        this.silenceTimeDialog = setUpAlertDialog(numberPicker, getString(R.string.hours_of_silence), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.1
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                MainActivity.this.getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(new Date(new Date().getTime() + (MainActivity.this.silenceTimePicker.getValue() * 3600000))));
-                MainActivity.this.initSilence();
-            }
-        });
-        this.silenceTimePicker.setMinValue(1);
-        this.silenceTimePicker.setMaxValue(12);
-        this.silenceTimePicker.scrollTo(0, 0);
-        this.silenceTimePicker.setWrapSelectorWheel(false);
+        silenceTimePicker = new NumberPicker(this);
+        silenceTimeDialog = setUpAlertDialog(silenceTimePicker, getString(R.string.hours_of_silence),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Date now = new Date();
+                        getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
+                                new Date(now.getTime() + 1000 * 60 * 60 * silenceTimePicker.getValue())));
+                        initSilence();
+                    }
+                });
+
+        silenceTimePicker.setMinValue(1);
+        silenceTimePicker.setMaxValue(12);
+        silenceTimePicker.scrollTo(0, 0);
+        silenceTimePicker.setWrapSelectorWheel(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

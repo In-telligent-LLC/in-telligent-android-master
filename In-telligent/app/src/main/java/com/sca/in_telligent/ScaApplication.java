@@ -1,98 +1,124 @@
 package com.sca.in_telligent;
 
 import android.app.Application;
-import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.media.AudioManager;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.factual.android.FactualException;
+import com.factual.android.ObservationGraph;
 import com.sca.in_telligent.data.DataManager;
+import com.sca.in_telligent.data.DataManager.LoggedInMode;
 import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
-import com.sca.in_telligent.openapi.data.network.model.PushTokenSuccessResponse;
+import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LifecycleInterface;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+
+
 import javax.inject.Inject;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+
 public class ScaApplication extends Application {
-    private static final String LOG = "com.sca.in_telligent.ScaApplication";
-    @Inject
-    LifecycleInterface appLifecycleObserver;
-    @Inject
-    AudioManager audioManager;
-    private ApplicationComponent mApplicationComponent;
+
+    private static final String LOG = ScaApplication.class.getName();
+
     @Inject
     DataManager mDataManager;
 
-    @Override // android.app.Application
+    @Inject
+    LifecycleInterface appLifecycleObserver;
+
+    @Inject
+    AudioManager audioManager;
+
+    private ApplicationComponent mApplicationComponent;
+
     public void onCreate() {
         super.onCreate();
-        initOpenApi();
-        ApplicationComponent build = DaggerActivityComponent.builder().applicationModule(new ApplicationModule(this)).build();
-        this.mApplicationComponent = build;
-        build.inject(this);
-        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener() { // from class: com.sca.in_telligent.ScaApplication$$ExternalSyntheticLambda0
-            @Override // com.google.android.gms.tasks.OnCompleteListener
-            public final void onComplete(Task task) {
-                ScaApplication.this.m111lambda$onCreate$0$comscain_telligentScaApplication(task);
-            }
-        });
-        ProcessLifecycleOwner.get().getLifecycle().addObserver(this.appLifecycleObserver);
-    }
 
-    /* renamed from: lambda$onCreate$0$com-sca-in_telligent-ScaApplication  reason: not valid java name */
-    public /* synthetic */ void m111lambda$onCreate$0$comscain_telligentScaApplication(Task task) {
-        if (task.isSuccessful()) {
-            String token = ((InstanceIdResult) task.getResult()).getToken();
-            if (this.mDataManager.getCurrentUserLoggedInMode() == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN.getType()) {
-                sendRegistrationToServer(token);
-            }
-            if (this.mDataManager.getPushToken() == null) {
-                this.mDataManager.setPushToken(token);
-            }
-        }
+        //This should be initialized BEFORE DI. Otherwise it will throw an exception
+        initOpenApi();
+
+        mApplicationComponent = DaggerActivityComponent.builder()
+                .applicationModule(new ApplicationModule(this)).build();
+
+        mApplicationComponent.inject(this);
+
+        initOG();
+
+
+//        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+//
+//            if (!task.isSuccessful()) {
+//                return;
+//            }
+//            String token = task.getResult().getToken();
+//            if (mDataManager.getCurrentUserLoggedInMode() == LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
+//                    .getType()) {
+//
+//                sendRegistrationToServer(token);
+//            }
+//            if (mDataManager.getPushToken() == null) {
+//                mDataManager.setPushToken(token);
+//            }
+//        });
+
+//        ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
     }
 
     private void initOpenApi() {
-        OpenAPI.init(this, new OpenAPI.Configuration.Builder().setAppVersion(BuildConfig1.VERSION_CODE).setDebug(false).build());
+        OpenAPI.Configuration configuration = new OpenAPI.Configuration.Builder()
+                .setAppVersion(BuildConfig.VERSION_CODE)
+                .setDebug(BuildConfig.DEBUG).build();
+        OpenAPI.init(this, configuration);
     }
 
     public String getCurrentState() {
-        return this.appLifecycleObserver.getState();
+        return appLifecycleObserver.getState();
     }
 
     public ApplicationComponent getComponent() {
-        return this.mApplicationComponent;
+        return mApplicationComponent;
     }
 
     public void setComponent(ApplicationComponent applicationComponent) {
-        this.mApplicationComponent = applicationComponent;
+        mApplicationComponent = applicationComponent;
     }
 
-    private void sendRegistrationToServer(String str) {
+    private void sendRegistrationToServer(String token) {
         PushTokenRequest pushTokenRequest = new PushTokenRequest();
         pushTokenRequest.setEnvironment("fcm");
-        pushTokenRequest.setPushToken(str);
-        this.mDataManager.registerPushToken(pushTokenRequest).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer() { // from class: com.sca.in_telligent.ScaApplication$$ExternalSyntheticLambda1
-            @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) {
-                PushTokenSuccessResponse pushTokenSuccessResponse = (PushTokenSuccessResponse) obj;
-                Log.i(ScaApplication.LOG, "sendRegistrationToServer: successResponse");
-            }
-        }, new Consumer() { // from class: com.sca.in_telligent.ScaApplication$$ExternalSyntheticLambda2
-            @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) {
-                Log.e(ScaApplication.LOG, "sendRegistrationToServer error ", (Throwable) obj);
-            }
-        });
+        pushTokenRequest.setPushToken(token);
+        mDataManager.registerPushToken(pushTokenRequest).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(successResponse -> {
+                    Log.i(LOG, "sendRegistrationToServer: successResponse");
+                }, throwable -> Log.e(LOG, "sendRegistrationToServer error ", throwable));
     }
+
+    public void initOG() {
+        if (CommonUtils.checkLocationPermission(this)) {
+            try {
+                ObservationGraph.getInstance(this, getString(R.string.factual_api_key));
+            } catch (FactualException e) {
+                Log.e(LOG, "Factual Exception: " + e);
+            }
+        } else {
+        }
+    }
+
+
+//    public void initGroundTruth() {
+//        if (CommonUtils.checkLocationPermission(this)) {
+//            new LocationServiceClient(getString(R.string.groundtruth_access_key),
+//                    getString(R.string.groundtruth_aes_key))
+//                    .start(this);
+//        }
+//    }
+
 }

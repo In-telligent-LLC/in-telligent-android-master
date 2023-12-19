@@ -7,11 +7,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.LocationModel;
 import com.sca.in_telligent.di.ApplicationContext;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @Singleton
 public class AppWeatherUtil implements WeatherUtil {

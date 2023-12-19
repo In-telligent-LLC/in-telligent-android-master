@@ -513,6 +513,7 @@ public final class R {
         public static final int extendedFloatingActionButtonTertiaryStyle = 0x7f0301ab;
         public static final int extraMultilineHeightEnabled = 0x7f0301ac;
         public static final int fabAlignmentMode = 0x7f0301ad;
+        public static final int fab_create_group = 0x7f0301ad;
         public static final int fabAnimationMode = 0x7f0301ae;
         public static final int fabCradleMargin = 0x7f0301af;
         public static final int fabCradleRoundedCornerRadius = 0x7f0301b0;

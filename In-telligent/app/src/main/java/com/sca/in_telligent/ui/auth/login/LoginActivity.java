@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
@@ -31,9 +32,14 @@ import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -52,17 +58,18 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
 
   Button buttonLogin = findViewById(R.id.btnLogin);
 
-//  @BindView(R.id.btnGoToSignup)
-//  TextView buttonGoToSignup;
-//
-//  @BindView(R.id.btnForgotPassword)
-//  TextView buttonForgotPassword;
-//
-  ImageView buttonFacebook = findViewById(R.id.btnLoginFacebookCustom);
+  @BindView(R.id.btnGoToSignup)
+  TextView buttonGoToSignup;
 
-//
-//  @BindView(R.id.btnLoginGooglePlus)
-//  ImageView buttonGooglePlus;
+  @BindView(R.id.btnForgotPassword)
+  TextView buttonForgotPassword;
+
+  @BindView(R.id.btnLoginFacebookCustom)
+  ImageView buttonFacebook;
+
+
+  @BindView(R.id.btnLoginGooglePlus)
+  ImageView buttonGooglePlus;
 
   CallbackManager callbackManager;
 
@@ -76,7 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   private ActivityLoginBinding binding;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
@@ -118,10 +125,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   }
 
 
-//  binding.buttonFacebook.setOnClickListener(new View.OnClickListener(){
-//    onClick
-//  })
-
   void facebookLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -130,7 +133,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     }
   }
 
-//  @OnClick(R.id.btnLoginGooglePlus)
+  @OnClick(R.id.btnLoginGooglePlus)
   void googleLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -139,12 +142,12 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     }
   }
 
-//  @OnClick(R.id.btnGoToSignup)
+  @OnClick(R.id.btnGoToSignup)
   void goToSignup(View v) {
     startActivityWithDeeplink(SignupDemographicsActivity.getStartIntent(this));
   }
 
-//  @OnClick(R.id.btnForgotPassword)
+  @OnClick(R.id.btnForgotPassword)
   void forgotPassword(View v) {
     showForgotPasswordDialog();
   }
@@ -170,9 +173,19 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   }
 
   @Override
-  protected void onDestroy() {
+  public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override

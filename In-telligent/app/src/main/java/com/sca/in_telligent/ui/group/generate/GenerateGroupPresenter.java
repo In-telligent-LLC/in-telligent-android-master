@@ -7,10 +7,12 @@ import com.sca.in_telligent.openapi.data.network.model.CreateEditGroupRequest;
 import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
 import java.io.File;
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -27,11 +29,11 @@ public class GenerateGroupPresenter<V extends GenerateGroupMvpView> extends
 
   @Override
   public void requestPermissions() {
-    getRxPermissions()
-        .request(Manifest.permission.CAMERA)
-        .subscribe(granted -> {
-          getMvpView().permissionResult(granted);
-        });
+//    getRxPermissions()
+//        .request(Manifest.permission.CAMERA)
+//        .subscribe(granted -> {
+//          getMvpView().permissionResult(granted);
+//        });
   }
 
   @Override

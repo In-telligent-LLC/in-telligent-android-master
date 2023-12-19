@@ -1,8 +1,10 @@
 package com.sca.in_telligent.util;
 
-import android.arch.lifecycle.Lifecycle.Event;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.util.Log;
+
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
+
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import javax.inject.Inject;
@@ -26,14 +28,14 @@ public class AppLifecycleObserver implements LifecycleInterface {
   }
 
 
-  @OnLifecycleEvent(Event.ON_CREATE)
+  @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
   @Override
   public void onCreated() {
     state = "create";
     Log.d("PROCESSLOG", "ON CREATE");
   }
 
-  @OnLifecycleEvent(Event.ON_STOP)
+  @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
   @Override
   public void onStopped() {
     state = "stop";
@@ -41,13 +43,13 @@ public class AppLifecycleObserver implements LifecycleInterface {
     //mCompositeDisposable.dispose();
   }
 
-  @OnLifecycleEvent(Event.ON_DESTROY)
+  @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
   @Override
   public void onDestroyed() {
     state = "destroy";
   }
 
-  @OnLifecycleEvent(Event.ON_START)
+  @OnLifecycleEvent(Lifecycle.Event.ON_START)
   @Override
   public void onStarted() {
     state = "start";

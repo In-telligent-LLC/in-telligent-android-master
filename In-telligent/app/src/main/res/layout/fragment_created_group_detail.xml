@@ -71,7 +71,8 @@
                 android:src="@drawable/girl_in_pink_sweater"
                 app:layout_constraintEnd_toEndOf="@id/guideline_image_right"
                 app:layout_constraintStart_toStartOf="@id/guideline__image_left"
-                app:layout_constraintTop_toBottomOf="@+id/created_group_detail_edit_pen_image" />
+                app:layout_constraintTop_toBottomOf="@+id/created_group_detail_edit_pen_image"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/created_group_detail_name"

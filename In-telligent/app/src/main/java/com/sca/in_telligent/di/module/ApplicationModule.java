@@ -175,7 +175,7 @@ public class ApplicationModule {
     @Provides
     @Singleton
     WorkManager provideWorkManager(Context context) {
-        return WorkManager.getInstance(context);
+        return WorkManager.getInstance();
     }
 
 }

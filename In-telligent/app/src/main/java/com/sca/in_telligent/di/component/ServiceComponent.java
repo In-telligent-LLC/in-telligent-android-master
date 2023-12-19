@@ -6,6 +6,7 @@ import com.sca.in_telligent.service.GeofenceTransitionsIntentService;
 import com.sca.in_telligent.service.GeofencesUpdateWorker;
 import com.sca.in_telligent.service.HeadsUpNotificationService;
 import com.sca.in_telligent.service.MyFirebaseMessagingService;
+import com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity;
 
 import dagger.Component;
 
@@ -20,4 +21,6 @@ public interface ServiceComponent {
   void inject(GeofenceTransitionsIntentService service);
 
   void inject(GeofencesUpdateWorker service);
+
+    void inject(VoiceCallNotificationActivity voiceCallNotificationActivity);
 }

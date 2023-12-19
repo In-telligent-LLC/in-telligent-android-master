@@ -448,6 +448,8 @@
   <string name="passwords_dont_match">Passwords don\'t match</string>
     <string name="search_by_name">Search by name</string>
     <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
+    <string name="permission_to_manage_dnd">Permission to DND</string>
+    <string name="permission_to_manage_dnd_description">Permission to DND</string>
 
     <string-array name="genders_array">
         <item>@string/unspecified</item>

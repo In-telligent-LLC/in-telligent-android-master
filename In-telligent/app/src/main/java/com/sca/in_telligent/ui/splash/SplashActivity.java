@@ -9,6 +9,9 @@ import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.intro.IntroActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
 
 public class SplashActivity extends BaseActivity implements SplashMvpView {
@@ -43,6 +46,16 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
   public void onDestroy() {
     this.mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override // com.sca.in_telligent.ui.splash.SplashMvpView

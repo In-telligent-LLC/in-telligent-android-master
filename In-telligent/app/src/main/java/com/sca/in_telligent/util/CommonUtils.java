@@ -131,11 +131,11 @@ public final class CommonUtils {
     }
 
     public static void toggleDoNotDIsturb(Context context, final AudioHelper audioHelper) {
-        final NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-        if (notificationManager.getCurrentInterruptionFilter() != 1) {
+        final NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager.getCurrentInterruptionFilter() != NotificationManager.INTERRUPTION_FILTER_ALL) {
             final int currentInterruptionFilter = notificationManager.getCurrentInterruptionFilter();
             if (notificationManager.isNotificationPolicyAccessGranted()) {
-                notificationManager.setInterruptionFilter(1);
+                notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
                 new Timer().schedule(new TimerTask() { // from class: com.sca.in_telligent.util.CommonUtils.1
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
@@ -166,7 +166,7 @@ public final class CommonUtils {
     }
 
     public static boolean checkDNDPermission(Context context) {
-        if (((NotificationManager) context.getSystemService("notification")).isNotificationPolicyAccessGranted()) {
+        if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
             return true;
         }
         buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
@@ -197,16 +197,16 @@ public final class CommonUtils {
 
     public static void createNotification(Context context, PushNotification pushNotification, PendingIntent pendingIntent, boolean z, String str, String str2, boolean z2) {
         Uri defaultUri = RingtoneManager.getDefaultUri(2);
-        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.DEFAULT).setSmallIcon((int) R.drawable.ic_launcher).setContentTitle(str).setContentText(str2).setAutoCancel(true).setContentIntent(pendingIntent);
+        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.STANDARD).setSmallIcon((int) R.drawable.ic_launcher).setContentTitle(str).setContentText(str2).setAutoCancel(true).setContentIntent(pendingIntent);
         if (z) {
             contentIntent.setSound(defaultUri);
         }
         if (z2) {
             contentIntent.setOngoing(true);
         }
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= 26) {
-            notificationManager.createNotificationChannel(new NotificationChannel(CookieSpecs.DEFAULT, "Channel human readable title", 3));
+            notificationManager.createNotificationChannel(new NotificationChannel(CookieSpecs.STANDARD, "Channel human readable title", NotificationManager.IMPORTANCE_DEFAULT));
         }
         if (pushNotification.getNotificationId() != null) {
             notificationManager.notify(Integer.parseInt(pushNotification.getNotificationId()), contentIntent.build());
@@ -220,11 +220,11 @@ public final class CommonUtils {
     }
 
     public static void clearNotification(Context context, int i) {
-        ((NotificationManager) context.getSystemService("notification")).cancel(i);
+        ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).cancel(i);
     }
 
     public static boolean isAppOnForeground(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
         if (runningAppProcesses == null) {
             return false;
         }

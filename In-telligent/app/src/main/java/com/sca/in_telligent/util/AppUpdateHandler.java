@@ -3,16 +3,18 @@ package com.sca.in_telligent.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+
 import android.util.Log;
 
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+
 import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 
 import static java.util.Objects.requireNonNull;
+
+import androidx.appcompat.app.AlertDialog;
+
+import io.reactivex.rxjava3.annotations.NonNull;
 
 /**
  * Created by Marcos Ambrosi on 2/7/19.
@@ -27,29 +29,29 @@ public class AppUpdateHandler {
     public void start(@NonNull Context context) {
         requireNonNull(context, "Context cannot be null");
 
-        FirebaseRemoteConfig firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig1.DEBUG)
-                .build();
-        firebaseRemoteConfig.setConfigSettings(configSettings);
-        firebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
-
-
-        firebaseRemoteConfig.fetch(BuildConfig1.DEBUG ? 0 : REMOTE_PARAMS_RELEASE_CACHE)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // After config data is successfully fetched, it must be activated before newly fetched
-                        // values are returned.
-                        firebaseRemoteConfig.activateFetched();
-
-                        if (BuildConfig1.VERSION_CODE < firebaseRemoteConfig.getLong(MIN_SUPPORTED_VERSION_KEY)) {
-                            showUpdateDialog(context);
-                        }
-
-                    } else {
-                        Log.e(TAG, "Fetch remote config failed", task.getException());
-                    }
-                });
+//        FirebaseRemoteConfig firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+//        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+//                .setDeveloperModeEnabled(BuildConfig1.DEBUG)
+//                .build();
+//        firebaseRemoteConfig.setConfigSettings(configSettings);
+//        firebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+//
+//
+//        firebaseRemoteConfig.fetch(BuildConfig1.DEBUG ? 0 : REMOTE_PARAMS_RELEASE_CACHE)
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        // After config data is successfully fetched, it must be activated before newly fetched
+//                        // values are returned.
+//                        firebaseRemoteConfig.activateFetched();
+//
+//                        if (BuildConfig1.VERSION_CODE < firebaseRemoteConfig.getLong(MIN_SUPPORTED_VERSION_KEY)) {
+//                            showUpdateDialog(context);
+//                        }
+//
+//                    } else {
+//                        Log.e(TAG, "Fetch remote config failed", task.getException());
+//                    }
+//                });
     }
 
     private void showUpdateDialog(@NonNull Context context) {

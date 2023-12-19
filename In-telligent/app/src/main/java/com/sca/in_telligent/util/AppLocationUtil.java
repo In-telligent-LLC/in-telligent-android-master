@@ -10,7 +10,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Looper;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.sca.in_telligent.di.ApplicationContext;
@@ -21,9 +22,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 
 @Singleton
 public class AppLocationUtil implements LocationUtil {

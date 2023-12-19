@@ -3,7 +3,6 @@ package com.sca.in_telligent.data;
 import com.sca.in_telligent.data.prefs.PreferencesHelper;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface DataManager extends PreferencesHelper, ApiHelper {
   @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
   long getLastFetchedGeofences();

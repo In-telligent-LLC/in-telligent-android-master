@@ -14,9 +14,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Function;
+
 
 public class GroupListPresenter<V extends GroupListMvpView> extends BasePresenter<V> implements
         GroupListMvpPresenter<V> {
@@ -98,7 +99,7 @@ public class GroupListPresenter<V extends GroupListMvpView> extends BasePresente
         getCompositeDisposable().add(
                 getDataManager().getSuggestedGroups()
                         .map((Function<SearchCommunityResponse,
-                                List<Building>>) SearchCommunityResponse::getBuildings)
+                                                                                List<Building>>) SearchCommunityResponse::getBuildings)
                         .take(2)
                         .flatMap(Observable::fromIterable)
                         .doOnNext(building -> building.setType(Building.Type.SUGGESTED_ITEM)).toList()
