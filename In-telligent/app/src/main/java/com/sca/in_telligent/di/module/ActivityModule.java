@@ -52,10 +52,7 @@ import com.sca.in_telligent.ui.contact.message.deliver.ContactDeliverPresenter;
 import com.sca.in_telligent.ui.findlocation.FindLocationMvpPresenter;
 import com.sca.in_telligent.ui.findlocation.FindLocationMvpView;
 import com.sca.in_telligent.ui.findlocation.FindLocationPresenter;
-import com.sca.in_telligent.ui.group.alert.delivery.DeliveryInfoAdapter;
-import com.sca.in_telligent.ui.group.alert.delivery.DeliveryInfoMvpPresenter;
-import com.sca.in_telligent.ui.group.alert.delivery.DeliveryInfoMvpView;
-import com.sca.in_telligent.ui.group.alert.delivery.DeliveryInfoPresenter;
+
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailMvpPresenter;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailMvpView;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailPresenter;
@@ -63,30 +60,17 @@ import com.sca.in_telligent.ui.group.alert.list.AlertListAdapter;
 import com.sca.in_telligent.ui.group.alert.list.AlertListMvpPresenter;
 import com.sca.in_telligent.ui.group.alert.list.AlertListMvpView;
 import com.sca.in_telligent.ui.group.alert.list.AlertListPresenter;
-import com.sca.in_telligent.ui.group.detail.created.CreatedGroupDetailMvpPresenter;
-import com.sca.in_telligent.ui.group.detail.created.CreatedGroupDetailMvpView;
-import com.sca.in_telligent.ui.group.detail.created.CreatedGroupDetailPresenter;
+
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpPresenter;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpView;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailPresenter;
-import com.sca.in_telligent.ui.group.generate.GenerateGroupMvpPresenter;
-import com.sca.in_telligent.ui.group.generate.GenerateGroupMvpView;
-import com.sca.in_telligent.ui.group.generate.GenerateGroupPresenter;
+
 import com.sca.in_telligent.ui.group.list.GroupListAdapter;
 import com.sca.in_telligent.ui.group.list.GroupListMvpPresenter;
 import com.sca.in_telligent.ui.group.list.GroupListMvpView;
 import com.sca.in_telligent.ui.group.list.GroupListPresenter;
 import com.sca.in_telligent.ui.group.list.GroupListSpinnerAdapter;
-import com.sca.in_telligent.ui.group.member.MemberListAdapter;
-import com.sca.in_telligent.ui.group.member.MemberListMvpPresenter;
-import com.sca.in_telligent.ui.group.member.MemberListMvpView;
-import com.sca.in_telligent.ui.group.member.MemberListPresenter;
-import com.sca.in_telligent.ui.group.member.edit.EditMemberMvpPresenter;
-import com.sca.in_telligent.ui.group.member.edit.EditMemberMvpView;
-import com.sca.in_telligent.ui.group.member.edit.EditMemberPresenter;
-import com.sca.in_telligent.ui.group.member.invite.InviteMemberMvpPresenter;
-import com.sca.in_telligent.ui.group.member.invite.InviteMemberMvpView;
-import com.sca.in_telligent.ui.group.member.invite.InviteMemberPresenter;
+
 import com.sca.in_telligent.ui.inbox.InboxAdapter;
 import com.sca.in_telligent.ui.inbox.InboxMvpPresenter;
 import com.sca.in_telligent.ui.inbox.InboxMvpView;
@@ -319,22 +303,6 @@ public class ActivityModule {
         return new ContactMessageSpinnerAdapter(appCompatActivity, new ArrayList<String>());
     }
 
-    @Provides
-    CreatedGroupDetailMvpPresenter<CreatedGroupDetailMvpView> provideCreatedGroupDetailPresenter(
-            CreatedGroupDetailPresenter<CreatedGroupDetailMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    MemberListMvpPresenter<MemberListMvpView> provideMemberListPresenter(
-            MemberListPresenter<MemberListMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    MemberListAdapter provideMemberListAdapter(AppCompatActivity appCompatActivity) {
-        return new MemberListAdapter();
-    }
 
     @Provides
     GroupDetailMvpPresenter<GroupDetailMvpView> provideGroupDetailPresenter(
@@ -342,17 +310,7 @@ public class ActivityModule {
         return presenter;
     }
 
-    @Provides
-    EditMemberMvpPresenter<EditMemberMvpView> provideEditMemberPresenter(
-            EditMemberPresenter<EditMemberMvpView> presenter) {
-        return presenter;
-    }
 
-    @Provides
-    InviteMemberMvpPresenter<InviteMemberMvpView> provideInviteMemberPresenter(
-            InviteMemberPresenter<InviteMemberMvpView> presenter) {
-        return presenter;
-    }
 
     @Provides
     AlertListMvpPresenter<AlertListMvpView> provideAlertListPresenter(
@@ -369,23 +327,6 @@ public class ActivityModule {
     @Provides
     AlertListAdapter provideAlertListAdapter(AppCompatActivity activity) {
         return new AlertListAdapter(mActivity, new ArrayList<Notification>());
-    }
-
-    @Provides
-    DeliveryInfoMvpPresenter<DeliveryInfoMvpView> provideDeliveryInfoPresenter(
-            DeliveryInfoPresenter<DeliveryInfoMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    DeliveryInfoAdapter provideDeliveryInfoAdapter(AppCompatActivity appCompatActivity) {
-        return new DeliveryInfoAdapter(new ArrayList<DeliveryInfoItem>());
-    }
-
-    @Provides
-    GenerateGroupMvpPresenter<GenerateGroupMvpView> provideGenerateGroupPresenter(
-            GenerateGroupPresenter<GenerateGroupMvpView> presenter) {
-        return presenter;
     }
 
     @Provides

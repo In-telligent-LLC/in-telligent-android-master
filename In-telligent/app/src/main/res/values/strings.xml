@@ -450,6 +450,8 @@
     <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
     <string name="permission_to_manage_dnd">Permission to DND</string>
     <string name="permission_to_manage_dnd_description">Permission to DND</string>
+    <string name="generate_group_title_text">Generate Group Title Text</string>
+
 
     <string-array name="genders_array">
         <item>@string/unspecified</item>

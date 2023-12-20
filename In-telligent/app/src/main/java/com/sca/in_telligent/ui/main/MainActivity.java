@@ -133,7 +133,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.total_silence_on)
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
-    @BindView(R.id.version)
+    @SuppressLint("ResourceType")
+    @BindView(R.string.version)
     TextView version_name;
     ArrayList<Building> groups = new ArrayList<>();
     ArrayList<Building> buildings = new ArrayList<>();
@@ -529,10 +530,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.groups = arrayList;
     }
 
-    @Override
-    public void onCreateGroupClicked() {
-
-    }
 
     @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
     public void onPullToRefreshGroups() {
@@ -543,11 +540,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
     public void alertViewSelected(int i) {
         getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
-    }
-
-    @Override
-    public void editGroupSelected(int position) {
-
     }
 
     @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
@@ -588,29 +580,38 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
-    public static  boolean lambda$getBuilding$2(int i, Building building) {
-        return building.getId() == i;
-    }
+    @Override
+    public void loadGroups(ArrayList<Building> buildingsFetched,
+                           ArrayList<Building> personalCommunitiesFetched, ArrayList<BuildingIdItem> ids) {
+        List<Building> all = new ArrayList<>();
+        buildings = buildingsFetched;
+        personalCommunities = personalCommunitiesFetched;
+        userBuildingIds = ids;
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void loadGroups(ArrayList<Building> arrayList, ArrayList<Building> arrayList2, ArrayList<BuildingIdItem> arrayList3) {
-        ArrayList arrayList4 = new ArrayList();
-        this.buildings = arrayList;
-        this.personalCommunities = arrayList2;
-        this.userBuildingIds = arrayList3;
-        if (arrayList != null && arrayList.size() > 0) {
-            arrayList4.addAll(setBuildingType(this.buildings, Building.Type.NORMAL));
+        if (buildings != null && buildings.size() > 0) {
+            all.addAll(setBuildingType(buildings, Building.Type.NORMAL));
         }
-        ArrayList<Building> arrayList5 = this.personalCommunities;
-        if (arrayList5 != null && arrayList5.size() > 0) {
-            arrayList4.addAll(setBuildingType(this.personalCommunities, Building.Type.NORMAL));
+        if (personalCommunities != null && personalCommunities.size() > 0) {
+            all.addAll(setBuildingType(personalCommunities, Building.Type.NORMAL));
         }
-        List list = (List) arrayList4.stream().distinct().collect(Collectors.toList());
-        list.sort(Comparator.comparing(MainActivity$$ExternalSyntheticLambda11.INSTANCE));
-        this.groups = (ArrayList) list;
-        getSupportFragmentManager().beginTransaction().replace((int) R.id.content_frame, GroupListFragment.newInstance(this.groups, new ArrayList(), this.subscriber.getId()), GroupListFragment.TAG).commit();
-        this.mPresenter.getSuggestedGroups();
-        prepareContactBuildings(arrayList, arrayList2);
+
+
+        List<Building> noDuplicatesGroupsList = all.stream().distinct().collect(Collectors.toList());
+        noDuplicatesGroupsList.sort(Comparator.comparing(Building::getName));
+
+        groups = (ArrayList<Building>) noDuplicatesGroupsList;
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_frame,
+                        GroupListFragment.newInstance(groups,
+                                new ArrayList<>(), subscriber.getId()),
+                        GroupListFragment.TAG)
+                .commit();
+
+        mPresenter.getSuggestedGroups();
+
+        prepareContactBuildings(buildingsFetched, personalCommunitiesFetched);
     }
 
     @Override // com.sca.in_telligent.ui.main.MainMvpView
@@ -681,19 +682,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void messageFeedClick(int i) {
         getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
-    }
-
-    @Override
-    public void viewMemberSelected(int buldingId, int memberCount, String groupName) {
-
-    }
-
-    @Override
-    public void inviteOtherSelected(int buildingId) {
-
     }
 
     private void prepareContactBuildings(ArrayList<Building> contactBuildings,
@@ -718,13 +709,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
-    /* renamed from: lambda$prepareContactBuildings$6$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-    public /* synthetic */ void m265x3b8ea25d(List list) throws Exception {
-        ArrayList<Building> arrayList = (ArrayList) list.stream().distinct().collect(Collectors.toList());
-        this.contactableBuildings = arrayList;
-        markManagedBuildings(arrayList);
-        this.contactableBuildings.sort(Comparator.comparing(MainActivity$$ExternalSyntheticLambda11.INSTANCE));
-    }
 
     private void markManagedBuildings(ArrayList<Building> arrayList) {
         Iterator<Building> it = arrayList.iterator();

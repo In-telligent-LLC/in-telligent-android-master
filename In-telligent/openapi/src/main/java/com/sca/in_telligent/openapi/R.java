@@ -3238,6 +3238,7 @@ public final class R {
         public static final int ghost_view_holder = 0x7f080141;
         public static final int glide_custom_view_target_tag = 0x7f080142;
         public static final int gone = 0x7f080143;
+        public static final int emergency_sound_alert_image = 0;
         public static final int graph = 0x7f080144;
         public static final int graph_wrap = 0x7f080145;
         public static final int gray_header_text = 0x7f080146;

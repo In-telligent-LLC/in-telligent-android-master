@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.util.AppVideoDownloader","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.VideoDownloader"],"superClasses":["java.lang.Object"]}

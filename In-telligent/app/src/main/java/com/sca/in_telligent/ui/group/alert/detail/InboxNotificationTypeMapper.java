@@ -1,22 +1,13 @@
 package com.sca.in_telligent.ui.group.alert.detail;
 
-
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.ui.inbox.InboxNotificationType;
+import java.util.Objects;
 
-import static java.util.Objects.*;
-
-import io.reactivex.rxjava3.annotations.NonNull;
-
-/**
- * Created by Marcos Ambrosi on 2/6/19.
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class InboxNotificationTypeMapper {
-
-    public static InboxNotificationType map(@NonNull Notification notification){
-        requireNonNull(notification, "Notification cannot be null");
-        InboxNotificationType inboxNotificationType = InboxNotificationType.NORMAL;
-        inboxNotificationType = inboxNotificationType.getNotificationType(notification.getType());
-        return inboxNotificationType;
+    public static InboxNotificationType map(Notification notification) {
+        Objects.requireNonNull(notification, "Notification cannot be null");
+        return InboxNotificationType.NORMAL.getNotificationType(notification.getType());
     }
 }

@@ -104,7 +104,7 @@ public class ScaApplication extends Application {
     public void initOG() {
         if (CommonUtils.checkLocationPermission(this)) {
             try {
-                ObservationGraph.getInstance(this, getString(R.string.factual_api_key));
+                ObservationGraph.getInstance(this, "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV");
             } catch (FactualException e) {
                 Log.e(LOG, "Factual Exception: " + e);
             }

@@ -33,6 +33,9 @@ import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.logout.LogoutActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.util.CommonUtils;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
 
 public class SignupDemographicsActivity extends BaseActivity implements SignupDemographicsMvpView,
@@ -166,6 +169,11 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
   }
 
   @Override

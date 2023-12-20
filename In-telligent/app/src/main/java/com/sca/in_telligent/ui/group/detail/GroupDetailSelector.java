@@ -1,23 +1,16 @@
 package com.sca.in_telligent.ui.group.detail;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface GroupDetailSelector {
+    void alertViewSelected(int i);
 
-  void groupLeftClicked(int position);
+    void groupLeftClicked(int i);
 
-  void groupRightClick(int position);
+    void groupRightClick(int i);
 
-  void messageFeedClick(int buildingId);
+    void messageFeedClick(int i);
 
-  void viewMemberSelected(int buldingId,int memberCount, String groupName);
+    void subscribed(int i);
 
-  void inviteOtherSelected(int buildingId);
-
-  void alertViewSelected(int buildingId);
-
-  void editGroupSelected(int position);
-
-  void unSubscribed(int buildingId);
-
-  void subscribed(int buildingId);
-
+    void unSubscribed(int i);
 }

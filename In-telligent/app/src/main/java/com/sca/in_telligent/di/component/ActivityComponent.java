@@ -13,16 +13,11 @@ import com.sca.in_telligent.ui.contact.list.ContactListFragment;
 import com.sca.in_telligent.ui.contact.message.ContactMessageFragment;
 import com.sca.in_telligent.ui.contact.message.deliver.ContactDeliverDialog;
 import com.sca.in_telligent.ui.findlocation.FindLocationDialog;
-import com.sca.in_telligent.ui.group.alert.delivery.DeliveryInfoFragment;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailFragment;
 import com.sca.in_telligent.ui.group.alert.list.AlertListFragment;
-import com.sca.in_telligent.ui.group.detail.created.CreatedGroupDetailFragment;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment;
-import com.sca.in_telligent.ui.group.generate.GenerateGroupFragment;
 import com.sca.in_telligent.ui.group.list.GroupListFragment;
-import com.sca.in_telligent.ui.group.member.MemberListFragment;
-import com.sca.in_telligent.ui.group.member.edit.EditMemberFragment;
-import com.sca.in_telligent.ui.group.member.invite.InviteMemberFragment;
+
 import com.sca.in_telligent.ui.inbox.AttachmentPreviewDialog;
 import com.sca.in_telligent.ui.inbox.InboxFragment;
 import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
@@ -75,23 +70,12 @@ public interface ActivityComponent {
 
   void inject(GroupListFragment fragment);
 
-  void inject(CreatedGroupDetailFragment fragment);
-
-  void inject(MemberListFragment fragment);
-
   void inject(GroupDetailFragment fragment);
 
-  void inject(EditMemberFragment fragment);
-
-  void inject(InviteMemberFragment fragment);
 
   void inject(AlertListFragment fragment);
 
   void inject(AlertDetailFragment fragment);
-
-  void inject(DeliveryInfoFragment fragment);
-
-  void inject(GenerateGroupFragment fragment);
 
   void inject(SettingsFragment fragment);
 

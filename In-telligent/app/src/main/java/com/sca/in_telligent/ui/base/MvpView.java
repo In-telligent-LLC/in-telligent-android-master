@@ -2,7 +2,6 @@ package com.sca.in_telligent.ui.base;
 
 import android.content.Intent;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface MvpView {
     void hideKeyboard();
 

@@ -22,7 +22,6 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.tasks.Task;
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.databinding.ActivityLoginBinding;
 import com.sca.in_telligent.openapi.data.network.model.FacebookLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.GoogleLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.LoginRequest;
@@ -80,17 +79,11 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     Intent intent = new Intent(context, LoginActivity.class);
     return intent;
   }
-  private ActivityLoginBinding binding;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
-
-    binding = ActivityLoginBinding.inflate(getLayoutInflater());
-    View view = binding.getRoot();
-    setContentView(view);
-
 
     getActivityComponent().inject(this);
 

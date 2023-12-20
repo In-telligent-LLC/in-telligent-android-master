@@ -24,7 +24,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder
     private Context mContext;
     private List<NavListItem> navListObjects;
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public interface Callback {
         void onItemClicked(int i);
     }

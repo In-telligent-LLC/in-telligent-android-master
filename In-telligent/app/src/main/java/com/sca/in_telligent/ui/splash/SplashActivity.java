@@ -14,6 +14,8 @@ import java.security.Permission;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 public class SplashActivity extends BaseActivity implements SplashMvpView {
   private final int SPLASH_DISPLAY_LENGTH = 1000;
   @Inject
@@ -28,18 +30,18 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
   }
 
 
-  @Override // com.sca.in_telligent.ui.base.BaseActivity
-  public void onCreate(Bundle bundle) {
-    super.onCreate(bundle);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
     setContentView(R.layout.activity_splash);
+
     getActivityComponent().inject(this);
-//    setUnBinder(ButterKnife.bind(this));
-    new Handler().postDelayed(new Runnable() { // from class: com.sca.in_telligent.ui.splash.SplashActivity.1
-      @Override // java.lang.Runnable
-      public void run() {
-        SplashActivity.this.mPresenter.onAttach(SplashActivity.this);
-      }
-    }, 1000L);
+
+    setUnBinder(ButterKnife.bind(this));
+
+    new Handler().postDelayed(() -> mPresenter.onAttach(SplashActivity.this), SPLASH_DISPLAY_LENGTH);
+
   }
 
   @Override // com.sca.in_telligent.ui.base.BaseActivity
@@ -58,22 +60,27 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
   }
 
-  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
+  @Override
   public void openLoginActivity() {
-    startActivity(LoginActivity.getStartIntent(this));
+    Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
+
+    startActivity(intent);
     finish();
   }
 
-  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
+  @Override
   public void openMainActivity() {
-    startActivity(MainActivity.getStartIntent(this));
+    Intent intent = MainActivity.getStartIntent(SplashActivity.this);
+
+    startActivity(intent);
     finish();
   }
 
-  /* JADX WARN: Multi-variable type inference failed */
-  @Override // com.sca.in_telligent.ui.splash.SplashMvpView
+  @Override
   public void openIntroActivity() {
-    startActivity(IntroActivity.getStartIntent(this));
+    Intent intent = IntroActivity.getStartIntent(SplashActivity.this);
+
+    startActivity(intent);
     finish();
   }
 }

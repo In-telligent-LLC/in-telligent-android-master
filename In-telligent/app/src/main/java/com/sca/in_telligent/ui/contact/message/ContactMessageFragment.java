@@ -52,6 +52,7 @@ import java.util.UUID;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -157,7 +158,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
-//            setUnBinder(ButterKnife.bind(this, view));
+            setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
 
@@ -208,8 +209,8 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ArrayList<String> spinnerItems = new ArrayList<>();
 
         if (isPersonalCommunity) {
-            spinnerItems.add(getString(R.string.emergency));
-            spinnerItems.add(getString(R.string.urgent));
+            spinnerItems.add("Emergency");
+            spinnerItems.add("Urgent");
         } else {
             if (canSendLSA) {
                 spinnerItems.add(getString(R.string.normal));
@@ -233,10 +234,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
     void prepareSendToSpinner() {
         ArrayList<String> spinnerItems = new ArrayList<>();
-        spinnerItems.add(getString(R.string.send_to_specific));
-        spinnerItems.add(getString(R.string.send_to_all));
+        spinnerItems.add("Send to Specific Subscriber or Groups");
+        spinnerItems.add("Send to All Subscribers of This Community");
 
-        spinnerItems.add(getString(R.string.send_to));
+        spinnerItems.add("Send To");
 
         contactSendSpinnerAdapter.addItems(spinnerItems);
 

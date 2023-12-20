@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +26,7 @@ import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ActivityComponent;
+import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ActivityModule;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -76,7 +79,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mActivityComponent = (ActivityComponent) DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build();
+
+//        mActivityComponent = DaggerActivityComponent.builder()
+//                .activityModule(new ActivityModule(this))
+//                .applicationComponent(((ScaApplication) getApplication()).getComponent()).build();
+        setUnBinder(ButterKnife.bind(this));
+
+
         if (isNetworkConnected()) {
             return;
         }
@@ -155,15 +164,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     @SuppressLint("ResourceType")
     @Override // com.sca.in_telligent.ui.base.MvpView
     public void showPopup(String str) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Alert");
-        builder.setMessage(str);
-        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.1
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
-        builder.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Alert");
+//        builder.setMessage(str);
+//        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.1
+//            @Override // android.content.DialogInterface.OnClickListener
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//            }
+//        });
+//        builder.show();
     }
 
     @Override // com.sca.in_telligent.ui.base.MvpView

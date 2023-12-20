@@ -114,6 +114,7 @@ public final class DaggerActivityComponent implements ApplicationComponent {
         return new Builder();
     }
 
+
     private void initialize(ApplicationModule applicationModule) {
         this.provideContextProvider = ApplicationModule_ProvideContextFactory.create(applicationModule);
         ApplicationModule_ProvidePreferenceNameFactory create = ApplicationModule_ProvidePreferenceNameFactory.create(applicationModule);
@@ -253,9 +254,10 @@ public final class DaggerActivityComponent implements ApplicationComponent {
         return geofenceTransitionsIntentService;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class Builder {
         private ApplicationModule applicationModule;
+        private ApplicationComponent applicationComponent;
+        private ActivityModule activityModule;
 
         private Builder() {
         }
@@ -265,12 +267,22 @@ public final class DaggerActivityComponent implements ApplicationComponent {
             return this;
         }
 
+        public Builder activityModule(ApplicationComponent applicationComponent) {
+            this.activityModule = (ActivityModule) Preconditions.checkNotNull(applicationComponent);
+            return this;
+        }
+
+
         public ApplicationComponent build() {
             Preconditions.checkBuilderRequirement(this.applicationModule, ApplicationModule.class);
             return new DaggerActivityComponent(this.applicationModule);
         }
 
-        public DaggerServiceComponent.Builder activityModule(ActivityModule activityModule) {
+        public DaggerActivityComponent.Builder activityModule(ActivityModule activityModule) {
+            return null;
+        }
+
+        public Builder applicationComponent(ApplicationComponent component) {
             return null;
         }
     }

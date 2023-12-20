@@ -22,6 +22,7 @@ import com.sca.in_telligent.util.twilio.TwilioUtil;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
 
 @Singleton
@@ -59,4 +60,6 @@ public interface ApplicationComponent {
 
     // com.sca.in_telligent.di.component.ApplicationComponent
     WorkManager getWorkManager();
+
+
 }

@@ -14,6 +14,9 @@ import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
 
 public class LogoutActivity extends BaseActivity implements LogoutMvpView {
@@ -30,7 +33,7 @@ public class LogoutActivity extends BaseActivity implements LogoutMvpView {
   }
 
   @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_logout);
     getActivityComponent().inject(this);
@@ -38,6 +41,16 @@ public class LogoutActivity extends BaseActivity implements LogoutMvpView {
     setUnBinder(ButterKnife.bind(this));
 
     mPresenter.onAttach(LogoutActivity.this);
+
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
 
   }
 

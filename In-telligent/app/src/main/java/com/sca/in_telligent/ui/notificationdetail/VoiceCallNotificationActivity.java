@@ -68,7 +68,7 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
     }
 
     private void init() {
-        DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build().inject(this);
+//        DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build().inject(this);
         this.notification_title = (TextView) findViewById(R.id.notification_title_text);
         this.call_cancel_view = (FloatingActionButton) findViewById(R.id.incoming_call_reject_call);
         this.call_accept_view = (FloatingActionButton) findViewById(R.id.incoming_call_accept_call);

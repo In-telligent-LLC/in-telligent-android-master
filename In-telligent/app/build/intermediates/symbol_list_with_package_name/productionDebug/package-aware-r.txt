@@ -2700,6 +2700,7 @@ string functionality_in_progress
 string g_h_i
 string gender
 string general_inquiries
+string generate_group_title_text
 string google_maps_key
 string groundtruth_access_key
 string groundtruth_aes_key

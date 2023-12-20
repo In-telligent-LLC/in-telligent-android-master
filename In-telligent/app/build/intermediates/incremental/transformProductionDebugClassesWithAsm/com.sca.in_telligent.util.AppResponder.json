@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.util.AppResponder","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.Responder"],"superClasses":["java.lang.Object"]}

@@ -2699,6 +2699,7 @@ int string functionality_in_progress 0x7f1000ce
 int string g_h_i 0x7f1000cf
 int string gender 0x7f1000d0
 int string general_inquiries 0x7f1000d1
+int string generate_group_title_text 0x7f100203
 int string google_maps_key 0x7f1000d2
 int string groundtruth_access_key 0x7f1000d3
 int string groundtruth_aes_key 0x7f1000d4

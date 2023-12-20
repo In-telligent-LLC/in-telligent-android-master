@@ -13,6 +13,7 @@ import com.sca.in_telligent.service.GeofencesUpdateWorker_MembersInjector;
 import com.sca.in_telligent.service.HeadsUpNotificationService;
 import com.sca.in_telligent.service.MyFirebaseMessagingService;
 import com.sca.in_telligent.service.MyFirebaseMessagingService_MembersInjector;
+import com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity;
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.WeatherUtil;
@@ -51,6 +52,11 @@ public final class DaggerServiceComponent implements ServiceComponent {
     @Override
     public void inject(GeofencesUpdateWorker geofencesUpdateService) {
         injectGeofencesUpdateService(geofencesUpdateService);
+    }
+
+    @Override
+    public void inject(VoiceCallNotificationActivity voiceCallNotificationActivity) {
+
     }
 
     private MyFirebaseMessagingService injectMyFirebaseMessagingService(MyFirebaseMessagingService myFirebaseMessagingService) {
