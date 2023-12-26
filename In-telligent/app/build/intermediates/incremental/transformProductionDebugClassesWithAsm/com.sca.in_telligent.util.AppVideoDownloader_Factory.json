@@ -1,1 +1,1 @@
-{"className":"com.sca.in_telligent.util.AppVideoDownloader_Factory","classAnnotations":[],"interfaces":["dagger.internal.Factory","javax.inject.Provider"],"superClasses":["java.lang.Object"]}
+{"className":"com.sca.in_telligent.util.AppVideoDownloader_Factory","classAnnotations":["dagger.internal.ScopeMetadata","dagger.internal.QualifierMetadata","dagger.internal.DaggerGenerated"],"interfaces":["dagger.internal.Factory","javax.inject.Provider"],"superClasses":["java.lang.Object"]}

@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
-import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ActivityModule;
 import com.sca.in_telligent.openapi.Constants;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;

@@ -1,5 +1,6 @@
 package com.sca.in_telligent.data;
 
+
 import android.content.Context;
 
 import com.sca.in_telligent.data.prefs.PreferencesHelper;
@@ -51,458 +52,475 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
-import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper;
-import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelperImpl;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.json.JSONObject;
-
 import io.reactivex.rxjava3.core.Observable;
-import okhttp3.MultipartBody;
+import okhttp3.MultipartBody.Part;
 import okhttp3.RequestBody;
 
 @Singleton
-public abstract class AppDataManager implements DataManager {
+public class AppDataManager implements DataManager {
+
     private static final String TAG = "AppDataManager";
-    private final ApiHelper mApiHelper;
+
     private final Context mContext;
     private final PreferencesHelper mPreferencesHelper;
+    private final ApiHelper mApiHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, PreferencesHelper preferencesHelper, ApiHelper apiHelper) {
-        this.mContext = context;
-        this.mPreferencesHelper = preferencesHelper;
-        this.mApiHelper = apiHelper;
+    public AppDataManager(@ApplicationContext Context context,
+                          PreferencesHelper preferencesHelper, ApiHelper apiHelper) {
+        mContext = context;
+        mPreferencesHelper = preferencesHelper;
+        mApiHelper = apiHelper;
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public ApiHeader getApiHeader() {
-        return this.mApiHelper.getApiHeader();
+        return mApiHelper.getApiHeader();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> loginWithPassword(LoginRequest loginRequest) {
-        return this.mApiHelper.loginWithPassword(loginRequest);
+        return mApiHelper.loginWithPassword(loginRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> signUp(SignUpRequest signUpRequest) {
-        return this.mApiHelper.signUp(signUpRequest);
+        return mApiHelper.signUp(signUpRequest);
     }
 
-
-//    public Observable<SuccessResponse> suggestNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3) {
-//        return null;
-//    }
-
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<CheckEmailResponse> checkEmail(String str) {
-        return this.mApiHelper.checkEmail(str);
+    @Override
+    public Observable<CheckEmailResponse> checkEmail(String email) {
+        return mApiHelper.checkEmail(email);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> loginFacebook(FacebookLoginRequest facebookLoginRequest) {
-        return this.mApiHelper.loginFacebook(facebookLoginRequest);
+        return mApiHelper.loginFacebook(facebookLoginRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> loginGoogle(GoogleLoginRequest googleLoginRequest) {
-        return this.mApiHelper.loginGoogle(googleLoginRequest);
+        return mApiHelper.loginGoogle(googleLoginRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> resetPassword(ResetPasswordRequest resetPasswordRequest) {
-        return this.mApiHelper.resetPassword(resetPasswordRequest);
+        return mApiHelper.resetPassword(resetPasswordRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> forgotPassword(ForgotPasswordRequest forgotPasswordRequest) {
-        return this.mApiHelper.forgotPassword(forgotPasswordRequest);
+        return mApiHelper.forgotPassword(forgotPasswordRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SubscriberResponse> getCurrentSubscriber() {
-        return this.mApiHelper.getCurrentSubscriber();
+        return mApiHelper.getCurrentSubscriber();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<NotificationResponse> getCurrentSubscriberInbox(String str) {
-        return this.mApiHelper.getCurrentSubscriberInbox(str);
+    @Override
+    public Observable<NotificationResponse> getCurrentSubscriberInbox(String page) {
+        return mApiHelper.getCurrentSubscriberInbox(page);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationResponse> getSavedMessages() {
-        return this.mApiHelper.getSavedMessages();
+        return mApiHelper.getSavedMessages();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> editSavedMessage(EditSaveMessageRequest editSaveMessageRequest) {
-        return this.mApiHelper.editSavedMessage(editSaveMessageRequest);
+    @Override
+    public Observable<SuccessResponse> editSavedMessage(
+            EditSaveMessageRequest editSaveMessageRequest) {
+        return mApiHelper.editSavedMessage(editSaveMessageRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SearchCommunityResponse> searchCommunities(String str) {
-        return this.mApiHelper.searchCommunities(str);
+    @Override
+    public Observable<SearchCommunityResponse> searchCommunities(String query) {
+        return mApiHelper.searchCommunities(query);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<NotificationsResponse> getAllNotifications(String str) {
-        return this.mApiHelper.getAllNotifications(str);
+    @Override
+    public Observable<NotificationsResponse> getAllNotifications(String buildingId) {
+        return mApiHelper.getAllNotifications(buildingId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SingleNotificationResponse> getNotification(String str) {
-        return this.mApiHelper.getNotification(str);
+    @Override
+    public Observable<SingleNotificationResponse> getNotification(String notificationId) {
+        return mApiHelper.getNotification(notificationId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationLanguageResponse> getLanguages() {
-        return this.mApiHelper.getLanguages();
+        return mApiHelper.getLanguages();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> syncAlertSubscription(AlertSubscriptionRequest alertSubscriptionRequest) {
-        return this.mApiHelper.syncAlertSubscription(alertSubscriptionRequest);
+    @Override
+    public Observable<SuccessResponse> syncAlertSubscription(
+            AlertSubscriptionRequest alertSubscriptionRequest) {
+        return mApiHelper.syncAlertSubscription(alertSubscriptionRequest);
     }
 
-//    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-//    public Observable<SuccessResponse> createOrEditGroup(String str, MultipartBody.Part part, RequestBody requestBody, RequestBody requestBody2) {
-//        return this.mApiHelper.createOrEditGroup(str, part, requestBody, requestBody2);
-//    }
-
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> createOrEditGroupNoThumbnail(String str, CreateEditGroupRequest createEditGroupRequest) {
-        return this.mApiHelper.createOrEditGroupNoThumbnail(str, createEditGroupRequest);
+    @Override
+    public Observable<SuccessResponse> createOrEditGroup(String buildingId, Part filePart,
+                                                         RequestBody name, RequestBody description) {
+        return mApiHelper.createOrEditGroup(buildingId, filePart, name, description);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<CommunityResponse> getCommunity(int i) {
-        return this.mApiHelper.getCommunity(i);
+    @Override
+    public Observable<SuccessResponse> createOrEditGroupNoThumbnail(String buildingId,
+                                                                    CreateEditGroupRequest createEditGroupRequest) {
+        return mApiHelper.createOrEditGroupNoThumbnail(buildingId, createEditGroupRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
+    public Observable<CommunityResponse> getCommunity(int buildingId) {
+        return mApiHelper.getCommunity(buildingId);
+    }
+
+    @Override
     public Observable<SearchCommunityResponse> getSuggestedGroups() {
-        return this.mApiHelper.getSuggestedGroups();
+        return mApiHelper.getSuggestedGroups();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> updateSubscription(UpdateSubscriptionRequest updateSubscriptionRequest) {
-        return this.mApiHelper.updateSubscription(updateSubscriptionRequest);
+    @Override
+    public Observable<SuccessResponse> updateSubscription(
+            UpdateSubscriptionRequest updateSubscriptionRequest) {
+        return mApiHelper.updateSubscription(updateSubscriptionRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<InviteeResponse> getInvitees(String str) {
-        return this.mApiHelper.getInvitees(str);
+    @Override
+    public Observable<InviteeResponse> getInvitees(String buildingId) {
+        return mApiHelper.getInvitees(buildingId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<ArrayList<BuildingMember>> getBuildingMembers(String str) {
-        return this.mApiHelper.getBuildingMembers(str);
+    @Override
+    public Observable<ArrayList<BuildingMember>> getBuildingMembers(String buildingId) {
+        return mApiHelper.getBuildingMembers(buildingId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<DeliveryInfoResponse> getDeliveryInformation(String str, String str2) {
-        return this.mApiHelper.getDeliveryInformation(str, str2);
+    @Override
+    public Observable<DeliveryInfoResponse> getDeliveryInformation(String buildingId,
+                                                                   String notificationId) {
+        return mApiHelper.getDeliveryInformation(buildingId, notificationId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> inviteOthers(String str, InviteOthersRequest inviteOthersRequest) {
-        return this.mApiHelper.inviteOthers(str, inviteOthersRequest);
+    @Override
+    public Observable<SuccessResponse> inviteOthers(String buildingId,
+                                                    InviteOthersRequest inviteOthersRequest) {
+        return mApiHelper.inviteOthers(buildingId, inviteOthersRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> editMember(int i, EditCommunityInviteeRequest editCommunityInviteeRequest) {
-        return this.mApiHelper.editMember(i, editCommunityInviteeRequest);
+    @Override
+    public Observable<SuccessResponse> editMember(int inviteeId, EditCommunityInviteeRequest editCommunityInviteeRequest) {
+        return mApiHelper.editMember(inviteeId, editCommunityInviteeRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> removeMember(int i) {
-        return this.mApiHelper.removeMember(i);
+    @Override
+    public Observable<SuccessResponse> removeMember(int inviteId) {
+        return mApiHelper.removeMember(inviteId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SubscriberResponse> updateUser(UpdateSubscriberRequest updateSubscriberRequest) {
-        return this.mApiHelper.updateUser(updateSubscriberRequest);
+    @Override
+    public Observable<SubscriberResponse> updateUser(
+            UpdateSubscriberRequest updateSubscriberRequest) {
+        return mApiHelper.updateUser(updateSubscriberRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> createNotificationNoThumbnail(CreateNotificationRequest createNotificationRequest) {
-        return this.mApiHelper.createNotificationNoThumbnail(createNotificationRequest);
+    @Override
+    public Observable<SuccessResponse> createNotification(List<Part> attachments,
+                                                          RequestBody buildingId,
+                                                          RequestBody title, RequestBody body, RequestBody type, RequestBody subscribers,
+                                                          RequestBody send_to_email) {
+        return mApiHelper
+                .createNotification(attachments, buildingId, title, body, type, subscribers,
+                        send_to_email);
     }
 
-
-    public Observable<SuccessResponse> createOrEditGroup(String str, MultipartBody.Part part, RequestBody requestBody, RequestBody requestBody2) {
-        return null;
+    @Override
+    public Observable<SuccessResponse> suggestNotification(List<Part> attachments,
+                                                           RequestBody buildingId, RequestBody title, RequestBody body) {
+        return mApiHelper.suggestNotification(attachments, buildingId, title, body);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> suggestNotificationNoThumbnail(SuggestNotificationRequest suggestNotificationRequest) {
-        return this.mApiHelper.suggestNotificationNoThumbnail(suggestNotificationRequest);
+    @Override
+    public Observable<SuccessResponse> createNotificationNoThumbnail(
+            CreateNotificationRequest createNotificationRequest) {
+        return mApiHelper.createNotificationNoThumbnail(createNotificationRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
+    public Observable<SuccessResponse> suggestNotificationNoThumbnail(
+            SuggestNotificationRequest suggestNotificationRequest) {
+        return mApiHelper.suggestNotificationNoThumbnail(suggestNotificationRequest);
+    }
+
+    @Override
     public Observable<PushTokenSuccessResponse> registerPushToken(PushTokenRequest pushTokenRequest) {
-        return this.mApiHelper.registerPushToken(pushTokenRequest);
+        return mApiHelper.registerPushToken(pushTokenRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<LocationModel> getLastLocation(String str) {
-        return this.mApiHelper.getLastLocation(str);
+    @Override
+    public Observable<LocationModel> getLastLocation(String subscriberId) {
+        return mApiHelper.getLastLocation(subscriberId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<LocationModel> getUpdatedLocation(String str) {
-        return this.mApiHelper.getUpdatedLocation(str);
+    @Override
+    public Observable<LocationModel> getUpdatedLocation(String subscriberId) {
+        return mApiHelper.getUpdatedLocation(subscriberId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<String> sendWeatherAlert(String str, LocationModel locationModel) {
-        return this.mApiHelper.sendWeatherAlert(str, locationModel);
+    @Override
+    public Observable<String> sendWeatherAlert(String weatherAlertId, LocationModel locationModel) {
+        return mApiHelper.sendWeatherAlert(weatherAlertId, locationModel);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<JSONObject> receivedMessage(String str) {
-        return this.mApiHelper.receivedMessage(str);
+    @Override
+    public Observable<JSONObject> receivedMessage(String msgId) {
+        return mApiHelper.receivedMessage(msgId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<JSONObject> respondToMessage(String str, HashMap<String, Object> hashMap) {
-        return this.mApiHelper.respondToMessage(str, hashMap);
+    @Override
+    public Observable<JSONObject> respondToMessage(String msgId, HashMap<String, Object> map) {
+        return mApiHelper.respondToMessage(msgId, map);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> alertOpened(AlertOpenedRequest alertOpenedRequest) {
-        return this.mApiHelper.alertOpened(alertOpenedRequest);
+        return mApiHelper.alertOpened(alertOpenedRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> alertDelivered(AlertOpenedRequest alertOpenedRequest) {
-        return this.mApiHelper.alertDelivered(alertOpenedRequest);
+    @Override
+    public Observable<SuccessResponse> alertDelivered(AlertOpenedRequest alertDeliveredRequest) {
+        return mApiHelper.alertDelivered(alertDeliveredRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<JSONObject> respondPersonalSafety(HashMap<String, Object> hashMap) {
-        return this.mApiHelper.respondPersonalSafety(hashMap);
+    @Override
+    public Observable<JSONObject> respondPersonalSafety(HashMap<String, Object> map) {
+        return mApiHelper.respondPersonalSafety(map);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<TranslationResponse> getAlertTranslation(String str, String str2) {
-        return this.mApiHelper.getAlertTranslation(str, str2);
+    @Override
+    public Observable<TranslationResponse> getAlertTranslation(String id, String lang) {
+        return mApiHelper.getAlertTranslation(id, lang);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<IntelligentGeofenceResponse> getGeofences(String str, String str2) {
-        return this.mApiHelper.getGeofences(str, str2);
+    @Override
+    public Observable<IntelligentGeofenceResponse> getGeofences(String lat, String lng) {
+        return mApiHelper.getGeofences(lat, lng);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> refreshGeofences(LocationModel locationModel) {
-        return this.mApiHelper.refreshGeofences(locationModel);
+    @Override
+    public Observable<SuccessResponse> refreshGeofences(LocationModel refreshGeofencesRequest) {
+        return mApiHelper.refreshGeofences(refreshGeofencesRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<VoipTokenResponse> getVoipToken() {
-        return this.mApiHelper.getVoipToken();
+        return mApiHelper.getVoipToken();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<VoipCallResponse> makeVoipCall(VoipCallRequest voipCallRequest) {
-        return this.mApiHelper.makeVoipCall(voipCallRequest);
+        return mApiHelper.makeVoipCall(voipCallRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<CallDetailResponse> getCallDetail(String str) {
-        return this.mApiHelper.getCallDetail(str);
+    @Override
+    public Observable<CallDetailResponse> getCallDetail(String conferenceId) {
+        return mApiHelper.getCallDetail(conferenceId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> deletePersonalCommunity(String str) {
-        return this.mApiHelper.deletePersonalCommunity(str);
+    @Override
+    public Observable<SuccessResponse> deletePersonalCommunity(String buildingId) {
+        return mApiHelper.deletePersonalCommunity(buildingId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> deleteAlert(AlertDeleteRequest alertDeleteRequest) {
-        return this.mApiHelper.deleteAlert(alertDeleteRequest);
+        return mApiHelper.deleteAlert(alertDeleteRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> sendSupportMail(SupportRequest supportRequest) {
-        return this.mApiHelper.sendSupportMail(supportRequest);
+        return mApiHelper.sendSupportMail(supportRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> updateSubscriptionToCommunity(SubscribeToCommunityRequest subscribeToCommunityRequest) {
-        return this.mApiHelper.updateSubscriptionToCommunity(subscribeToCommunityRequest);
+        return mApiHelper.updateSubscriptionToCommunity(subscribeToCommunityRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> autoSubscribe(AutoSubscribeRequest autoSubscribeRequest) {
-        return this.mApiHelper.autoSubscribe(autoSubscribeRequest);
+        return mApiHelper.autoSubscribe(autoSubscribeRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> appOpened() {
-        return this.mApiHelper.appOpened();
+        return mApiHelper.appOpened();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> ignoreBuilding(String str) {
-        return this.mApiHelper.ignoreBuilding(str);
+    @Override
+    public Observable<SuccessResponse> ignoreBuilding(String buildingId) {
+        return mApiHelper.ignoreBuilding(buildingId);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<AdResponse> getAd() {
-        return this.mApiHelper.getAd();
+        return mApiHelper.getAd();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> clickAd(int i) {
-        return this.mApiHelper.clickAd(i);
+    @Override
+    public Observable<SuccessResponse> clickAd(int adId) {
+        return mApiHelper.clickAd(adId);
     }
 
-//    public Observable<SuccessResponse> createNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3, RequestBody requestBody4, RequestBody requestBody5, RequestBody requestBody6) {
-//        return null;
-//    }
-
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public String getCurrentUserId() {
-        return this.mPreferencesHelper.getCurrentUserId();
+        return mPreferencesHelper.getCurrentUserId();
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
-    public void setCurrentUserId(String str) {
-        this.mPreferencesHelper.setCurrentUserId(str);
+    @Override
+    public void setCurrentUserId(String userId) {
+        mPreferencesHelper.setCurrentUserId(userId);
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public int getCurrentUserLoggedInMode() {
-        return this.mPreferencesHelper.getCurrentUserLoggedInMode();
+        return mPreferencesHelper.getCurrentUserLoggedInMode();
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
-    public void setCurrentUserLoggedInMode(DataManager.LoggedInMode loggedInMode) {
-        this.mPreferencesHelper.setCurrentUserLoggedInMode(loggedInMode);
+    @Override
+    public void setCurrentUserLoggedInMode(LoggedInMode mode) {
+        mPreferencesHelper.setCurrentUserLoggedInMode(mode);
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public String getCurrentUserLanguage() {
-        return this.mPreferencesHelper.getCurrentUserLanguage();
+        return mPreferencesHelper.getCurrentUserLanguage();
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
-    public void setCurrentUserLanguage(String str) {
-        this.mPreferencesHelper.setCurrentUserLanguage(str);
+    @Override
+    public void setCurrentUserLanguage(String locale) {
+        mPreferencesHelper.setCurrentUserLanguage(locale);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public String getAccessToken() {
-        return getAccessToken();
+        return mPreferencesHelper.getAccessToken();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setAccessToken(String str) {
-        this.mPreferencesHelper.setAccessToken(str);
+    @Override
+    public void setAccessToken(String accessToken) {
+        mPreferencesHelper.setAccessToken(accessToken);
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public void clearAfterLogout() {
-        this.mPreferencesHelper.clearAfterLogout();
+        mPreferencesHelper.clearAfterLogout();
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public boolean isFirstTime() {
-        return this.mPreferencesHelper.isFirstTime();
+        return mPreferencesHelper.isFirstTime();
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
-    public void setIsFirstTime(boolean z) {
-        this.mPreferencesHelper.setIsFirstTime(z);
+    @Override
+    public void setIsFirstTime(boolean isFirstTime) {
+        mPreferencesHelper.setIsFirstTime(isFirstTime);
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
-    public void setPushToken(String str) {
-        this.mPreferencesHelper.setPushToken(str);
+    @Override
+    public void setPushToken(String pushToken) {
+        mPreferencesHelper.setPushToken(pushToken);
     }
 
-    @Override // com.sca.in_telligent.data.prefs.PreferencesHelper
+    @Override
     public String getPushToken() {
-        return this.mPreferencesHelper.getPushToken();
+        return mPreferencesHelper.getPushToken();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setLifeSafetyOverrideExpire(String str) {
-        this.mPreferencesHelper.setLifeSafetyOverrideExpire(str);
+    @Override
+    public void setLifeSafetyOverrideExpire(String dateExpire) {
+        mPreferencesHelper.setLifeSafetyOverrideExpire(dateExpire);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public String getLifeSafetyOverrideExpire() {
-        return this.mPreferencesHelper.getLifeSafetyOverrideExpire();
+        return mPreferencesHelper.getLifeSafetyOverrideExpire();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setZipcode(String str) {
-        this.mPreferencesHelper.setZipcode(str);
+    @Override
+    public void setZipcode(String zipcode) {
+        mPreferencesHelper.setZipcode(zipcode);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public String getZipcode() {
-        return this.mPreferencesHelper.getZipcode();
+        return mPreferencesHelper.getZipcode();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setSubscribedBuildings(ArrayList<Building> arrayList) {
-        this.mPreferencesHelper.setSubscribedBuildings(arrayList);
+    @Override
+    public void setSubscribedBuildings(ArrayList<Building> managedBuildings) {
+        mPreferencesHelper.setSubscribedBuildings(managedBuildings);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public ArrayList<Building> getSubscribedBuildings() {
-        return this.mPreferencesHelper.getSubscribedBuildings();
+        return mPreferencesHelper.getSubscribedBuildings();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setAutoOptOuts(ArrayList<SubscriberOptOut> arrayList) {
-        this.mPreferencesHelper.setAutoOptOuts(arrayList);
+    @Override
+    public void setAutoOptOuts(ArrayList<SubscriberOptOut> optOuts) {
+        mPreferencesHelper.setAutoOptOuts(optOuts);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public ArrayList<SubscriberOptOut> getAutoOptOuts() {
-        return this.mPreferencesHelper.getAutoOptOuts();
+        return mPreferencesHelper.getAutoOptOuts();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setSubscriberId(String str) {
-        this.mPreferencesHelper.setSubscriberId(str);
+    @Override
+    public void setSubscriberId(String subscriberId) {
+        mPreferencesHelper.setSubscriberId(subscriberId);
     }
 
-    @Override // com.sca.in_telligent.data.DataManager, com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
-    public void setLastFetchedGeofences(long j) {
-        this.mPreferencesHelper.setLastFetchedGeofences(j);
+    @Override
+    public void setLastFetchedGeofences(long timeInMillis) {
+        mPreferencesHelper.setLastFetchedGeofences(timeInMillis);
     }
 
-    @Override // com.sca.in_telligent.data.DataManager, com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public long getLastFetchedGeofences() {
-        return this.mPreferencesHelper.getLastFetchedGeofences();
+        return mPreferencesHelper.getLastFetchedGeofences();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    @Override
     public String getSubscriberId() {
-        return this.mPreferencesHelper.getSubscriberId();
+        return mPreferencesHelper.getSubscriberId();
     }
 
-    @Override // com.sca.in_telligent.data.DataManager
+    @Override
     public void setUserAsLoggedOut() {
-        updateUserInfo(null, DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT);
+        updateUserInfo(
+                null, LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT);
         clearAfterLogout();
     }
 
-    @Override // com.sca.in_telligent.data.DataManager
-    public void updateUserInfo(String str, DataManager.LoggedInMode loggedInMode) {
-        setAccessToken(str);
+    @Override
+    public void updateUserInfo(String accessToken, LoggedInMode loggedInMode) {
+        setAccessToken(accessToken);
         setCurrentUserLoggedInMode(loggedInMode);
     }
+
+
 }

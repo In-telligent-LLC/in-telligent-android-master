@@ -18,8 +18,8 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     private final DataManager mDataManager;
     private V mMvpView;
     private final SchedulerProvider mSchedulerProvider;
-    @Inject
-    Permission rxPermissions;
+//    @Inject
+//    Permission rxPermissions;
     @Inject
     TwilioUtil twilioUtil;
 
@@ -67,13 +67,13 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         return this.mCompositeDisposable;
     }
 
-    public Permission getRxPermissions() {
-        return this.rxPermissions;
-    }
-
-    public Permissions getRxPermissionsFragment(Fragment fragment) {
-        return new Permissions();
-    }
+//    public Permission getRxPermissions() {
+//        return this.rxPermissions;
+//    }
+//
+//    public Permissions getRxPermissionsFragment(Fragment fragment) {
+//        return new Permissions();
+//    }
 
     public TwilioUtil getTwilioUtil() {
         return this.twilioUtil;

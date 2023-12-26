@@ -7,14 +7,13 @@ import android.util.Log;
 import com.factual.android.FactualException;
 import com.factual.android.ObservationGraph;
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.data.DataManager.LoggedInMode;
 import com.sca.in_telligent.di.component.ApplicationComponent;
-import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LifecycleInterface;
+import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 
 
 import javax.inject.Inject;
@@ -44,7 +43,7 @@ public class ScaApplication extends Application {
         //This should be initialized BEFORE DI. Otherwise it will throw an exception
         initOpenApi();
 
-        mApplicationComponent = DaggerActivityComponent.builder()
+        mApplicationComponent = (ApplicationComponent) DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this)).build();
 
         mApplicationComponent.inject(this);

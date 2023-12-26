@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -25,8 +27,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
+import com.sca.in_telligent.di.ApplicationContext;
 import com.sca.in_telligent.di.component.ActivityComponent;
-import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ActivityModule;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -77,12 +79,19 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return this.locationUtil;
     }
 
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-//        mActivityComponent = DaggerActivityComponent.builder()
-//                .activityModule(new ActivityModule(this))
-//                .applicationComponent(((ScaApplication) getApplication()).getComponent()).build();
+        BaseActivity temp = this;
+
+        mActivityComponent = DaggerActivityComponent.builder()
+                .activityModule(new ActivityModule(this))
+                .applicationComponent(((ScaApplication) getApplication()).getComponent())
+                .build();
+
+//        ((ScaApplication) getApplication()).getComponent().;
+
+
         setUnBinder(ButterKnife.bind(this));
 
 

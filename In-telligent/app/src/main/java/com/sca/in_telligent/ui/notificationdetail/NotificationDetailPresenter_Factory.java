@@ -2,11 +2,8 @@ package com.sca.in_telligent.ui.notificationdetail;
 
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.ui.base.BasePresenter_MembersInjector;
-import com.sca.in_telligent.ui.notificationdetail.NotificationDetailMvpView;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
-
-import java.security.Permission;
 
 import dagger.internal.Factory;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
