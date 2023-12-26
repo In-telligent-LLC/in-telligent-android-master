@@ -1,0 +1,39 @@
+# Android
+build/
+captures/
+.externalNativeBuild/
+.idea/
+*.iml
+*.apk
+*.ap_
+*.class
+*.dex
+*.pro
+*.sln
+*.suo
+*.swp
+*.swn
+*.user
+*.aapt
+*.ap_
+*.hprof
+*.log
+*.png
+*.tiff
+*.zip
+*.aar
+*.war
+*.ear
+/local.properties
+
+# Gradle
+.gradle/
+/app/*/generated/
+/app/*/build/
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+# Android Studio captures folder
+/captures/
+
