@@ -2700,7 +2700,6 @@ string functionality_in_progress
 string g_h_i
 string gender
 string general_inquiries
-string generate_group_title_text
 string google_maps_key
 string groundtruth_access_key
 string groundtruth_aes_key
@@ -2821,8 +2820,6 @@ string path_password_strike_through
 string pending
 string people
 string permission_read_storage_rationale
-string permission_to_manage_dnd
-string permission_to_manage_dnd_description
 string personal_alert
 string personal_communities
 string personal_community
@@ -2984,7 +2981,6 @@ string uploading_attachment_for_notification
 string uploading_attachment_for_personal_community
 string urgent
 string user_invited
-string version
 string version_no_longer_available
 string view
 string view_alerts
@@ -2995,7 +2991,6 @@ string w_x_y_z
 string when_you_send_members_will_hear
 string would_you_like_to_call_your_community_manager
 string would_you_like_to_create_personal_community
-string would_you_like_to_enable_your_location_all_the_time
 string would_you_like_to_perm_delete_contact
 string yes
 string you_are_now_subscribed_to

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/drawer_layout"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:fitsSystemWindows="true"
-  tools:openDrawer="start">
-
-  <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-    <include
-      layout="@layout/toolbar_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"/>
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -59,76 +59,76 @@
   </LinearLayout>
 
   <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="@color/gray2"
-    android:orientation="vertical"
-    android:visibility="visible">
-
-    <view class="androidx.appcompat.app.AlertController$RecycleListView"
-      android:id="@+id/navigation_view_listview"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_marginTop="100dp"
-      android:layout_marginBottom="10dp"
-      android:layout_above="@id/total_silence_label"/>
+      android:layout_gravity="start"
+      android:background="@color/gray2"
+      android:orientation="vertical"
+      android:visibility="visible">
+
+    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        android:id="@+id/navigation_view_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@id/total_silence_label"/>
 
     <TextView
-      android:id="@+id/total_silence_label"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="10dp"
-      android:layout_above="@+id/total_silence_number"
-      android:layout_centerHorizontal="true"
-      android:text="@string/total_silence"
-      android:textColor="@color/white"
-      android:textSize="30sp"/>
+        android:id="@+id/total_silence_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/total_silence_number"
+        android:layout_centerHorizontal="true"
+        android:text="@string/total_silence"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
 
     <TextView
-      android:id="@+id/total_silence_number"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="10dp"
-      android:layout_above="@+id/total_silence_bottom_layout"
-      android:layout_centerHorizontal="true"
-      android:text="0:00:00"
-      android:textColor="@color/white"
-      android:textSize="30sp"/>
+        android:id="@+id/total_silence_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/total_silence_bottom_layout"
+        android:layout_centerHorizontal="true"
+        android:text="0:00:00"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
 
     <RelativeLayout
-      android:id="@+id/total_silence_bottom_layout"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="50dp"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      android:background="@drawable/total_silence_border">
+        android:id="@+id/total_silence_bottom_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/total_silence_border">
 
       <TextView
-        android:id="@+id/total_silence_off"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/total_silence_selector"
-        android:text="@string/off"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"/>
+          android:id="@+id/total_silence_off"
+          android:layout_width="80dp"
+          android:layout_height="wrap_content"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:background="@drawable/total_silence_selector"
+          android:text="@string/off"
+          android:textAlignment="center"
+          android:textColor="@color/white"
+          android:textSize="24sp"/>
 
       <TextView
-        android:id="@+id/total_silence_on"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/total_silence_off"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/total_silence_selector"
-        android:text="@string/on"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"/>
+          android:id="@+id/total_silence_on"
+          android:layout_width="80dp"
+          android:layout_height="wrap_content"
+          android:layout_toEndOf="@id/total_silence_off"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:background="@drawable/total_silence_selector"
+          android:text="@string/on"
+          android:textAlignment="center"
+          android:textColor="@color/white"
+          android:textSize="24sp"/>
 
       <TextView
           android:id="@+id/version"
@@ -138,7 +138,7 @@
           android:paddingTop="10dp"
           android:paddingBottom="10dp"
           android:background="@drawable/total_silence_selector"
-          android:text="@string/version"
+          android:text="@string/version_no_longer_available"
           android:textAlignment="center"
           android:textColor="@color/white"
           android:textSize="24sp"/>

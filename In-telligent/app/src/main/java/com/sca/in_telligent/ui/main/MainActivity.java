@@ -134,7 +134,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
     @SuppressLint("ResourceType")
-    @BindView(R.string.version)
+    @BindView(R.string.version_no_longer_available)
     TextView version_name;
     ArrayList<Building> groups = new ArrayList<>();
     ArrayList<Building> buildings = new ArrayList<>();
@@ -195,7 +195,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.sca.in_telligent.ui.base.BaseActivity
     protected void setUp() {
-        this.version_name.setText(getString(R.string.version) + " " + BuildConfig1.VERSION_NAME);
+        this.version_name.setText(getString(R.string.version_no_longer_available) + " " + BuildConfig1.VERSION_NAME);
         showLocationInformation();
 //        configureNavigationDrawer();
         configureToolbar();

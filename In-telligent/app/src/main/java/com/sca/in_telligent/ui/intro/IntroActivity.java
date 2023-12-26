@@ -32,14 +32,9 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   @Inject
   IntroMvpPresenter<IntroMvpView> mPresenter;
 
-  @BindView(R.id.first_time_user_btn)
-  TextView firstTimeUserButton;
-
-  @BindView(R.id.returning_subscriber_btn)
-  TextView returningSubscriberButton;
-
-  @BindView(R.id.imageAnimated)
+//  @BindView(R.id.imageAnimated)
   ImageView imageAnimated;
+
 
   int[] images = {R.drawable.slideshow_image_01, R.drawable.slideshow_image_02,
       R.drawable.slideshow_image_03, R.drawable.slideshow_image_04, R.drawable.slideshow_image_05,
@@ -51,17 +46,30 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
   @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_intro);
     getActivityComponent().inject(this);
 
-    setUnBinder(ButterKnife.bind(this));
+    imageAnimated = findViewById(R.id.imageAnimated);
+
+
+    ButterKnife.bind(this);
 
     mPresenter.onAttach(IntroActivity.this);
     animate(imageAnimated, images, 0);
 
   }
+
+
+
+  @BindView(R.id.first_time_user_btn)
+  TextView firstTimeUserButton;
+
+  @BindView(R.id.returning_subscriber_btn)
+  TextView returningSubscriberButton;
+
+
 
   @OnClick(R.id.first_time_user_btn)
   void firstTimeClick(View v) {

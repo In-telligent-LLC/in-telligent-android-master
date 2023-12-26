@@ -82,15 +82,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BaseActivity temp = this;
-
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((ScaApplication) getApplication()).getComponent())
                 .build();
-
-//        ((ScaApplication) getApplication()).getComponent().;
-
 
         setUnBinder(ButterKnife.bind(this));
 

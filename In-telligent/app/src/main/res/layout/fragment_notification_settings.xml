@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
   <TextView
-    android:id="@+id/severe_warning_title"
-    android:textStyle="bold"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:layout_marginStart="10dp"
-    android:text="@string/severe_weather_warnings"
-    android:textColor="@color/black"
-    android:textSize="20sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+      android:id="@+id/severe_warning_title"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:layout_marginStart="10dp"
+      android:text="@string/severe_weather_warnings"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 
   <TextView
-    android:id="@+id/notification_setting_severe_label"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:layout_marginStart="10dp"
-    android:text="@string/severe_weather"
-    android:textColor="@color/black"
-    android:textSize="16sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/severe_warning_title"/>
+      android:id="@+id/notification_setting_severe_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:layout_marginStart="10dp"
+      android:text="@string/severe_weather"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/severe_warning_title"/>
 
   <TextView
-    android:id="@+id/notification_setting_lightning_label"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:layout_marginStart="10dp"
-    android:text="@string/lightning"
-    android:textColor="@color/black"
-    android:textSize="16sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/notification_setting_severe_label"/>
+      android:id="@+id/notification_setting_lightning_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:layout_marginStart="10dp"
+      android:text="@string/lightning"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/notification_setting_severe_label"/>
 
   <Switch
-    android:id="@+id/notification_setting_severe_toggle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    app:layout_constraintBottom_toBottomOf="@id/notification_setting_severe_label"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@id/notification_setting_severe_label"/>
+      android:id="@+id/notification_setting_severe_toggle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="@id/notification_setting_severe_label"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/notification_setting_severe_label"/>
 
 
   <Switch
-    android:id="@+id/notification_setting_lightning_toggle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    app:layout_constraintBottom_toBottomOf="@id/notification_setting_lightning_label"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@id/notification_setting_lightning_label"/>
+      android:id="@+id/notification_setting_lightning_toggle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="@id/notification_setting_lightning_label"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/notification_setting_lightning_label"/>
 
   <View
-    android:id="@+id/notification_settings_divider"
-    android:layout_width="0dp"
-    android:layout_height="1dp"
-    android:layout_marginTop="15dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:background="@color/tab_gray"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/notification_setting_lightning_label"></View>
+      android:id="@+id/notification_settings_divider"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:layout_marginTop="15dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:background="@color/tab_gray"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/notification_setting_lightning_label"></View>
 
 
   <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/notification_setting_recyclerview"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_marginTop="10dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/notification_settings_divider"></androidx.recyclerview.widget.RecyclerView>
+      android:id="@+id/notification_setting_recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/notification_settings_divider"></androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

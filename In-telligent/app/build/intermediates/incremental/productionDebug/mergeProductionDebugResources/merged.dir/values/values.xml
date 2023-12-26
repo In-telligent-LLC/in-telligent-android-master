@@ -955,7 +955,6 @@
     <string name="g_h_i">G H I</string>
     <string name="gender">Gender</string>
     <string name="general_inquiries">General Inquiries on In-telligent</string>
-    <string name="generate_group_title_text">Generate Group Title Text</string>
     <string name="google_maps_key" translatable="false">AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg</string>
     <string name="groundtruth_access_key" translatable="false">6SeUIx9dXvtGUpcpM0pKsGkDh-eSzdnbdx4AfILJpRMu0ZaWI7vDbZz-khEdiKtGOqhQnAj0XimEyj7L4V7eSeP9NKfM5yQy</string>
     <string name="groundtruth_aes_key" translatable="false">K6WTBPB4KIELG3ACE9UHUUUV4FYJC76Q</string>
@@ -1076,8 +1075,6 @@
     <string name="pending">Pending</string>
     <string name="people">People</string>
     <string name="permission_read_storage_rationale">Storage read permission is needed to pick files.</string>
-    <string name="permission_to_manage_dnd">Permission to DND</string>
-    <string name="permission_to_manage_dnd_description">Permission to DND</string>
     <string name="personal_alert">Personal Alert</string>
     <string name="personal_communities">Personal Communities</string>
     <string name="personal_community">Personal Community</string>
@@ -1239,7 +1236,6 @@
     <string name="uploading_attachment_for_personal_community">Uploading attachment for personal community</string>
     <string name="urgent">Urgent</string>
     <string name="user_invited">User Invited</string>
-    <string name="version" translatable="false">Version name</string>
     <string name="version_no_longer_available">Version no longer supported!</string>
     <string name="view">View</string>
     <string name="view_alerts">View Alerts</string>
@@ -1250,7 +1246,6 @@
     <string name="when_you_send_members_will_hear">*When you send an urgent or emergency alert to the community, members will hear the alert sound</string>
     <string name="would_you_like_to_call_your_community_manager">Would you like to call your community manager?</string>
     <string name="would_you_like_to_create_personal_community">Do you want to create a Personal Community to send messages to Family and Friends?</string>
-    <string name="would_you_like_to_enable_your_location_all_the_time" translatable="false">Would you like to enable your location all the time?</string>
     <string name="would_you_like_to_perm_delete_contact">Would you like to permanently delete this contact?</string>
     <string name="yes">Yes</string>
     <string name="you_are_now_subscribed_to">You are now subscribed to "<ns1:g example="Beans and Brews" id="community">%s</ns1:g>"</string>

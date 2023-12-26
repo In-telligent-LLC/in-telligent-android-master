@@ -190,7 +190,6 @@
     <string name="no_personal_communities">No Personal Communities</string>
     <string name="edit_time">Edit Time</string>
     <string name="total_silence_on">Total Silence On:</string>
-    <string name="version" translatable="false">Version name</string>
     <string name="other_communities">Other Communities</string>
     <string name="location_services_timed_out">Location services timed out</string>
     <string name="no_results_found">No results found</string>
@@ -294,7 +293,6 @@
     <string name="search">Search</string>
     <string name="search_by_current_location">Search by Current Location</string>
     <string name="would_you_like_to_call_your_community_manager">Would you like to call your community manager?</string>
-    <string name="would_you_like_to_enable_your_location_all_the_time" translatable="false">Would you like to enable your location all the time?</string>
     <string name="no_thank_you">No Thank You</string>
     <string name="title">Title</string>
     <string name="body">Body</string>
@@ -448,10 +446,6 @@
   <string name="passwords_dont_match">Passwords don\'t match</string>
     <string name="search_by_name">Search by name</string>
     <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
-    <string name="permission_to_manage_dnd">Permission to DND</string>
-    <string name="permission_to_manage_dnd_description">Permission to DND</string>
-    <string name="generate_group_title_text">Generate Group Title Text</string>
-
 
     <string-array name="genders_array">
         <item>@string/unspecified</item>
