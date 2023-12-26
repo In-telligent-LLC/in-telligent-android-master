@@ -15,8 +15,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.MultipartBody.Part;
@@ -33,12 +34,12 @@ public class ContactMessagePresenter<V extends ContactMessageMvpView> extends
   }
 
 
-  @Override
-  public void getStoragePermission() {
-    getRxPermissions()
-        .request(permission.READ_EXTERNAL_STORAGE, permission.WRITE_EXTERNAL_STORAGE)
-        .subscribe(granted -> getMvpView().storagePermissionResult(granted));
-  }
+//  @Override
+//  public void getStoragePermission() {
+//    getRxPermissions()
+//        .request(permission.READ_EXTERNAL_STORAGE, permission.WRITE_EXTERNAL_STORAGE)
+//        .subscribe(granted -> getMvpView().storagePermissionResult(granted));
+//  }
 
   @Override
   public void createNotification(String buildingId, String title, String body, String type,

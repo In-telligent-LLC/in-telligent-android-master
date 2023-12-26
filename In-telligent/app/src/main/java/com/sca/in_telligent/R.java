@@ -1,9 +1,7 @@
 package com.sca.in_telligent;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class R {
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class anim {
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -515,6 +513,7 @@ public final class R {
         public static final int extendedFloatingActionButtonTertiaryStyle = 0x7f0301ab;
         public static final int extraMultilineHeightEnabled = 0x7f0301ac;
         public static final int fabAlignmentMode = 0x7f0301ad;
+        public static final int fab_create_group = 0x7f0301ad;
         public static final int fabAnimationMode = 0x7f0301ae;
         public static final int fabCradleMargin = 0x7f0301af;
         public static final int fabCradleRoundedCornerRadius = 0x7f0301b0;
@@ -2912,7 +2911,6 @@ public final class R {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class id {
         public static final int ALT = 0x7f080000;
         public static final int ALWAYS = 0x7f080001;

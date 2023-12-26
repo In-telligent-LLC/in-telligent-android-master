@@ -1,45 +1,38 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class ResetPasswordRequest implements Serializable {
+    @SerializedName("adId")
+    private String adId;
+    @SerializedName("deviceId")
+    private String deviceId;
+    @SerializedName("password")
+    private String password;
+    @SerializedName("password2")
+    private String password2;
+    @SerializedName("resetCode")
+    private String resetCode;
 
-  @SerializedName("deviceId")
-  private String deviceId;
+    public void setDeviceId(String str) {
+        this.deviceId = str;
+    }
 
-  @SerializedName("resetCode")
-  private String resetCode;
+    public void setResetCode(String str) {
+        this.resetCode = str;
+    }
 
-  @SerializedName("password")
-  private String password;
+    public void setPassword(String str) {
+        this.password = str;
+    }
 
+    public void setPassword2(String str) {
+        this.password2 = str;
+    }
 
-  @SerializedName("password2")
-  private String password2;
-
-  @SerializedName("adId")
-  private String adId;
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public void setResetCode(String resetCode) {
-    this.resetCode = resetCode;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public void setPassword2(String password2) {
-    this.password2 = password2;
-  }
-
-  public void setAdId(String adId) {
-    this.adId = adId;
-  }
-
+    public void setAdId(String str) {
+        this.adId = str;
+    }
 }

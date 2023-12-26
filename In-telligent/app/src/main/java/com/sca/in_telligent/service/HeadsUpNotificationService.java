@@ -67,7 +67,7 @@ public class HeadsUpNotificationService extends Service {
             PendingIntent broadcast = PendingIntent.getBroadcast(this, 1200, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
             PendingIntent broadcast2 = PendingIntent.getBroadcast(this, 1201, intent3, PendingIntent.FLAG_UPDATE_CURRENT);
             createChannel();
-            NotificationCompat.Builder visibility = this.data != null ? new NotificationCompat.Builder(this, this.CHANNEL_ID).setContentText(this.data.getBody()).setContentTitle(this.data.getTitle()).setSmallIcon((int) R.drawable.ic_launcher).setPriority(1).setCategory("call").addAction((int) R.drawable.ic_launcher, getResources().getString(R.string.accept), broadcast).addAction((int) R.drawable.ic_launcher, getResources().getString(R.string.cancel), broadcast2).setAutoCancel(true).setOngoing(true).setVisibility(1) : null;
+            NotificationCompat.Builder visibility = this.data != null ? new NotificationCompat.Builder(this, this.CHANNEL_ID).setContentText(this.data.getBody()).setContentTitle(this.data.getTitle()).setSmallIcon((int) R.drawable.ic_launcher).setPriority(1).setCategory("call").addAction((int) R.drawable.ic_launcher, getResources().getString(R.string.accept_call), broadcast).addAction((int) R.drawable.ic_launcher, getResources().getString(R.string.cancel), broadcast2).setAutoCancel(true).setOngoing(true).setVisibility(1) : null;
             startForeground(120, visibility != null ? visibility.build() : null);
         } catch (Exception e) {
             e.printStackTrace();

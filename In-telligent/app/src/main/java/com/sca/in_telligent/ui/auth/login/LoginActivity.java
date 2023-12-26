@@ -3,16 +3,16 @@ package com.sca.in_telligent.ui.auth.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
+
+import androidx.annotation.NonNull;
+
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -31,7 +31,15 @@ import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
+
+import java.security.Permission;
+
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
 public class LoginActivity extends BaseActivity implements LoginMvpView,
@@ -42,14 +50,12 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   @Inject
   LoginMvpPresenter<LoginMvpView> mPresenter;
 
-  @BindView(R.id.inputUsername)
-  EditText inputUserName;
 
-  @BindView(R.id.inputPassword)
-  EditText inputPasword;
+  EditText inputUserName = findViewById(R.id.inputUsername);
 
-  @BindView(R.id.btnLogin)
-  Button buttonLogin;
+  EditText inputPasword = findViewById(R.id.inputPassword);
+
+  Button buttonLogin = findViewById(R.id.btnLogin);
 
   @BindView(R.id.btnGoToSignup)
   TextView buttonGoToSignup;
@@ -60,10 +66,12 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   @BindView(R.id.btnLoginFacebookCustom)
   ImageView buttonFacebook;
 
+
   @BindView(R.id.btnLoginGooglePlus)
   ImageView buttonGooglePlus;
 
   CallbackManager callbackManager;
+
 
   private static final int RC_SIGN_IN = 12332;
 
@@ -73,7 +81,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   }
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
@@ -90,7 +98,8 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     setUp();
   }
 
-  @OnClick(R.id.btnLogin)
+
+
   void loginWithPassword(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -108,7 +117,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     hideKeyboard();
   }
 
-  @OnClick(R.id.btnLoginFacebookCustom)
+
   void facebookLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
@@ -157,9 +166,19 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   }
 
   @Override
-  protected void onDestroy() {
+  public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override

@@ -1,26 +1,25 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
+import com.facebook.internal.NativeProtocol;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class EditSaveMessageRequest implements Serializable {
+    @SerializedName(NativeProtocol.WEB_DIALOG_ACTION)
+    private String action;
+    @SerializedName("notificationId")
+    private String notificationId;
 
+    public void setAction(String str) {
+        this.action = str;
+    }
 
-  @SerializedName("action")
-  private String action;
+    public String getAction() {
+        return this.action;
+    }
 
-  @SerializedName("notificationId")
-  private String notificationId;
-
-  public void setAction(String action) {
-    this.action = action;
-  }
-  public String getAction() {
-    return action;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
+    public void setNotificationId(String str) {
+        this.notificationId = str;
+    }
 }

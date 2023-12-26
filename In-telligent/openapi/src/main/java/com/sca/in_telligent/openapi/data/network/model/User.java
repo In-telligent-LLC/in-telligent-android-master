@@ -1,31 +1,27 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class User implements Serializable {
+    @SerializedName("Buildings")
+    ArrayList<BuildingIdItem> buildingIds;
+    @SerializedName("canSendLSA")
+    private boolean canSendLSA;
+    @SerializedName("id")
+    private int id;
 
-  @SerializedName("id")
-  private int id;
+    public int getId() {
+        return this.id;
+    }
 
-  @SerializedName("canSendLSA")
-  private boolean canSendLSA;
+    public boolean isCanSendLSA() {
+        return this.canSendLSA;
+    }
 
-  @SerializedName("Buildings")
-  ArrayList<BuildingIdItem> buildingIds;
-
-  public int getId() {
-    return id;
-  }
-
-  public boolean isCanSendLSA() {
-    return canSendLSA;
-  }
-
-  public ArrayList<BuildingIdItem> getBuildingIds() {
-    return buildingIds;
-  }
-
+    public ArrayList<BuildingIdItem> getBuildingIds() {
+        return this.buildingIds;
+    }
 }

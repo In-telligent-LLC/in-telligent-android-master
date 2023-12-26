@@ -7,11 +7,13 @@ import com.sca.in_telligent.di.module.ServiceModule_ProvideSchedulerProviderFact
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.service.GeofenceTransitionsIntentService;
 import com.sca.in_telligent.service.GeofenceTransitionsIntentService_MembersInjector;
-import com.sca.in_telligent.service.GeofencesUpdateService;
-import com.sca.in_telligent.service.GeofencesUpdateService_MembersInjector;
+
+import com.sca.in_telligent.service.GeofencesUpdateWorker;
+import com.sca.in_telligent.service.GeofencesUpdateWorker_MembersInjector;
 import com.sca.in_telligent.service.HeadsUpNotificationService;
 import com.sca.in_telligent.service.MyFirebaseMessagingService;
 import com.sca.in_telligent.service.MyFirebaseMessagingService_MembersInjector;
+import com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity;
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.WeatherUtil;
@@ -48,8 +50,13 @@ public final class DaggerServiceComponent implements ServiceComponent {
     }
 
     @Override
-    public void inject(GeofencesUpdateService geofencesUpdateService) {
+    public void inject(GeofencesUpdateWorker geofencesUpdateService) {
         injectGeofencesUpdateService(geofencesUpdateService);
+    }
+
+    @Override
+    public void inject(VoiceCallNotificationActivity voiceCallNotificationActivity) {
+
     }
 
     private MyFirebaseMessagingService injectMyFirebaseMessagingService(MyFirebaseMessagingService myFirebaseMessagingService) {
@@ -72,11 +79,11 @@ public final class DaggerServiceComponent implements ServiceComponent {
         return geofenceTransitionsIntentService;
     }
 
-    private GeofencesUpdateService injectGeofencesUpdateService(GeofencesUpdateService geofencesUpdateService) {
-        GeofencesUpdateService_MembersInjector.injectDataManager(geofencesUpdateService, (DataManager) Preconditions.checkNotNull(this.applicationComponent.getDataManager()));
-        GeofencesUpdateService_MembersInjector.injectLocationUtil(geofencesUpdateService, (LocationUtil) Preconditions.checkNotNull(this.applicationComponent.getLocationUtil()));
-        GeofencesUpdateService_MembersInjector.injectSchedulerProvider(geofencesUpdateService, ServiceModule_ProvideSchedulerProviderFactory.provideSchedulerProvider(this.serviceModule));
-        GeofencesUpdateService_MembersInjector.injectCompositeDisposable(geofencesUpdateService, ServiceModule_ProvideCompositeDisposableFactory.provideCompositeDisposable(this.serviceModule));
+    private GeofencesUpdateWorker injectGeofencesUpdateService(GeofencesUpdateWorker geofencesUpdateService) {
+        GeofencesUpdateWorker_MembersInjector.injectDataManager(geofencesUpdateService, (DataManager) Preconditions.checkNotNull(this.applicationComponent.getDataManager()));
+        GeofencesUpdateWorker_MembersInjector.injectLocationUtil(geofencesUpdateService, (LocationUtil) Preconditions.checkNotNull(this.applicationComponent.getLocationUtil()));
+        GeofencesUpdateWorker_MembersInjector.injectSchedulerProvider(geofencesUpdateService, ServiceModule_ProvideSchedulerProviderFactory.provideSchedulerProvider(this.serviceModule));
+        GeofencesUpdateWorker_MembersInjector.injectCompositeDisposable(geofencesUpdateService, ServiceModule_ProvideCompositeDisposableFactory.provideCompositeDisposable(this.serviceModule));
         return geofencesUpdateService;
     }
 

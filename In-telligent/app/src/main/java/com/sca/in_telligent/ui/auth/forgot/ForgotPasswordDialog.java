@@ -1,14 +1,14 @@
 package com.sca.in_telligent.ui.auth.forgot;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
+
+import androidx.fragment.app.FragmentManager;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.ForgotPasswordRequest;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -22,8 +22,8 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
   @Inject
   ForgotPasswordMvpPresenter<ForgotPasswordMvpView> mPresenter;
 
-  @BindView(R.id.forgotPasswordEmail)
-  EditText forgotPasswordEmail;
+//  @BindView(R.id.forgotPasswordEmail)
+//  EditText forgotPasswordEmail = findV;
 
   public static ForgotPasswordDialog newInstance() {
     ForgotPasswordDialog fragment = new ForgotPasswordDialog();
@@ -34,7 +34,7 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
+                           Bundle savedInstanceState) {
 
     View view = inflater.inflate(R.layout.forgot_password_dialog, container, false);
 
@@ -43,7 +43,7 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
 
       component.inject(this);
 
-      setUnBinder(ButterKnife.bind(this, view));
+//      setUnBinder(ButterKnife.bind(this, view));
 
       mPresenter.onAttach(this);
     }
@@ -51,15 +51,15 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
     return view;
   }
 
-  @OnClick(R.id.forgotPasswordCancel)
+//  @OnClick(R.id.forgotPasswordCancel)
   void cancelClick(View v) {
     dismissDialog(TAG);
   }
 
-  @OnClick(R.id.forgotPasswordSubmit)
+//  @OnClick(R.id.forgotPasswordSubmit)
   void forgotPasswordSubmit(View v) {
     ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest();
-    forgotPasswordRequest.setEmail(forgotPasswordEmail.getText().toString());
+//    forgotPasswordRequest.setEmail(forgotPasswordEmail.getText().toString());
     mPresenter.submitEmail(forgotPasswordRequest);
   }
 

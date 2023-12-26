@@ -1,22 +1,26 @@
 package com.sca.in_telligent.ui.group.list;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public enum GroupSpinnerItemType {
-  NONE(0),
-  PEOPLE(1),
-  ORGANIZATIONS(2), HELPLINES(3), EMERGENCY(4);
+    NONE(0),
+    PEOPLE(1),
+    ORGANIZATIONS(2),
+    HELPLINES(3),
+    EMERGENCY(4);
+    
+    private int itemType;
 
-  private int itemType;
-
-  GroupSpinnerItemType(int itemType) {
-    this.itemType = itemType;
-  }
-
-  public GroupSpinnerItemType getSpinnerMode(int id) {
-    for (GroupSpinnerItemType spinnerItem : values()) {
-      if (spinnerItem.itemType == id) {
-        return spinnerItem;
-      }
+    GroupSpinnerItemType(int i) {
+        this.itemType = i;
     }
-    return null;
-  }
+
+    public GroupSpinnerItemType getSpinnerMode(int i) {
+        GroupSpinnerItemType[] values;
+        for (GroupSpinnerItemType groupSpinnerItemType : values()) {
+            if (groupSpinnerItemType.itemType == i) {
+                return groupSpinnerItemType;
+            }
+        }
+        return null;
+    }
 }

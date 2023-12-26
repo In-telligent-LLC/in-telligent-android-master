@@ -4,8 +4,9 @@ import android.Manifest.permission;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 public class ContactCallPresenter<V extends ContactCallMvpView> extends
     BasePresenter<V> implements ContactCallMvpPresenter<V> {
@@ -19,8 +20,8 @@ public class ContactCallPresenter<V extends ContactCallMvpView> extends
 
   @Override
   public void requestRecordAudioPermission() {
-    getRxPermissions()
-        .request(permission.RECORD_AUDIO)
-        .subscribe(granted -> getMvpView().recordAudioPermissionResult(granted));
+//    getRxPermissions()
+//        .request(permission.RECORD_AUDIO)
+//        .subscribe(granted -> getMvpView().recordAudioPermissionResult(granted));
   }
 }

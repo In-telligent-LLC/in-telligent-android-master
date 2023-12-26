@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.text.util.Linkify;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -15,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sca.in_telligent.BuildConfig;
+import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.SupportRequest;
@@ -26,6 +25,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class HelpFragment extends BaseFragment implements HelpMvpView {
 
@@ -77,8 +78,8 @@ public class HelpFragment extends BaseFragment implements HelpMvpView {
         hoursText.setLongClickable(true);
         hoursText.setOnLongClickListener(v -> {
             Toast.makeText(getContext(), String.format("Version %s (%s)",
-                    BuildConfig.VERSION_NAME,
-                    BuildConfig.VERSION_CODE),
+                    BuildConfig1.VERSION_NAME,
+                    BuildConfig1.VERSION_CODE),
                     Toast.LENGTH_LONG).show();
 
             return false;

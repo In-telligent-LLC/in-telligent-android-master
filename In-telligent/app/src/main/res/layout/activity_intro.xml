@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
@@ -16,12 +16,12 @@
     <TextView
       android:id="@+id/first_time_user_btn"
       style="@style/TwinButton"
-      android:background="@color/lightgreen"
+      android:background="@color/darkGreen"
       android:text="@string/first_time_user_str"/>
     <TextView
       android:id="@+id/returning_subscriber_btn"
       style="@style/TwinButton"
-      android:background="@color/blue"
+      android:background="@color/darkblue"
       android:text="@string/returning_subscriber_str"/>
   </LinearLayout>
 
@@ -42,6 +42,7 @@
     android:layout_height="0dp"
     android:adjustViewBounds="true"
     app:layout_constraintBottom_toTopOf="@id/intro_logo_item"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toTopOf="parent"
+      android:contentDescription="TODO" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

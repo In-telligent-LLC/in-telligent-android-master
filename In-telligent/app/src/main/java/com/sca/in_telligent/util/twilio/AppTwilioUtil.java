@@ -83,7 +83,7 @@ public class AppTwilioUtil implements TwilioUtil {
         AppTwilioUtil.this.AppTwilioUtil(str, (VoipTokenResponse) obj);
       }
 
-    }
+    }));
   }
 
   @SuppressLint("NotConstructor")
@@ -100,12 +100,12 @@ public class AppTwilioUtil implements TwilioUtil {
       voipCallRequest.setSenderId(Integer.parseInt(this.subscriberId));
       this.mCompositeDisposable.add(this.mDataManager.makeVoipCall(voipCallRequest).subscribeOn(this.mSchedulerProvider.io()).observeOn(this.mSchedulerProvider.ui()).subscribe(new Consumer() { // from class: com.sca.in_telligent.util.twilio.AppTwilioUtil$$ExternalSyntheticLambda0
         @Override // io.reactivex.functions.Consumer
-        public final void accept(Object obj) {
+        public final void accept(Object obj) throws Exception {
           AppTwilioUtil.this.AppTwilioUtil((VoipCallResponse) obj);
         }
       }, new Consumer() { // from class: com.sca.in_telligent.util.twilio.AppTwilioUtil$$ExternalSyntheticLambda1
         @Override // io.reactivex.functions.Consumer
-        public final void accept(Object obj) {
+        public final void accept(Object obj) throws Exception {
           AppTwilioUtil.this.AppTwilioUtil((Throwable) obj);
         }
       }));

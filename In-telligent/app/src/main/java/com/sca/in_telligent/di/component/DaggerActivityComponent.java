@@ -4,7 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Vibrator;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+
+import androidx.work.WorkManager;
+
 import com.google.android.gms.location.GeofencingClient;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.ScaApplication_MembersInjector;
@@ -14,6 +16,7 @@ import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.data.prefs.AppPreferencesHelper;
 import com.sca.in_telligent.data.prefs.AppPreferencesHelper_Factory;
 import com.sca.in_telligent.data.prefs.PreferencesHelper;
+import com.sca.in_telligent.di.module.ActivityModule;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideApiHelperFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideApplicationFactory;
@@ -22,7 +25,6 @@ import com.sca.in_telligent.di.module.ApplicationModule_ProvideAudioManagerFacto
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideCompositeDisposableFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideContextFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideDataManagerFactory;
-import com.sca.in_telligent.di.module.ApplicationModule_ProvideFirebaseJobDispatcherFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideFlashHelperFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideGeofenceClientFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideGeofencingClientFactory;
@@ -36,6 +38,7 @@ import com.sca.in_telligent.di.module.ApplicationModule_ProvideTwilioUtilFactory
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideVibratorFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideVideoDownloaderFactory;
 import com.sca.in_telligent.di.module.ApplicationModule_ProvideWeatherUtilFactory;
+import com.sca.in_telligent.di.module.ApplicationModule_ProvideWorkManagerFactory;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.openapi.util.FlashHelper;
@@ -65,11 +68,10 @@ import com.sca.in_telligent.util.twilio.AppTwilioUtil_Factory;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.inject.Provider;
 
-public final class DaggerApplicationComponent implements ApplicationComponent {
+public final class DaggerActivityComponent implements ApplicationComponent {
     private Provider<AppDataManager> appDataManagerProvider;
     private Provider<AppGeofenceClient> appGeofenceClientProvider;
     private Provider<AppLifecycleObserver> appLifecycleObserverProvider;
@@ -79,15 +81,15 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     private Provider<AppTwilioUtil> appTwilioUtilProvider;
     private Provider<AppVideoDownloader> appVideoDownloaderProvider;
     private Provider<AppWeatherUtil> appWeatherUtilProvider;
-    private final DaggerApplicationComponent applicationComponent;
+    private final DaggerActivityComponent applicationComponent;
     private final ApplicationModule applicationModule;
     private Provider<ApiHelper> provideApiHelperProvider;
     private Provider<AudioHelper> provideAudioHelperProvider;
     private Provider<AudioManager> provideAudioManagerProvider;
-    private Provider<CompositeDisposable> provideCompositeDisposableProvider;
+    private ApplicationModule_ProvideCompositeDisposableFactory provideCompositeDisposableProvider;
     private Provider<Context> provideContextProvider;
     private Provider<DataManager> provideDataManagerProvider;
-    private Provider<FirebaseJobDispatcher> provideFirebaseJobDispatcherProvider;
+    private Provider<WorkManager> provideWorkManagerProvider;
     private Provider<FlashHelper> provideFlashHelperProvider;
     private Provider<GeofenceClient> provideGeofenceClientProvider;
     private Provider<GeofencingClient> provideGeofencingClientProvider;
@@ -102,7 +104,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     private Provider<VideoDownloader> provideVideoDownloaderProvider;
     private Provider<WeatherUtil> provideWeatherUtilProvider;
 
-    private DaggerApplicationComponent(ApplicationModule applicationModule) {
+    private DaggerActivityComponent(ApplicationModule applicationModule) {
         this.applicationComponent = this;
         this.applicationModule = applicationModule;
         initialize(applicationModule);
@@ -111,6 +113,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     public static Builder builder() {
         return new Builder();
     }
+
 
     private void initialize(ApplicationModule applicationModule) {
         this.provideContextProvider = ApplicationModule_ProvideContextFactory.create(applicationModule);
@@ -156,7 +159,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
         Provider<AppVideoDownloader> provider12 = DoubleCheck.provider(AppVideoDownloader_Factory.create(this.provideContextProvider));
         this.appVideoDownloaderProvider = provider12;
         this.provideVideoDownloaderProvider = DoubleCheck.provider(ApplicationModule_ProvideVideoDownloaderFactory.create(applicationModule, provider12));
-        this.provideFirebaseJobDispatcherProvider = DoubleCheck.provider(ApplicationModule_ProvideFirebaseJobDispatcherFactory.create(applicationModule, this.provideContextProvider));
+        this.provideWorkManagerProvider = DoubleCheck.provider(ApplicationModule_ProvideWorkManagerFactory.create(applicationModule, this.provideContextProvider));
     }
 
     @Override // com.sca.in_telligent.di.component.ApplicationComponent
@@ -229,9 +232,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
         return this.provideVideoDownloaderProvider.get();
     }
 
-    @Override // com.sca.in_telligent.di.component.ApplicationComponent
-    public FirebaseJobDispatcher getFirebaseJobDispatcher() {
-        return this.provideFirebaseJobDispatcherProvider.get();
+    @Override
+    public WorkManager getWorkManager() {
+        return this.provideWorkManagerProvider.get();
     }
 
     private ScaApplication injectScaApplication(ScaApplication scaApplication) {
@@ -251,9 +254,10 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
         return geofenceTransitionsIntentService;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class Builder {
         private ApplicationModule applicationModule;
+        private ApplicationComponent applicationComponent;
+        private ActivityModule activityModule;
 
         private Builder() {
         }
@@ -263,9 +267,23 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
             return this;
         }
 
+        public Builder activityModule(ApplicationComponent applicationComponent) {
+            this.activityModule = (ActivityModule) Preconditions.checkNotNull(applicationComponent);
+            return this;
+        }
+
+
         public ApplicationComponent build() {
             Preconditions.checkBuilderRequirement(this.applicationModule, ApplicationModule.class);
-            return new DaggerApplicationComponent(this.applicationModule);
+            return new DaggerActivityComponent(this.applicationModule);
+        }
+
+        public DaggerActivityComponent.Builder activityModule(ActivityModule activityModule) {
+            return null;
+        }
+
+        public Builder applicationComponent(ApplicationComponent component) {
+            return null;
         }
     }
 }

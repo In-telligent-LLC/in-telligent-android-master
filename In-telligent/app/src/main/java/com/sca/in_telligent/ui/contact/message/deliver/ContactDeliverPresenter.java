@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class ContactDeliverPresenter<V extends ContactDeliverMvpView> extends
         BasePresenter<V> implements

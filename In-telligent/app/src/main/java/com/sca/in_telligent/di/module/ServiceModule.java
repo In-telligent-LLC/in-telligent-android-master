@@ -5,7 +5,7 @@ import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 @Module
 public class ServiceModule {

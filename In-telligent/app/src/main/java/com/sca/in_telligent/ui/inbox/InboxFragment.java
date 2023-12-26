@@ -3,11 +3,6 @@ package com.sca.in_telligent.ui.inbox;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +25,17 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemSelected;
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
+import io.reactivex.rxjava3.core.Observable;
 
 import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.NONE;
 import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.SAVED;
 import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.UNREAD;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAdapter.Callback,
         ResponderListener {

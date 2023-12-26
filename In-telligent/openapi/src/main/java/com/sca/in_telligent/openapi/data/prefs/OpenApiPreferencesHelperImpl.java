@@ -2,113 +2,90 @@ package com.sca.in_telligent.openapi.data.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sca.in_telligent.openapi.Constants;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.SubscriberOptOut;
-
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-;
-
-
 public class OpenApiPreferencesHelperImpl implements OpenApiPreferencesHelper {
-
     public static final String PREF_NAME = "auth";
     public final SharedPreferences mPrefs;
 
-    public OpenApiPreferencesHelperImpl(Context context,
-                                        String prefFileName) {
-        mPrefs = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
+    public OpenApiPreferencesHelperImpl(Context context, String str) {
+        this.mPrefs = context.getSharedPreferences(str, 0);
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public String getAccessToken() {
-        return mPrefs.getString(Constants.Preferences.PREF_KEY_ACCESS_TOKEN, null);
+        return this.mPrefs.getString(Constants.Preferences.PREF_KEY_ACCESS_TOKEN, null);
     }
 
-    @Override
-    public void setAccessToken(String accessToken) {
-        mPrefs.edit().putString(Constants.Preferences.PREF_KEY_ACCESS_TOKEN, accessToken).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setAccessToken(String str) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_KEY_ACCESS_TOKEN, str).apply();
     }
 
-
-    @Override
-    public void setLifeSafetyOverrideExpire(String dateExpire) {
-        mPrefs.edit().putString(Constants.Preferences.PREF_KEY_LIFESAFETY_OVERRIDE_EXPIRE, dateExpire).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setLifeSafetyOverrideExpire(String str) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_KEY_LIFESAFETY_OVERRIDE_EXPIRE, str).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public String getLifeSafetyOverrideExpire() {
-        return mPrefs.getString(Constants.Preferences.PREF_KEY_LIFESAFETY_OVERRIDE_EXPIRE, null);
+        return this.mPrefs.getString(Constants.Preferences.PREF_KEY_LIFESAFETY_OVERRIDE_EXPIRE, null);
     }
 
-    @Override
-    public void setZipcode(String zipcode) {
-        mPrefs.edit().putString(Constants.Preferences.PREF_USER_ZIPCODE, zipcode).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setZipcode(String str) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_USER_ZIPCODE, str).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public String getZipcode() {
-        return mPrefs.getString(Constants.Preferences.PREF_USER_ZIPCODE, null);
+        return this.mPrefs.getString(Constants.Preferences.PREF_USER_ZIPCODE, null);
     }
 
-    @Override
-    public void setSubscribedBuildings(ArrayList<Building> managedBuildings) {
-        Gson gson = new Gson();
-        String managedJson = gson.toJson(managedBuildings);
-        mPrefs.edit().putString(Constants.Preferences.PREF_SUBSCRIBED_BUILDINGS, managedJson).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setSubscribedBuildings(ArrayList<Building> arrayList) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_SUBSCRIBED_BUILDINGS, new Gson().toJson(arrayList)).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public ArrayList<Building> getSubscribedBuildings() {
-        String managedString = mPrefs.getString(Constants.Preferences.PREF_SUBSCRIBED_BUILDINGS, null);
-        Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<Building>>() {
-        }.getType();
-        ArrayList<Building> arrayList = gson.fromJson(managedString, type);
-        return arrayList;
+        return (ArrayList) new Gson().fromJson(this.mPrefs.getString(Constants.Preferences.PREF_SUBSCRIBED_BUILDINGS, null), new TypeToken<ArrayList<Building>>() { // from class: com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelperImpl.1
+        }.getType());
     }
 
-    @Override
-    public void setAutoOptOuts(ArrayList<SubscriberOptOut> optOuts) {
-        Gson gson = new Gson();
-        String optOutJson = gson.toJson(optOuts);
-        mPrefs.edit().putString(Constants.Preferences.PREF_OPT_OUTS, optOutJson).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setAutoOptOuts(ArrayList<SubscriberOptOut> arrayList) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_OPT_OUTS, new Gson().toJson(arrayList)).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public ArrayList<SubscriberOptOut> getAutoOptOuts() {
-        String optOutString = mPrefs.getString(Constants.Preferences.PREF_OPT_OUTS, null);
-        Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<SubscriberOptOut>>() {
-        }.getType();
-        ArrayList<SubscriberOptOut> arrayList = gson.fromJson(optOutString, type);
-        return arrayList;
+        return (ArrayList) new Gson().fromJson(this.mPrefs.getString(Constants.Preferences.PREF_OPT_OUTS, null), new TypeToken<ArrayList<SubscriberOptOut>>() { // from class: com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelperImpl.2
+        }.getType());
     }
 
-    @Override
-    public void setSubscriberId(String subscriberId) {
-        mPrefs.edit().putString(Constants.Preferences.PREF_KEY_SUBSCRIBER_ID, subscriberId).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setSubscriberId(String str) {
+        this.mPrefs.edit().putString(Constants.Preferences.PREF_KEY_SUBSCRIBER_ID, str).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public String getSubscriberId() {
-        return mPrefs.getString(Constants.Preferences.PREF_KEY_SUBSCRIBER_ID, null);
+        return this.mPrefs.getString(Constants.Preferences.PREF_KEY_SUBSCRIBER_ID, null);
     }
 
-    @Override
-    public void setLastFetchedGeofences(long timeInMillis) {
-        mPrefs.edit().putLong(Constants.Preferences.PREF_LAST_FETCHED_GEOFENCES, timeInMillis).apply();
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
+    public void setLastFetchedGeofences(long j) {
+        this.mPrefs.edit().putLong(Constants.Preferences.PREF_LAST_FETCHED_GEOFENCES, j).apply();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper
     public long getLastFetchedGeofences() {
-        return mPrefs.getLong(Constants.Preferences.PREF_LAST_FETCHED_GEOFENCES, 0);
+        return this.mPrefs.getLong(Constants.Preferences.PREF_LAST_FETCHED_GEOFENCES, 0L);
     }
 }

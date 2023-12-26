@@ -3,12 +3,13 @@ package com.sca.in_telligent.ui.auth.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.StringRes;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.SignUpRequest;
@@ -17,11 +18,14 @@ import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
 
+import java.security.Permission;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class SignupPasswordActivity extends BaseActivity implements SignupPasswordMvpView {
 
@@ -46,7 +50,7 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_password);
         getActivityComponent().inject(this);
@@ -89,7 +93,17 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
     }
 
     @Override
-    protected void onDestroy() {
+    public void phonePermissionResult(Permission permission) {
+
+    }
+
+    @Override
+    public void phonePermissionResult(boolean permission) {
+
+    }
+
+    @Override
+    public void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
     }

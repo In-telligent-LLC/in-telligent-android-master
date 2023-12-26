@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.splash.SplashMvpPresenter","classAnnotations":["com.sca.in_telligent.di.PerActivity"],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter"],"superClasses":["java.lang.Object"]}

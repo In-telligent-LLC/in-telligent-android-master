@@ -4,7 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.media.AudioManager;
 
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import androidx.work.WorkManager;
+
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.ApplicationContext;
@@ -21,6 +22,7 @@ import com.sca.in_telligent.util.twilio.TwilioUtil;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
 
 @Singleton
@@ -56,5 +58,8 @@ public interface ApplicationComponent {
 
   VideoDownloader getVideoDownloader();
 
-  FirebaseJobDispatcher getFirebaseJobDispatcher();
+    // com.sca.in_telligent.di.component.ApplicationComponent
+    WorkManager getWorkManager();
+
+
 }

@@ -1,24 +1,21 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AlertDeleteRequest implements Serializable {
-
-    public AlertDeleteRequest() {
-        
-    }
-
-    public AlertDeleteRequest(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
     @SerializedName("notificationId")
     private String notificationId;
 
+    public AlertDeleteRequest() {
+    }
+
+    public AlertDeleteRequest(String str) {
+        this.notificationId = str;
+    }
+
+    public void setNotificationId(String str) {
+        this.notificationId = str;
+    }
 }

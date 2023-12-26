@@ -3,9 +3,7 @@ package com.sca.in_telligent.ui.contact.message.deliver;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -15,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -31,8 +32,11 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
+import butterknife.Unbinder;
+import io.reactivex.rxjava3.annotations.Nullable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableOnSubscribe;
+
 
 public class ContactDeliverDialog extends BaseDialog implements ContactDeliverMvpView,
         ContactDeliverListAdapter.Callback {
@@ -50,6 +54,9 @@ public class ContactDeliverDialog extends BaseDialog implements ContactDeliverMv
 
     @Inject
     LinearLayoutManager mLayoutManager;
+
+    private Unbinder mUnBinder;
+
 
     @BindView(R.id.contact_deliver_search)
     EditText searchView;
@@ -100,6 +107,10 @@ public class ContactDeliverDialog extends BaseDialog implements ContactDeliverMv
         super.onAttach(context);
         buildingId = getArguments().getString("buildingId");
         isPersonalCommunity = getArguments().getBoolean("isPersonalCommunity");
+    }
+
+    public void setUnBinder(Unbinder unBinder) {
+        mUnBinder = unBinder;
     }
 
     @Override
@@ -181,6 +192,7 @@ public class ContactDeliverDialog extends BaseDialog implements ContactDeliverMv
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.contact_deliver_ok_button)
     void okClicked(View v) {
         if (isPersonalCommunity) {

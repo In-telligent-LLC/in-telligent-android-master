@@ -1,44 +1,38 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class SubscriberRequest implements Serializable {
+    @SerializedName("email")
+    private String email;
+    @SerializedName("language")
+    private String language;
+    @SerializedName("lightningAlertEnabled")
+    private boolean lightningAlertEnabled;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("weatherAlertEnabled")
+    private boolean weatherAlertEnabled;
 
-  @SerializedName("name")
-  private String name;
+    public void setName(String str) {
+        this.name = str;
+    }
 
-  @SerializedName("email")
-  private String email;
+    public void setEmail(String str) {
+        this.email = str;
+    }
 
-  @SerializedName("language")
-  private String language;
+    public void setLanguage(String str) {
+        this.language = str;
+    }
 
-  @SerializedName("weatherAlertEnabled")
-  private boolean weatherAlertEnabled;
+    public void setLightningAlertEnabled(boolean z) {
+        this.lightningAlertEnabled = z;
+    }
 
-  @SerializedName("lightningAlertEnabled")
-  private boolean lightningAlertEnabled;
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-  public void setLightningAlertEnabled(boolean lightningAlertEnabled) {
-    this.lightningAlertEnabled = lightningAlertEnabled;
-  }
-
-  public void setWeatherAlertEnabled(boolean weatherAlertEnabled) {
-    this.weatherAlertEnabled = weatherAlertEnabled;
-  }
-
+    public void setWeatherAlertEnabled(boolean z) {
+        this.weatherAlertEnabled = z;
+    }
 }

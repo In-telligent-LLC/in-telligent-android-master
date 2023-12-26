@@ -1,38 +1,36 @@
 package com.sca.in_telligent.openapi.data.prefs;
 
-
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.SubscriberOptOut;
-
 import java.util.ArrayList;
 
 public interface OpenApiPreferencesHelper {
 
-  String getAccessToken();
+    ArrayList<SubscriberOptOut> getAutoOptOuts();
 
-  void setAccessToken(String accessToken);
+    long getLastFetchedGeofences();
 
-  void setLifeSafetyOverrideExpire(String dateExpire);
+    String getLifeSafetyOverrideExpire();
 
-  String getLifeSafetyOverrideExpire();
+    ArrayList<Building> getSubscribedBuildings();
 
-  void setZipcode(String zipcode);
+    String getSubscriberId();
 
-  String getZipcode();
+    String getZipcode();
 
-  void setSubscribedBuildings(ArrayList<Building> subscribedBuildings);
+    String getAccessToken();
 
-  ArrayList<Building> getSubscribedBuildings();
+    void setAccessToken(String str);
 
-  void setAutoOptOuts(ArrayList<SubscriberOptOut> optOuts);
+    void setAutoOptOuts(ArrayList<SubscriberOptOut> arrayList);
 
-  ArrayList<SubscriberOptOut> getAutoOptOuts();
+    void setLastFetchedGeofences(long j);
 
-  void setSubscriberId(String subscriberId);
+    void setLifeSafetyOverrideExpire(String str);
 
-  String getSubscriberId();
+    void setSubscribedBuildings(ArrayList<Building> arrayList);
 
-  long getLastFetchedGeofences();
+    void setSubscriberId(String str);
 
-  void setLastFetchedGeofences(long timeInMillis);
+    void setZipcode(String str);
 }

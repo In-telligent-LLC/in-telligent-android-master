@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,11 +12,11 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 
-      <android.support.constraint.Guideline
+      <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintGuide_percent="0.05"
         app:layout_constraintStart_toStartOf="parent"/>
 
-      <android.support.constraint.Guideline
+      <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -104,7 +104,7 @@
           app:layout_constraintStart_toStartOf="@+id/contact_send_attachment_layout"
           tools:progress="50" />
 
-      <android.support.constraint.ConstraintLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
           android:id="@+id/contact_send_attachment_layout"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
@@ -137,8 +137,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/contact_send_message_attachment_icon"
-            app:layout_constraintTop_toBottomOf="@+id/contact_send_attachment_progress_bar" />
-      </android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/contact_send_attachment_progress_bar"
+            tools:ignore="NotSibling" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
 
       <RelativeLayout
         android:id="@+id/contact_alert_spinner_layout"
@@ -151,10 +152,9 @@
         app:layout_constraintTop_toBottomOf="@+id/contact_send_attachment_layout">
 
         <com.sca.in_telligent.util.MySpinner
-          android:id="@+id/contact_alert_spinner"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          ></com.sca.in_telligent.util.MySpinner>
+            android:id="@+id/contact_alert_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
       </RelativeLayout>
 
@@ -170,10 +170,9 @@
         app:layout_constraintTop_toBottomOf="@+id/required_alert_type">
 
         <com.sca.in_telligent.util.MySpinner
-          android:id="@+id/contact_send_to_spinner"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          ></com.sca.in_telligent.util.MySpinner>
+            android:id="@+id/contact_send_to_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
       </RelativeLayout>
 
@@ -234,6 +233,6 @@
         app:layout_constraintTop_toBottomOf="@id/contact_send_message_edittext"
         ></include>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

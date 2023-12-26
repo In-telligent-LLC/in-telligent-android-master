@@ -2,8 +2,10 @@ package com.sca.in_telligent.ui.auth.register;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -22,10 +24,12 @@ import com.sca.in_telligent.openapi.data.network.model.GoogleLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.LoginResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
 import java.util.Arrays;
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class SignupDemographicsPresenter<V extends SignupDemographicsMvpView> extends
     BasePresenter<V> implements SignupDemographicsMvpPresenter<V> {

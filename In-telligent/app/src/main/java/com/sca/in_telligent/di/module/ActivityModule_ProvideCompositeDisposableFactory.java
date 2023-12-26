@@ -2,9 +2,8 @@ package com.sca.in_telligent.di.module;
 
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class ActivityModule_ProvideCompositeDisposableFactory implements Factory<CompositeDisposable> {
     private final ActivityModule module;
 
@@ -12,7 +11,7 @@ public final class ActivityModule_ProvideCompositeDisposableFactory implements F
         this.module = activityModule;
     }
 
-    @Override // javax.inject.Provider
+    @Override
     public CompositeDisposable get() {
         return provideCompositeDisposable(this.module);
     }
@@ -22,6 +21,6 @@ public final class ActivityModule_ProvideCompositeDisposableFactory implements F
     }
 
     public static CompositeDisposable provideCompositeDisposable(ActivityModule activityModule) {
-        return (CompositeDisposable) Preconditions.checkNotNullFromProvides(activityModule.provideCompositeDisposable());
+        return activityModule.provideCompositeDisposable();
     }
 }

@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.service.GeofencesUpdateWorker_MembersInjector","classAnnotations":[],"interfaces":["dagger.MembersInjector"],"superClasses":["java.lang.Object"]}

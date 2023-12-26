@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface ContactMessageMvpPresenter<V extends ContactMessageMvpView> extends
     MvpPresenter<V> {
 
-  void getStoragePermission();
+//  void getStoragePermission();
 
   void createNotification(String buildingId, String title, String body, String type,
       ArrayList<String> attachmentPaths, String sendToEmail,

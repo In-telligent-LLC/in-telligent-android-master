@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.data.AppDataManager","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.data.DataManager","com.sca.in_telligent.data.prefs.PreferencesHelper","com.sca.in_telligent.openapi.data.network.ApiHelper","com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper"],"superClasses":["java.lang.Object"]}

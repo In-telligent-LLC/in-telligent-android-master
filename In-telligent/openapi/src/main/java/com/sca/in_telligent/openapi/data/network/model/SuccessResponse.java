@@ -2,41 +2,41 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class SuccessResponse implements Serializable {
+    @SerializedName("errors")
+    private ErrorObject errors;
+    @SerializedName("success")
+    @JsonAdapter(BooleanTypeAdapter.class)
+    private boolean success;
 
-  public boolean isSuccess() {
-    return success;
-  }
-
-  @JsonAdapter(BooleanTypeAdapter.class)
-  @SerializedName("success")
-  private boolean success;
-
-  public ErrorObject getErrors() {
-    return errors;
-  }
-
-  @SerializedName("errors")
-  private ErrorObject errors;
-
-  public class ErrorObject{
-
-    public ArrayList<String> getName() {
-      return name;
+    public boolean isSuccess() {
+        return this.success;
     }
 
-    public ArrayList<String> getOther() {
-      return other;
+    public ErrorObject getErrors() {
+        return this.errors;
     }
 
-    @SerializedName("name")
-    private ArrayList<String> name;
+    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+    public class ErrorObject {
+        @SerializedName("name")
+        private ArrayList<String> name;
+        @SerializedName("other")
+        private ArrayList<String> other;
 
-    @SerializedName("other")
-    private ArrayList<String> other;
-  }
+        public ErrorObject() {
+        }
+
+        public ArrayList<String> getName() {
+            return this.name;
+        }
+
+        public ArrayList<String> getOther() {
+            return this.other;
+        }
+    }
 }

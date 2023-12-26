@@ -3,10 +3,17 @@ package com.sca.in_telligent.data;
 import android.content.Context;
 import com.sca.in_telligent.data.prefs.PreferencesHelper;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
+import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
+
+import java.util.List;
+
 import dagger.internal.Factory;
+import io.reactivex.rxjava3.core.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+
 import javax.inject.Provider;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public final class AppDataManager_Factory implements Factory<AppDataManager> {
     private final Provider<ApiHelper> apiHelperProvider;
     private final Provider<Context> contextProvider;
@@ -28,6 +35,16 @@ public final class AppDataManager_Factory implements Factory<AppDataManager> {
     }
 
     public static AppDataManager newInstance(Context context, PreferencesHelper preferencesHelper, ApiHelper apiHelper) {
-        return new AppDataManager(context, preferencesHelper, apiHelper);
+        return new AppDataManager(context, preferencesHelper, apiHelper) {
+            @Override
+            public Observable<SuccessResponse> createNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3, RequestBody requestBody4, RequestBody requestBody5, RequestBody requestBody6) {
+                return null;
+            }
+
+            @Override
+            public Observable<SuccessResponse> suggestNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3) {
+                return null;
+            }
+        };
     }
 }

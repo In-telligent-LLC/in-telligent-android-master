@@ -1,31 +1,29 @@
 package com.sca.in_telligent.ui.base;
 
 import android.content.Intent;
-import android.support.annotation.StringRes;
 
 public interface MvpView {
+    void hideKeyboard();
 
-  void showLoading();
+    void hideLoading();
 
-  void hideLoading();
+    boolean isNetworkConnected();
 
-  void onError(@StringRes int resId);
+    void onError(int i);
 
-  void onError(String message);
+    void onError(String str);
 
-  void showMessage(String message);
+    void showLoading();
 
-  void showMessage(@StringRes int resId);
+    void showMessage(int i);
 
-  void showMessageSnack(String message);
+    void showMessage(String str);
 
-  boolean isNetworkConnected();
+    void showMessageSnack(String str);
 
-  void hideKeyboard();
+    void showNetworkDialog();
 
-  void startActivityWithDeeplink(Intent intent);
+    void showPopup(String str);
 
-  void showPopup(String message);
-
-  void showNetworkDialog();
+    void startActivityWithDeeplink(Intent intent);
 }

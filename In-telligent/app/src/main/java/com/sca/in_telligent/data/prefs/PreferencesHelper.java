@@ -1,31 +1,29 @@
 package com.sca.in_telligent.data.prefs;
 
-
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface PreferencesHelper extends OpenApiPreferencesHelper {
+    void clearAfterLogout();
 
     String getCurrentUserId();
 
-    void setCurrentUserId(String userId);
+    String getCurrentUserLanguage();
 
     int getCurrentUserLoggedInMode();
 
-    void setCurrentUserLoggedInMode(DataManager.LoggedInMode mode);
-
-    String getCurrentUserLanguage();
-
-    void setCurrentUserLanguage(String locale);
-
-    void clearAfterLogout();
+    String getPushToken();
 
     boolean isFirstTime();
 
-    void setIsFirstTime(boolean isFirstTime);
+    void setCurrentUserId(String str);
 
-    void setPushToken(String pushToken);
+    void setCurrentUserLanguage(String str);
 
-    String getPushToken();
+    void setCurrentUserLoggedInMode(DataManager.LoggedInMode loggedInMode);
 
+    void setIsFirstTime(boolean z);
+
+    void setPushToken(String str);
 }

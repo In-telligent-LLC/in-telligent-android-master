@@ -2,27 +2,23 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Marcos Ambrosi on 4/26/19.
- */
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AutoSubscribeRequest {
-
     @SerializedName("buildingId")
     private int communityId;
-
     @SerializedName("value")
     private boolean optOut;
 
     public boolean isOptOut() {
-        return optOut;
+        return this.optOut;
     }
 
-    public void setOptOut(boolean optOut) {
-        this.optOut = optOut;
+    public void setOptOut(boolean z) {
+        this.optOut = z;
     }
 
-    public AutoSubscribeRequest(int communityId, boolean optOut) {
-        this.communityId = communityId;
-        this.optOut = optOut;
+    public AutoSubscribeRequest(int i, boolean z) {
+        this.communityId = i;
+        this.optOut = z;
     }
 }

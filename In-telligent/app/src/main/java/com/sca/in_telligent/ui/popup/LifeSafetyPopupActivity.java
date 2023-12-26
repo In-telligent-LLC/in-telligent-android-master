@@ -2,16 +2,20 @@ package com.sca.in_telligent.ui.popup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.base.BaseActivity;
+
+import java.security.Permission;
 
 public class LifeSafetyPopupActivity extends BaseActivity {
 
@@ -44,7 +48,7 @@ public class LifeSafetyPopupActivity extends BaseActivity {
   }
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_life_safety_popup);
@@ -56,6 +60,16 @@ public class LifeSafetyPopupActivity extends BaseActivity {
 //    lifeSafetyMain.getBackground().setAlpha(0);
 
     setUp();
+  }
+
+  @Override
+  public void phonePermissionResult(Permission permission) {
+
+  }
+
+  @Override
+  public void phonePermissionResult(boolean permission) {
+
   }
 
   @Override

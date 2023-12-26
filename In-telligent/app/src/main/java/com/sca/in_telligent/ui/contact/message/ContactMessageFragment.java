@@ -1,7 +1,8 @@
 package com.sca.in_telligent.ui.contact.message;
 
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,12 +10,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +23,10 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.sca.in_telligent.BuildConfig;
+import androidx.appcompat.app.AlertDialog;
+import androidx.exifinterface.media.ExifInterface;
+
+import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.AttachmentFile;
@@ -54,9 +55,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
+import io.reactivex.rxjava3.core.Observable;
 
-import static com.yalantis.ucrop.util.FileUtils.getPath;
 
 public class ContactMessageFragment extends BaseFragment implements ContactMessageMvpView,
         ContactDeliverDialog.ContactDeliverSelector {
@@ -128,8 +130,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     private ArrayList<BuildingMember> buildingMembers = new ArrayList<>();
 
     public static ContactMessageFragment newInstance(boolean managed, boolean isPersonalCommunity,
-                                                     boolean canSendLSA,
-                                                     String buildingId) {
+                                                     boolean canSendLSA, String buildingId) {
         Bundle args = new Bundle();
         args.putBoolean("managed", managed);
         args.putBoolean("isPersonalCommunity", isPersonalCommunity);
@@ -208,8 +209,8 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ArrayList<String> spinnerItems = new ArrayList<>();
 
         if (isPersonalCommunity) {
-            spinnerItems.add(getString(R.string.emergency));
-            spinnerItems.add(getString(R.string.urgent));
+            spinnerItems.add("Emergency");
+            spinnerItems.add("Urgent");
         } else {
             if (canSendLSA) {
                 spinnerItems.add(getString(R.string.normal));
@@ -233,10 +234,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
     void prepareSendToSpinner() {
         ArrayList<String> spinnerItems = new ArrayList<>();
-        spinnerItems.add(getString(R.string.send_to_specific));
-        spinnerItems.add(getString(R.string.send_to_all));
+        spinnerItems.add("Send to Specific Subscriber or Groups");
+        spinnerItems.add("Send to All Subscribers of This Community");
 
-        spinnerItems.add(getString(R.string.send_to));
+        spinnerItems.add("Send To");
 
         contactSendSpinnerAdapter.addItems(spinnerItems);
 
@@ -308,10 +309,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
     }
 
-    @OnClick(R.id.contact_send_attachment_layout)
-    void attachmentButtonClick(View v) {
-        mPresenter.getStoragePermission();
-    }
+//    @OnClick(R.id.contact_send_attachment_layout)
+//    void attachmentButtonClick(View v) {
+//        mPresenter.getStoragePermission();
+//    }
 
     @OnClick(R.id.contact_send_message_button)
     void sendMessage(View v) {
@@ -452,7 +453,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
             if (data.getData() != null) {
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "data.getData() = " + data.getData());
                     Log.d("mikes", "data.getDataString() = " + data.getDataString());
                     Log.d("mikes", "data.getType() = " + data.getType());
@@ -460,9 +461,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 Uri selectedUri = data.getData();
 
-                final String attachmentPath = getPath(getActivity(), selectedUri);
+                final String attachmentPath = selectedUri.getPath();
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "attachmentPath = " + attachmentPath);
                 }
 
@@ -470,9 +471,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 attachmentText.setText("\t" + file.getName());
 
                 if (selectedUri.toString().contains("video")) {
-                    attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file));
+                    attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                 } else {
-                    attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file));
+                    attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
 //                    attachmentPaths.add(attachmentPath);
                 }
 
@@ -482,7 +483,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 ClipData mClipData = data.getClipData();
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "mClipData.getItemCount = " + mClipData.getItemCount());
                 }
 
@@ -491,14 +492,14 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                     ClipData.Item item = mClipData.getItemAt(i);
                     Uri selectedUri = item.getUri();
 
-                    final String attachmentPath = getPath(getActivity(), selectedUri);
+                    final String attachmentPath = selectedUri.getPath();
 
                     final File file = new File(attachmentPath);
 
                     if (selectedUri.toString().contains("video")) {
-                        attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file));
+                        attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                     } else {
-                        attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file));
+                        attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
                     }
                 }
                 compressFiles(attachmentFiles);
@@ -533,14 +534,14 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
         setLoadAttachmentViewState(LoadAttachmentViewState.COMPRESSING);
 
-        if (BuildConfig.LOG_DEBUG_MODE) {
+        if (BuildConfig1.LOG_DEBUG_MODE) {
             for (AttachmentFile attachmentFile : inputFiles) {
                 Log.d("CreateCommunityAlert",
                         "Input filesize: " + String.valueOf(attachmentFile.getFile().length() / 1024));
             }
         }
 
-        AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
+        @SuppressLint("StaticFieldLeak") AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
             @Override
             protected ArrayList<String> doInBackground(ArrayList<AttachmentFile>... files) {
 
@@ -618,7 +619,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 for (String newFilePath : newFilePaths) {
                     final long filesize = (new File(newFilePath).length() / 1024);
 
-                    if (BuildConfig.LOG_DEBUG_MODE) {
+                    if (BuildConfig1.LOG_DEBUG_MODE) {
                         Log.d("CreateCommunityAlert", "Output filepath: " + newFilePath);
                         Log.d("CreateCommunityAlert", "Output filesize: " + filesize);
                     }
@@ -631,7 +632,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 attachmentPaths.addAll(newFilePaths);
 
-                if (BuildConfig.LOG_DEBUG_MODE) {
+                if (BuildConfig1.LOG_DEBUG_MODE) {
                     Log.d("mikes", "Selected Files: " + attachmentPaths.size());
                     for (String s : attachmentPaths) {
                         Log.d("mikes", "attachmentPaths: " + s);
@@ -699,13 +700,13 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             int rotation = exif
                     .getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
 
-            if (BuildConfig.LOG_DEBUG_MODE) {
+            if (BuildConfig1.LOG_DEBUG_MODE) {
                 Log.d("mikes", "rotate bitmap exif rotation = " + rotation);
             }
 
             int rotationInDegrees = exifToDegrees(rotation);
 
-            if (BuildConfig.LOG_DEBUG_MODE) {
+            if (BuildConfig1.LOG_DEBUG_MODE) {
                 Log.d("mikes", "rotate bitmap exif rotationInDegrees = " + rotationInDegrees);
             }
 

@@ -2,231 +2,213 @@ package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.sca.in_telligent.openapi.data.network.ApiEndPoint;
-
 import java.io.Serializable;
 import java.util.Objects;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Building implements Serializable {
+    @SerializedName("BuildingAddress")
+    private BuildingAddress buildingAddress;
+    @SerializedName("BuildingCategory")
+    private BuildingCategory buildingCategory;
+    @SerializedName("BuildingsSubscriber")
+    private BuildingsSubscriber buildingsSubscriber;
+    private Category category;
+    @SerializedName("created")
+    private String created;
+    private boolean createdByMe;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("filterCategory")
+    private String filterCategory;
+    @SerializedName("id")
+    private int id;
+    private boolean isManagedByCurrentUser;
+    private boolean isOther;
+    @SerializedName("isTextEnabled")
+    @JsonAdapter(BooleanTypeAdapter.class)
+    private boolean isTextEnabled;
+    @SerializedName("isVoipEnabled")
+    @JsonAdapter(BooleanTypeAdapter.class)
+    private boolean isVoipEnabled;
+    @SerializedName("name")
+    private String name = "";
+    @SerializedName("password")
+    private String password;
+    @SerializedName("subscriberCount")
+    private int subscriberCount;
+    @SerializedName("subscriberId")
+    private Integer subscriberId;
+    private boolean suggestedHeader;
+    private boolean suggestedItem;
+    private Type type;
+    @SerializedName("website")
+    private String website;
 
-  private Type type;
-
-  private Category category;
-  private boolean isManagedByCurrentUser;
-
-  public boolean isOther() {
-    return isOther;
-  }
-
-  public void setOther(boolean other) {
-    isOther = other;
-  }
-
-  private boolean isOther;
-
-  public int getId() {
-    return id;
-  }
-
-  @SerializedName("id")
-  private int id;
-
-  @SerializedName("name")
-  private String name = "";
-
-  public String getDescription() {
-    return description;
-  }
-
-  @SerializedName("description")
-  private String description;
-
-  public String getPassword() {
-    return password;
-  }
-
-  @SerializedName("password")
-  private String password;
-
-  public String getWebsite() {
-    return website;
-  }
-
-  @SerializedName("website")
-  private String website;
-
-  @SerializedName("filterCategory")
-  private String filterCategory;
-
-  public boolean isVoipEnabled() {
-    return isVoipEnabled;
-  }
-
-  @JsonAdapter(BooleanTypeAdapter.class)
-  @SerializedName("isVoipEnabled")
-  private boolean isVoipEnabled;
-
-  public boolean isTextEnabled() {
-    return isTextEnabled;
-  }
-
-  @JsonAdapter(BooleanTypeAdapter.class)
-  @SerializedName("isTextEnabled")
-  private boolean isTextEnabled;
-
-  public String getCreated() {
-    return created;
-  }
-
-  @SerializedName("created")
-  private String created;
-
-  @SerializedName("subscriberId")
-  private Integer subscriberId;
-
-  public int getSubscriberCount() {
-    return subscriberCount;
-  }
-
-  @SerializedName("subscriberCount")
-  private int subscriberCount;
-
-  @SerializedName("BuildingsSubscriber")
-  private BuildingsSubscriber buildingsSubscriber;
-
-  @SerializedName("BuildingCategory")
-  private BuildingCategory buildingCategory;
-
-  public BuildingAddress getBuildingAddress() {
-    return buildingAddress;
-  }
-
-  @SerializedName("BuildingAddress")
-  private BuildingAddress buildingAddress;
-
-  public enum Type {
-    SUGGESTED_HEADER(0), SUGGESTED_ITEM(1), NORMAL(2),
-    GRAY_HEADER(3);
-
-    int number;
-
-    Type(int i) {
-      number = i;
+    public boolean isOther() {
+        return this.isOther;
     }
 
-    public int getNumber() {
-      return number;
-    }
-  }
-
-  public enum Category {
-    ORGANIZATION("organization"), PEOPLE("people"), EMERGENCY(
-        "emergency"), HELPLINE("helpline");
-
-    String category;
-
-    Category(String s) {
-      category = s;
+    public void setOther(boolean z) {
+        this.isOther = z;
     }
 
-    public String getCategory() {
-      return category;
+    public int getId() {
+        return this.id;
     }
-  }
 
-  public boolean isCreatedByMe() {
-    return createdByMe;
-  }
-
-  public void setCreatedByMe(boolean createdByMe) {
-    this.createdByMe = createdByMe;
-  }
-
-  private boolean createdByMe;
-
-  public Type getType() {
-    return type;
-  }
-
-  public void setType(Type type) {
-    this.type = type;
-  }
-
-  public Category getCategory() {
-    return category;
-  }
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  private boolean suggestedHeader;
-
-  public boolean isSuggestedHeader() {
-    return suggestedHeader;
-  }
-
-  public void setSuggestedHeader(boolean suggestedHeader) {
-    this.suggestedHeader = suggestedHeader;
-  }
-
-  public Integer getSubscriberId() {
-    return subscriberId;
-  }
-
-  public boolean isSuggestedItem() {
-    return suggestedItem;
-  }
-
-  public void setSuggestedItem(boolean suggestedItem) {
-    this.suggestedItem = suggestedItem;
-  }
-
-  public void setIsManagedByUser(boolean isManagedByCurrentUser){
-    this.isManagedByCurrentUser = isManagedByCurrentUser;
-  }
-
-  public boolean isManagedByCurrentUser() {
-    return isManagedByCurrentUser;
-  }
-
-  public BuildingsSubscriber getBuildingsSubscriber() {
-    return buildingsSubscriber;
-  }
-
-  public String getFilterCategory() {
-    return filterCategory;
-  }
-
-  private boolean suggestedItem;
-
-  public String getImageUrl() {
-    if (buildingCategory != null && buildingCategory.getBuildingCategoryImages() != null
-        && buildingCategory.getBuildingCategoryImages().size() > 0) {
-      return ApiEndPoint.BASE_IMAGE_URL + "/img/categories/" + buildingCategory
-          .getBuildingCategoryImages().get(0).getImage();
-    } else {
-      return null;
+    public String getDescription() {
+        return this.description;
     }
-  }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Building)) return false;
-    Building building = (Building) o;
-    return getId() == building.getId();
-  }
+    public String getPassword() {
+        return this.password;
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId());
-  }
+    public String getWebsite() {
+        return this.website;
+    }
+
+    public boolean isVoipEnabled() {
+        return this.isVoipEnabled;
+    }
+
+    public boolean isTextEnabled() {
+        return this.isTextEnabled;
+    }
+
+    public String getCreated() {
+        return this.created;
+    }
+
+    public int getSubscriberCount() {
+        return this.subscriberCount;
+    }
+
+    public BuildingAddress getBuildingAddress() {
+        return this.buildingAddress;
+    }
+
+    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+    public enum Type {
+        SUGGESTED_HEADER(0),
+        SUGGESTED_ITEM(1),
+        NORMAL(2),
+        GRAY_HEADER(3);
+        
+        int number;
+
+        Type(int i) {
+            this.number = i;
+        }
+
+        public int getNumber() {
+            return this.number;
+        }
+    }
+
+    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+    public enum Category {
+        ORGANIZATION("organization"),
+        PEOPLE("people"),
+        EMERGENCY("emergency"),
+        HELPLINE("helpline");
+        
+        String category;
+
+        Category(String str) {
+            this.category = str;
+        }
+
+        public String getCategory() {
+            return this.category;
+        }
+    }
+
+    public boolean isCreatedByMe() {
+        return this.createdByMe;
+    }
+
+    public void setCreatedByMe(boolean z) {
+        this.createdByMe = z;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Category getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public boolean isSuggestedHeader() {
+        return this.suggestedHeader;
+    }
+
+    public void setSuggestedHeader(boolean z) {
+        this.suggestedHeader = z;
+    }
+
+    public Integer getSubscriberId() {
+        return this.subscriberId;
+    }
+
+    public boolean isSuggestedItem() {
+        return this.suggestedItem;
+    }
+
+    public void setSuggestedItem(boolean z) {
+        this.suggestedItem = z;
+    }
+
+    public void setIsManagedByUser(boolean z) {
+        this.isManagedByCurrentUser = z;
+    }
+
+    public boolean isManagedByCurrentUser() {
+        return this.isManagedByCurrentUser;
+    }
+
+    public BuildingsSubscriber getBuildingsSubscriber() {
+        return this.buildingsSubscriber;
+    }
+
+    public String getFilterCategory() {
+        return this.filterCategory;
+    }
+
+    public String getImageUrl() {
+        BuildingCategory buildingCategory = this.buildingCategory;
+        if (buildingCategory == null || buildingCategory.getBuildingCategoryImages() == null || this.buildingCategory.getBuildingCategoryImages().size() <= 0) {
+            return null;
+        }
+        return "https://app.in-telligent.com/img/categories/" + this.buildingCategory.getBuildingCategoryImages().get(0).getImage();
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        return (obj instanceof Building) && getId() == ((Building) obj).getId();
+    }
+
+    public int hashCode() {
+        return Objects.hash(Integer.valueOf(getId()));
+    }
 }

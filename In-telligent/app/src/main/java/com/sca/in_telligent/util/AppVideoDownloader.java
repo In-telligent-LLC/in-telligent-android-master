@@ -3,14 +3,16 @@ package com.sca.in_telligent.util;
 import android.content.Context;
 import android.util.Log;
 import com.sca.in_telligent.di.ApplicationContext;
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 
 @Singleton
 public class AppVideoDownloader implements VideoDownloader {

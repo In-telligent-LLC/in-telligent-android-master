@@ -5,9 +5,11 @@ import com.sca.in_telligent.openapi.data.network.model.ForgotPasswordRequest;
 import com.sca.in_telligent.openapi.data.network.model.LoginResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+
 import javax.inject.Inject;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends
     BasePresenter<V> implements ForgotPasswordMvpPresenter<V> {

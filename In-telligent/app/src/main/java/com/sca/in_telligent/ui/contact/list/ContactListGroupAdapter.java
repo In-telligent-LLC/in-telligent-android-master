@@ -1,12 +1,12 @@
 package com.sca.in_telligent.ui.contact.list;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -18,11 +18,15 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import io.reactivex.rxjava3.annotations.NonNull;
 
 public class ContactListGroupAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private List<Building> buildings;
     private Callback mCallback;
+    private Unbinder mUnBinder;
+
 
     public ContactListGroupAdapter(List<Building> buildings) {
         this.buildings = buildings;
@@ -85,6 +89,9 @@ public class ContactListGroupAdapter extends RecyclerView.Adapter<BaseViewHolder
         @Override
         protected void clear() {
 
+        }
+        public void setUnBinder(Unbinder unBinder) {
+            mUnBinder = unBinder;
         }
 
         public void onBind(final int position) {

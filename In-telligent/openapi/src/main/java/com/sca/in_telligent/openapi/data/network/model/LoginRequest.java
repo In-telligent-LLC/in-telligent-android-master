@@ -1,37 +1,37 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
 import com.google.gson.annotations.SerializedName;
-
+import com.sca.in_telligent.openapi.util.CommonUtils;
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class LoginRequest implements Serializable {
+    @SerializedName("adId")
+    private String adId;
+    @SerializedName("deviceId")
+    private String deviceId;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("password")
+    private String password;
+    @SerializedName("deviceModel")
+    private String deviceModel = CommonUtils.getDeviceInfo();
+    @SerializedName("osVersion")
+    private String osVersion = CommonUtils.getDeviceOs();
 
-  @SerializedName("deviceId")
-  private String deviceId;
+    public void setDeviceId(String str) {
+        this.deviceId = str;
+    }
 
-  @SerializedName("email")
-  private String email;
+    public void setEmail(String str) {
+        this.email = str;
+    }
 
-  @SerializedName("password")
-  private String password;
+    public void setPassword(String str) {
+        this.password = str;
+    }
 
-  @SerializedName("adId")
-  private String adId;
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public void setAdId(String adId) {
-    this.adId = adId;
-  }
-
+    public void setAdId(String str) {
+        this.adId = str;
+    }
 }

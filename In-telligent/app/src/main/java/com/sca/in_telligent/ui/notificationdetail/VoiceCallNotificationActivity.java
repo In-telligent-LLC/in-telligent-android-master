@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.notificationdetail;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -43,7 +44,7 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().addFlags(2359296);
-        setContentView(R.layout.activity_voice_call_notification);
+        setContentView(R.layout.activity_incoming_call_popup);
         this.pushNotification = (PushNotification) getIntent().getSerializableExtra("notification");
         init();
         this.textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() { // from class: com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity.1
@@ -67,10 +68,10 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
     }
 
     private void init() {
-        DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build().inject(this);
-        this.notification_title = (TextView) findViewById(R.id.notification_details);
-        this.call_cancel_view = (FloatingActionButton) findViewById(2131230865);
-        this.call_accept_view = (FloatingActionButton) findViewById(R.id.accept_button);
+//        DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build().inject(this);
+        this.notification_title = (TextView) findViewById(R.id.notification_title_text);
+        this.call_cancel_view = (FloatingActionButton) findViewById(R.id.incoming_call_reject_call);
+        this.call_accept_view = (FloatingActionButton) findViewById(R.id.incoming_call_accept_call);
         this.notification_title.setText(this.pushNotification.getBuilding_name());
         this.handler = new Handler();
         Runnable runnable = new Runnable() { // from class: com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity.2
@@ -117,8 +118,8 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
         this.handler.removeCallbacks(this.timerRunnable);
         this.audioHelper.stopRingtone();
         setToSpeak(this.pushNotification.getNotification_title() + ".", this.pushNotification.getMessage_suffix());
-        this.call_accept_view.setVisibility(8);
-        findViewById(R.id.accept_text).setVisibility(8);
+//        this.call_accept_view.setVisibility(View.GONE);
+        findViewById(R.id.incoming_call_accept_call).setVisibility(View.GONE);
         CommonUtils.clearNotification(this, Integer.parseInt(this.pushNotification.getNotificationId()));
     }
 
@@ -128,7 +129,7 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("isAppFourGround", false)) {
             startActivity(getMainActivityIntent("fourGround"));
         } else {
-            PendingIntent activity = PendingIntent.getActivity(this, Integer.valueOf(this.pushNotification.getNotificationId()).intValue(), getMainActivityIntent("background"), 134217728);
+            PendingIntent activity = PendingIntent.getActivity(this, Integer.valueOf(this.pushNotification.getNotificationId()).intValue(), getMainActivityIntent("background"), PendingIntent.FLAG_UPDATE_CURRENT);
             PushNotification pushNotification = this.pushNotification;
             CommonUtils.createNotification(this, pushNotification, activity, false, pushNotification.getTitle(), this.pushNotification.getBody(), true);
         }
@@ -143,6 +144,7 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
+    @SuppressLint("WrongConstant")
     private Intent getMainActivityIntent(String str) {
         Intent intent = new Intent((Context) this, (Class<?>) MainActivity.class);
         intent.addFlags(603979776);

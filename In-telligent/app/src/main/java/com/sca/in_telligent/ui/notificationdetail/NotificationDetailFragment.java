@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.speech.tts.UtteranceProgressListener;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -19,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.EditSaveMessageRequest;
@@ -38,6 +38,11 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.core.Observable;
 
 public class NotificationDetailFragment extends BaseFragment implements NotificationDetailMvpView,

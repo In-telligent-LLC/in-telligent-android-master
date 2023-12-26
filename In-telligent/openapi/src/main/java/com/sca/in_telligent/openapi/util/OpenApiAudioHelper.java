@@ -5,136 +5,125 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Vibrator;
-import android.util.Log;
-
 import com.sca.in_telligent.openapi.R;
-
 import java.io.IOException;
 
-
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class OpenApiAudioHelper implements AudioHelper {
-
     private final AudioManager mAudioManager;
-    private final Vibrator mVibrator;
-    private MediaPlayer mediaPlayer;
     private final Context mContext;
     private FlashHelper mFlashHelper;
+    private final Vibrator mVibrator;
+    private MediaPlayer mediaPlayer;
     Uri ringtoneUri;
 
-
-    private OpenApiAudioHelper(Context context, AudioManager audioManager,
-                               Vibrator vibrator, FlashHelper flashHelper) {
-        mContext = context;
-        mAudioManager = audioManager;
-        mVibrator = vibrator;
-        mFlashHelper = flashHelper;
+    private String getPackage() {
+        return "android.resource://com.sca.in_telligent/";
     }
 
-    public static OpenApiAudioHelper newInstance(Context context, AudioManager audioManager,
-                                                 Vibrator vibrator, FlashHelper flashHelper) {
+    private OpenApiAudioHelper(Context context, AudioManager audioManager, Vibrator vibrator, FlashHelper flashHelper) {
+        this.mContext = context;
+        this.mAudioManager = audioManager;
+        this.mVibrator = vibrator;
+        this.mFlashHelper = flashHelper;
+    }
+
+    public static OpenApiAudioHelper newInstance(Context context, AudioManager audioManager, Vibrator vibrator, FlashHelper flashHelper) {
         return new OpenApiAudioHelper(context, audioManager, vibrator, flashHelper);
     }
 
     public void startFlash() {
-        mFlashHelper.startFlashTask();
+        this.mFlashHelper.startFlashTask();
     }
 
     public void stopFlash() {
-        mFlashHelper.stopFlashTask();
+        this.mFlashHelper.stopFlashTask();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startLifeSafetyRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.alarm);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.alarm);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startCriticalRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.critical);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.critical);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startVoipRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.voip);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.voip);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startPingRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.ping);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.ping);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startWeatherRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.weather);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.weather);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startUrgentRingtone() {
-        ringtoneUri = Uri
-                .parse("android.resource://com.sca.in_telligent/" + R.raw.personal_community_urgent);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.personal_community_urgent);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startEmergencyRingtone() {
-        ringtoneUri = Uri
-                .parse("android.resource://com.sca.in_telligent/" + R.raw.personal_community_emergency);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.personal_community_emergency);
         startRingtone();
     }
 
-    @Override
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void startLightningRingtone() {
-        ringtoneUri = Uri.parse("android.resource://com.sca.in_telligent/" + R.raw.lightning_sound);
+        this.ringtoneUri = Uri.parse(getPackage() + R.raw.lightning_sound);
         startRingtone();
     }
 
     private void startRingtone() {
-
+        MediaPlayer mediaPlayer = this.mediaPlayer;
         if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
-        int volume = mAudioManager.getStreamVolume(AudioManager.STREAM_ALARM);
-        Log.d("OpenApiAudioHelper: ", "volume was: " + volume);
-        if (volume == 0) {
-            volume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM);
-        }
-        mAudioManager.setStreamVolume(AudioManager.STREAM_ALARM, volume,
-                AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
-
+        this.mAudioManager.setStreamVolume(4, this.mAudioManager.getStreamMaxVolume(4), 8);
         try {
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setDataSource(mContext, ringtoneUri);
-            mediaPlayer.setLooping(true);
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    mediaPlayer.start();
+            MediaPlayer mediaPlayer2 = new MediaPlayer();
+            this.mediaPlayer = mediaPlayer2;
+            mediaPlayer2.setDataSource(this.mContext, this.ringtoneUri);
+            this.mediaPlayer.setLooping(true);
+            this.mediaPlayer.setAudioStreamType(4);
+            this.mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.sca.in_telligent.openapi.util.OpenApiAudioHelper.1
+                @Override // android.media.MediaPlayer.OnPreparedListener
+                public void onPrepared(MediaPlayer mediaPlayer3) {
+                    OpenApiAudioHelper.this.mediaPlayer.start();
                 }
             });
-            mediaPlayer.prepareAsync();
+            this.mediaPlayer.prepareAsync();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        mVibrator.vibrate(new long[]{0, 1000, 1000}, 0);
+        this.mVibrator.vibrate(new long[]{0, 1000, 1000}, 0);
         startFlash();
     }
 
+    @Override // com.sca.in_telligent.openapi.util.AudioHelper
     public void stopRingtone() {
+        MediaPlayer mediaPlayer = this.mediaPlayer;
         if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
-
-        if (mVibrator != null) {
-            mVibrator.cancel();
+        Vibrator vibrator = this.mVibrator;
+        if (vibrator != null) {
+            vibrator.cancel();
         }
-
         stopFlash();
     }
 }

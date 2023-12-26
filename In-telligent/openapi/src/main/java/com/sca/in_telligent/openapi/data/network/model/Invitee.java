@@ -1,86 +1,79 @@
 package com.sca.in_telligent.openapi.data.network.model;
 
+import com.facebook.internal.AnalyticsEvents;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
+/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Invitee implements Serializable {
+    @SerializedName("buildingId")
+    private Integer buildingId;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("id")
+    private int id;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("phone")
+    private String phone;
+    @SerializedName(AnalyticsEvents.PARAMETER_SHARE_DIALOG_CONTENT_STATUS)
+    private String status;
+    @SerializedName("subscriberId")
+    private Integer subscriberId;
 
-  @SerializedName("id")
-  private int id;
+    public Integer getSubscriberId() {
+        return this.subscriberId;
+    }
 
-  @SerializedName("name")
-  private String name;
+    public void setSubscriberId(Integer num) {
+        this.subscriberId = num;
+    }
 
-  @SerializedName("status")
-  private String status;
+    public Integer getBuildingId() {
+        return this.buildingId;
+    }
 
-  @SerializedName("subscriberId")
-  private Integer subscriberId;
+    public void setBuildingId(Integer num) {
+        this.buildingId = num;
+    }
 
-  @SerializedName("buildingId")
-  private Integer buildingId;
+    public String getEmail() {
+        return this.email;
+    }
 
-  @SerializedName("email")
-  private String email;
+    public void setEmail(String str) {
+        this.email = str;
+    }
 
-  @SerializedName("phone")
-  private String phone;
+    public int getId() {
+        return this.id;
+    }
 
-  public Integer getSubscriberId() {
-    return subscriberId;
-  }
+    public void setId(int i) {
+        this.id = i;
+    }
 
-  public void setSubscriberId(Integer subscriberId) {
-    this.subscriberId = subscriberId;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public Integer getBuildingId() {
-    return buildingId;
-  }
+    public void setName(String str) {
+        this.name = str;
+    }
 
-  public void setBuildingId(Integer buildingId) {
-    this.buildingId = buildingId;
-  }
+    public String getStatus() {
+        return this.status;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public void setStatus(String str) {
+        this.status = str;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public String getPhone() {
+        return this.phone;
+    }
 
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
+    public void setPhone(String str) {
+        this.phone = str;
+    }
 }
