@@ -51,7 +51,7 @@ public class ApplicationModule {
     private final Application mApplication;
 
     public ApplicationModule(Application application) {
-        mApplication = application;
+        this.mApplication = application;
     }
 
     @Provides
@@ -174,7 +174,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    WorkManager provideWorkManager(Context context) {
+    WorkManager provideWorkManager() {
         return WorkManager.getInstance();
     }
 

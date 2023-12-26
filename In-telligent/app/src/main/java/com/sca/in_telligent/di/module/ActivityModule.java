@@ -9,7 +9,6 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingMember;
-import com.sca.in_telligent.openapi.data.network.model.DeliveryInfoItem;
 import com.sca.in_telligent.openapi.data.network.model.Invitee;
 import com.sca.in_telligent.openapi.data.network.model.NavListItem;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
@@ -112,6 +111,7 @@ import com.sca.in_telligent.ui.splash.SplashPresenter;
 import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
+import java.security.Permissions;
 import java.util.ArrayList;
 
 import dagger.Module;
@@ -148,10 +148,10 @@ public class ActivityModule {
         return new AppSchedulerProvider();
     }
 
-//    @Provides
-//    RxPermissions provideRxPermissions() {
-//        return new RxPermissions(mActivity);
-//    }
+    @Provides
+    Permissions provideRxPermissions() {
+        return new Permissions();
+    }
 
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {

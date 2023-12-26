@@ -8,6 +8,7 @@ import com.sca.in_telligent.ui.auth.logout.LogoutActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.auth.register.SignupPasswordActivity;
 import com.sca.in_telligent.ui.auth.reset.ResetPasswordActivity;
+import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.contact.call.ContactCallFragment;
 import com.sca.in_telligent.ui.contact.list.ContactListFragment;
 import com.sca.in_telligent.ui.contact.message.ContactMessageFragment;
