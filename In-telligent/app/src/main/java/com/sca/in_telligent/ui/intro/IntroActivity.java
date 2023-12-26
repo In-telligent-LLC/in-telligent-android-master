@@ -12,11 +12,10 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
@@ -35,6 +34,12 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
 //  @BindView(R.id.imageAnimated)
   ImageView imageAnimated;
 
+//  @BindView(R.id.first_time_user_btn)
+  TextView firstTimeUserButton;
+
+  @BindView(R.id.returning_subscriber_btn)
+  TextView returningSubscriberButton;
+
 
   int[] images = {R.drawable.slideshow_image_01, R.drawable.slideshow_image_02,
       R.drawable.slideshow_image_03, R.drawable.slideshow_image_04, R.drawable.slideshow_image_05,
@@ -52,6 +57,11 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     getActivityComponent().inject(this);
 
     imageAnimated = findViewById(R.id.imageAnimated);
+    firstTimeUserButton = findViewById(R.id.first_time_user_btn);
+    firstTimeUserButton.setOnClickListener(view -> firstTimeClick(view));
+
+    returningSubscriberClick();
+
 
 
     ButterKnife.bind(this);
@@ -63,13 +73,6 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
 
 
 
-  @BindView(R.id.first_time_user_btn)
-  TextView firstTimeUserButton;
-
-  @BindView(R.id.returning_subscriber_btn)
-  TextView returningSubscriberButton;
-
-
 
   @OnClick(R.id.first_time_user_btn)
   void firstTimeClick(View v) {
@@ -77,7 +80,7 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
   @OnClick(R.id.returning_subscriber_btn)
-  void returningSubscriberClick(View v) {
+  void returningSubscriberClick() {
     startActivityWithDeeplink(LoginActivity.getStartIntent(this));
   }
 

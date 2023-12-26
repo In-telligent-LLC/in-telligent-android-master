@@ -50,12 +50,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   @Inject
   LoginMvpPresenter<LoginMvpView> mPresenter;
 
-
-  EditText inputUserName = findViewById(R.id.inputUsername);
-
-  EditText inputPasword = findViewById(R.id.inputPassword);
-
-  Button buttonLogin = findViewById(R.id.btnLogin);
+  EditText inputUserName;
+  EditText inputPasword;
+  Button buttonLogin;
 
   @BindView(R.id.btnGoToSignup)
   TextView buttonGoToSignup;
@@ -92,28 +89,36 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     mPresenter.onAttach(LoginActivity.this);
 
     callbackManager = CallbackManager.Factory.create();
-
     hideKeyboard();
 
-    setUp();
-  }
+    inputUserName = findViewById(R.id.inputUsername);
+    inputPasword = findViewById(R.id.inputPassword);
+//    setUp();
 
+
+    buttonLogin = findViewById(R.id.btnLogin);
+    buttonLogin.setOnClickListener(this::loginWithPassword);
+
+
+  }
 
 
   void loginWithPassword(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
     } else {
-      if (inputUserName.getText().toString().length() > 3
-          && inputPasword.getText().toString().length() > 3) {
-        String android_id = CommonUtils.getDeviceId(this);
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setDeviceId(android_id);
-        loginRequest.setEmail(inputUserName.getText().toString().trim());
-        loginRequest.setPassword(inputPasword.getText().toString().trim());
-        mPresenter.loginWithPassword(loginRequest);
-      }
+      Log.d("Chego aqui", inputUserName.getText().toString());
+//      if (inputUserName.getText().toString().length() > 3
+//          && inputPasword.getText().toString().length() > 3) {
+//        String android_id = CommonUtils.getDeviceId(this);
+//        LoginRequest loginRequest = new LoginRequest();
+//        loginRequest.setDeviceId(android_id);
+//        loginRequest.setEmail(inputUserName.getText().toString().trim());
+//        loginRequest.setPassword(inputPasword.getText().toString().trim());
+//        mPresenter.loginWithPassword(loginRequest);
+      openMainActivity();
     }
+
     hideKeyboard();
   }
 

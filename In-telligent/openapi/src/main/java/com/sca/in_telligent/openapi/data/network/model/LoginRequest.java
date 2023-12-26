@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import com.sca.in_telligent.openapi.util.CommonUtils;
 import java.io.Serializable;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class LoginRequest implements Serializable {
     @SerializedName("adId")
     private String adId;

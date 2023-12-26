@@ -117,7 +117,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.mUnBinder = unbinder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     public void showLoading() {
         hideLoading();
         this.mProgressDialog = CommonUtils.showLoadingDialog(this);
@@ -237,17 +236,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return this.responder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showNetworkDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Alert");
         builder.setMessage(R.string.please_check_your_network_connection_try_again);
-        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
+        builder.setNeutralButton(getString(R.string.ok), (dialogInterface, i) -> {
         });
         builder.show();
     }

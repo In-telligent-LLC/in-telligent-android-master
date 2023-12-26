@@ -1,4 +1,4 @@
-#Tue Dec 26 17:39:33 BRT 2023
+#Tue Dec 26 19:55:44 BRT 2023
 base.0=/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/build/intermediates/dex/productionDebug/mergeExtDexProductionDebug/classes.dex
 base.1=/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/build/intermediates/dex/productionDebug/mergeLibDexProductionDebug/0/classes.dex
 base.10=/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/build/intermediates/dex/productionDebug/mergeProjectDexProductionDebug/3/classes.dex

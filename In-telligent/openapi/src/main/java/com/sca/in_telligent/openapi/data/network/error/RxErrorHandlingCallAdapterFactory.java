@@ -31,7 +31,7 @@ public class RxErrorHandlingCallAdapterFactory extends CallAdapter.Factory {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-    public static class RxCallAdapterWrapper<R> implements CallAdapter<R, Observable<R>> {
+    public static class RxCallAdapterWrapper<R> implements CallAdapter<R, Observable> {
         private final Retrofit mRetrofit;
         private final CallAdapter<R, ?> mWrappedCallAdapter;
 
@@ -45,13 +45,10 @@ public class RxErrorHandlingCallAdapterFactory extends CallAdapter.Factory {
             return this.mWrappedCallAdapter.responseType();
         }
 
-        @Override // retrofit2.CallAdapter
-        public Observable<R> adapt(Call<R> call) {
-            return ((Observable) this.mWrappedCallAdapter.adapt(call)).onErrorResumeNext(new Function<Throwable, ObservableSource>() { // from class: com.sca.in_telligent.openapi.data.network.error.RxErrorHandlingCallAdapterFactory.RxCallAdapterWrapper.1
-                @Override // io.reactivex.functions.Function
-                public Observable apply(Throwable th) {
-                    return Observable.error(RxCallAdapterWrapper.this.asRetrofitException(th));
-                }
+        @Override
+        public Observable adapt(Call<R> call) {
+            return ((Observable) this.mWrappedCallAdapter.adapt(call)).onErrorResumeNext((Function<Throwable, ObservableSource>) th -> {
+                return Observable.error(RxCallAdapterWrapper.this.asRetrofitException(th));
             });
         }
 

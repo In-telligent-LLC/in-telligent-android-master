@@ -1,1 +1,1 @@
-{"className":"com.sca.in_telligent.ui.auth.login.LoginPresenter$3","classAnnotations":[],"interfaces":["com.facebook.FacebookCallback"],"superClasses":["java.lang.Object"]}
+{"className":"com.sca.in_telligent.ui.auth.login.LoginPresenter$3","classAnnotations":[],"interfaces":["io.reactivex.rxjava3.functions.Consumer"],"superClasses":["java.lang.Object"]}

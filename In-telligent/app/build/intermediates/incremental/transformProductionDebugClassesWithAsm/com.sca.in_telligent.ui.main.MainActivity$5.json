@@ -1,1 +1,1 @@
-{"className":"com.sca.in_telligent.ui.main.MainActivity$5","classAnnotations":[],"interfaces":["io.reactivex.rxjava3.core.SingleObserver"],"superClasses":["java.lang.Object"]}
+{"className":"com.sca.in_telligent.ui.main.MainActivity$5","classAnnotations":[],"interfaces":["java.util.function.Predicate"],"superClasses":["java.lang.Object"]}

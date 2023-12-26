@@ -169,7 +169,7 @@ public final class CommonUtils {
         if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
             return true;
         }
-        buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
+        buildAlertMessage(context.getString(R.string.location_permissions), context.getString(R.string.location_permissions), context);
         return false;
     }
 
