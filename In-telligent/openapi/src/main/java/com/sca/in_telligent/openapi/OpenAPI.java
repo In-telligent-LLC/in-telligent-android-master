@@ -33,7 +33,7 @@ public class OpenAPI {
         Objects.requireNonNull(context, "A context is needed to initialize OpanAPI");
         Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
         FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
-        instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService("audio"), (Vibrator) context.getSystemService("vibrator"), newInstance), configuration);
+        instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE), newInstance), configuration);
         ApiHelperProvider.initialize(context);
     }
 
@@ -75,7 +75,6 @@ public class OpenAPI {
         return this.configuration;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class Configuration {
         private int appVersion;
         private boolean debug;
@@ -102,7 +101,6 @@ public class OpenAPI {
             return this.appVersion;
         }
 
-        /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
         public static class Builder {
             private boolean debug = true;
             private int appVersion = 1;

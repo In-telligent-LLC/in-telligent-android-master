@@ -26,22 +26,18 @@ import javax.inject.Inject;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> implements MainMvpPresenter<V> {
     private static final int NO_INVITE_ID = -1112;
     private static final String TAG = "MainPresenter";
     private static final long LAST_CHECKED_EXPIRATION_IN_MILLIS = TimeUnit.MINUTES.toMillis(10);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onClickAd$13(SuccessResponse successResponse) throws Exception {
-    }
 
     @Inject
     public MainPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpPresenter
+    @Override
     public boolean isLoggedIn() {
         return getDataManager().getCurrentUserLoggedInMode() == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN.getType();
     }
@@ -136,20 +132,13 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                 }));
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpPresenter
+    @Override
     public void onAppOpened() {
-        getCompositeDisposable().add(getDataManager().appOpened().subscribeOn(getSchedulerProvider().io()).observeOn(getSchedulerProvider().ui()).subscribe(new Consumer() { // from class: com.sca.in_telligent.ui.main.MainPresenter$$ExternalSyntheticLambda2
-            @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) {
-                SuccessResponse successResponse = (SuccessResponse) obj;
-                Log.i(MainPresenter.TAG, "onAppOpened success");
-            }
-        }, new Consumer() { // from class: com.sca.in_telligent.ui.main.MainPresenter$$ExternalSyntheticLambda5
-            @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) {
-                Log.e(MainPresenter.TAG, "onAppOpened error", (Throwable) obj);
-            }
-        }));
+        getCompositeDisposable().add(getDataManager().appOpened()
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(successResponse -> Log.i(TAG, "onAppOpened success"),
+                        throwable -> Log.e(TAG, "onAppOpened error", throwable)));
     }
 
     @Override

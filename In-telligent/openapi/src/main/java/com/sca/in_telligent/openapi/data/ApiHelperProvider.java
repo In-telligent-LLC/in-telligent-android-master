@@ -6,9 +6,10 @@ import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OkHttpClientProvider;
 import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelperImpl;
 import java.util.Objects;
+
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiHelperProvider {
@@ -35,7 +36,13 @@ public class ApiHelperProvider {
     private static ApiHelper getApiHelper(String str, OkHttpClient okHttpClient) {
         Objects.requireNonNull(str, "Base URL cannot be null");
         Objects.requireNonNull(okHttpClient, "OkHttpClient cannot be null");
-        return (ApiHelper) new Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).baseUrl(str).client(okHttpClient).build().create(ApiHelper.class);
+        return (ApiHelper) new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(str)
+                .client(okHttpClient)
+                .build()
+                .create(ApiHelper.class);
     }
 
     public static ApiHelper getPublicApiHelper() {
