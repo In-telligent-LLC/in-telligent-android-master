@@ -79,10 +79,19 @@ public class OpenAPI {
     public static final class Configuration {
         private int appVersion;
         private boolean debug;
+        private static boolean isMock = false;
 
         protected Configuration(Builder builder) {
             this.debug = builder.debug;
             this.appVersion = builder.appVersion;
+        }
+
+        public static boolean isMocked() {
+            return isMock;
+        }
+
+        public static void setMocked(boolean mocked) {
+            isMock = mocked;
         }
 
         public boolean isDebug() {

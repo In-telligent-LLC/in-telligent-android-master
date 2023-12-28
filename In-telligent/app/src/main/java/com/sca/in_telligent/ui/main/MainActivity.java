@@ -38,8 +38,9 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
+import com.sca.in_telligent.openapi.BuildConfig;
+import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingIdItem;
@@ -64,11 +65,11 @@ import com.sca.in_telligent.ui.preview.MessageViewDialog;
 import com.sca.in_telligent.ui.settings.SettingsFragment;
 import com.sca.in_telligent.ui.settings.account.AccountSettingsFragment;
 import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
-import com.sca.in_telligent.util.AppUpdateHandler;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LocationUtils;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
+import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
 
 import java.io.IOException;
 import java.security.Permission;
@@ -92,7 +93,6 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
-import android.app.AlertDialog;
 
 
 public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
@@ -121,7 +121,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     LinearLayoutManager mLayoutManager;
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
-    @BindView(R.id.navigation_view_listview)
     RecyclerView navigationViewListView;
 
     private NumberPicker silenceTimePicker;
@@ -134,9 +133,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.total_silence_on)
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
-    @SuppressLint("ResourceType")
-    @BindView(R.string.version_no_longer_available)
+
+//    @BindView()
     TextView version_name;
+
     ArrayList<Building> groups = new ArrayList<>();
     ArrayList<Building> buildings = new ArrayList<>();
     ArrayList<Building> personalCommunities = new ArrayList<>();
@@ -162,15 +162,30 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @Override // com.sca.in_telligent.ui.base.BaseActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+        OpenAPI.Configuration.setMocked(BuildConfig.MOCK);
+
         checkAppUpdates();
         setContentView(R.layout.activity_main);
         checkIntent(getIntent());
         getActivityComponent().inject(this);
         getAudioHelper().stopRingtone();
-        setUnBinder(ButterKnife.bind(this));
+
+        ButterKnife.bind(this);
+
         this.mPresenter.onAttach(this);
         CommonUtils.checkDNDPermission(this);
-        version_name = findViewById(R.string.version_no_longer_available);
+
+//        version_name = findViewById(R.string.version_no_longer_available);
+        navigationViewListView = findViewById(R.id.navigation_view_listview);
+        totalSilenceNumber = findViewById(R.id.total_silence_number);
+        totalSilenceOn = findViewById(R.id.total_silence_on);
+        totalSilenceOff = findViewById(R.id.total_silence_off);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        adImageView = findViewById(R.id.ad_footer_image);
+
+
         setUp();
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
@@ -195,10 +210,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         bundle.clear();
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
-    protected void setUp() {
-        this.version_name.setText("1.0" + " " + BuildConfig1.VERSION_NAME);
+    public void setUp() {
+//        version_name.setText("1.0" + " " + BuildConfig1.VERSION_NAME);
+        Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+
         showLocationInformation();
         configureNavigationDrawer();
         configureToolbar();
@@ -208,16 +224,17 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.actionBarDrawerToggle = actionBarDrawerToggle;
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
         this.mPresenter.getSubscriber();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private void showLocationInformation() {
         if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
             return;
         }
 //        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
     }
+
 
     @Override
     public void onResume() {

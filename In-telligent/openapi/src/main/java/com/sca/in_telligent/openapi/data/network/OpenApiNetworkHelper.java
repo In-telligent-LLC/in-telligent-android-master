@@ -1,5 +1,8 @@
 package com.sca.in_telligent.openapi.data.network;
 
+import android.os.Environment;
+
+import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.AlertDeleteRequest;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
@@ -33,6 +36,7 @@ import com.sca.in_telligent.openapi.data.network.model.SearchCommunityResponse;
 import com.sca.in_telligent.openapi.data.network.model.SignUpRequest;
 import com.sca.in_telligent.openapi.data.network.model.SingleNotificationResponse;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
+import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.openapi.data.network.model.SubscriberResponse;
 import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.SuggestNotificationRequest;
@@ -43,6 +47,8 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
+import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -107,6 +113,17 @@ public class OpenApiNetworkHelper implements ApiHelper {
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public Observable<SubscriberResponse> getCurrentSubscriber() {
+
+        if(OpenAPI.Configuration.isMocked()){
+            Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+            return Observable.create(emitter -> {
+                SubscriberResponse subscriberResponse = new SubscriberResponse();
+                subscriberResponse.setSubscriber(mockSubscriber);
+                emitter.onNext(subscriberResponse);
+                emitter.onComplete();
+            });
+        }
+
         return this.protectedApiService.getCurrentSubscriber();
     }
 

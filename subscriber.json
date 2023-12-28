@@ -1,0 +1,55 @@
+{
+  "betaEnabled": true,
+  "Buildings": [
+    {
+      "buildingId": 1,
+      "buildingName": "Building 1"
+    },
+    {
+      "buildingId": 2,
+      "buildingName": "Building 2"
+    }
+  ],
+  "email": "example@email.com",
+  "id": 123,
+  "Interests": [
+    {
+      "interestId": 1,
+      "interestName": "Interest 1"
+    },
+    {
+      "interestId": 2,
+    "interestName": "Interest 2"
+    }
+  ],
+  "language": "en",
+  "languageName": "English",
+  "lightningAlertConfirmed": true,
+  "lightningAlertEnabled": true,
+  "name": "John Doe",
+  "PersonalCommunity": [
+    {
+      "buildingId": 3,
+      "buildingName": "Building 3"
+    },
+    {
+      "buildingId": 4,
+      "buildingName": "Building 4"
+    }
+  ],
+  "SubscriberAutoSubscribeOptOut": [
+    {
+      "optOutId": 1,
+      "optOutName": "Opt Out 1"
+    },
+    {
+      "optOutId": 2,
+      "optOutName": "Opt Out 2"
+    }
+  ],
+  "User": {
+    "userId": 456,
+    "username": "user123"
+  },
+  "weatherAlertEnabled": true
+}
