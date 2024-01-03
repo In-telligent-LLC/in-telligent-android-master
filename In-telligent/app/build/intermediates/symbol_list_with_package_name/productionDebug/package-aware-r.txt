@@ -2639,6 +2639,7 @@ string critical_weather_alert
 string d_e_f
 string default_error_message
 string default_thumbnail
+string default_web_client_id
 string delete
 string delete_community
 string delete_contact
@@ -2690,6 +2691,7 @@ string filter
 string filters
 string find
 string find_member
+string firebase_database_url
 string first_time_user_str
 string forgot_password
 string forgot_password_enter_email_for_link
@@ -2698,9 +2700,14 @@ string frequency_of_searches
 string full_name
 string functionality_in_progress
 string g_h_i
+string gcm_defaultSenderId
 string gender
 string general_inquiries
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
 string google_maps_key
+string google_storage_bucket
 string groundtruth_access_key
 string groundtruth_aes_key
 string group_deleted
@@ -2840,6 +2847,7 @@ string please_select_another
 string please_sign_in
 string powered_by_inourcommunity
 string previous
+string project_id
 string read_less
 string read_more
 string receive_regular_alerts

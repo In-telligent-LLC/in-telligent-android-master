@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+
 android {
     compileSdk 33
     defaultConfig {
@@ -49,8 +50,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
     implementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'junit:junit:4.12'
-    implementation 'com.google.firebase:perf-plugin:1.4.2'
-\
+
 
 
     //BLE Scanning

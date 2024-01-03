@@ -1,22 +1,17 @@
 package com.sca.in_telligent.ui.main;
 
-import android.Manifest;
 import android.location.Location;
-import android.os.Build;
 import android.util.Log;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
-import com.sca.in_telligent.openapi.data.network.model.CommunityResponse;
 import com.sca.in_telligent.openapi.data.network.model.LocationModel;
 import com.sca.in_telligent.openapi.data.network.model.SearchCommunityResponse;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
-import com.sca.in_telligent.openapi.data.network.model.SubscriberResponse;
-import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
-import java.security.Permission;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;

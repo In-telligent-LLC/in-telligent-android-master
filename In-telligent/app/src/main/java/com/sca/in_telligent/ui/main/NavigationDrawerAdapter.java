@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.NavListItem;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
@@ -21,8 +22,8 @@ import java.util.List;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Callback mCallback;
-    private Context mContext;
-    private List<NavListItem> navListObjects;
+    private final Context mContext;
+    private final List<NavListItem> navListObjects;
 
     public interface Callback {
         void onItemClicked(int i);

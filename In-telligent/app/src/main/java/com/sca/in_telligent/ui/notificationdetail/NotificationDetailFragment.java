@@ -379,7 +379,7 @@ public class NotificationDetailFragment extends BaseFragment implements Notifica
         super.onDestroyView();
     }
 
-    private UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+    private final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
         @Override
         public void onStart(String utteranceId) {
         }

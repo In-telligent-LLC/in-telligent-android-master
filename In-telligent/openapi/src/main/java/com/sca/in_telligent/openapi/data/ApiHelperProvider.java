@@ -23,7 +23,7 @@ public class ApiHelperProvider {
         final OpenApiPreferencesHelperImpl openApiPreferencesHelperImpl = new OpenApiPreferencesHelperImpl(context, OpenApiPreferencesHelperImpl.PREF_NAME);
         OkHttpClient okHttpClientInterceptor = OkHttpClientProvider.getOkHttpClientInterceptor(new OkHttpClientProvider.AuthInterceptor(new CredentialsProvider() { // from class: com.sca.in_telligent.openapi.data.ApiHelperProvider$$ExternalSyntheticLambda0
             @Override // com.sca.in_telligent.openapi.data.CredentialsProvider
-            public final String getAuthToken() {
+            public String getAuthToken() {
                 String accessToken;
                 accessToken = getAuthToken();
                 return accessToken;

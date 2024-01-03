@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-56:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-57:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/Users/marianesantana/.gradle/caches/transforms-3/9b6df9592e4491a01be545078da13db2/transformed/core-1.5.0/res/values-en-rXC/values-en-rXC.xml",

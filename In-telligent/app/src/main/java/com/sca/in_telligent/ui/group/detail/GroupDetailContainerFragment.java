@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
@@ -48,7 +49,7 @@ public class GroupDetailContainerFragment extends BaseFragment {
         super.onCreate(bundle);
         this.groups = (List) ((List) getArguments().getSerializable(ARG_KEY_GROUPS)).stream().filter(new Predicate() { // from class: com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment$$ExternalSyntheticLambda0
             @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
+            public boolean test(Object obj) {
                 return GroupDetailContainerFragment.lambda$onCreate$0((Building) obj);
             }
         }).collect(Collectors.toList());

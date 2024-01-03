@@ -106,7 +106,7 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
 
-  private void animate(final ImageView imageView, final int images[], final int imageIndex) {
+  private void animate(final ImageView imageView, final int[] images, final int imageIndex) {
     int fadeInDuration = 1000;
     int timeBetween = 1000;
     int fadeOutDuration = 1000;

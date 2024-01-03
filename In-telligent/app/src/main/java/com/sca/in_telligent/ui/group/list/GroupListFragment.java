@@ -13,15 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Predicate;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -36,8 +34,7 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
-import java.util.function.Function;
+
 import javax.inject.Inject;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
@@ -138,7 +135,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
 
     private void setUpPullToRefresh() {
         this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListFragment$$ExternalSyntheticLambda16
-            public final void onRefresh() {
+            public void onRefresh() {
                 GroupListFragment.this.m211x85891d1f();
             }
         });
@@ -230,11 +227,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
             return true;
         }
 
-        if (category.getCategory().equalsIgnoreCase(building.getFilterCategory())) {
-            return true;
-        }
-
-        return false;
+        return category.getCategory().equalsIgnoreCase(building.getFilterCategory());
     }
 
     private void initSpinner() {
@@ -269,7 +262,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         }
         AlertUtil.showConfirmationAlert(getContext(), R.string.are_you_sure_you_want_to_unsubscribe_from_this_community, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListFragment$$ExternalSyntheticLambda11
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 GroupListFragment.this.m210xaabd6bde(updateSubscriptionRequest, dialogInterface, i);
             }
         });
@@ -478,13 +471,13 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
             this.buildings.remove(building);
             this.adapter.updateItems(this.buildings);
         }
-        if (this.filteredBuildings.size() > 0 && this.filteredBuildings.contains(building)) {
+        if (this.filteredBuildings.size() > 0) {
             this.filteredBuildings.remove(building);
         }
-        if (this.buildingsUpdated.size() > 0 && this.buildingsUpdated.contains(building)) {
+        if (this.buildingsUpdated.size() > 0) {
             this.buildingsUpdated.remove(building);
         }
-        if (this.adapter.getBuildings().size() > 0 && this.adapter.getBuildings().contains(building)) {
+        if (this.adapter.getBuildings().size() > 0) {
             this.adapter.getBuildings().remove(building);
         }
         this.adapter.notifyItemRemoved(i);

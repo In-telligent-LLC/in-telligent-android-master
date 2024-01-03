@@ -35,7 +35,7 @@ public class OkHttpClientProvider {
         }
 
         protected Headers.Builder getHeadersBuilder(Request request) {
-            return request.headers().newBuilder().add("X-Device-Type", "android").add("User-Agent", "In-telligent Android : " + Integer.toString(OpenAPI.getInstance().getConfiguration().getAppVersion())).add("X-App-Version", Integer.toString(OpenAPI.getInstance().getConfiguration().getAppVersion()));
+            return request.headers().newBuilder().add("X-Device-Type", "android").add("User-Agent", "In-telligent Android : " + OpenAPI.getInstance().getConfiguration().getAppVersion()).add("X-App-Version", Integer.toString(OpenAPI.getInstance().getConfiguration().getAppVersion()));
         }
     }
 

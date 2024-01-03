@@ -230,7 +230,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     private void showLocationInformation() {
         if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-            return;
         }
 //        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
     }
@@ -326,7 +325,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
                 (dialog, which) -> {
                     Date now = new Date();
                     getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
-                            new Date(now.getTime() + 1000 * 60 * 60 * silenceTimePicker.getValue())));
+                            new Date(now.getTime() + 1000L * 60 * 60 * silenceTimePicker.getValue())));
                     initSilence();
                 });
 
@@ -509,7 +508,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     private void addSuggestedHeaderIfNeeded() {
         if (this.groups.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda3
             @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
+            public boolean test(Object obj) {
                 return MainActivity.lambda$addSuggestedHeaderIfNeeded$1((Building) obj);
             }
         })) {
@@ -853,7 +852,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         private boolean isManaged ( final int i){
             return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
                 @Override // java.util.function.Predicate
-                public final boolean test(Object obj) {
+                public boolean test(Object obj) {
                     return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
                 }
             });
@@ -979,7 +978,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         Glide.with(this).load(bannerAd.getImage()).into(this.adImageView);
         this.adImageView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda6
             @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
+            public void onClick(View view) {
                 MainActivity.this.m262lambda$loadImage$11$comscain_telligentuimainMainActivity(bannerAd, view);
             }
         });

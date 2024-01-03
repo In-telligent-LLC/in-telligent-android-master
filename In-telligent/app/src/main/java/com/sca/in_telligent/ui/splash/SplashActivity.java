@@ -5,7 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.Toast;
+
 import butterknife.ButterKnife;
+import io.reactivex.rxjava3.annotations.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
@@ -19,6 +27,8 @@ import javax.inject.Inject;
 
 public class SplashActivity extends BaseActivity implements SplashMvpView {
 
+
+  private static final String TAG = "";
   @Inject
   SplashMvpPresenter<SplashMvpView> mPresenter;
 
@@ -45,6 +55,24 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
   @Override
   protected void setUp() {
+    FirebaseMessaging.getInstance().getToken()
+            .addOnCompleteListener(new OnCompleteListener<String>() {
+              @Override
+              public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                  Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                  return;
+                }
+
+                // Get new FCM registration token
+                String token = task.getResult();
+
+                // Log and toast
+                String msg = getString(R.string.fcm_fallback_notification_channel_label, token);
+                Log.d(TAG, msg);
+                Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_SHORT).show();
+              }
+            });
 
   }
 

@@ -24,7 +24,6 @@ import com.google.android.gms.tasks.Task;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.FacebookLoginRequest;
 import com.sca.in_telligent.openapi.data.network.model.GoogleLoginRequest;
-import com.sca.in_telligent.openapi.data.network.model.LoginRequest;
 import com.sca.in_telligent.ui.auth.forgot.ForgotPasswordDialog;
 import com.sca.in_telligent.ui.auth.logout.LogoutActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
@@ -39,7 +38,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 
 public class LoginActivity extends BaseActivity implements LoginMvpView,

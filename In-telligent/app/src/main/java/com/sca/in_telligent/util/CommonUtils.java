@@ -6,7 +6,6 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.media.RingtoneManager;
@@ -22,6 +21,8 @@ import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,13 +33,14 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.client.config.CookieSpecs;
 
 public final class CommonUtils {
     static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final String TAG = "CommonUtils";
-    private static int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
+    private static final int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
 
     private CommonUtils() {
     }
@@ -60,36 +62,50 @@ public final class CommonUtils {
         return Settings.Secure.getString(context.getContentResolver(), "android_id");
     }
 
-    public static Date getSilenceDate(String str) {
-        if (str != null) {
+    public static Date getSilenceDate(String dateString) {
+        if (dateString != null) {
+            DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str);
+                return inDf.parse(dateString);
             } catch (ParseException e) {
                 e.printStackTrace();
+                return null;
             }
-        }
-        return null;
-    }
-
-    public static String getSilenceDateString(Date date) {
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-    }
-
-    public static String getDateString(String str) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("MM/dd/yy h:mm a");
-        simpleDateFormat2.setTimeZone(TimeZone.getDefault());
-        try {
-            return simpleDateFormat2.format(simpleDateFormat.parse(str));
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } else {
             return null;
         }
     }
 
-    public static boolean isEmailValid(String str) {
-        return Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$").matcher(str).matches();
+    public static String getSilenceDateString(Date date) {
+        DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return inDf.format(date);
+    }
+
+    public static String getDateString(String oldDate) {
+        DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
+        inDf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        DateFormat outDf = new SimpleDateFormat("MM/dd/yy h:mm a");
+        outDf.setTimeZone(TimeZone.getDefault());
+        String date = null;
+        try {
+            Date parse = inDf.parse(oldDate);
+            date = outDf.format(parse);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
+    }
+
+    public static boolean isEmailValid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public static String loadJSONFromAsset(Context context, String str) throws IOException {
@@ -97,7 +113,7 @@ public final class CommonUtils {
         byte[] bArr = new byte[open.available()];
         open.read(bArr);
         open.close();
-        return new String(bArr, "UTF-8");
+        return new String(bArr, StandardCharsets.UTF_8);
     }
 
     public static int getDefaultImage(int i) {
@@ -151,17 +167,11 @@ public final class CommonUtils {
 
     public static void buildAlertMessage(String str, String str2, final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda0
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"));
-            }
-        }).setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda1
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda1
+// android.content.DialogInterface.OnClickListener
+        // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda0
+// android.content.DialogInterface.OnClickListener
+        builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"))).setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }
 
@@ -169,7 +179,7 @@ public final class CommonUtils {
         if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
             return true;
         }
-        buildAlertMessage(context.getString(R.string.location_permissions), context.getString(R.string.location_permissions), context);
+        buildAlertMessage("Location Permissions", "Location Permissions", context);
         return false;
     }
 

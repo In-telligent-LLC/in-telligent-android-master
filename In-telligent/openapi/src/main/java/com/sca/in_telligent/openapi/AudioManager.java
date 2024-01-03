@@ -5,12 +5,15 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Vibrator;
 import android.util.Log;
+
+
+import com.openapi.R;
+
 import java.io.IOException;
 
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+
 public class AudioManager {
-    private Context context;
+    private final Context context;
     private MediaPlayer mediaPlayer;
     private Vibrator vibrator;
 

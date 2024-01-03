@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.Constants;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
@@ -18,8 +19,8 @@ import com.sca.in_telligent.receiver.HeadsUpNotificationActionReceiver;
 import java.util.Objects;
 
 public class HeadsUpNotificationService extends Service {
-    private String CHANNEL_ID = "VoipChannel";
-    private String CHANNEL_NAME = "Voip Channel";
+    private final String CHANNEL_ID = "VoipChannel";
+    private final String CHANNEL_NAME = "Voip Channel";
     private Context context;
     private PushNotification data;
     private Handler handler;

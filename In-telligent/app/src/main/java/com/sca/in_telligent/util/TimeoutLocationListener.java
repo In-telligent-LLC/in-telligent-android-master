@@ -8,7 +8,7 @@ import java.util.TimerTask;
 
 public abstract class TimeoutLocationListener implements LocationListener {
 
-    private Timer timeoutTimer;
+    private final Timer timeoutTimer;
 
     private boolean finished;
 

@@ -12,7 +12,7 @@ public enum InboxNotificationType {
   PING("ping"),
   SUGGESTED("suggested");
 
-  private String alertType;
+  private final String alertType;
 
   InboxNotificationType(String alertType) {
     this.alertType = alertType;

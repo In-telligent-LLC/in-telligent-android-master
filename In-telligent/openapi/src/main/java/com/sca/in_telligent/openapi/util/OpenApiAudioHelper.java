@@ -5,14 +5,16 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Vibrator;
-import com.sca.in_telligent.openapi.R;
+
+import com.openapi.R;
+
 import java.io.IOException;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class OpenApiAudioHelper implements AudioHelper {
     private final AudioManager mAudioManager;
     private final Context mContext;
-    private FlashHelper mFlashHelper;
+    private final FlashHelper mFlashHelper;
     private final Vibrator mVibrator;
     private MediaPlayer mediaPlayer;
     Uri ringtoneUri;

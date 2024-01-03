@@ -15,7 +15,7 @@ public class OpenApiFlashHelper implements FlashHelper {
     private static final String TAG = "OpenApiFlashHelper";
     private static boolean cameraRunning;
     private static CameraManager manager;
-    private Context mContext;
+    private final Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$startFlashTask$1() throws Exception {
@@ -41,17 +41,17 @@ public class OpenApiFlashHelper implements FlashHelper {
         cameraRunning = true;
         Completable.fromAction(new Action() { // from class: com.sca.in_telligent.openapi.util.OpenApiFlashHelper$$ExternalSyntheticLambda0
             @Override // io.reactivex.functions.Action
-            public final void run() throws Exception {
+            public void run() throws Exception {
                 OpenApiFlashHelper.lambda$startFlashTask$0();
             }
         }).subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action() { // from class: com.sca.in_telligent.openapi.util.OpenApiFlashHelper$$ExternalSyntheticLambda1
             @Override // io.reactivex.functions.Action
-            public final void run() throws Exception {
+            public void run() throws Exception {
                 OpenApiFlashHelper.lambda$startFlashTask$1();
             }
         }, new Consumer() { // from class: com.sca.in_telligent.openapi.util.OpenApiFlashHelper$$ExternalSyntheticLambda2
             @Override // io.reactivex.functions.Consumer
-            public final void accept(Object obj) throws Exception {
+            public void accept(Object obj) throws Exception {
                 OpenApiFlashHelper.lambda$startFlashTask$2((Throwable) obj);
             }
         });

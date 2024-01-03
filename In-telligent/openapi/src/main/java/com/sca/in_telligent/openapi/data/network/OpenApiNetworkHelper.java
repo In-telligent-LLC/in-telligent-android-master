@@ -1,6 +1,5 @@
 package com.sca.in_telligent.openapi.data.network;
 
-import android.os.Environment;
 
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
@@ -61,9 +60,9 @@ import org.json.JSONObject;
 import retrofit2.http.Body;
 
 public class OpenApiNetworkHelper implements ApiHelper {
-    private ApiHelper protectedApiService;
-    private ApiHelper publicApiService;
-    private ApiHelper uploadService;
+    private final ApiHelper protectedApiService;
+    private final ApiHelper publicApiService;
+    private final ApiHelper uploadService;
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public ApiHeader getApiHeader() {

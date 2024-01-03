@@ -13,9 +13,9 @@ public class GoogleLoginRequest implements Serializable {
     @SerializedName("googleAccessToken")
     private String googleAccessToken;
     @SerializedName("deviceModel")
-    private String deviceModel = CommonUtils.getDeviceInfo();
+    private final String deviceModel = CommonUtils.getDeviceInfo();
     @SerializedName("osVersion")
-    private String osVersion = CommonUtils.getDeviceOs();
+    private final String osVersion = CommonUtils.getDeviceOs();
 
     public void setGoogleAccessToken(String str) {
         this.googleAccessToken = str;

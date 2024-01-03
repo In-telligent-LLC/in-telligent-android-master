@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import butterknife.Unbinder;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 
@@ -185,7 +186,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setTitle("Alert");
         builder.setMessage(R.string.please_check_your_network_connection_try_again);
-        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseDialog.1
+        builder.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseDialog.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
             }

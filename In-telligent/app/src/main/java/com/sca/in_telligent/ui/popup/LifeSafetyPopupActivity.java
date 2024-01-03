@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.base.BaseActivity;
 

@@ -537,7 +537,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         if (BuildConfig1.LOG_DEBUG_MODE) {
             for (AttachmentFile attachmentFile : inputFiles) {
                 Log.d("CreateCommunityAlert",
-                        "Input filesize: " + String.valueOf(attachmentFile.getFile().length() / 1024));
+                        "Input filesize: " + attachmentFile.getFile().length() / 1024);
             }
         }
 
@@ -642,7 +642,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 }
 
                 if (totalAttachmentsSize < MAX_TOTAL_ATTACHMENTS_SIZE_KB) {
-                    attachmentText.setText("\t" + String.valueOf(attachmentPaths.size()) + " " + getString(
+                    attachmentText.setText("\t" + attachmentPaths.size() + " " + getString(
                             R.string.attachments));
                 } else {
                     attachmentPaths.clear();

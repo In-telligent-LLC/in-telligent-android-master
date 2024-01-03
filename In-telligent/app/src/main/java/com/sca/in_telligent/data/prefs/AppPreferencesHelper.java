@@ -13,8 +13,6 @@ import com.sca.in_telligent.util.AppConstants;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-;
-
 @Singleton
 public class AppPreferencesHelper extends OpenApiPreferencesHelperImpl implements PreferencesHelper {
 

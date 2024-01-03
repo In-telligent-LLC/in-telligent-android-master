@@ -2638,6 +2638,7 @@ int string critical_weather_alert 0x7f100091
 int string d_e_f 0x7f100092
 int string default_error_message 0x7f100093
 int string default_thumbnail 0x7f100094
+int string default_web_client_id 0x7f1001ff
 int string delete 0x7f100095
 int string delete_community 0x7f100096
 int string delete_contact 0x7f100097
@@ -2689,6 +2690,7 @@ int string filter 0x7f1000c4
 int string filters 0x7f1000c5
 int string find 0x7f1000c6
 int string find_member 0x7f1000c7
+int string firebase_database_url 0x7f100200
 int string first_time_user_str 0x7f1000c8
 int string forgot_password 0x7f1000c9
 int string forgot_password_enter_email_for_link 0x7f1000ca
@@ -2697,9 +2699,14 @@ int string frequency_of_searches 0x7f1000cc
 int string full_name 0x7f1000cd
 int string functionality_in_progress 0x7f1000ce
 int string g_h_i 0x7f1000cf
+int string gcm_defaultSenderId 0x7f100201
 int string gender 0x7f1000d0
 int string general_inquiries 0x7f1000d1
+int string google_api_key 0x7f100202
+int string google_app_id 0x7f100203
+int string google_crash_reporting_api_key 0x7f100204
 int string google_maps_key 0x7f1000d2
+int string google_storage_bucket 0x7f100205
 int string groundtruth_access_key 0x7f1000d3
 int string groundtruth_aes_key 0x7f1000d4
 int string group_deleted 0x7f1000d5
@@ -2839,6 +2846,7 @@ int string please_select_another 0x7f10015a
 int string please_sign_in 0x7f10015b
 int string powered_by_inourcommunity 0x7f10015c
 int string previous 0x7f10015d
+int string project_id 0x7f100206
 int string read_less 0x7f10015e
 int string read_more 0x7f10015f
 int string receive_regular_alerts 0x7f100160

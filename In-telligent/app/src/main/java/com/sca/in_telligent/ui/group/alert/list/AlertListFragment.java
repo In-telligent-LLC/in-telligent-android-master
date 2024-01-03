@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.ui.base.BaseFragment;
-import com.sca.in_telligent.ui.group.alert.list.AlertListAdapter;
+
 import java.util.ArrayList;
 import javax.inject.Inject;
 
@@ -78,7 +79,7 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
             final String num = Integer.toString(this.buildingId);
             this.mPresenter.getNotifications(num, true);
             this.swipeRefreshLayoutAlerts.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.sca.in_telligent.ui.group.alert.list.AlertListFragment$$ExternalSyntheticLambda2
-                public final void onRefresh() {
+                public void onRefresh() {
                     AlertListFragment.this.m192x4d29168(num);
                 }
             });
@@ -110,12 +111,12 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
         builder.setMessage(getString(R.string.are_you_sure_you_want_to_delete));
         builder.setPositiveButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.alert.list.AlertListFragment$$ExternalSyntheticLambda0
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i2) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 AlertListFragment.this.m191xb538db72(notification, i, dialogInterface, i2);
             }
         }).setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.alert.list.AlertListFragment$$ExternalSyntheticLambda1
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i2) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 AlertListFragment.lambda$onDeleteAlert$2(dialogInterface, i2);
             }
         });

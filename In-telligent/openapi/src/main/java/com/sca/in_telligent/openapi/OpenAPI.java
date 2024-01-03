@@ -18,7 +18,7 @@ public class OpenAPI {
     private final AudioHelper audioHelper;
     private final AudioManager audioManager;
     private final Configuration configuration;
-    private Context context;
+    private final Context context;
     private final FlashHelper flashHelper;
 
     private OpenAPI(Context context, AudioManager audioManager, FlashHelper flashHelper, AudioHelper audioHelper, Configuration configuration) {
@@ -76,11 +76,11 @@ public class OpenAPI {
     }
 
     public static final class Configuration {
-        private int appVersion;
-        private boolean debug;
+        private final int appVersion;
+        private final boolean debug;
         private static boolean isMock = false;
 
-        protected Configuration(Builder builder) {
+        private Configuration(Builder builder) {
             this.debug = builder.debug;
             this.appVersion = builder.appVersion;
         }
