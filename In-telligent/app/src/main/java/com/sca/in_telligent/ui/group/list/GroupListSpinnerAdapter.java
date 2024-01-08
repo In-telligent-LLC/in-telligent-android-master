@@ -16,31 +16,12 @@ import butterknife.internal.Utils;
 
 import java.util.List;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class GroupListSpinnerAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final List<String> items;
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-    public class ViewHolder_ViewBinding implements Unbinder {
-        private ViewHolder target;
 
-        public ViewHolder_ViewBinding(ViewHolder viewHolder, View view) {
-            this.target = viewHolder;
-            viewHolder.name = (TextView) Utils.findRequiredViewAsType(view, (int) R.id.spinner_item_text, "field 'name'", TextView.class);
-        }
-
-        public void unbind() {
-            ViewHolder viewHolder = this.target;
-            if (viewHolder == null) {
-                throw new IllegalStateException("Bindings already cleared.");
-            }
-            this.target = null;
-            viewHolder.name = null;
-        }
-    }
-
-    @Override // android.widget.ArrayAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
+    @Override
     public View getDropDownView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (view == null) {
@@ -54,7 +35,6 @@ public class GroupListSpinnerAdapter extends ArrayAdapter<String> {
         return view;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     static class ViewHolder {
         @BindView(R.id.spinner_item_text)
         TextView name;

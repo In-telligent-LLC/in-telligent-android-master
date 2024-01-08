@@ -1,1 +1,0 @@
-{"className":"com.sca.in_telligent.ScaApplication","classAnnotations":[],"interfaces":["android.content.ComponentCallbacks","android.content.ComponentCallbacks2"],"superClasses":["android.app.Application","android.content.ContextWrapper","android.content.Context","java.lang.Object"]}

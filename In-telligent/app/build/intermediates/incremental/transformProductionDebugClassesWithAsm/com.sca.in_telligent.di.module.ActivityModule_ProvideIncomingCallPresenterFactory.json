@@ -1,1 +1,0 @@
-{"className":"com.sca.in_telligent.di.module.ActivityModule_ProvideIncomingCallPresenterFactory","classAnnotations":["dagger.internal.ScopeMetadata","dagger.internal.QualifierMetadata","dagger.internal.DaggerGenerated"],"interfaces":["dagger.internal.Factory","javax.inject.Provider"],"superClasses":["java.lang.Object"]}

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
@@ -31,14 +32,14 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   @Inject
   IntroMvpPresenter<IntroMvpView> mPresenter;
 
-//  @BindView(R.id.imageAnimated)
-  ImageView imageAnimated;
-
-//  @BindView(R.id.first_time_user_btn)
-  TextView firstTimeUserButton;
+  @BindView(R.id.first_time_user_btn)
+  TextView firstTimeUserButton = null;
 
   @BindView(R.id.returning_subscriber_btn)
   TextView returningSubscriberButton;
+
+  @BindView(R.id.imageAnimated)
+  ImageView imageAnimated = null;
 
 
   int[] images = {R.drawable.slideshow_image_01, R.drawable.slideshow_image_02,
@@ -50,8 +51,9 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     return intent;
   }
 
+  @Nullable
   @Override
-  public void onCreate(Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_intro);
     getActivityComponent().inject(this);
@@ -63,15 +65,12 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     returningSubscriberClick();
 
 
-
     ButterKnife.bind(this);
 
     mPresenter.onAttach(IntroActivity.this);
     animate(imageAnimated, images, 0);
 
   }
-
-
 
 
   @OnClick(R.id.first_time_user_btn)

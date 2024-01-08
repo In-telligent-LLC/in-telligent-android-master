@@ -4,8 +4,13 @@ import android.app.Application;
 import android.media.AudioManager;
 import android.util.Log;
 
+import androidx.lifecycle.ProcessLifecycleOwner;
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.factual.android.FactualException;
 import com.factual.android.ObservationGraph;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
@@ -50,24 +55,34 @@ public class ScaApplication extends Application {
 
         initOG();
 
+        // Inicialize o SDK do Facebook
+        FacebookSdk.setAutoInitEnabled(true);
+        FacebookSdk.fullyInitialize();
+        FacebookSdk.setIsDebugEnabled(true);
+        FacebookSdk.setAdvertiserIDCollectionEnabled(true);
+        FacebookSdk.setAdvertiserIDCollectionEnabled(true);
 
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
-//
-//            if (!task.isSuccessful()) {
-//                return;
-//            }
-//            String token = task.getResult().getToken();
-//            if (mDataManager.getCurrentUserLoggedInMode() == LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
-//                    .getType()) {
-//
-//                sendRegistrationToServer(token);
-//            }
-//            if (mDataManager.getPushToken() == null) {
-//                mDataManager.setPushToken(token);
-//            }
-//        });
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
-//        ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+
+            if (!task.isSuccessful()) {
+                return;
+            }
+            String token = task.getResult();
+            if (mDataManager.getCurrentUserLoggedInMode() == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
+                    .getType()) {
+
+                sendRegistrationToServer(token);
+            }
+            if (mDataManager.getPushToken() == null) {
+                mDataManager.setPushToken(token);
+            }
+        });
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
     }
 
     private void initOpenApi() {

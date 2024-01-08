@@ -47,22 +47,22 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   SignupDemographicsMvpPresenter<SignupDemographicsMvpView> mPresenter;
 
   @BindView(R.id.inputName)
-  EditText inputName;
+  EditText inputName = null;
 
   @BindView(R.id.inputEmail)
-  EditText inputEmail;
+  EditText inputEmail = null;
 
   @BindView(R.id.btnGoToSignupPassword)
-  Button buttonGoToSignupPassword;
+  Button buttonGoToSignupPassword = null;
 
   @BindView(R.id.btnGoToLogin)
-  TextView buttonGoToLogin;
+  TextView buttonGoToLogin = null;
 
   @BindView(R.id.btnLoginFacebookCustom)
-  ImageView buttonFacebook;
+  ImageView buttonFacebook = null;
 
   @BindView(R.id.btnLoginGooglePlus)
-  ImageView buttonGooglePlus;
+  ImageView buttonGooglePlus = null;
 
   CallbackManager callbackManager;
 
@@ -84,6 +84,18 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
     mPresenter.onAttach(SignupDemographicsActivity.this);
 
     callbackManager = CallbackManager.Factory.create();
+
+    buttonFacebook = findViewById(R.id.btnLoginFacebookCustom);
+    buttonFacebook.setOnClickListener(v -> facebookLoginClick(v));
+
+    buttonGooglePlus = findViewById(R.id.btnLoginGooglePlus);
+    buttonGooglePlus.setOnClickListener(v -> googleLoginClick(v));
+
+    buttonGoToLogin = findViewById(R.id.btnGoToLogin);
+    buttonGoToLogin.setOnClickListener(v -> goToLogin(v));
+
+    buttonGoToSignupPassword = findViewById(R.id.btnGoToSignupPassword);
+    buttonGoToSignupPassword.setOnClickListener(v -> signUpPasswordClick(v));
   }
 
   @OnClick(R.id.btnGoToSignupPassword)
