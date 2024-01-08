@@ -9,7 +9,6 @@ public class Constants {
     public static final String CALL_RECEIVE_ACTION = "Receive";
     public static final String CALL_RESPONSE_ACTION_KEY = "CALL_RESPONSE";
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static class Preferences {
         public static final String PREF_KEY_ACCESS_TOKEN = "auth-token";
         public static final String PREF_KEY_CURRENT_USER_ID = "PREF_KEY_CURRENT_USER_ID";

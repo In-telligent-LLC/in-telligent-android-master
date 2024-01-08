@@ -6,19 +6,17 @@ import android.util.Log;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.factual.android.FactualException;
 import com.factual.android.ObservationGraph;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ApplicationComponent;
+import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LifecycleInterface;
-import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 
 
 import javax.inject.Inject;
@@ -55,15 +53,8 @@ public class ScaApplication extends Application {
 
         initOG();
 
-        // Inicialize o SDK do Facebook
-        FacebookSdk.setAutoInitEnabled(true);
-        FacebookSdk.fullyInitialize();
-        FacebookSdk.setIsDebugEnabled(true);
-        FacebookSdk.setAdvertiserIDCollectionEnabled(true);
-        FacebookSdk.setAdvertiserIDCollectionEnabled(true);
-
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
 
 
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -72,6 +63,7 @@ public class ScaApplication extends Application {
                 return;
             }
             String token = task.getResult();
+            Log.d("Tokeeeen: ", token);
             if (mDataManager.getCurrentUserLoggedInMode() == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
                     .getType()) {
 
@@ -89,6 +81,7 @@ public class ScaApplication extends Application {
         OpenAPI.Configuration configuration = new OpenAPI.Configuration.Builder()
                 .setAppVersion(BuildConfig.VERSION_CODE)
                 .setDebug(BuildConfig.DEBUG).build();
+
         OpenAPI.init(this, configuration);
     }
 

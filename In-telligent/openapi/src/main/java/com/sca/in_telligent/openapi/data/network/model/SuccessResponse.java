@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class SuccessResponse implements Serializable {
     @SerializedName("errors")
     private ErrorObject errors;
@@ -21,7 +20,9 @@ public class SuccessResponse implements Serializable {
         return this.errors;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+    public void setSuccess(boolean b) {
+    }
+
     public class ErrorObject {
         @SerializedName("name")
         private ArrayList<String> name;

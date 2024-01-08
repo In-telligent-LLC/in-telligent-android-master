@@ -43,14 +43,17 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import org.json.JSONObject;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -176,6 +179,7 @@ public interface ApiHelper {
     Observable<LoginResponse> loginGoogle(@Body GoogleLoginRequest googleLoginRequest);
 
     @POST(ApiEndPoint.LOGIN_WITH_PASSWORD)
+    @NonNull
     Observable<LoginResponse> loginWithPassword(@Body LoginRequest loginRequest);
 
     @POST(ApiEndPoint.VOIP_MAKE_CALL)

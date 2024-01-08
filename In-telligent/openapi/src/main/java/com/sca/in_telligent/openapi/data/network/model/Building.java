@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Objects;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Building implements Serializable {
     @SerializedName("BuildingAddress")
     private BuildingAddress buildingAddress;
@@ -107,7 +106,6 @@ public class Building implements Serializable {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public enum Category {
         ORGANIZATION("organization"),
         PEOPLE("people"),

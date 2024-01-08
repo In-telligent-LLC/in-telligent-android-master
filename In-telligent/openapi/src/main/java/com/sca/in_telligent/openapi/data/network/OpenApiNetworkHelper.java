@@ -46,7 +46,10 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
+import com.sca.in_telligent.openapi.util.mock.LoginResponseMock;
 import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +59,6 @@ import java.util.List;
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import org.json.JSONObject;
 import retrofit2.http.Body;
 
 public class OpenApiNetworkHelper implements ApiHelper {
@@ -75,9 +77,20 @@ public class OpenApiNetworkHelper implements ApiHelper {
         this.uploadService = apiHelper3;
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> loginWithPassword(@Body LoginRequest loginRequest) {
-        return this.publicApiService.loginWithPassword(loginRequest);
+        if (OpenAPI.Configuration.isMocked()) {
+            LoginResponse mockResponse = LoginResponseMock.createMockLoginResponse();
+            return Observable.create(emitter -> {
+                LoginResponse loginResponse = new LoginResponse();
+                loginResponse.setToken(mockResponse.getToken());
+                emitter.onNext(loginResponse);
+                emitter.onComplete();
+            });
+
+        } else {
+            return this.publicApiService.loginWithPassword(loginRequest);
+        }
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
@@ -346,8 +359,16 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.autoSubscribe(autoSubscribeRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> appOpened() {
+        if (OpenAPI.Configuration.isMocked()) {
+            return Observable.create(emitter -> {
+                SuccessResponse successResponse = new SuccessResponse();
+                successResponse.setSuccess(true);
+                emitter.onNext(successResponse);
+                emitter.onComplete();
+            });
+        }
         return this.protectedApiService.appOpened();
     }
 

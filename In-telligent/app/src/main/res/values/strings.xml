@@ -3,6 +3,8 @@
 
 
     <string name="facebook_app_id" translatable="false">1830932323800441</string>
+    <string name="facebook_client_token" translatable="false">1830932323800441</string>
+
 
     <string name="server_client_id">592871569708-6vaog0bbf8d7b48kj7j7au4ga0oaa916.apps.googleusercontent.com</string>
 

@@ -1,24 +1,23 @@
 package com.sca.in_telligent.ui.main;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import butterknife.internal.Utils;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.NavListItem;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
+
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Callback mCallback;
@@ -73,6 +72,10 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
+            menuText = itemView.findViewById(R.id.item_navigation_text);
+            menuImage = itemView.findViewById(R.id.item_navigation_image);
+            divider = itemView.findViewById(R.id.item_navigation_divider);
+
             ButterKnife.bind(this, itemView);
         }
 
@@ -94,12 +97,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder
                 divider.setVisibility(View.GONE);
             }
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mCallback.onItemClicked(position);
-                }
-            });
+            itemView.setOnClickListener(view -> mCallback.onItemClicked(position));
         }
     }
 

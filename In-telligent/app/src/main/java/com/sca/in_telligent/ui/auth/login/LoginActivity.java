@@ -114,6 +114,9 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     buttonGooglePlus = findViewById(R.id.btnLoginGooglePlus);
     buttonGooglePlus.setOnClickListener(this::googleLoginClick);
 
+    inputUserName = findViewById(R.id.inputUsername);
+    inputPasword = findViewById(R.id.inputPassword);
+
 
   }
 

@@ -2,6 +2,7 @@ package com.sca.in_telligent.openapi;
 
 import android.content.Context;
 import android.os.Vibrator;
+
 import com.sca.in_telligent.openapi.data.ApiHelperProvider;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OpenApiNetworkHelper;
@@ -9,6 +10,7 @@ import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.openapi.util.FlashHelper;
 import com.sca.in_telligent.openapi.util.OpenApiAudioHelper;
 import com.sca.in_telligent.openapi.util.OpenApiFlashHelper;
+
 import java.util.Objects;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
@@ -32,9 +34,12 @@ public class OpenAPI {
     public static void init(Context context, Configuration configuration) {
         Objects.requireNonNull(context, "A context is needed to initialize OpanAPI");
         Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
-        FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
-        instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE), newInstance), configuration);
-        ApiHelperProvider.initialize(context);
+        if(!configuration.isMocked()) {
+            FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
+            instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE), newInstance), configuration);
+            ApiHelperProvider.setMocked(configuration.isMocked());
+            ApiHelperProvider.initialize(context);
+        }
     }
 
     public static OpenAPI getInstance() {
@@ -78,7 +83,7 @@ public class OpenAPI {
     public static final class Configuration {
         private final int appVersion;
         private final boolean debug;
-        private static boolean isMock = false;
+        private static boolean isMock = true;
 
         private Configuration(Builder builder) {
             this.debug = builder.debug;
