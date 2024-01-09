@@ -214,6 +214,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     public void setUp() {
 //        version_name.setText("1.0" + " " + BuildConfig1.VERSION_NAME);
         Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+        Log.d("Mock Subscriber", mockSubscriber.toString());
 
         showLocationInformation();
         configureNavigationDrawer();

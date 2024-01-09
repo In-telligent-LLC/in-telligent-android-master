@@ -17,9 +17,6 @@ import android.widget.Spinner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import io.reactivex.rxjava3.core.Observable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -27,7 +24,6 @@ import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest;
 import com.sca.in_telligent.ui.base.BaseFragment;
-
 import com.sca.in_telligent.util.AlertUtil;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
@@ -36,6 +32,10 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.reactivex.rxjava3.core.Observable;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class GroupListFragment extends BaseFragment implements GroupListMvpView, GroupListAdapter.Callback {
@@ -70,7 +70,6 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     private ArrayList<Building> buildingsUpdated = new ArrayList<>();
     private ArrayList<Building> combinedBuildings = new ArrayList<>();
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public interface GroupListSelector {
         void groupsUpdated(ArrayList<Building> arrayList);
 
@@ -79,15 +78,12 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         void onPullToRefreshGroups();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$unsubscribed$21(DialogInterface dialogInterface, int i) {
-    }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
+    @Override
     public void onContactClicked(int i) {
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListMvpView
+    @Override
     public void onOptOutFromCommunitySuccess() {
     }
 
@@ -115,6 +111,11 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         ActivityComponent activityComponent = getActivityComponent();
         if (activityComponent != null) {
             activityComponent.inject(this);
+            searchEdittext = inflate.findViewById(R.id.group_list_edittext_search);
+            swipeRefreshLayout = inflate.findViewById(R.id.swipe_refresh_layout_groups);
+            groupList = inflate.findViewById(R.id.group_recyclerview);
+            groupListSpinner = inflate.findViewById(R.id.group_list_spinner);
+
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);
         }
