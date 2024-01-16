@@ -72,6 +72,7 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ActivityComponent component = getActivityComponent();
         tabHost = view.findViewById(android.R.id.tabhost);
+        settingsLogout = view.findViewById(R.id.settings_logout_text);
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));

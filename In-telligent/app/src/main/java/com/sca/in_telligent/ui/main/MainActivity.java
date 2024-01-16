@@ -17,6 +17,7 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -58,6 +59,7 @@ import com.sca.in_telligent.ui.group.alert.detail.AlertDetailFragment;
 import com.sca.in_telligent.ui.group.alert.list.AlertListFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailSelector;
+import com.sca.in_telligent.ui.group.generate.GenerateGroupFragment;
 import com.sca.in_telligent.ui.group.list.GroupListFragment;
 import com.sca.in_telligent.ui.inbox.InboxFragment;
 import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
@@ -65,11 +67,11 @@ import com.sca.in_telligent.ui.preview.MessageViewDialog;
 import com.sca.in_telligent.ui.settings.SettingsFragment;
 import com.sca.in_telligent.ui.settings.account.AccountSettingsFragment;
 import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
+import com.sca.in_telligent.util.AppUpdateHandler;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LocationUtils;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
-import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
 
 import java.io.IOException;
 import java.security.Permission;
@@ -80,7 +82,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -89,6 +90,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
@@ -159,7 +161,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
 
     @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
@@ -176,7 +178,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.onAttach(this);
         CommonUtils.checkDNDPermission(this);
 
-//        version_name = findViewById(R.string.version_no_longer_available);
         navigationViewListView = findViewById(R.id.navigation_view_listview);
         totalSilenceNumber = findViewById(R.id.total_silence_number);
         totalSilenceOn = findViewById(R.id.total_silence_on);
@@ -184,6 +185,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         drawerLayout = findViewById(R.id.drawer_layout);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         adImageView = findViewById(R.id.ad_footer_image);
+        buttonSos = findViewById(R.id.sos_button);
+        frameLayout = findViewById(R.id.content_frame);
+        appBarLayout = findViewById(R.id.app_bar_layout);
+        toolbar = findViewById(R.id.toolbar);
+
+        if(OpenAPI.Configuration.isMocked()){
+            Button btnTestNotification = findViewById(R.id.btnTestNotification);
+
+            btnTestNotification.setOnClickListener(view ->
+                    getAudioHelper().startEmergencyRingtone());
+
+        }
 
 
         setUp();
@@ -200,9 +213,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private void checkAppUpdates() {
-//        new AppUpdateHandler().start(this);
+        new AppUpdateHandler().start(this);
     }
 
     protected void onSaveInstanceState(Bundle bundle) {
@@ -212,11 +224,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void setUp() {
-//        version_name.setText("1.0" + " " + BuildConfig1.VERSION_NAME);
-        Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
-        Log.d("Mock Subscriber", mockSubscriber.toString());
 
-        showLocationInformation();
+//        showLocationInformation();
         configureNavigationDrawer();
         configureToolbar();
         initSilence();
@@ -229,11 +238,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getSubscriber();
     }
 
-    private void showLocationInformation() {
-        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-        }
+//    private void showLocationInformation() {
+//        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
+//        }
 //        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
-    }
+//    }
 
 
     @Override
@@ -242,6 +251,16 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         if (LocationUtils.isPermissionsGranted(this)) {
             locationPermissionResult(true, false);
         }
+    }
+
+    @Override
+    public void phonePermissionResult(Permission permission) {
+
+    }
+
+    @Override
+    public void phonePermissionResult(boolean permission) {
+
     }
 
     private void checkDeepLinksParams() {
@@ -385,15 +404,16 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     List<NavListItem> addItemsToList() {
         ArrayList arrayList = new ArrayList();
+        NavListItem navListItemCreate = new NavListItem(getResources().getString(R.string.create_a_group), R.drawable.icon_create_group);
         NavListItem navListItem = new NavListItem(getResources().getString(R.string.settings), R.drawable.icon_settings);
         NavListItem navListItem2 = new NavListItem(getResources().getString(R.string.saved_messages), R.drawable.icon_saved_messages);
         arrayList.add(navListItem);
         arrayList.add(navListItem2);
+        arrayList.add(navListItemCreate);
         return arrayList;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.main.NavigationDrawerAdapter.Callback
+    @Override
     public void onItemClicked(int i) {
         if (!isNetworkConnected()) {
             showNetworkDialog();
@@ -403,89 +423,135 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         } else if (i == 1) {
             this.savedClicked = true;
             this.bottomNavigationView.setSelectedItemId(R.id.action_inbox);
-        } else {
+        } else if (i == 2) {
+            goToCreateGroupFragment();
+            this.drawerLayout.closeDrawers();
+        }
+        else {
             startActivity(LogoutActivity.getStartIntent(this));
         }
     }
 
-    @Override // com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
-        if (!isNetworkConnected()) {
-            showNetworkDialog();
-            return true;
-        }
-        int itemId = menuItem.getItemId();
-        if (itemId == 2131230785) {
-            openContactTab();
-            return true;
-        } else if (itemId != 2131230789) {
-            if (itemId != 2131230791) {
-                return true;
-            }
-            getSupportFragmentManager().beginTransaction().addToBackStack(InboxFragment.TAG).replace((int) R.id.content_frame, InboxFragment.newInstance(this.savedClicked), InboxFragment.TAG).commit();
-            this.savedClicked = false;
-            return true;
-        } else {
-            GroupListFragment groupListFragment = (GroupListFragment) getSupportFragmentManager().findFragmentByTag(GroupListFragment.TAG);
-            if (groupListFragment != null && !this.groupCreated) {
-                getSupportFragmentManager().beginTransaction().addToBackStack(GroupListFragment.TAG).replace((int) R.id.content_frame, groupListFragment, GroupListFragment.TAG).commit();
-                return true;
-            }
-            this.groupCreated = false;
-            if (groupListFragment != null) {
-                getSupportFragmentManager().beginTransaction().addToBackStack(GroupListFragment.TAG).replace((int) R.id.content_frame, groupListFragment, GroupListFragment.TAG).commit();
-            }
-            this.mPresenter.getSubscriber();
-            return true;
-        }
+
+    private void goToCreateGroupFragment() {
+        getSupportFragmentManager()
+                .beginTransaction().addToBackStack(GenerateGroupFragment.TAG)
+                .replace(R.id.content_frame, GenerateGroupFragment.newInstance(null),
+                        GenerateGroupFragment.TAG)
+                .commit();
     }
 
-    @Override // com.sca.in_telligent.ui.inbox.InboxFragment.InboxSelector
-    public void itemClicked(int i, Notification notification, int i2) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        if (!isNetworkConnected()) {
+            showNetworkDialog();
+        } else {
+            switch (menuItem.getItemId()) {
+                case R.id.action_groups:
+                    GroupListFragment groupListFragment = (GroupListFragment) getSupportFragmentManager()
+                            .findFragmentByTag(GroupListFragment.TAG);
+                    if (groupListFragment != null && !groupCreated) {
+                        getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(GroupListFragment.TAG)
+                                .replace(R.id.content_frame, groupListFragment,
+                                        GroupListFragment.TAG)
+                                .commit();
+                    } else {
+                        groupCreated = false;
+                        if (groupListFragment != null) {
+                            getSupportFragmentManager()
+                                    .beginTransaction().addToBackStack(GroupListFragment.TAG)
+                                    .replace(R.id.content_frame, groupListFragment,
+                                            GroupListFragment.TAG)
+                                    .commit();
+                        }
+                        mPresenter.getSubscriber();
+                    }
+                    break;
+
+                case R.id.action_contact:
+                    openContactTab();
+                    break;
+
+                case R.id.action_inbox:
+                    getSupportFragmentManager()
+                            .beginTransaction().addToBackStack(InboxFragment.TAG)
+                            .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
+                                    InboxFragment.TAG)
+                            .commit();
+                    savedClicked = false;
+                    break;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public void itemClicked(int position, Notification notification, int lastIndex) {
+        getSupportFragmentManager()
+                .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                .add(R.id.content_frame,
+                        NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                        NotificationDetailFragment.TAG)
+                .commit();
     }
 
     private void openContactTab() {
         getSupportFragmentManager().beginTransaction().addToBackStack(ContactListFragment.TAG).replace((int) R.id.content_frame, ContactListFragment.newInstance(this.contactableBuildings), ContactListFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment.NotificationDetailCallback
-    public void nextClick(int i, int i2, boolean z) {
-        Notification notification;
-        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager().findFragmentByTag(InboxFragment.TAG);
-        if (z) {
-            if (inboxFragment.getSavedNotifications() != null && inboxFragment.getSavedNotifications().size() > 0) {
-                notification = inboxFragment.getSavedNotifications().get(i);
+    @Override
+    public void nextClick(int position, int lastIndex, boolean saved) {
+        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager()
+                .findFragmentByTag(InboxFragment.TAG);
+        Notification notification = null;
+
+        if (saved) {
+            if (inboxFragment.getSavedNotifications() != null
+                    && inboxFragment.getSavedNotifications().size() > 0) {
+                notification = inboxFragment.getSavedNotifications().get(position);
             }
-            notification = null;
         } else {
             if (inboxFragment.getNotifications() != null && inboxFragment.getNotifications().size() > 0) {
-                notification = inboxFragment.getNotifications().get(i);
+                notification = inboxFragment.getNotifications().get(position);
             }
-            notification = null;
         }
         if (notification != null) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+            getSupportFragmentManager()
+                    .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                    .add(R.id.content_frame,
+                            NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                            NotificationDetailFragment.TAG)
+                    .commit();
         }
+
     }
 
-    @Override // com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment.NotificationDetailCallback
-    public void previousClick(int i, int i2, boolean z) {
-        Notification notification;
-        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager().findFragmentByTag(InboxFragment.TAG);
-        if (z) {
-            if (inboxFragment.getSavedNotifications() != null && inboxFragment.getSavedNotifications().size() > 0) {
-                notification = inboxFragment.getSavedNotifications().get(i);
+    @Override
+    public void previousClick(int position, int lastIndex, boolean saved) {
+        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager()
+                .findFragmentByTag(InboxFragment.TAG);
+        Notification notification = null;
+
+        if (saved) {
+            if (inboxFragment.getSavedNotifications() != null
+                    && inboxFragment.getSavedNotifications().size() > 0) {
+                notification = inboxFragment.getSavedNotifications().get(position);
             }
-            notification = null;
         } else {
             if (inboxFragment.getNotifications() != null && inboxFragment.getNotifications().size() > 0) {
-                notification = inboxFragment.getNotifications().get(i);
+                notification = inboxFragment.getNotifications().get(position);
             }
-            notification = null;
         }
+
         if (notification != null) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+            getSupportFragmentManager()
+                    .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                    .add(R.id.content_frame,
+                            NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                            NotificationDetailFragment.TAG)
+                    .commit();
         }
     }
 
@@ -507,27 +573,22 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void addSuggestedHeaderIfNeeded() {
-        if (this.groups.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda3
-            @Override // java.util.function.Predicate
-            public boolean test(Object obj) {
-                return MainActivity.lambda$addSuggestedHeaderIfNeeded$1((Building) obj);
-            }
-        })) {
-            return;
+        if (!groups.stream().anyMatch(building -> building.getType() == Building.Type.SUGGESTED_HEADER)) {
+            Building suggestedHeader = new Building();
+            suggestedHeader.setType(Building.Type.SUGGESTED_HEADER);
+            groups.add(0, suggestedHeader);
         }
-        Building building = new Building();
-        building.setType(Building.Type.SUGGESTED_HEADER);
-        this.groups.add(0, building);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$addSuggestedHeaderIfNeeded$1(Building building) {
-        return building.getType() == Building.Type.SUGGESTED_HEADER;
-    }
-
-    @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
+    @Override
     public void groupsUpdated(ArrayList<Building> arrayList) {
         this.groups = arrayList;
+    }
+
+    @Override
+    public void onCreateGroupClicked() {
+        goToCreateGroupFragment();
+
     }
 
 
@@ -559,7 +620,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             public void onSubscribe(Disposable disposable) {
             }
 
-            @Override // io.reactivex.SingleObserver
+            @Override
             public void onSuccess(Building building) {
                 MainActivity.this.getSupportFragmentManager().beginTransaction().addToBackStack(AlertDetailFragment.TAG).add((int) R.id.content_frame, AlertDetailFragment.newInstance(notification), AlertDetailFragment.TAG).commit();
             }
@@ -614,7 +675,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         prepareContactBuildings(buildingsFetched, personalCommunitiesFetched);
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    @Override
     public void loadSubscriber(Subscriber subscriber) {
         this.subscriber = subscriber;
     }
@@ -729,8 +790,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.requestPhonePermission();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    @Override
     public void locationPermissionResult(boolean z, boolean z2) {
         if (z) {
             if (getLocationUtil().isProviderEnabled()) {
@@ -740,26 +800,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Location Services Not Active");
             builder.setMessage("Please enable Location Services and GPS");
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.4
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    MainActivity.this.startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"));
-                }
-            });
+            builder.setPositiveButton("OK", (dialogInterface, i) ->
+                    MainActivity.this.startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS")));
             AlertDialog create = builder.create();
             create.setCanceledOnTouchOutside(false);
             create.show();
         }
     }
 
-    @Override
-    public void phonePermissionResult(Permission permission) {
-
-    }
 
 //    @Override
 //    public void phonePermissionResult(Permission permission) {
-//        if (permission) {
+//        if (permission.) {
 //            Intent intent = new Intent(Intent.ACTION_CALL);
 //            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
 //            startActivity(intent);
@@ -772,18 +824,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 //
 //    }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void phonePermissionResult(boolean permission) {
-        if (permission) {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
-            startActivity(intent);
+//    @Override // com.sca.in_telligent.ui.main.MainMvpView
+//    public void phonePermissionResult(boolean permission) {
+//        if (permission) {
+//            Intent intent = new Intent(Intent.ACTION_CALL);
+//            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
+//            startActivity(intent);
 //        } else if (permission.shouldShowRequestPermissionRationale) {
 //        } else {
 //            showPopup(getResources().getString(R.string.permission_call_message));
 //        }
-        }
-    }
+//        }
+//    }
 
         private void getLocation() {
 
@@ -823,49 +875,21 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             }
         }
 
-        /* renamed from: lambda$getLocation$7$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-        public /* synthetic */ void m259lambda$getLocation$7$comscain_telligentuimainMainActivity
-        (Task task){
-            if (task.isSuccessful()) {
-                Location location = (Location) task.getResult();
-                this.mLastKnownLocation = location;
-                if (location != null) {
-                    this.mPresenter.refreshGeofences(location);
-                    try {
-                        List<Address> fromLocation = new Geocoder(getApplicationContext(), new Locale("en", "US")).getFromLocation(this.mLastKnownLocation.getLatitude(), this.mLastKnownLocation.getLongitude(), 1);
-                        if (fromLocation == null || fromLocation.size() <= 0) {
-                            return;
-                        }
-                        this.countryName = fromLocation.get(0).getCountryName();
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                }
-                getLocationUtil().getLastKnownLocation();
-                return;
-            }
-            Log.d(TAG, "Current location is null. Using defaults.");
-            Log.e(TAG, "Exception: %s", task.getException());
+        private boolean isManaged(int buildingId) {
+            boolean isManaged = userBuildingIds.stream()
+                    .anyMatch(buildingIdItem -> buildingIdItem.getId() == buildingId);
+            return isManaged;
         }
 
-        private boolean isManaged ( final int i){
-            return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
-                @Override // java.util.function.Predicate
-                public boolean test(Object obj) {
-                    return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
-                }
-            });
-        }
-
-        public static /* synthetic */ boolean lambda$isManaged$8 ( int i, BuildingIdItem
-        buildingIdItem){
-            return buildingIdItem.getId() == i;
-        }
-
-        @Override // com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment.NotificationSettingsSelector
-        public void alertSubscriptionUpdated (String str, String str2){
+        @Override
+        public void alertSubscriptionUpdated(String buildingId, String subscription) {
+    //    Observable.fromIterable(subscriber.getBuildings())
+    //        .doOnNext(
+    //            building -> {
+    //              if (building.getId() == Integer.parseInt(buildingId)) {
+    //                building.getBuildingsSubscriber().setAlertsSubscription(subscription);
+    //              }
+    //            }).toList().subscribe(updatedBuildings -> subscriber.setBuildings(buildings));
             System.out.println();
         }
 
@@ -875,11 +899,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             Toast.makeText((Context) this, (int) R.string.you_are_now_subscribed_to_the_community, Toast.LENGTH_SHORT).show();
         }
 
-        @Override
-        public void weatherWarningUpdated ( boolean z, boolean z2){
-            this.subscriber.setWeatherAlertEnabled(z);
-            this.subscriber.setLightningAlertEnabled(z2);
-        }
+    @Override
+    public void weatherWarningUpdated(boolean weatherEnabled, boolean lightningEnabled) {
+        subscriber.setWeatherAlertEnabled(weatherEnabled);
+        subscriber.setLightningAlertEnabled(lightningEnabled);
+    }
 
         private void handlePush(Bundle extras) {
             String from = extras.getString("from", "");
@@ -908,18 +932,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             }
         }
 
-    public /* synthetic */ void m261lambda$handlePush$9$comscain_telligentuimainMainActivity(PushNotification pushNotification, DialogInterface dialogInterface, int i) {
-        getAudioHelper().stopRingtone();
-        CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
-        dialogInterface.dismiss();
-    }
-
-    public /* synthetic */ void m260lambda$handlePush$10$comscain_telligentuimainMainActivity(PushNotification pushNotification, MessageViewDialog messageViewDialog, DialogInterface dialogInterface, int i) {
-        getAudioHelper().stopRingtone();
-        dialogInterface.dismiss();
-        CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
-        messageViewDialog.show(getSupportFragmentManager());
-    }
 
     private AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -950,12 +962,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onStop();
     }
 
-    @Override // com.sca.in_telligent.ui.preview.MessageViewDialog.PushNotificationDetailCallback
+    @Override
     public void onShowNotificationDetails(Notification notification) {
         getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.settings.SettingsFragment.SettingsCallback
+    @Override
     public void onLogout() {
         cancelJobs();
     }
@@ -974,24 +986,22 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void loadImage(final AdResponse.BannerAd bannerAd) {
-        Glide.with(this).load(bannerAd.getImage()).into(this.adImageView);
-        this.adImageView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda6
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MainActivity.this.m262lambda$loadImage$11$comscain_telligentuimainMainActivity(bannerAd, view);
+    @Override
+    public void loadImage(AdResponse.BannerAd bannerAd) {
+        Glide.with(this)
+                .load(bannerAd.getImage())
+                .into(adImageView);
+
+        adImageView.setOnClickListener(v -> {
+
+            mPresenter.onClickAd(bannerAd.getAdId());
+
+            if (!TextUtils.isEmpty(bannerAd.getUrl())) {
+                CommonUtils.openUrl(this, bannerAd.getUrl());
             }
         });
     }
 
-    public /* synthetic */ void m262lambda$loadImage$11$comscain_telligentuimainMainActivity(AdResponse.BannerAd bannerAd, View view) {
-        this.mPresenter.onClickAd(bannerAd.getAdId());
-        if (TextUtils.isEmpty(bannerAd.getUrl())) {
-            return;
-        }
-        CommonUtils.openUrl(this, bannerAd.getUrl());
-    }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

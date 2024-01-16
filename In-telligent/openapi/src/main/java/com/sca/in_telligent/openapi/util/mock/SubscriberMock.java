@@ -24,7 +24,9 @@ public class SubscriberMock {
         subscriber.setPersonalCommunities(new ArrayList<>());
         subscriber.setSubscriberOptOuts(new ArrayList<>());
 
+
         subscriber.setUser(UserMock.createMockUser());
+
 
         return subscriber;
     }

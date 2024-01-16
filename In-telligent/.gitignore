@@ -28,6 +28,7 @@ captures/
 
 # Gradle
 .gradle/
+.in-telligent/*.gradle/
 /app/*/generated/
 /app/*/build/
 

@@ -13,7 +13,6 @@ import com.sca.in_telligent.openapi.util.OpenApiFlashHelper;
 
 import java.util.Objects;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class OpenAPI {
     private static final String TAG = "OpenAPI";
     private static OpenAPI instance;
@@ -32,7 +31,7 @@ public class OpenAPI {
     }
 
     public static void init(Context context, Configuration configuration) {
-        Objects.requireNonNull(context, "A context is needed to initialize OpanAPI");
+        Objects.requireNonNull(context, "A context is needed to initialize OpenAPI");
         Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
         if(!configuration.isMocked()) {
             FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);

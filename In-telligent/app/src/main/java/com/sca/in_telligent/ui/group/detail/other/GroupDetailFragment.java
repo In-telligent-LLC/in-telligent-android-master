@@ -29,7 +29,6 @@ import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpView {
     public static final String TAG = "GroupDetailFragment";
     Building building;

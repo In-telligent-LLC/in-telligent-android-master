@@ -99,6 +99,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<BaseViewHolder
 
             itemView.setOnClickListener(view -> mCallback.onItemClicked(position));
         }
+
     }
 
 }
