@@ -3,8 +3,19 @@ package com.sca.in_telligent.openapi.data.network.model;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class State implements Serializable {
+    public State(
+            int countryId,
+            int id,
+            String name,
+            String shortName
+    ) {
+        this.countryId = countryId;
+        this.id = id;
+        this.name = name;
+        this.shortName = shortName;
+    }
+
     @SerializedName("countryId")
     private int countryId;
     @SerializedName("id")

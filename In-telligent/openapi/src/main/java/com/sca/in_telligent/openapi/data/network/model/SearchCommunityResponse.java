@@ -12,4 +12,11 @@ public class SearchCommunityResponse implements Serializable {
     public ArrayList<Building> getBuildings() {
         return this.buildings;
     }
+
+    public void setBuildings(ArrayList<Building> buildings) {
+        this.buildings = buildings;
+    }
+
+    public void setSuccess(boolean b) {
+    }
 }

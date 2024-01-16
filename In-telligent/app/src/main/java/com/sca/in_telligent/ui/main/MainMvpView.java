@@ -9,7 +9,6 @@ import com.sca.in_telligent.ui.base.MvpView;
 import java.security.Permission;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface MainMvpView extends MvpView {
     void loadGroups(ArrayList<Building> arrayList, ArrayList<Building> arrayList2, ArrayList<BuildingIdItem> arrayList3);
 

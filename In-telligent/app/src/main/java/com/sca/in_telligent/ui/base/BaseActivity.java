@@ -102,7 +102,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return checkSelfPermission(str) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void onDestroy() {
         Unbinder unbinder = this.mUnBinder;
         if (unbinder != null) {
@@ -129,12 +128,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.mProgressDialog.cancel();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @SuppressLint("ResourceType")
-    private void showSnackBar(String str) {
-        @SuppressLint("ResourceType") Snackbar make = Snackbar.make(findViewById(16908290), str, -1);
-        ((TextView) make.getView().findViewById(2131231390)).setTextColor(ContextCompat.getColor(this, 17170443));
-        make.show();
+    private void showSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                message, Snackbar.LENGTH_SHORT);
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView
+                .findViewById(R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
+        snackbar.show();
     }
 
     @Override // com.sca.in_telligent.ui.base.MvpView
@@ -146,13 +147,12 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void onError(int i) {
         onError(getString(i));
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showMessage(String str) {
         if (str != null) {
             Toast.makeText((Context) this, (CharSequence) str, Toast.LENGTH_LONG).show();

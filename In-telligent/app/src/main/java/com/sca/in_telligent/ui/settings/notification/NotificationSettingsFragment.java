@@ -2,7 +2,6 @@ package com.sca.in_telligent.ui.settings.notification;
 
 import android.content.Context;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +11,25 @@ import android.widget.Switch;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sca.in_telligent.R;
+import com.sca.in_telligent.di.component.ActivityComponent;
+import com.sca.in_telligent.openapi.data.network.model.AlertSubscriptionRequest;
+import com.sca.in_telligent.openapi.data.network.model.Building;
+import com.sca.in_telligent.openapi.data.network.model.Subscriber;
+import com.sca.in_telligent.openapi.data.network.model.SubscriberRequest;
+import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriberRequest;
+import com.sca.in_telligent.ui.base.BaseFragment;
+
+import java.util.ArrayList;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.core.Observable;
-
-import com.sca.in_telligent.R;
-import com.sca.in_telligent.openapi.data.network.model.AlertSubscriptionRequest;
-import com.sca.in_telligent.openapi.data.network.model.Building;
-import com.sca.in_telligent.openapi.data.network.model.Subscriber;
-import com.sca.in_telligent.openapi.data.network.model.SubscriberRequest;
-import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriberRequest;
-import com.sca.in_telligent.di.component.ActivityComponent;
-import com.sca.in_telligent.ui.base.BaseFragment;
-import java.util.ArrayList;
-import javax.inject.Inject;
 
 public class NotificationSettingsFragment extends BaseFragment implements
     NotificationSettingsMvpView, NotificationSettingAdapter.Callback {
@@ -82,6 +83,14 @@ public class NotificationSettingsFragment extends BaseFragment implements
                            @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_notification_settings, container, false);
     ActivityComponent component = getActivityComponent();
+    lightningToggle = view.findViewById(R.id.notification_setting_lightning_toggle);
+    severeToggle = view.findViewById(R.id.notification_setting_severe_toggle);
+    notificationSettingRecyclerView = view.findViewById(R.id.notification_setting_recyclerview);
+
+
+    lightningToggle.setOnClickListener(v -> onLightningSelected(lightningToggle, lightningToggle.isChecked()));
+    severeToggle.setOnClickListener(v -> onWeatherSelected(severeToggle, severeToggle.isChecked()));
+
     if (component != null) {
       component.inject(this);
       setUnBinder(ButterKnife.bind(this, view));

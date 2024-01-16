@@ -1,13 +1,16 @@
 package com.sca.in_telligent.ui.settings;
 
+import static com.sca.in_telligent.util.AlertUtil.showConfirmationAlert;
+
 import android.content.Context;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabWidget;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentTabHost;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
@@ -25,10 +28,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.annotations.Nullable;
-
-import static com.sca.in_telligent.util.AlertUtil.showConfirmationAlert;
-
-import androidx.fragment.app.FragmentTabHost;
 
 public class SettingsFragment extends BaseFragment implements SettingsMvpView {
 
@@ -72,6 +71,8 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ActivityComponent component = getActivityComponent();
+        tabHost = view.findViewById(android.R.id.tabhost);
+        settingsLogout = view.findViewById(R.id.settings_logout_text);
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));

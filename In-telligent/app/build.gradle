@@ -6,6 +6,8 @@ plugins {
     id 'com.google.firebase.firebase-perf'
     id 'com.google.gms.google-services'
 
+
+
 }
 
 repositories {
@@ -60,6 +62,11 @@ android {
 //            keyAlias signingConfigJson.keystore_key_alias
 //            keyPassword signingConfigJson.keystore_key_password
         }
+    }
+    kapt {
+        generateStubs = true
+        correctErrorTypes = true
+
     }
 
     buildTypes {
@@ -162,7 +169,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.google.firebase:firebase-messaging:23.3.1'
-    implementation 'com.google.firebase:perf-plugin:1.4.2'
+    implementation("com.google.firebase:firebase-perf:20.5.1")
 
     implementation 'androidx.work:work-runtime:2.0.0'
     implementation 'com.google.code.gson:gson:2.10.1'
@@ -207,6 +214,9 @@ dependencies {
     implementation 'com.github.yalantis:ucrop:2.2.8'
     implementation "androidx.compose.foundation:foundation:1.0.0"
     implementation 'androidx.compose.material:material:1.0.0'
+
+//Firebase
+    implementation 'com.google.firebase:firebase-config:16.1.3'
 
 
 

@@ -4,16 +4,19 @@ import android.app.Application;
 import android.media.AudioManager;
 import android.util.Log;
 
+import androidx.lifecycle.ProcessLifecycleOwner;
+
 import com.factual.android.FactualException;
 import com.factual.android.ObservationGraph;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ApplicationComponent;
+import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LifecycleInterface;
-import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 
 
 import javax.inject.Inject;
@@ -50,30 +53,35 @@ public class ScaApplication extends Application {
 
         initOG();
 
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
 
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
-//
-//            if (!task.isSuccessful()) {
-//                return;
-//            }
-//            String token = task.getResult().getToken();
-//            if (mDataManager.getCurrentUserLoggedInMode() == LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
-//                    .getType()) {
-//
-//                sendRegistrationToServer(token);
-//            }
-//            if (mDataManager.getPushToken() == null) {
-//                mDataManager.setPushToken(token);
-//            }
-//        });
 
-//        ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+
+            if (!task.isSuccessful()) {
+                return;
+            }
+            String token = task.getResult();
+            Log.d("Tokeeeen: ", token);
+            if (mDataManager.getCurrentUserLoggedInMode() == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN
+                    .getType()) {
+
+                sendRegistrationToServer(token);
+            }
+            if (mDataManager.getPushToken() == null) {
+                mDataManager.setPushToken(token);
+            }
+        });
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
     }
 
     private void initOpenApi() {
         OpenAPI.Configuration configuration = new OpenAPI.Configuration.Builder()
                 .setAppVersion(BuildConfig.VERSION_CODE)
                 .setDebug(BuildConfig.DEBUG).build();
+
         OpenAPI.init(this, configuration);
     }
 

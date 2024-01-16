@@ -1,7 +1,6 @@
 package com.sca.in_telligent.openapi.util.mock;
 
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
-import com.sca.in_telligent.openapi.data.network.model.User;
 
 import java.util.ArrayList;
 
@@ -25,18 +24,12 @@ public class SubscriberMock {
         subscriber.setPersonalCommunities(new ArrayList<>());
         subscriber.setSubscriberOptOuts(new ArrayList<>());
 
-        subscriber.setUser(createMockUser());
+
+        subscriber.setUser(UserMock.createMockUser());
+
 
         return subscriber;
     }
 
-    private static User createMockUser() {
-        User user = new User();
-        user.getId();
-        user.isCanSendLSA();
-
-
-        return user;
-    }
 
 }

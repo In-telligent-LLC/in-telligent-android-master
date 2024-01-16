@@ -62,6 +62,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody.Part;
 import okhttp3.RequestBody;
@@ -89,7 +90,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<LoginResponse> loginWithPassword(LoginRequest loginRequest) {
+    public @NonNull Observable<LoginResponse> loginWithPassword(LoginRequest loginRequest) {
         return mApiHelper.loginWithPassword(loginRequest);
     }
 

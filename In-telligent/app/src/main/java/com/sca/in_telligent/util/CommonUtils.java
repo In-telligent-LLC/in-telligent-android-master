@@ -12,13 +12,18 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+
 import com.facebook.internal.ServerProtocol;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.util.AudioHelper;
+
+import org.apache.http.client.config.CookieSpecs;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -35,7 +40,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.client.config.CookieSpecs;
 
 public final class CommonUtils {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -179,7 +183,7 @@ public final class CommonUtils {
         if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
             return true;
         }
-        buildAlertMessage("Location Permissions", "Location Permissions", context);
+        buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
         return false;
     }
 

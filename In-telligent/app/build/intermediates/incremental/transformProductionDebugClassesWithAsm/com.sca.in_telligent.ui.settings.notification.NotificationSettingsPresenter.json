@@ -1,1 +1,0 @@
-{"className":"com.sca.in_telligent.ui.settings.notification.NotificationSettingsPresenter","classAnnotations":[],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter","com.sca.in_telligent.ui.settings.notification.NotificationSettingsMvpPresenter"],"superClasses":["com.sca.in_telligent.ui.base.BasePresenter","java.lang.Object"]}

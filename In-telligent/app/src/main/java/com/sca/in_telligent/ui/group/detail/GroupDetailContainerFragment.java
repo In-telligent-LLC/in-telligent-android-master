@@ -4,24 +4,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class GroupDetailContainerFragment extends BaseFragment {
     private static final String ARG_KEY_GROUPS = "ARG_KEY_GROUPS";
     private static final String ARG_KEY_POSITION = "ARG_KEY_POSITION";
@@ -48,7 +50,7 @@ public class GroupDetailContainerFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.groups = (List) ((List) getArguments().getSerializable(ARG_KEY_GROUPS)).stream().filter(new Predicate() { // from class: com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment$$ExternalSyntheticLambda0
-            @Override // java.util.function.Predicate
+            @Override
             public boolean test(Object obj) {
                 return GroupDetailContainerFragment.lambda$onCreate$0((Building) obj);
             }
