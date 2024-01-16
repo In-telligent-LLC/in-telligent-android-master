@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-56:/values-v18/values-v18.xml",
+            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-57:/values-v18/values-v18.xml",
             "map": [
                 {
                     "source": "/Users/marianesantana/.gradle/caches/transforms-3/7adc8b9062ca1b5e4e5dc7f3e0eb0aa9/transformed/jetified-core-1.5.0/res/values-v18/values.xml",

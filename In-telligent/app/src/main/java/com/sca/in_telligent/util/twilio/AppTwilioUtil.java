@@ -27,12 +27,12 @@ import io.reactivex.rxjava3.functions.Consumer;
 
 @Singleton
 public class AppTwilioUtil implements TwilioUtil {
-  private static String TAG = "AppTwilioUtil";
+  private static final String TAG = "AppTwilioUtil";
   private String conferenceId = "";
   private boolean isOutgoing;
   private TwilioUtilListener listener;
   private final CompositeDisposable mCompositeDisposable;
-  private Context mContext;
+  private final Context mContext;
   private final DataManager mDataManager;
   private final PreferencesHelper mPreferencesHelper;
   private final Responder mResponder;
@@ -79,7 +79,7 @@ public class AppTwilioUtil implements TwilioUtil {
     this.subscriberId = this.mPreferencesHelper.getSubscriberId();
     this.mCompositeDisposable.add(this.mDataManager.getVoipToken().subscribeOn(this.mSchedulerProvider.io()).observeOn(this.mSchedulerProvider.ui()).subscribe(new Consumer() { // from class: com.sca.in_telligent.util.twilio.AppTwilioUtil$$ExternalSyntheticLambda3
       @Override
-      public final void accept(Object obj) throws Exception {
+      public void accept(Object obj) throws Exception {
         AppTwilioUtil.this.AppTwilioUtil(str, (VoipTokenResponse) obj);
       }
 
@@ -88,7 +88,7 @@ public class AppTwilioUtil implements TwilioUtil {
 
   @SuppressLint("NotConstructor")
   public void AppTwilioUtil(String str, VoipTokenResponse voipTokenResponse) throws Exception {
-    if ((voipTokenResponse.getToken() != null) && (true ^ voipTokenResponse.getToken().isEmpty())) {
+    if ((voipTokenResponse.getToken() != null) && (!voipTokenResponse.getToken().isEmpty())) {
       HashMap hashMap = new HashMap();
       hashMap.put("buildingId", str);
       hashMap.put("isCM", "");
@@ -100,12 +100,12 @@ public class AppTwilioUtil implements TwilioUtil {
       voipCallRequest.setSenderId(Integer.parseInt(this.subscriberId));
       this.mCompositeDisposable.add(this.mDataManager.makeVoipCall(voipCallRequest).subscribeOn(this.mSchedulerProvider.io()).observeOn(this.mSchedulerProvider.ui()).subscribe(new Consumer() { // from class: com.sca.in_telligent.util.twilio.AppTwilioUtil$$ExternalSyntheticLambda0
         @Override // io.reactivex.functions.Consumer
-        public final void accept(Object obj) throws Exception {
+        public void accept(Object obj) throws Exception {
           AppTwilioUtil.this.AppTwilioUtil((VoipCallResponse) obj);
         }
       }, new Consumer() { // from class: com.sca.in_telligent.util.twilio.AppTwilioUtil$$ExternalSyntheticLambda1
         @Override // io.reactivex.functions.Consumer
-        public final void accept(Object obj) throws Exception {
+        public void accept(Object obj) throws Exception {
           AppTwilioUtil.this.AppTwilioUtil((Throwable) obj);
         }
       }));

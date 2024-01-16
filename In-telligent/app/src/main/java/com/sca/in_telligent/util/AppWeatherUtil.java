@@ -18,7 +18,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 @Singleton
 public class AppWeatherUtil implements WeatherUtil {
 
-  private Context context;
+  private final Context context;
 
   LocationUtil locationUtil;
 

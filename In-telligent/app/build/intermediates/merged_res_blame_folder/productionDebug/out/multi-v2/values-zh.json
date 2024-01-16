@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-56:/values-zh/values-zh.xml",
+            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-57:/values-zh/values-zh.xml",
             "map": [
                 {
                     "source": "/Users/marianesantana/.gradle/caches/transforms-3/c8db06b59bc804c291014d21ccc186b6/transformed/jetified-ucrop-2.2.8/res/values-zh/values-zh.xml",

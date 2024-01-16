@@ -11,10 +11,10 @@ INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-maste
 	android:pathPrefix
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:84:21-53
 manifest
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
 MERGED from [:factual-og-sdk-android:] /Users/marianesantana/.gradle/caches/transforms-3/1ff62b53dad198306cb0fb01d0447285/transformed/jetified-factual-og-sdk-android/AndroidManifest.xml:2:1-15:12
 MERGED from [:nui-media-sdk:] /Users/marianesantana/.gradle/caches/transforms-3/451f7b85c8683ce855fe7f4ceda94eab/transformed/jetified-nui-media-sdk/AndroidManifest.xml:2:1-11:12
 MERGED from [:SOMAAndroid-9.1.3-release:] /Users/marianesantana/.gradle/caches/transforms-3/61c2cdf3e4c38cc0dd50d8b517b3bee1/transformed/jetified-SOMAAndroid-9.1.3-release/AndroidManifest.xml:2:1-13:12
@@ -154,22 +154,22 @@ MERGED from [io.fabric.sdk.android:fabric:1.4.8] /Users/marianesantana/.gradle/c
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.2] /Users/marianesantana/.gradle/caches/transforms-3/ccd9a5265a80f777958d5f2feb4e1987/transformed/jetified-relinker-1.4.2/AndroidManifest.xml:2:1-7:12
 MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/marianesantana/.gradle/caches/transforms-3/e9c7df4fd42f54ce0d57b24ee0ebd347/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/marianesantana/.gradle/caches/transforms-3/982f09dd692bf55c5b9d3e40d5ae3f4b/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
 	package
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:4:5-35
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-286:12
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:1-287:12
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:2:11-69
@@ -390,7 +390,7 @@ ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/I
 	android:name
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:56:9-50
 application
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-284:19
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-285:19
 MERGED from [com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:7:5-12:19
 MERGED from [com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:28:5-64:19
@@ -652,9 +652,9 @@ ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/I
 	android:name
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:165:13-58
 meta-data#com.crashlytics.ApiKey
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:72
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:71
 	android:value
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-69
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-68
 	android:name
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:171:13-50
 meta-data#com.google.android.gms.version
@@ -753,45 +753,45 @@ ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/I
 	android:name
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:240:13-74
 service#com.sca.in_telligent.service.MyFirebaseMessagingService
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-249:19
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-250:19
 	android:exported
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-36
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-37
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:18-68
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-63
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:13-249:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:17-78
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:25-75
 service#com.sca.in_telligent.service.GeofenceTransitionsIntentService
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:251:9-254:72
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:9-255:72
 	android:exported
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-36
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-36
 	android:permission
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-69
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:255:13-69
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:13-69
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-69
 receiver#com.sca.in_telligent.receiver.GeofenceBroadcastReceiver
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:269:9-272:39
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:9-273:39
 	android:enabled
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-35
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-35
 	android:exported
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-36
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:273:13-36
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:13-63
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-63
 meta-data#com.google.firebase.messaging.default_notification_icon
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:275:9-277:56
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:9-278:56
 	android:resource
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-53
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:278:13-53
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:13-83
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-83
 meta-data#com.google.firebase.messaging.default_notification_color
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:280:9-282:53
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:9-283:53
 	android:resource
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:282:13-50
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:283:13-50
 	android:name
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:13-84
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:282:13-84
 uses-sdk
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml

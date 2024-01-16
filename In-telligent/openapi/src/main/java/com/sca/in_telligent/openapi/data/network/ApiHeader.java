@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class ApiHeader {
-    private PublicApiHeader mPublicApiHeader;
+    private final PublicApiHeader mPublicApiHeader;
 
     public ApiHeader(PublicApiHeader publicApiHeader) {
         this.mPublicApiHeader = publicApiHeader;

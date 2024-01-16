@@ -2639,6 +2639,7 @@ string critical_weather_alert
 string d_e_f
 string default_error_message
 string default_thumbnail
+string default_web_client_id
 string delete
 string delete_community
 string delete_contact
@@ -2690,6 +2691,7 @@ string filter
 string filters
 string find
 string find_member
+string firebase_database_url
 string first_time_user_str
 string forgot_password
 string forgot_password_enter_email_for_link
@@ -2698,10 +2700,14 @@ string frequency_of_searches
 string full_name
 string functionality_in_progress
 string g_h_i
+string gcm_defaultSenderId
 string gender
 string general_inquiries
-string generate_group_title_text
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
 string google_maps_key
+string google_storage_bucket
 string groundtruth_access_key
 string groundtruth_aes_key
 string group_deleted
@@ -2821,8 +2827,6 @@ string path_password_strike_through
 string pending
 string people
 string permission_read_storage_rationale
-string permission_to_manage_dnd
-string permission_to_manage_dnd_description
 string personal_alert
 string personal_communities
 string personal_community
@@ -2843,6 +2847,7 @@ string please_select_another
 string please_sign_in
 string powered_by_inourcommunity
 string previous
+string project_id
 string read_less
 string read_more
 string receive_regular_alerts
@@ -2984,7 +2989,6 @@ string uploading_attachment_for_notification
 string uploading_attachment_for_personal_community
 string urgent
 string user_invited
-string version
 string version_no_longer_available
 string view
 string view_alerts
@@ -2995,7 +2999,6 @@ string w_x_y_z
 string when_you_send_members_will_hear
 string would_you_like_to_call_your_community_manager
 string would_you_like_to_create_personal_community
-string would_you_like_to_enable_your_location_all_the_time
 string would_you_like_to_perm_delete_contact
 string yes
 string you_are_now_subscribed_to

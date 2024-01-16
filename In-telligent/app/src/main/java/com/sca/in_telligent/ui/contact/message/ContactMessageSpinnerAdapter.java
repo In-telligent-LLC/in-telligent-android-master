@@ -7,15 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.sca.in_telligent.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.sca.in_telligent.R;
+
 import java.util.List;
 
 public class ContactMessageSpinnerAdapter extends ArrayAdapter<String> {
 
-  private List<String> items;
-  private Context context;
+  private final List<String> items;
+  private final Context context;
 
   @Override
   public View getDropDownView(int position, View view,

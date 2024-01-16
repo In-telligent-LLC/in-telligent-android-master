@@ -1,6 +1,5 @@
 package com.sca.in_telligent.ui.settings.notification;
 
-import com.sca.in_telligent.R;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.AlertSubscriptionRequest;
 import com.sca.in_telligent.openapi.data.network.model.SubscriberResponse;

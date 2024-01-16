@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="@color/white">
-
-  <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guideline_left"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.05"
-    app:layout_constraintStart_toStartOf="parent"/>
-
-  <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guideline_right"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.95"
-    app:layout_constraintStart_toEndOf="parent"/>
+    android:background="@color/white">
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_left"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.05"
+      app:layout_constraintStart_toStartOf="parent"/>
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_right"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.95"
+      app:layout_constraintStart_toEndOf="parent"/>
 
   <TextView
       android:id="@+id/delivery_info_title_text"
@@ -39,41 +39,41 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-    android:id="@+id/delivery_info_info_text"
-    android:textStyle="italic"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:textAlignment="center"
-    android:textColor="@color/gray59"
-    android:textSize="12sp"
-    app:layout_constraintStart_toStartOf="@id/guideline_left"
-    app:layout_constraintEnd_toEndOf="@id/guideline_right"
-    app:layout_constraintTop_toBottomOf="@id/delivery_info_title_text"/>
+      android:id="@+id/delivery_info_info_text"
+      android:textStyle="italic"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:textAlignment="center"
+      android:textColor="@color/gray59"
+      android:textSize="12sp"
+      app:layout_constraintStart_toStartOf="@id/guideline_left"
+      app:layout_constraintEnd_toEndOf="@id/guideline_right"
+      app:layout_constraintTop_toBottomOf="@id/delivery_info_title_text"/>
 
   <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/delivery_info_cell_layout"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    app:layout_constraintStart_toStartOf="@id/guideline_left"
-    app:layout_constraintEnd_toEndOf="@id/guideline_right"
-    app:layout_constraintTop_toBottomOf="@+id/delivery_info_info_text">
+      android:id="@+id/delivery_info_cell_layout"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      app:layout_constraintStart_toStartOf="@id/guideline_left"
+      app:layout_constraintEnd_toEndOf="@id/guideline_right"
+      app:layout_constraintTop_toBottomOf="@+id/delivery_info_info_text">
 
 
     <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline_first"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_percent="0.4"/>
+        android:id="@+id/guideline_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"/>
 
     <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline_second"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_percent="0.7"/>
+        android:id="@+id/guideline_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7"/>
 
     <TextView
         android:id="@+id/delivery_info_name_field"
@@ -118,13 +118,13 @@
 
 
   <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/delivery_info_recyclerview"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="10dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="@id/guideline_left"
-    app:layout_constraintEnd_toEndOf="@id/guideline_right"
-    app:layout_constraintTop_toBottomOf="@+id/delivery_info_cell_layout"></androidx.recyclerview.widget.RecyclerView>
+      android:id="@+id/delivery_info_recyclerview"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="@id/guideline_left"
+      app:layout_constraintEnd_toEndOf="@id/guideline_right"
+      app:layout_constraintTop_toBottomOf="@+id/delivery_info_cell_layout"></androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

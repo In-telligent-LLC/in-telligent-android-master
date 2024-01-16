@@ -14,11 +14,11 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
 import com.sca.in_telligent.ui.group.alert.detail.InboxNotificationTypeMapper;
-import com.sca.in_telligent.ui.group.alert.list.AlertListAdapter;
 import com.sca.in_telligent.ui.inbox.InboxNotificationType;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
@@ -29,7 +29,7 @@ import java.util.List;
 public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
-    private Context context;
+    private final Context context;
     private Callback mCallback;
     private List<Notification> notifications;
 
@@ -185,13 +185,13 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             this.infoText.setText(CommonUtils.getDateString(notification.getStartDate()) + ", " + AlertListAdapter.this.context.getResources().getString(map.getName()));
             this.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.alert.list.AlertListAdapter$ViewHolder$$ExternalSyntheticLambda0
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     ViewHolder.this.m189xcadafd85(i, view);
                 }
             });
             this.trashImage.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.alert.list.AlertListAdapter$ViewHolder$$ExternalSyntheticLambda1
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     ViewHolder.this.m190x3bb5e24(notification, i, view);
                 }
             });

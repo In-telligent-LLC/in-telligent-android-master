@@ -1,4 +1,4 @@
-def Properties versionProps = new Properties()
+Properties versionProps = new Properties()
 def versionPropsFile = file('version.properties')
 if(versionPropsFile.exists())
     versionProps.load(new FileInputStream(versionPropsFile))

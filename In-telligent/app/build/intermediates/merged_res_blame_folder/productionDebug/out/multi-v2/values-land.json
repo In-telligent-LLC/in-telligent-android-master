@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-56:/values-land/values-land.xml",
+            "outputFile": "com.sca.in_telligent.app-mergeProductionDebugResources-57:/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/Users/marianesantana/.gradle/caches/transforms-3/b499bcae6ae573acbf933f4f8220e160/transformed/material-1.0.0/res/values-land/values-land.xml",

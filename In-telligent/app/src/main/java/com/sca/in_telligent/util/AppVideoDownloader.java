@@ -17,7 +17,7 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 @Singleton
 public class AppVideoDownloader implements VideoDownloader {
 
-  private Context mContext;
+  private final Context mContext;
 
   @Inject
   public AppVideoDownloader(@ApplicationContext Context context) {

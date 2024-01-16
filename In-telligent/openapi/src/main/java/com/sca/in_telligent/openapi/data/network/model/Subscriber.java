@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Subscriber implements Serializable {
     @SerializedName("betaEnabled")
     private boolean betaEnabled;
@@ -57,6 +56,42 @@ public class Subscriber implements Serializable {
 
     public int getId() {
         return this.id;
+    }
+
+    public void setBetaEnabled(boolean betaEnabled) {
+        this.betaEnabled = betaEnabled;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setInterests(ArrayList<Interest> interests) {
+        this.interests = interests;
+    }
+
+    public void setLightningAlertConfirmed(boolean lightningAlertConfirmed) {
+        this.lightningAlertConfirmed = lightningAlertConfirmed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPersonalCommunities(ArrayList<Building> personalCommunities) {
+        this.personalCommunities = personalCommunities;
+    }
+
+    public void setSubscriberOptOuts(ArrayList<SubscriberOptOut> subscriberOptOuts) {
+        this.subscriberOptOuts = subscriberOptOuts;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getEmail() {

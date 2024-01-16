@@ -4,10 +4,10 @@ import android.content.Context;
 import com.sca.in_telligent.openapi.data.network.ApiEndPoint;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OkHttpClientProvider;
-import com.sca.in_telligent.openapi.data.network.error.RxErrorHandlingCallAdapterFactory;
-import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelper;
 import com.sca.in_telligent.openapi.data.prefs.OpenApiPreferencesHelperImpl;
 import java.util.Objects;
+
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,7 +23,7 @@ public class ApiHelperProvider {
         final OpenApiPreferencesHelperImpl openApiPreferencesHelperImpl = new OpenApiPreferencesHelperImpl(context, OpenApiPreferencesHelperImpl.PREF_NAME);
         OkHttpClient okHttpClientInterceptor = OkHttpClientProvider.getOkHttpClientInterceptor(new OkHttpClientProvider.AuthInterceptor(new CredentialsProvider() { // from class: com.sca.in_telligent.openapi.data.ApiHelperProvider$$ExternalSyntheticLambda0
             @Override // com.sca.in_telligent.openapi.data.CredentialsProvider
-            public final String getAuthToken() {
+            public String getAuthToken() {
                 String accessToken;
                 accessToken = getAuthToken();
                 return accessToken;
@@ -36,7 +36,13 @@ public class ApiHelperProvider {
     private static ApiHelper getApiHelper(String str, OkHttpClient okHttpClient) {
         Objects.requireNonNull(str, "Base URL cannot be null");
         Objects.requireNonNull(okHttpClient, "OkHttpClient cannot be null");
-        return (ApiHelper) new Retrofit.Builder().addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).baseUrl(str).client(okHttpClient).build().create(ApiHelper.class);
+        return (ApiHelper) new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(str)
+                .client(okHttpClient)
+                .build()
+                .create(ApiHelper.class);
     }
 
     public static ApiHelper getPublicApiHelper() {

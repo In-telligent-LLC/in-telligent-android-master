@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
@@ -23,7 +24,7 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
   public static final int VIEW_TYPE_EMPTY = 0;
   public static final int VIEW_TYPE_NORMAL = 1;
 
-  private List<Building> buildings;
+  private final List<Building> buildings;
   private Callback mCallback;
 
   public NotificationSettingAdapter(List<Building> buildings) {

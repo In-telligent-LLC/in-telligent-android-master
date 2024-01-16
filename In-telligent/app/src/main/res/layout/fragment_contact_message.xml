@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="@color/white">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
   <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-
-      <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-      <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_right"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95"
-        app:layout_constraintStart_toEndOf="parent"/>
+        android:layout_height="match_parent">
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_left"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.05"
+          app:layout_constraintStart_toStartOf="parent"/>
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_right"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.95"
+          app:layout_constraintStart_toEndOf="parent"/>
 
 
       <ImageView
-        android:id="@+id/contact_message_back_button"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/left_arrow_new"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+          android:id="@+id/contact_message_back_button"
+          android:layout_width="10dp"
+          android:layout_height="10dp"
+          android:layout_margin="10dp"
+          android:src="@drawable/left_arrow_new"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
 
       <TextView
-        android:id="@+id/contact_message_back_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/back"
-        android:textAllCaps="true"
-        android:textColor="@color/translate_button_black"
-        app:layout_constraintBottom_toBottomOf="@+id/contact_message_back_button"
-        app:layout_constraintStart_toEndOf="@+id/contact_message_back_button"
-        app:layout_constraintTop_toTopOf="@+id/contact_message_back_button"/>
+          android:id="@+id/contact_message_back_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:text="@string/back"
+          android:textAllCaps="true"
+          android:textColor="@color/translate_button_black"
+          app:layout_constraintBottom_toBottomOf="@+id/contact_message_back_button"
+          app:layout_constraintStart_toEndOf="@+id/contact_message_back_button"
+          app:layout_constraintTop_toTopOf="@+id/contact_message_back_button"/>
 
       <TextView
-        android:id="@+id/contact_title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/contact"
-        android:textColor="@color/gray2"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_message_back_button"
-        />
+          android:id="@+id/contact_title_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:text="@string/contact"
+          android:textColor="@color/gray2"
+          android:textSize="16sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/contact_message_back_button"
+          />
 
       <EditText
-        android:id="@+id/contact_send_title_edittext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edittext_send_message"
-        android:hint="@string/enter_title_italic"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/contact_title_text"/>
+          android:id="@+id/contact_send_title_edittext"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:background="@drawable/edittext_send_message"
+          android:hint="@string/enter_title_italic"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@+id/contact_title_text"/>
 
       <EditText
-        android:id="@+id/contact_send_message_edittext"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edittext_send_message"
-        android:gravity="start"
-        android:hint="@string/enter_message_italic"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/required_enter_title"/>
+          android:id="@+id/contact_send_message_edittext"
+          android:layout_width="0dp"
+          android:layout_height="250dp"
+          android:layout_marginTop="15dp"
+          android:background="@drawable/edittext_send_message"
+          android:gravity="start"
+          android:hint="@string/enter_message_italic"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@id/required_enter_title"/>
 
       <ProgressBar
           android:id="@+id/contact_send_attachment_progress_bar"
@@ -142,14 +142,14 @@
       </androidx.constraintlayout.widget.ConstraintLayout>
 
       <RelativeLayout
-        android:id="@+id/contact_alert_spinner_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edittext_send_message"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/contact_send_attachment_layout">
+          android:id="@+id/contact_alert_spinner_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:background="@drawable/edittext_send_message"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@+id/contact_send_attachment_layout">
 
         <com.sca.in_telligent.util.MySpinner
             android:id="@+id/contact_alert_spinner"
@@ -160,14 +160,14 @@
 
 
       <RelativeLayout
-        android:id="@+id/contact_send_spinner_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edittext_send_message"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/required_alert_type">
+          android:id="@+id/contact_send_spinner_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:background="@drawable/edittext_send_message"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@+id/required_alert_type">
 
         <com.sca.in_telligent.util.MySpinner
             android:id="@+id/contact_send_to_spinner"
@@ -178,60 +178,60 @@
 
 
       <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/contact_send_message_button"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/contact_send_message_background"
-        android:text="@string/send_message"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/required_send_to"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:id="@+id/contact_send_message_button"
+          android:layout_marginBottom="10dp"
+          android:background="@drawable/contact_send_message_background"
+          android:text="@string/send_message"
+          android:textAlignment="center"
+          android:textAllCaps="true"
+          android:textColor="@color/white"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@+id/required_send_to"/>
 
       <include
-        android:id="@+id/required_alert_type"
-        layout="@layout/field_required_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/contact_alert_spinner_layout"
-        ></include>
+          android:id="@+id/required_alert_type"
+          layout="@layout/field_required_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@id/contact_alert_spinner_layout"
+          ></include>
 
       <include
-        android:id="@+id/required_send_to"
-        layout="@layout/field_required_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/contact_send_spinner_layout"
-        ></include>
+          android:id="@+id/required_send_to"
+          layout="@layout/field_required_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@id/contact_send_spinner_layout"
+          ></include>
 
       <include
-        android:id="@+id/required_enter_title"
-        layout="@layout/field_required_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/contact_send_title_edittext"
-        ></include>
+          android:id="@+id/required_enter_title"
+          layout="@layout/field_required_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@id/contact_send_title_edittext"
+          ></include>
 
       <include
-        android:id="@+id/required_enter_message"
-        layout="@layout/field_required_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/contact_send_message_edittext"
-        ></include>
+          android:id="@+id/required_enter_message"
+          layout="@layout/field_required_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="@id/guideline_left"
+          app:layout_constraintEnd_toEndOf="@id/guideline_right"
+          app:layout_constraintTop_toBottomOf="@id/contact_send_message_edittext"
+          ></include>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>

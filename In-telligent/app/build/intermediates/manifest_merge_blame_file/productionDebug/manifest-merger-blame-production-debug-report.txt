@@ -156,7 +156,7 @@
 72-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/marianesantana/.gradle/caches/transforms-3/62adcfe108d20e9fce857d75aa509d7e/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
 73
 74    <application
-74-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-284:19
+74-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:59:5-285:19
 75        android:name="com.sca.in_telligent.ScaApplication"
 75-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:60:9-39
 76        android:allowBackup="true"
@@ -348,11 +348,11 @@
 173-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:167:13-44
 174
 175        <meta-data
-175-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:72
+175-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:170:9-172:71
 176            android:name="com.crashlytics.ApiKey"
 176-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:171:13-50
-177            android:value="7ca8d63a6bb601f03f788e3057f838ae1baad344" />
-177-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-69
+177            android:value="AIzaSyCD2J04c3QkLUkQCdpPwIVW01TKo41bTBc" />
+177-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:172:13-68
 178        <meta-data
 178-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:174:9-176:69
 179            android:name="com.google.android.gms.version"
@@ -462,26 +462,26 @@
 241            android:permission="android.permission.BIND_JOB_SERVICE" />
 241-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:242:13-69
 242        <service
-242-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-249:19
+242-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:9-250:19
 243            android:name="com.sca.in_telligent.service.MyFirebaseMessagingService"
-243-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:244:18-68
-244            android:exported="true" >
-244-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-36
+243-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:245:13-63
+244            android:exported="false" >
+244-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-37
 245            <intent-filter>
-245-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
+245-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:13-249:29
 246                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-246-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
-246-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
+246-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:17-78
+246-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:25-75
 247            </intent-filter>
 248        </service>
 249        <service
-249-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:251:9-254:72
+249-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:9-255:72
 250            android:name="com.sca.in_telligent.service.GeofenceTransitionsIntentService"
-250-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:252:13-69
+250-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-69
 251            android:exported="true"
-251-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:253:13-36
+251-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-36
 252            android:permission="android.permission.BIND_JOB_SERVICE" />
-252-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:254:13-69
+252-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:255:13-69
 253
 254        <!-- <service -->
 255        <!-- android:name=".openapi.service.BeaconScannerService" -->
@@ -497,30 +497,30 @@
 265        <!-- </service> -->
 266
 267        <receiver
-267-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:269:9-272:39
+267-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:9-273:39
 268            android:name="com.sca.in_telligent.receiver.GeofenceBroadcastReceiver"
-268-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:270:13-63
+268-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-63
 269            android:enabled="true"
-269-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:271:13-35
+269-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-35
 270            android:exported="true" />
-270-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:272:13-36
+270-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:273:13-36
 271
 272        <meta-data
-272-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:275:9-277:56
+272-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:9-278:56
 273            android:name="com.google.firebase.messaging.default_notification_icon"
-273-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:276:13-83
+273-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-83
 274            android:resource="@drawable/ic_launcher" />
-274-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:277:13-53
+274-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:278:13-53
 275        <!--
 276             Set color used with incoming notification messages. This is used when no color is set for the incoming
 277             notification message. See README(https://goo.gl/6BKBk7) for more.
 278        -->
 279        <meta-data
-279-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:280:9-282:53
+279-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:9-283:53
 280            android:name="com.google.firebase.messaging.default_notification_color"
-280-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:281:13-84
+280-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:282:13-84
 281            android:resource="@color/colorAccent" />
-281-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:282:13-50
+281-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:283:13-50
 282
 283        <provider
 283-->[com.squareup.picasso:picasso:2.8] /Users/marianesantana/.gradle/caches/transforms-3/a04e63e4f6d20cdc3866f8e3a50685cc/transformed/jetified-picasso-2.8/AndroidManifest.xml:8:9-11:40
@@ -566,10 +566,10 @@
 307            android:exported="false" >
 307-->[com.google.firebase:firebase-messaging:23.3.1] /Users/marianesantana/.gradle/caches/transforms-3/82d7a39d4427f08e6372063b18b1bd9e/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:49:13-37
 308            <intent-filter android:priority="-500" >
-308-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:246:13-248:29
+308-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:13-249:29
 309                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-309-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:17-78
-309-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:247:25-75
+309-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:17-78
+309-->/Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/app/src/main/AndroidManifest.xml:248:25-75
 310            </intent-filter>
 311        </service>
 312        <service

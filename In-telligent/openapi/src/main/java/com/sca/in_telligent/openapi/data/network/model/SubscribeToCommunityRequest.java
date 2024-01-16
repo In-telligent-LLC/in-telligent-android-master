@@ -12,13 +12,13 @@ public class SubscribeToCommunityRequest {
     public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
     private static final int NO_INVITE_ID = -11;
     @SerializedName(NativeProtocol.WEB_DIALOG_ACTION)
-    private String action;
+    private final String action;
     @SerializedName(AnalyticsEvents.PARAMETER_SHARE_DIALOG_SHOW_AUTOMATIC)
-    private boolean automatic;
+    private final boolean automatic;
     @SerializedName("buildingId")
-    private int communityId;
+    private final int communityId;
     @SerializedName("inviteId")
-    private int inviteId;
+    private final int inviteId;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */

@@ -8,7 +8,7 @@ public enum GroupSpinnerItemType {
     HELPLINES(3),
     EMERGENCY(4);
     
-    private int itemType;
+    private final int itemType;
 
     GroupSpinnerItemType(int i) {
         this.itemType = i;

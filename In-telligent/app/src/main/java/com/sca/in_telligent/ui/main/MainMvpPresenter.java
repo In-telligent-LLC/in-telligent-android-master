@@ -6,7 +6,6 @@ import com.sca.in_telligent.ui.base.MvpPresenter;
 import com.sca.in_telligent.ui.main.MainMvpView;
 
 @PerActivity
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
     void getCommunityInfo(int i, int i2);
 

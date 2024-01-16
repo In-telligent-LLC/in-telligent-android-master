@@ -6,17 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.sca.in_telligent.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import com.sca.in_telligent.R;
+
 import java.util.List;
 
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class GroupListSpinnerAdapter extends ArrayAdapter<String> {
-    private Context context;
-    private List<String> items;
+    private final Context context;
+    private final List<String> items;
 
     /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public class ViewHolder_ViewBinding implements Unbinder {

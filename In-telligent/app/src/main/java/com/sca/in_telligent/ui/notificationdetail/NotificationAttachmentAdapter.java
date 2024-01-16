@@ -43,9 +43,9 @@ public class NotificationAttachmentAdapter extends RecyclerView.Adapter<BaseView
 
     VideoDownloader videoDownloader;
 
-    private List<NotificationAttachment> notificationAttachments;
+    private final List<NotificationAttachment> notificationAttachments;
     private Callback mCallback;
-    private Context mContext;
+    private final Context mContext;
 
     public void setActivityContext(Context activityContext) {
         this.activityContext = activityContext;

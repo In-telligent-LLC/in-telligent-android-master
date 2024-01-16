@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -192,7 +193,7 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         }
         AlertUtil.showConfirmationAlert(getContext(), R.string.are_you_sure_you_want_to_unsubscribe_from_this_community, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda0
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 GroupDetailFragment.this.m195xa583d217(dialogInterface, i);
             }
         });
@@ -232,13 +233,13 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         builder.setView(editText);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda1
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 GroupDetailFragment.this.m196x2e90ab05(editText, building, dialogInterface, i);
             }
         });
         builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda2
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
             }
         });

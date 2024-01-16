@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
@@ -69,7 +70,7 @@ public class AlertDetailFragment extends BaseFragment implements AlertDetailMvpV
             this.alertTitle.setText(notification.getTitle());
             this.infoText.setText(CommonUtils.getDateString(this.notification.getStartDate()) + ", " + getString(InboxNotificationTypeMapper.map(this.notification).getName()));
             this.descriptionText.setText(this.notification.getDescription());
-            this.attachmentText.setText(getString(R.string.attachment_1_total, new Object[]{Integer.valueOf(this.notification.getNotificationAttachments().size())}));
+            this.attachmentText.setText(getString(R.string.attachment_1_total, Integer.valueOf(this.notification.getNotificationAttachments().size())));
         }
     }
 }

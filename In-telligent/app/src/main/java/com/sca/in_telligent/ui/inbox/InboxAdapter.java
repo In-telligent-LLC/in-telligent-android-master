@@ -27,9 +27,9 @@ import butterknife.OnClick;
 
 public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<Notification> notifications;
+    private final List<Notification> notifications;
     private Callback mCallback;
-    private Context context;
+    private final Context context;
 
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;

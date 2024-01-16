@@ -5,7 +5,7 @@ public enum InboxSpinnerItemType {
   UNREAD(1),
   SAVED(2);
 
-  private int itemType;
+  private final int itemType;
 
   InboxSpinnerItemType(int itemType) {
     this.itemType = itemType;

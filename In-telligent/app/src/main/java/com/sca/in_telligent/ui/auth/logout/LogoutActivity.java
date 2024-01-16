@@ -12,7 +12,6 @@ import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
-import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 
 import java.security.Permission;

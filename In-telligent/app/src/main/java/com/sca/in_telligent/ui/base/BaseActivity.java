@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
@@ -27,7 +26,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.di.ApplicationContext;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ActivityModule;
@@ -82,15 +80,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BaseActivity temp = this;
-
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((ScaApplication) getApplication()).getComponent())
                 .build();
-
-//        ((ScaApplication) getApplication()).getComponent().;
-
 
         setUnBinder(ButterKnife.bind(this));
 
@@ -122,7 +115,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.mUnBinder = unbinder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     public void showLoading() {
         hideLoading();
         this.mProgressDialog = CommonUtils.showLoadingDialog(this);
@@ -242,17 +234,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return this.responder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showNetworkDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Alert");
         builder.setMessage(R.string.please_check_your_network_connection_try_again);
-        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
+        builder.setNeutralButton(getString(R.string.ok), (dialogInterface, i) -> {
         });
         builder.show();
     }

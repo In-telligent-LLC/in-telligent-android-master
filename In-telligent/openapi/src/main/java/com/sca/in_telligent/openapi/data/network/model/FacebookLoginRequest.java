@@ -13,9 +13,9 @@ public class FacebookLoginRequest implements Serializable {
     @SerializedName("facebookAccessToken")
     private String facebookAccessToken;
     @SerializedName("deviceModel")
-    private String deviceModel = CommonUtils.getDeviceInfo();
+    private final String deviceModel = CommonUtils.getDeviceInfo();
     @SerializedName("osVersion")
-    private String osVersion = CommonUtils.getDeviceOs();
+    private final String osVersion = CommonUtils.getDeviceOs();
 
     public void setFacebookAccessToken(String str) {
         this.facebookAccessToken = str;

@@ -169,7 +169,7 @@
 
         <meta-data
             android:name="com.crashlytics.ApiKey"
-            android:value="7ca8d63a6bb601f03f788e3057f838ae1baad344" />
+            android:value="AIzaSyCD2J04c3QkLUkQCdpPwIVW01TKo41bTBc" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -241,8 +241,9 @@
             android:label="Observation Graph Job Service"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name=".service.MyFirebaseMessagingService"
-            android:exported="true">
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

@@ -20,13 +20,11 @@ import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 import com.bumptech.glide.Glide;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
-import com.sca.in_telligent.ui.group.list.GroupListAdapter;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
 
@@ -39,10 +37,10 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static final int VIEW_TYPE_SUGGESTED_HEADER = 0;
     public static final int VIEW_TYPE_SUGGESTED_ITEM = 1;
     private List<Building> buildings;
-    private Context context;
+    private final Context context;
     private boolean expanded = false;
     private Callback mCallback;
-    private List<Building> suggestedBuildings;
+    private final List<Building> suggestedBuildings;
 
     public interface Callback {
         void onAboutClicked(int i, boolean z);
@@ -303,19 +301,19 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             final Building building = (Building) GroupListAdapter.this.buildings.get(i);
             this.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda0
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     ViewHolder.this.m206x5d023e57(building, view);
                 }
             });
             this.itemAboutText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda1
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     ViewHolder.this.m207xdb634236(building, view);
                 }
             });
             this.itemConnectText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda2
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     ViewHolder.this.m208x59c44615(building, view);
                 }
             });
@@ -424,13 +422,13 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             final Building building = (Building) GroupListAdapter.this.buildings.get(i);
             this.suggestedSubscribeText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$SuggestedItemViewHolder$$ExternalSyntheticLambda1
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     SuggestedItemViewHolder.this.m204x93e60241(building, view);
                 }
             });
             this.suggestedIgnoreText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$SuggestedItemViewHolder$$ExternalSyntheticLambda0
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public void onClick(View view) {
                     SuggestedItemViewHolder.this.m205x94b480c2(i, building, view);
                 }
             });
@@ -529,13 +527,13 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         builder.setView(editText);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$$ExternalSyntheticLambda0
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 GroupListAdapter.this.m199x34dc9ec8(editText, building, dialogInterface, i);
             }
         });
         builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$$ExternalSyntheticLambda1
             @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
             }
         });

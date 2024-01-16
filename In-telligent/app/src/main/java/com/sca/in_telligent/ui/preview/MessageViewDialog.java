@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;

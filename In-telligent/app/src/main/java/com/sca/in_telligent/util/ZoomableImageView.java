@@ -51,11 +51,11 @@ public class ZoomableImageView extends ImageView {
 
     private int mode = NONE;
 
-    private Matrix matrix = new Matrix();
+    private final Matrix matrix = new Matrix();
 
-    private PointF last = new PointF();
-    private PointF start = new PointF();
-    private float minScale = 0.5f;
+    private final PointF last = new PointF();
+    private final PointF start = new PointF();
+    private final float minScale = 0.5f;
     private float maxScale = 4f;
     private float[] m;
 

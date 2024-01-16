@@ -2,6 +2,7 @@ package com.sca.in_telligent.ui.main;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,8 +38,9 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
+import com.sca.in_telligent.openapi.BuildConfig;
+import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingIdItem;
@@ -63,11 +65,11 @@ import com.sca.in_telligent.ui.preview.MessageViewDialog;
 import com.sca.in_telligent.ui.settings.SettingsFragment;
 import com.sca.in_telligent.ui.settings.account.AccountSettingsFragment;
 import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
-import com.sca.in_telligent.util.AppUpdateHandler;
 import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LocationUtils;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
+import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
 
 import java.io.IOException;
 import java.security.Permission;
@@ -91,7 +93,6 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
-import android.app.AlertDialog;
 
 
 public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
@@ -120,8 +121,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     LinearLayoutManager mLayoutManager;
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
-//    @BindView(R.id.navigation_view_listview)
-//    RecyclerView navigationViewListView;
+    RecyclerView navigationViewListView;
 
     private NumberPicker silenceTimePicker;
     Subscriber subscriber;
@@ -133,9 +133,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.total_silence_on)
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
-    @SuppressLint("ResourceType")
-    @BindView(R.string.version)
+
+//    @BindView()
     TextView version_name;
+
     ArrayList<Building> groups = new ArrayList<>();
     ArrayList<Building> buildings = new ArrayList<>();
     ArrayList<Building> personalCommunities = new ArrayList<>();
@@ -157,17 +158,34 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
+    @SuppressLint("ResourceType")
     @Override // com.sca.in_telligent.ui.base.BaseActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+        OpenAPI.Configuration.setMocked(BuildConfig.MOCK);
+
         checkAppUpdates();
         setContentView(R.layout.activity_main);
         checkIntent(getIntent());
         getActivityComponent().inject(this);
         getAudioHelper().stopRingtone();
-        setUnBinder(ButterKnife.bind(this));
+
+        ButterKnife.bind(this);
+
         this.mPresenter.onAttach(this);
         CommonUtils.checkDNDPermission(this);
+
+//        version_name = findViewById(R.string.version_no_longer_available);
+        navigationViewListView = findViewById(R.id.navigation_view_listview);
+        totalSilenceNumber = findViewById(R.id.total_silence_number);
+        totalSilenceOn = findViewById(R.id.total_silence_on);
+        totalSilenceOff = findViewById(R.id.total_silence_off);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        adImageView = findViewById(R.id.ad_footer_image);
+
+
         setUp();
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
@@ -192,12 +210,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         bundle.clear();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
-    protected void setUp() {
-        this.version_name.setText(getString(R.string.version) + " " + BuildConfig1.VERSION_NAME);
+    @Override
+    public void setUp() {
+//        version_name.setText("1.0" + " " + BuildConfig1.VERSION_NAME);
+        Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+
         showLocationInformation();
-//        configureNavigationDrawer();
+        configureNavigationDrawer();
         configureToolbar();
         initSilence();
         configureTotalSilence();
@@ -205,20 +224,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.actionBarDrawerToggle = actionBarDrawerToggle;
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
         this.mPresenter.getSubscriber();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private void showLocationInformation() {
         if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-            return;
         }
 //        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+
+    @Override
     public void onResume() {
         super.onResume();
         if (LocationUtils.isPermissionsGranted(this)) {
@@ -239,37 +256,25 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getCommunityInfo(subscribeToCommunityData.getCommunityId(), subscribeToCommunityData.getInviteId());
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void showSubscribeToCommunityDialog(String str, final int i, final int i2) {
+    @SuppressLint("StringFormatMatches")
+    @Override
+    public void showSubscribeToCommunityDialog(String name, int communityId, int inviteId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.you_were_invited_to_join_a_comunnity, new Object[]{str}));
+        builder.setTitle(getString(R.string.you_were_invited_to_join_a_comunnity, name));
         builder.setMessage(R.string.are_you_sure_you_want_to_join);
-        builder.setPositiveButton(17039370, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda0
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i3) {
-                MainActivity.this.m266x381bc0d4(i, i2, dialogInterface, i3);
-            }
-        });
-        builder.setNegativeButton(17039360, (DialogInterface.OnClickListener) null);
-        AlertDialog create = builder.create();
-        create.setCanceledOnTouchOutside(false);
-        create.show();
+        builder.setPositiveButton(android.R.string.ok, (dialogInterface, i) -> mPresenter.subscribeToCommunity(communityId, inviteId));
+        builder.setNegativeButton(android.R.string.cancel, null);
+        Dialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
     }
 
-    /* renamed from: lambda$showSubscribeToCommunityDialog$0$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-    public /* synthetic */ void m266x381bc0d4(int i, int i2, DialogInterface dialogInterface, int i3) {
-        this.mPresenter.subscribeToCommunity(i, i2);
-    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+    @Override
     public void onDestroy() {
-        this.mPresenter.onDetach();
-        CountDownTimer countDownTimer = this.totalSilenceTimer;
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
+        mPresenter.onDetach();
+        if (totalSilenceTimer != null) {
+            totalSilenceTimer.cancel();
         }
         super.onDestroy();
     }
@@ -278,7 +283,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         return new Intent(context, MainActivity.class);
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseActivity, com.sca.in_telligent.ui.base.BaseFragment.Callback
+    @Override
     public void onFragmentAttached() {
         DrawerLayout drawerLayout = this.drawerLayout;
         if (drawerLayout != null) {
@@ -286,7 +291,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseActivity, com.sca.in_telligent.ui.base.BaseFragment.Callback
+    @Override
     public void onFragmentDetached(String str) {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(str);
@@ -296,37 +301,32 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void configureToolbar() {
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
-        this.appBarLayout = appBarLayout;
-        @SuppressLint("ResourceType") Toolbar toolbar = (Toolbar) appBarLayout.findViewById(2131231479);
-        this.toolbar = toolbar;
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
+        toolbar = (Toolbar) appBarLayout.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator((int) R.drawable.ic_menu_icon);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_icon);
     }
 
-//    private void configureNavigationDrawer() {
-//        this.adapter.setCallback(this);
-//        this.adapter.addItems(addItemsToList());
-//        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
-//        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
-//        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
-//        this.navigationViewListView.setAdapter(this.adapter);
-//    }
+    private void configureNavigationDrawer() {
+        this.adapter.setCallback(this);
+        this.adapter.addItems(addItemsToList());
+        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
+        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
+        this.navigationViewListView.setAdapter(this.adapter);
+    }
 
 
     private void configureTotalSilence() {
         silenceTimePicker = new NumberPicker(this);
         silenceTimeDialog = setUpAlertDialog(silenceTimePicker, getString(R.string.hours_of_silence),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Date now = new Date();
-                        getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
-                                new Date(now.getTime() + 1000 * 60 * 60 * silenceTimePicker.getValue())));
-                        initSilence();
-                    }
+                (dialog, which) -> {
+                    Date now = new Date();
+                    getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
+                            new Date(now.getTime() + 1000L * 60 * 60 * silenceTimePicker.getValue())));
+                    initSilence();
                 });
 
         silenceTimePicker.setMinValue(1);
@@ -335,8 +335,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         silenceTimePicker.setWrapSelectorWheel(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v5, types: [com.sca.in_telligent.ui.main.MainActivity$2] */
+
     public void initSilence() {
         Date date = new Date();
         Date silenceDate = CommonUtils.getSilenceDate(getDataManager().getLifeSafetyOverrideExpire());
@@ -354,8 +353,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.totalSilenceOn.setSelected(true);
         long time = silenceDate.getTime() - date.getTime();
         this.totalSilenceNumber.setText(DateUtils.formatElapsedTime(time / 1000));
-        this.totalSilenceTimer = new CountDownTimer(time, 1000L) { // from class: com.sca.in_telligent.ui.main.MainActivity.2
-            @Override // android.os.CountDownTimer
+        this.totalSilenceTimer = new CountDownTimer(time, 1000L) {
+            @Override
             public void onTick(long j) {
                 MainActivity.this.totalSilenceNumber.setText(DateUtils.formatElapsedTime(j / 1000));
             }
@@ -367,7 +366,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }.start();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+
     @OnClick({R.id.total_silence_on})
     public void silenceOnClick(View view) {
         AlertDialog alertDialog = this.silenceTimeDialog;
@@ -376,7 +375,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+
     @OnClick({R.id.total_silence_off})
     public void silenceOffClick(View view) {
         getDataManager().setLifeSafetyOverrideExpire(null);
@@ -509,7 +508,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     private void addSuggestedHeaderIfNeeded() {
         if (this.groups.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda3
             @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
+            public boolean test(Object obj) {
                 return MainActivity.lambda$addSuggestedHeaderIfNeeded$1((Building) obj);
             }
         })) {
@@ -853,7 +852,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         private boolean isManaged ( final int i){
             return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
                 @Override // java.util.function.Predicate
-                public final boolean test(Object obj) {
+                public boolean test(Object obj) {
                     return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
                 }
             });
@@ -979,7 +978,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         Glide.with(this).load(bannerAd.getImage()).into(this.adImageView);
         this.adImageView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda6
             @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
+            public void onClick(View view) {
                 MainActivity.this.m262lambda$loadImage$11$comscain_telligentuimainMainActivity(bannerAd, view);
             }
         });

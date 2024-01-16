@@ -24,10 +24,10 @@ import butterknife.OnCheckedChanged;
 
 public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<Invitee> invitees;
-    private List<BuildingMember> buildingMembers;
-    private ArrayList<Invitee> checkedItemIds = new ArrayList<>();
-    private ArrayList<BuildingMember> checkedBuildingMembers = new ArrayList<>();
+    private final List<Invitee> invitees;
+    private final List<BuildingMember> buildingMembers;
+    private final ArrayList<Invitee> checkedItemIds = new ArrayList<>();
+    private final ArrayList<BuildingMember> checkedBuildingMembers = new ArrayList<>();
     private Callback mCallback;
 
     public static final int VIEW_TYPE_INVITEE = 1;
@@ -45,18 +45,16 @@ public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHold
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        switch (viewType) {
-            case VIEW_TYPE_INVITEE:
-                return new ContactDeliverListAdapter.ViewHolder(
-                        LayoutInflater
-                                .from(parent.getContext())
-                                .inflate(R.layout.contact_deliver_invitee_item, parent, false));
-            default:
-                return new ContactDeliverListAdapter.MemberViewHolder(
-                        LayoutInflater
-                                .from(parent.getContext())
-                                .inflate(R.layout.contact_deliver_invitee_item, parent, false));
+        if (viewType == VIEW_TYPE_INVITEE) {
+            return new ViewHolder(
+                    LayoutInflater
+                            .from(parent.getContext())
+                            .inflate(R.layout.contact_deliver_invitee_item, parent, false));
         }
+        return new MemberViewHolder(
+                LayoutInflater
+                        .from(parent.getContext())
+                        .inflate(R.layout.contact_deliver_invitee_item, parent, false));
     }
 
     @Override
@@ -129,9 +127,7 @@ public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHold
                     checkedItemIds.add(invitees.get(getAdapterPosition()));
                     mCallback.onCheckChanged(checkedItemIds);
                 } else {
-                    if (checkedItemIds.contains(currentInvitee)) {
-                        checkedItemIds.remove(checkedItemIds.indexOf(currentInvitee));
-                    }
+                    checkedItemIds.remove(currentInvitee);
                     mCallback.onCheckChanged(checkedItemIds);
                 }
             });
@@ -160,10 +156,8 @@ public class ContactDeliverListAdapter extends RecyclerView.Adapter<BaseViewHold
                 checkedBuildingMembers.add(buildingMembers.get(getAdapterPosition()));
                 mCallback.onCheckChangedMember(checkedBuildingMembers);
             } else {
-                if (checkedBuildingMembers.contains(checkedBuildingMembers.get(getAdapterPosition()))) {
-                    checkedBuildingMembers.remove(
-                            checkedBuildingMembers.indexOf(checkedBuildingMembers.get(getAdapterPosition())));
-                }
+                checkedBuildingMembers.remove(
+                        checkedBuildingMembers.get(getAdapterPosition()));
                 mCallback.onCheckChangedMember(checkedBuildingMembers);
             }
         }
