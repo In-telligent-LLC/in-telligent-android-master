@@ -28,8 +28,10 @@ captures/
 
 # Gradle
 .gradle/
-/app/*/generated/
-/app/*/build/
+./In-telligent/app/*/generated/
+./In-telligent/app/*/build/
+./DS_Store
+.idea/
 
 # Android Studio Navigation editor temp files
 .navigation/
