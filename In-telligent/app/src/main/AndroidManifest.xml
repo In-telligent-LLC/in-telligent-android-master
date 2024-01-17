@@ -82,7 +82,7 @@
                 <data
                     android:host="${hostName}"
                     android:pathPrefix="/subscribe/"
-                    android:scheme="https" />
+                    android:scheme="http" />
             </intent-filter>
 
 
@@ -146,7 +146,7 @@
                 <data
                     android:host="${hostName}"
                     android:pathPrefix="/subscribers/reset"
-                    android:scheme="https" />
+                    android:scheme="http" />
 
             </intent-filter>
         </activity>

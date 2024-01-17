@@ -3,11 +3,12 @@ package com.sca.in_telligent.openapi.data.network;
 import android.util.Log;
 
 import com.moczul.ok2curl.CurlInterceptor;
-import com.moczul.ok2curl.logger.Loggable;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.CredentialsProvider;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -28,7 +29,7 @@ public class OkHttpClientProvider {
     }
 
     public static class PublicInterceptor implements Interceptor {
-        @Override // okhttp3.Interceptor
+        @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             return chain.proceed(request.newBuilder().headers(getHeadersBuilder(request).build()).build());

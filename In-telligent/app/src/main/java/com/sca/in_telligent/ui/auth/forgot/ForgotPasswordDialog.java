@@ -4,15 +4,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.EditText;
 
 import androidx.fragment.app.FragmentManager;
 
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.openapi.data.network.model.ForgotPasswordRequest;
 import com.sca.in_telligent.di.component.ActivityComponent;
+import com.sca.in_telligent.openapi.data.network.model.ForgotPasswordRequest;
 import com.sca.in_telligent.ui.base.BaseDialog;
+
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMvpView {
 
@@ -21,8 +26,8 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
   @Inject
   ForgotPasswordMvpPresenter<ForgotPasswordMvpView> mPresenter;
 
-//  @BindView(R.id.forgotPasswordEmail)
-//  EditText forgotPasswordEmail = findV;
+  @BindView(R.id.forgotPasswordEmail)
+  EditText forgotPasswordEmail;
 
   public static ForgotPasswordDialog newInstance() {
     ForgotPasswordDialog fragment = new ForgotPasswordDialog();
@@ -41,24 +46,27 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
     if (component != null) {
 
       component.inject(this);
+      forgotPasswordEmail = view.findViewById(R.id.forgotPasswordEmail);
 
-//      setUnBinder(ButterKnife.bind(this, view));
+      setUnBinder(ButterKnife.bind(this, view));
 
       mPresenter.onAttach(this);
+
+
     }
 
     return view;
   }
 
-//  @OnClick(R.id.forgotPasswordCancel)
+  @OnClick(R.id.forgotPasswordCancel)
   void cancelClick(View v) {
     dismissDialog(TAG);
   }
 
-//  @OnClick(R.id.forgotPasswordSubmit)
+  @OnClick(R.id.forgotPasswordSubmit)
   void forgotPasswordSubmit(View v) {
     ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest();
-//    forgotPasswordRequest.setEmail(forgotPasswordEmail.getText().toString());
+    forgotPasswordRequest.setEmail(forgotPasswordEmail.getText().toString());
     mPresenter.submitEmail(forgotPasswordRequest);
   }
 

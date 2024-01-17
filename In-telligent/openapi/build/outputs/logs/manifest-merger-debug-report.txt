@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
-INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-12:12
+INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-12:12
 	package
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
-		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-6:12
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:1-12:12
 		INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:1:11-69
@@ -21,6 +21,14 @@ uses-permission#android.permission.VIBRATE
 ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:5:5-66
 	android:name
 		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:5:22-63
+uses-permission#android.permission.INTERNET
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:6:22-64
+application
+ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:9:5-11:15
+	android:networkSecurityConfig
+		ADDED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml:10:9-69
 uses-sdk
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marianesantana/Documents/Android/in-telligent-android-master/In-telligent/openapi/src/main/AndroidManifest.xml

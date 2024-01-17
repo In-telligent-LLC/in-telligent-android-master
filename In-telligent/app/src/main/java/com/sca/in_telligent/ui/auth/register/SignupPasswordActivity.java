@@ -54,10 +54,17 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_password);
         getActivityComponent().inject(this);
+        inputPasswordFirst = findViewById(R.id.inputPasswordFirst);
+        inputPasswordSecond = findViewById(R.id.inputPasswordSecond);
+        buttonSignup = findViewById(R.id.btnSignup);
+        buttonGoToLogin = findViewById(R.id.btnGoToLogin);
 
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(SignupPasswordActivity.this);
+
+        buttonGoToLogin.setOnClickListener(v -> goToLogin(v));
+        buttonSignup.setOnClickListener(v -> signUpClick(v));
 
     }
 

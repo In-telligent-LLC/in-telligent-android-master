@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">OpenAPI</string>
-    <string name="scanning_beacons">Scanning Beacons</string>
-    <string name="scanning_beacons_message">In-telligent is currently scanning for beacons installed in near by buildings. You can stop the scanning at any time.</string>
-</resources>

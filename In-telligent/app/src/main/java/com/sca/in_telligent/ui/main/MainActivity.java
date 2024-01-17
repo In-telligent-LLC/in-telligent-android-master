@@ -230,12 +230,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         configureToolbar();
         initSilence();
         configureTotalSilence();
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, this.toolbar, (int) R.string.drawer_open, (int) R.string.drawer_closed);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, this.toolbar, R.string.drawer_open, R.string.drawer_closed);
         this.actionBarDrawerToggle = actionBarDrawerToggle;
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        this.mPresenter.getSubscriber();
+//        this.mPresenter.getSubscriber();
     }
 
 //    private void showLocationInformation() {

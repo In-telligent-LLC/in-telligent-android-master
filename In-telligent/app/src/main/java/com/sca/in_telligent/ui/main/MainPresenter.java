@@ -5,9 +5,7 @@ import android.util.Log;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.LocationModel;
-import com.sca.in_telligent.openapi.data.network.model.SearchCommunityResponse;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
@@ -19,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> implements MainMvpPresenter<V> {
     private static final int NO_INVITE_ID = -1112;
@@ -77,17 +74,7 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
         getCompositeDisposable().add(
                 getDataManager().getSuggestedGroups().subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui()).subscribe(
-                                new Consumer<SearchCommunityResponse>() {
-                                    @Override
-                                    public void accept(SearchCommunityResponse searchCommunityResponse) throws Exception {
-                                        getMvpView().loadSuggestedGroups(searchCommunityResponse.getBuildings());
-                                    }
-                                }, new Consumer<Throwable>() {
-                                    @Override
-                                    public void accept(Throwable throwable) throws Exception {
-                                        getMvpView().hideLoading();
-                                    }
-                                }));
+                                searchCommunityResponse -> getMvpView().loadSuggestedGroups(searchCommunityResponse.getBuildings()), throwable -> getMvpView().hideLoading()));
     }
 
     @Override
@@ -210,8 +197,4 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                         }));
     }
 
-    /* renamed from: lambda$fetchAd$15$com-sca-in_telligent-ui-main-MainPresenter  reason: not valid java name */
-    public /* synthetic */ void m267lambda$fetchAd$15$comscain_telligentuimainMainPresenter(AdResponse adResponse) throws Exception {
-        ((MainMvpView) getMvpView()).loadImage(adResponse.getBannerAd());
-    }
 }
