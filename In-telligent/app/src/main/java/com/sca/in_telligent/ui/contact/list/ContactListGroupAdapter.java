@@ -43,11 +43,14 @@ public class ContactListGroupAdapter extends RecyclerView.Adapter<BaseViewHolder
                 LayoutInflater
                         .from(parent.getContext())
                         .inflate(R.layout.contact_list_group_view, parent, false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
+
         holder.onBind(position);
+
     }
 
 
@@ -83,19 +86,23 @@ public class ContactListGroupAdapter extends RecyclerView.Adapter<BaseViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             ButterKnife.bind(this, itemView);
         }
 
         @Override
-        protected void clear() {
-
-        }
+        protected void clear() {}
         public void setUnBinder(Unbinder unBinder) {
             mUnBinder = unBinder;
         }
 
         public void onBind(final int position) {
             super.onBind(position);
+            groupName = itemView.findViewById(R.id.contact_group_item_name);
+            profileImage = itemView.findViewById(R.id.contact_group_item_profile_image);
+            messageButton = itemView.findViewById(R.id.contact_group_item_message);
+            callButton = itemView.findViewById(R.id.contact_group_item_call);
+
 
             Building building = buildings.get(position);
             groupName.setText(building.getName());

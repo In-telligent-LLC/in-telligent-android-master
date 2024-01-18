@@ -100,9 +100,9 @@ public class GenerateGroupFragment extends BaseFragment implements GenerateGroup
 
     @Override
     public void onAttach(@Nullable Context context) {
-        super.onAttach(context);
-        building = (Building) getArguments().getSerializable("building");
         generateGroupSelector = (GenerateGroupSelector) context;
+        super.onAttach(context);
+        
     }
 
     @Nullable

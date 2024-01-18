@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.main;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -97,7 +99,7 @@ import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 
-public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
+public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback, GenerateGroupFragment.GenerateGroupSelector {
     private static final String TAG = "MainActivity";
     ActionBarDrawerToggle actionBarDrawerToggle;
     @BindView(R.id.ad_footer_image)
@@ -225,7 +227,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @Override
     public void setUp() {
 
-//        showLocationInformation();
+        showLocationInformation();
         configureNavigationDrawer();
         configureToolbar();
         initSilence();
@@ -235,14 +237,19 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-//        this.mPresenter.getSubscriber();
+        this.mPresenter.getSubscriber();
     }
 
-//    private void showLocationInformation() {
-//        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-//        }
-//        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
-//    }
+    private void showLocationInformation() {
+        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
+            return;
+        }
+        else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest
+                    .permission.ACCESS_FINE_LOCATION}, 1);
+
+        }
+    }
 
 
     @Override
@@ -1006,6 +1013,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+
+    @Override
+    public void groupCreated() {
+        groupCreated = true;
     }
 
 //    @NonNull

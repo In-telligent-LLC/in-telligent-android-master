@@ -94,8 +94,17 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            callStatusImage = view.findViewById(R.id.contact_call_status_image);
+            dialPad = view.findViewById(R.id.dial_pad_layout);
+            floatingActionButtonStartCall = view.findViewById(R.id.fab_start_call);
+            floatingActionButtonEndCall = view.findViewById(R.id.fab_end_call);
+            chronometer = view.findViewById(R.id.chronometer);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            floatingActionButtonEndCall.setOnClickListener(v -> endCallClick(v));
+            floatingActionButtonStartCall.setOnClickListener(v -> startCallClick(v));
         }
 
         return view;

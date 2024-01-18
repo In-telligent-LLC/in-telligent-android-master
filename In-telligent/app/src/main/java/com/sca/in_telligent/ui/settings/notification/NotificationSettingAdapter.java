@@ -119,11 +119,12 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
 
     public ViewHolder(View itemView) {
       super(itemView);
+
       itemImage = itemView.findViewById(R.id.notification_setting_item_image);
-        titleText = itemView.findViewById(R.id.notification_setting_title_text);
-        buttonAlways = itemView.findViewById(R.id.notification_setting_always_text);
-        buttonOnly = itemView.findViewById(R.id.notification_setting_only_text);
-        buttonNever = itemView.findViewById(R.id.notification_setting_never_text);
+      titleText = itemView.findViewById(R.id.notification_setting_title_text);
+      buttonAlways = itemView.findViewById(R.id.notification_setting_always_text);
+      buttonOnly = itemView.findViewById(R.id.notification_setting_only_text);
+      buttonNever = itemView.findViewById(R.id.notification_setting_never_text);
 
       ButterKnife.bind(this, itemView);
     }
@@ -178,6 +179,7 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
 
     public EmptyViewHolder(View itemView) {
       super(itemView);
+
       ButterKnife.bind(this, itemView);
     }
 

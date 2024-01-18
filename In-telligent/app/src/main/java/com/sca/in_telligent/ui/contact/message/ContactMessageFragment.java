@@ -116,6 +116,8 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     @BindView(R.id.contact_send_message_edittext)
     EditText messageEditText;
 
+    TextView goBackText;
+
     private boolean managed;
     private boolean isPersonalCommunity;
     private boolean canSendLSA;
@@ -158,8 +160,24 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            alertSpinner = view.findViewById(R.id.contact_alert_spinner);
+            sendSpinner = view.findViewById(R.id.contact_send_to_spinner);
+            sendSpinnerLayout = view.findViewById(R.id.contact_send_spinner_layout);
+            alertSpinnerLayout = view.findViewById(R.id.contact_alert_spinner_layout);
+            sendAttachmentLayout = view.findViewById(R.id.contact_send_attachment_layout);
+            attachmentText = view.findViewById(R.id.contact_send_attachment_text);
+            attachmentProgressBar = view.findViewById(R.id.contact_send_attachment_progress_bar);
+            requiredAlertType = view.findViewById(R.id.required_alert_type);
+            requiredSendTo = view.findViewById(R.id.required_send_to);
+            sendMessageButton = view.findViewById(R.id.contact_send_message_button);
+            sendTitleEdittext = view.findViewById(R.id.contact_send_title_edittext);
+            messageEditText = view.findViewById(R.id.contact_send_message_edittext);
+            goBackText = view.findViewById(R.id.contact_message_back_text);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            goBackText.setOnClickListener(v -> backClick());
         }
 
         return view;
@@ -201,7 +219,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
 
     @OnClick({R.id.contact_message_back_button, R.id.contact_message_back_text})
-    void backClick(View v) {
+    void backClick() {
         getActivity().onBackPressed();
     }
 
