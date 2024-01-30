@@ -65,20 +65,6 @@
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/group_list_spinner_layout" />
 
-
-    <Button
-        android:id="@+id/btnSendNotification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/tab_green"
-        android:text="ALARM"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/group_list_edittext_search" />
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout_groups"
         android:layout_width="0dp"
@@ -97,18 +83,18 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_create_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:backgroundTint="@color/tab_green"
-        android:src="@drawable/baseline_add_white_24"
-        app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh_layout_groups"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/darkGreen" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab_create_group"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="end|bottom"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        app:backgroundTint="@color/tab_green"-->
+<!--        android:src="@drawable/baseline_add_white_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh_layout_groups"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:rippleColor="@color/darkGreen" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

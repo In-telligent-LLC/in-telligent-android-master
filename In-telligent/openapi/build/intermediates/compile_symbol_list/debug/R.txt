@@ -1971,3 +1971,4 @@ int styleable com_facebook_login_view_com_facebook_tooltip_mode 5
 int[] styleable com_facebook_profile_picture_view { 0x0, 0x0 }
 int styleable com_facebook_profile_picture_view_com_facebook_is_cropped 0
 int styleable com_facebook_profile_picture_view_com_facebook_preset_size 1
+int xml network_security_config 0x0

@@ -2,6 +2,7 @@ package com.sca.in_telligent.ui.group.list;
 
 import static com.sca.in_telligent.util.AlertUtil.showConfirmationAlert;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -19,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+//import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -64,8 +66,8 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     @BindView(R.id.swipe_refresh_layout_groups)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    @BindView(R.id.fab_create_group)
-    FloatingActionButton fabCreateGroup;
+//    @BindView(R.id.fab_create_group)
+//    FloatingActionButton fabCreateGroup;
 
 
     private ArrayList<Building> buildings = new ArrayList<>();
@@ -95,43 +97,45 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     public void onOptOutFromCommunitySuccess() {
     }
 
-    public static GroupListFragment newInstance(ArrayList<Building> arrayList, ArrayList<Building> arrayList2, int i) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(ARG_GROUPS, arrayList);
-        bundle.putSerializable(ARG_SUGGESTED, arrayList2);
-        bundle.putInt(ARG_SUBSCRIBER_ID, i);
-        GroupListFragment groupListFragment = new GroupListFragment();
-        groupListFragment.setArguments(bundle);
-        return groupListFragment;
+    public static GroupListFragment newInstance(ArrayList<Building> groups,
+                                                ArrayList<Building> suggested, int subscriberId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_GROUPS, groups);
+        args.putSerializable(ARG_SUGGESTED, suggested);
+        args.putInt(ARG_SUBSCRIBER_ID, subscriberId);
+        GroupListFragment fragment = new GroupListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.groupListSelector = (GroupListSelector) context;
-        this.buildings = (ArrayList) getArguments().getSerializable(ARG_GROUPS);
-        this.suggestedBuildings = (ArrayList) getArguments().getSerializable(ARG_SUGGESTED);
-        this.subscriberId = getArguments().getInt(ARG_SUBSCRIBER_ID);
+        buildings = (ArrayList<Building>) getArguments().getSerializable(ARG_GROUPS);
+        suggestedBuildings = (ArrayList<Building>) getArguments().getSerializable(ARG_SUGGESTED);
+        subscriberId = getArguments().getInt(ARG_SUBSCRIBER_ID);
     }
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_group_list, viewGroup, false);
         ActivityComponent activityComponent = getActivityComponent();
 
-        swipeRefreshLayout = inflate.findViewById(R.id.swipe_refresh_layout_groups);
-        searchEdittext = inflate.findViewById(R.id.group_list_edittext_search);
-        spinnerAdapter = new GroupListSpinnerAdapter(getContext(), new ArrayList<>());
-        groupListSpinner = inflate.findViewById(R.id.group_list_spinner);
-        groupList = inflate.findViewById(R.id.group_recyclerview);
-        fabCreateGroup = inflate.findViewById(R.id.fab_create_group);
-
 
         if (activityComponent != null) {
             activityComponent.inject(this);
 
-
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);
+
+            swipeRefreshLayout = inflate.findViewById(R.id.swipe_refresh_layout_groups);
+            searchEdittext = inflate.findViewById(R.id.group_list_edittext_search);
+            spinnerAdapter = new GroupListSpinnerAdapter(getContext(), new ArrayList<>());
+            groupListSpinner = inflate.findViewById(R.id.group_list_spinner);
+            groupList = inflate.findViewById(R.id.group_recyclerview);
+//            fabCreateGroup = inflate.findViewById(R.id.fab_create_group);
+
+
         }
         return inflate;
     }
@@ -144,15 +148,27 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         groupList.setLayoutManager(mLayoutManager);
         groupList.setAdapter(adapter);
 
-        addItems(buildings, suggestedBuildings);
+        addItems(this.buildings, this.suggestedBuildings);
 
         initSpinner();
         setTextWatcher();
         setUpPullToRefresh();
 
-        fabCreateGroup.setOnClickListener(v -> {
-            groupListSelector.onCreateGroupClicked();
+//        fabCreateGroup.setOnClickListener(v -> groupListSelector.onCreateGroupClicked());
+        onContactClicked(subscriberId);
+
+        groupListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spinnerItemSelected(groupListSpinner, position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
         });
+
 
     }
 
@@ -194,6 +210,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     }
 
 
+    @SuppressLint("CheckResult")
     private void updateSpinnerList(Building.Category category) {
         Observable.fromIterable(buildings)
                 .filter(
@@ -240,7 +257,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         super.onDestroyView();
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
+    @Override
     public void onAboutClicked(int i, boolean z) {
         this.groupListSelector.itemAboutClicked(i, z);
     }
@@ -278,6 +295,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
 
+            @SuppressLint("CheckResult")
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.toString().trim().length() >= 3) {
@@ -289,18 +307,18 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
                                 filteredBuildings = (ArrayList<Building>) filteredList;
                                 groupListSelector.groupsUpdated(filteredBuildings);
                             });
-
                     mPresenter.searchCommunities(editable.toString());
                 } else {
-                    // buildings.removeAll(otherBuildings);
-                    combinedBuildings = new ArrayList<>();
-                    adapter.updateItems(buildings);
-                    groupListSelector.groupsUpdated(buildings);
+                        buildings.removeAll(otherBuildings);
+                        combinedBuildings = new ArrayList<>();
+                        adapter.updateItems(buildings);
+                        groupListSelector.groupsUpdated(buildings);
                 }
             }
         });
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void updateGroupList(ArrayList<Building> otherGroups) {
 
@@ -332,6 +350,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
 
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void subscribed(String buildingId, boolean suggested) {
         if (suggested) {
@@ -375,6 +394,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     }
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void unsubscribed(String buildingId) {
 
@@ -433,7 +453,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         this.adapter.updateSuggestedItems(this.suggestedBuildings);
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListMvpView
+    @Override
     public void updateNextSuggested(Building building, int i) {
         this.suggestedBuildings.set(i, building);
         this.adapter.updateSuggestedItems(this.suggestedBuildings);

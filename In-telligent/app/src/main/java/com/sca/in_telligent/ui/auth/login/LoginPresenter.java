@@ -69,13 +69,11 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                 getMvpView().showMessage(loginResponse.getError());
               }
 
-            }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-            RetrofitException retrofitException = (RetrofitException) throwable;
-          }
-        }));
+            }, throwable -> {
+              getMvpView().hideLoading();
+              RetrofitException retrofitException = (RetrofitException) throwable;
+              Log.e(TAG, "loginWithPassword: " + retrofitException.getKind());
+            }));
   }
 
   @Override

@@ -1,6 +1,5 @@
 package com.sca.in_telligent.openapi;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Constants {
     public static final long AUTO_REJECT_TIME = 10000;
     public static final String CALL_AUTO_CANCEL_ACTION = "Auto_Cancel";

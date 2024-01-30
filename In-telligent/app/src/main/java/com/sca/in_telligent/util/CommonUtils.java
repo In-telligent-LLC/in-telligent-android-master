@@ -1,5 +1,6 @@
 package com.sca.in_telligent.util;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.NotificationChannel;
@@ -42,7 +43,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class CommonUtils {
-    static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final String TAG = "CommonUtils";
     private static final int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
 
@@ -81,18 +81,19 @@ public final class CommonUtils {
     }
 
     public static String getSilenceDateString(Date date) {
-        DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return inDf.format(date);
     }
 
     public static String getDateString(String oldDate) {
-        DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
+        @SuppressLint("SimpleDateFormat") DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
         inDf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        DateFormat outDf = new SimpleDateFormat("MM/dd/yy h:mm a");
+        @SuppressLint("SimpleDateFormat") DateFormat outDf = new SimpleDateFormat("MM/dd/yy h:mm a");
         outDf.setTimeZone(TimeZone.getDefault());
         String date = null;
         try {
             Date parse = inDf.parse(oldDate);
+            assert parse != null;
             date = outDf.format(parse);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -150,14 +151,14 @@ public final class CommonUtils {
         context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
     }
 
-    public static void toggleDoNotDIsturb(Context context, final AudioHelper audioHelper) {
+    public static void toggleDoNotDisturb(Context context, final AudioHelper audioHelper) {
         final NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (notificationManager.getCurrentInterruptionFilter() != NotificationManager.INTERRUPTION_FILTER_ALL) {
             final int currentInterruptionFilter = notificationManager.getCurrentInterruptionFilter();
             if (notificationManager.isNotificationPolicyAccessGranted()) {
                 notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
-                new Timer().schedule(new TimerTask() { // from class: com.sca.in_telligent.util.CommonUtils.1
-                    @Override // java.util.TimerTask, java.lang.Runnable
+                new Timer().schedule(new TimerTask() {
+                    @Override
                     public void run() {
                         notificationManager.setInterruptionFilter(currentInterruptionFilter);
                         if (currentInterruptionFilter != 1) {
@@ -171,10 +172,7 @@ public final class CommonUtils {
 
     public static void buildAlertMessage(String str, String str2, final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda1
-// android.content.DialogInterface.OnClickListener
-        // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda0
-// android.content.DialogInterface.OnClickListener
+
         builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"))).setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }

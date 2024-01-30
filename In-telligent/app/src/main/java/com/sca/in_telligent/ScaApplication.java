@@ -1,13 +1,12 @@
 package com.sca.in_telligent;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.media.AudioManager;
 import android.util.Log;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
 
-import com.factual.android.FactualException;
-import com.factual.android.ObservationGraph;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ApplicationComponent;
@@ -15,9 +14,7 @@ import com.sca.in_telligent.di.component.DaggerApplicationComponent;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
-import com.sca.in_telligent.util.CommonUtils;
 import com.sca.in_telligent.util.LifecycleInterface;
-
 
 import javax.inject.Inject;
 
@@ -43,15 +40,14 @@ public class ScaApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        //This should be initialized BEFORE DI. Otherwise it will throw an exception
         initOpenApi();
 
-        mApplicationComponent = (ApplicationComponent) DaggerApplicationComponent.builder()
+        mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this)).build();
 
         mApplicationComponent.inject(this);
 
-        initOG();
+//        initOG();
 
 //        FacebookSdk.sdkInitialize(getApplicationContext());
 //        AppEventsLogger.activateApp(this);
@@ -97,6 +93,7 @@ public class ScaApplication extends Application {
         mApplicationComponent = applicationComponent;
     }
 
+    @SuppressLint("CheckResult")
     private void sendRegistrationToServer(String token) {
         PushTokenRequest pushTokenRequest = new PushTokenRequest();
         pushTokenRequest.setEnvironment("fcm");
@@ -104,20 +101,20 @@ public class ScaApplication extends Application {
         mDataManager.registerPushToken(pushTokenRequest).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(successResponse -> {
-                    Log.i(LOG, "sendRegistrationToServer: successResponse");
+                    Log.i("sendRegistrationToServer: successResponse", successResponse.toString());
                 }, throwable -> Log.e(LOG, "sendRegistrationToServer error ", throwable));
     }
 
-    public void initOG() {
-        if (CommonUtils.checkLocationPermission(this)) {
-            try {
-                ObservationGraph.getInstance(this, "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV");
-            } catch (FactualException e) {
-                Log.e(LOG, "Factual Exception: " + e);
-            }
-        } else {
-        }
-    }
+//    public void initOG() {
+//        if (CommonUtils.checkLocationPermission(this)) {
+//            try {
+//                ObservationGraph.getInstance(this, getString(R.string.factual_key), getString(R.string.factual_secret)
+//            } catch (FactualException e) {
+//                Log.e(LOG, "Factual Exception: " + e);
+//            }
+//        } else {
+//        }
+//    }
 
 
 //    public void initGroundTruth() {

@@ -88,17 +88,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
 
     getActivityComponent().inject(this);
 
-
-    setUnBinder(ButterKnife.bind(this));
-
-    mPresenter.onAttach(LoginActivity.this);
-
-    callbackManager = CallbackManager.Factory.create();
-
-
-    hideKeyboard();
-
-
     buttonLogin = findViewById(R.id.btnLogin);
     buttonLogin.setOnClickListener(this::loginWithPassword);
 
@@ -118,6 +107,20 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     inputPasword = findViewById(R.id.inputPassword);
 
 
+    setUnBinder(ButterKnife.bind(this));
+
+    mPresenter.onAttach(LoginActivity.this);
+
+    callbackManager = CallbackManager.Factory.create();
+
+
+    hideKeyboard();
+    setUp();
+
+
+
+
+
   }
 
   @OnClick(R.id.btnLogin)
@@ -125,7 +128,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     if (!isNetworkConnected()) {
       showNetworkDialog();
     } else {
-//      Log.d("Chego aqui", inputUserName.getText().toString());
+      Log.d("Chego aqui", inputUserName.getText().toString());
 
       if (inputUserName.getText().toString().length() > 3
               && inputPasword.getText().toString().length() > 3) {
@@ -135,7 +138,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
         loginRequest.setEmail(inputUserName.getText().toString().trim());
         loginRequest.setPassword(inputPasword.getText().toString().trim());
         mPresenter.loginWithPassword(loginRequest);
-        openMainActivity();
       }
 
       hideKeyboard();

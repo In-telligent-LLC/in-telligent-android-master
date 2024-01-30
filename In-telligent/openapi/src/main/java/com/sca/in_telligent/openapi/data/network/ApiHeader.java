@@ -3,7 +3,6 @@ package com.sca.in_telligent.openapi.data.network;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class ApiHeader {
     private final PublicApiHeader mPublicApiHeader;
 
@@ -15,7 +14,6 @@ public class ApiHeader {
         return this.mPublicApiHeader;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class PublicApiHeader {
         @SerializedName("api_key")
         @Expose

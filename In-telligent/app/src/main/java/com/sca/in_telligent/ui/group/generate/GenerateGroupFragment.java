@@ -100,9 +100,9 @@ public class GenerateGroupFragment extends BaseFragment implements GenerateGroup
 
     @Override
     public void onAttach(@Nullable Context context) {
-        super.onAttach(context);
-        building = (Building) getArguments().getSerializable("building");
         generateGroupSelector = (GenerateGroupSelector) context;
+        super.onAttach(context);
+        
     }
 
     @Nullable
@@ -111,21 +111,25 @@ public class GenerateGroupFragment extends BaseFragment implements GenerateGroup
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_generate_group, container, false);
         ActivityComponent activityComponent = getActivityComponent();
-        titleText = view.findViewById(R.id.generate_group_title_text);
-        emergencyImage = view.findViewById(R.id.emergency_sound_alert_image);
-        urgentImage = view.findViewById(R.id.urgent_sound_alert_image);
-        createThumbnailImage = view.findViewById(R.id.create_thumbnail_image);
-        defaultThumbnailImage = view.findViewById(R.id.default_thumbnail_image);
-        defaultThumbnailText = view.findViewById(R.id.default_thumbnail_text);
-        nameEdittext = view.findViewById(R.id.generate_group_name_edittext);
-        descEdittext = view.findViewById(R.id.generate_group_description_edittext);
-        createButton = view.findViewById(R.id.generate_group_create_button);
-
-
         if (activityComponent != null) {
             activityComponent.inject(this);
+            titleText = view.findViewById(R.id.generate_group_title_text);
+            emergencyImage = view.findViewById(R.id.emergency_sound_alert_image);
+            urgentImage = view.findViewById(R.id.urgent_sound_alert_image);
+            createThumbnailImage = view.findViewById(R.id.create_thumbnail_image);
+            defaultThumbnailImage = view.findViewById(R.id.default_thumbnail_image);
+            defaultThumbnailText = view.findViewById(R.id.default_thumbnail_text);
+            nameEdittext = view.findViewById(R.id.generate_group_name_edittext);
+            descEdittext = view.findViewById(R.id.generate_group_description_edittext);
+            createButton = view.findViewById(R.id.generate_group_create_button);
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            createThumbnailImage.setOnClickListener(v -> createThumbnailClick(v));
+            emergencyImage.setOnClickListener(v -> emergencyClick(v));
+            urgentImage.setOnClickListener(v -> urgentClick(v));
+            createButton.setOnClickListener(v -> createClick(v));
+
         }
 
         return view;

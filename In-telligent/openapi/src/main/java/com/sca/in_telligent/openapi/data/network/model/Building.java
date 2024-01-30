@@ -94,7 +94,6 @@ public class Building implements Serializable {
     public void setDescription(String mockBuilding) {
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public enum Type {
         SUGGESTED_HEADER(0),
         SUGGESTED_ITEM(1),

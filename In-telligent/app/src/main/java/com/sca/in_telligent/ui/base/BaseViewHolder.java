@@ -3,7 +3,6 @@ package com.sca.in_telligent.ui.base;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
     private int mCurrentPosition;
 

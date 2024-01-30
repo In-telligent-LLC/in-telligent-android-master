@@ -41,10 +41,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
-
-
-
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -82,7 +79,7 @@
                 <data
                     android:host="${hostName}"
                     android:pathPrefix="/subscribe/"
-                    android:scheme="https" />
+                    android:scheme="http" />
             </intent-filter>
 
 
@@ -146,7 +143,7 @@
                 <data
                     android:host="${hostName}"
                     android:pathPrefix="/subscribers/reset"
-                    android:scheme="https" />
+                    android:scheme="http" />
 
             </intent-filter>
         </activity>

@@ -1,6 +1,8 @@
 package com.sca.in_telligent.openapi.data.network;
 
 
+import android.annotation.SuppressLint;
+
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.AlertDeleteRequest;
@@ -64,19 +66,21 @@ import okhttp3.RequestBody;
 import retrofit2.http.Body;
 
 public class OpenApiNetworkHelper implements ApiHelper {
-    private final ApiHelper protectedApiService;
-    private final ApiHelper publicApiService;
-    private final ApiHelper uploadService;
+    private ApiHelper protectedApiService;
+    private ApiHelper publicApiService;
+    private ApiHelper uploadService;
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public ApiHeader getApiHeader() {
-        return null;
+    public OpenApiNetworkHelper(ApiHelper protectedApiService,
+                                ApiHelper publicApiService,
+                                ApiHelper uploadService) {
+        this.protectedApiService = protectedApiService;
+        this.publicApiService = publicApiService;
+        this.uploadService = uploadService;
     }
 
-    public OpenApiNetworkHelper(ApiHelper apiHelper, ApiHelper apiHelper2, ApiHelper apiHelper3) {
-        this.protectedApiService = apiHelper;
-        this.publicApiService = apiHelper2;
-        this.uploadService = apiHelper3;
+    @Override
+    public ApiHeader getApiHeader() {
+        return null;
     }
 
     @Override
@@ -125,6 +129,7 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.publicApiService.forgotPassword(forgotPasswordRequest);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public Observable<SubscriberResponse> getCurrentSubscriber() {
 
@@ -160,27 +165,28 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.editSavedMessage(editSaveMessageRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @SuppressLint("CheckResult")
+    @Override
     public Observable<SearchCommunityResponse> searchCommunities(String str) {
         return this.protectedApiService.searchCommunities(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<CommunityResponse> getCommunity(int i) {
         return this.protectedApiService.getCommunity(i);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationsResponse> getAllNotifications(String str) {
         return this.protectedApiService.getAllNotifications(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SingleNotificationResponse> getNotification(String str) {
         return this.protectedApiService.getNotification(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationLanguageResponse> getLanguages() {
         return this.protectedApiService.getLanguages();
     }
