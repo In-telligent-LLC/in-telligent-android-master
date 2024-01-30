@@ -177,70 +177,74 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         public ViewHolder(View view) {
             super(view);
+            groupImage = view.findViewById(R.id.group_normal_item_image);
+            groupName = view.findViewById(R.id.group_name);
+            itemAboutText = view.findViewById(R.id.group_item_about_text);
+            itemConnectText = view.findViewById(R.id.group_item_connect_text);
             ButterKnife.bind(this, view);
         }
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
-        public void onBind(int i) {
-            super.onBind(i);
-            final Building building = (Building) GroupListAdapter.this.buildings.get(i);
-            this.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda0
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    ViewHolder.this.m206x5d023e57(building, view);
-                }
-            });
-            this.itemAboutText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    ViewHolder.this.m207xdb634236(building, view);
-                }
-            });
-            this.itemConnectText.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListAdapter$ViewHolder$$ExternalSyntheticLambda2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    ViewHolder.this.m208x59c44615(building, view);
-                }
-            });
-            this.groupName.setText(((Building) GroupListAdapter.this.buildings.get(i)).getName());
-            if (building.getImageUrl() != null) {
-                Glide.with(this.itemView).load(building.getImageUrl()).thumbnail(0.1f).into(this.groupImage);
-            } else {
-                Glide.with(this.itemView).load(Integer.valueOf(CommonUtils.getDefaultImage(building.getId()))).thumbnail(0.1f).into(this.groupImage);
-            }
-            if (building.getSubscriberId() != null) {
-                this.itemConnectText.setText(GroupListAdapter.this.context.getResources().getString(R.string.contact));
-            } else if (building.isOther()) {
-                this.itemConnectText.setText(GroupListAdapter.this.context.getResources().getString(R.string.connect));
-            } else {
-                this.itemConnectText.setText(GroupListAdapter.this.context.getResources().getString(R.string.disconnect));
-            }
-        }
+        public void onBind(final int position) {
+            super.onBind(position);
 
-        /* renamed from: lambda$onBind$0$com-sca-in_telligent-ui-group-list-GroupListAdapter$ViewHolder  reason: not valid java name */
-        public /* synthetic */ void m206x5d023e57(Building building, View view) {
-            onAboutClick(building);
-        }
+            Building building = buildings.get(position);
 
-        /* renamed from: lambda$onBind$1$com-sca-in_telligent-ui-group-list-GroupListAdapter$ViewHolder  reason: not valid java name */
-        public /* synthetic */ void m207xdb634236(Building building, View view) {
-            onAboutClick(building);
-        }
 
-        /* renamed from: lambda$onBind$2$com-sca-in_telligent-ui-group-list-GroupListAdapter$ViewHolder  reason: not valid java name */
-        public /* synthetic */ void m208x59c44615(Building building, View view) {
-            if (building.getSubscriberId() != null) {
-                GroupListAdapter.this.mCallback.onContactClicked(getAdapterPosition());
-            } else if (building.isOther()) {
-                if (building.getPassword() != null) {
-                    GroupListAdapter.this.showPasswordDialog(building);
+            itemView.setOnClickListener(v -> {
+                onAboutClick(building);
+            });
+
+
+            itemAboutText.setOnClickListener(v -> {
+                onAboutClick(building);
+            });
+
+            itemConnectText.setOnClickListener(v -> {
+
+                if (building.getSubscriberId() == null) {
+                    if (building.isOther()) {
+                        if (building.getPassword() != null) {
+                            showPasswordDialog(building);
+                        } else {
+                            mCallback
+                                    .onConnectClicked(Integer.toString(building.getId()),
+                                            true, false);
+                        }
+                    } else {
+                        mCallback
+                                .onConnectClicked(Integer.toString(building.getId()),
+                                        false, false);
+                    }
+
                 } else {
-                    GroupListAdapter.this.mCallback.onConnectClicked(Integer.toString(building.getId()), true, false);
+                    mCallback.onContactClicked(getAdapterPosition());
+                }
+
+            });
+
+            groupName.setText(buildings.get(position).getName());
+            if (building.getImageUrl() != null) {
+                Glide.with(itemView)
+                        .load(building.getImageUrl())
+                        .thumbnail(0.1f)
+                        .into(groupImage);
+            } else {
+                Glide.with(itemView).load(CommonUtils.getDefaultImage(building.getId()))
+                        .thumbnail(0.1f)
+                        .into(groupImage);
+            }
+
+            if (building.getSubscriberId() == null) {
+                if (building.isOther()) {
+                    itemConnectText.setText(context.getResources().getString(R.string.connect));
+                } else {
+                    itemConnectText.setText(context.getResources().getString(R.string.disconnect));
                 }
             } else {
-                GroupListAdapter.this.mCallback.onConnectClicked(Integer.toString(building.getId()), false, false);
+                itemConnectText.setText(context.getResources().getString(R.string.contact));
             }
         }
+
 
         private void onAboutClick(Building building) {
             int adapterPosition;
@@ -253,32 +257,35 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public class SuggestedHeaderViewHolder extends BaseViewHolder {
+
         @BindView(R.id.header_text)
         TextView headerText;
+
         @BindView(R.id.suggested_item_arrow)
         ImageView suggestedItemArrow;
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
-        protected void clear() {
+        public SuggestedHeaderViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
         }
 
-        public SuggestedHeaderViewHolder(View view) {
-            super(view);
-            ButterKnife.bind(this, view);
-        }
-
-        @OnClick({R.id.suggested_groups_header_container})
+        @OnClick(R.id.suggested_groups_header_container)
         void onCollapseExpandSuggestedGroups() {
-            if (GroupListAdapter.this.expanded) {
-                GroupListAdapter.this.collapse();
-                this.suggestedItemArrow.setImageResource(R.drawable.icon_down_carrot);
-                return;
+            if (expanded) {
+                collapse();
+                suggestedItemArrow.setImageResource(R.drawable.icon_down_carrot);
+            } else {
+                expand();
+                suggestedItemArrow.setImageResource(R.drawable.icon_up_carrot);
             }
-            GroupListAdapter.this.expand();
-            this.suggestedItemArrow.setImageResource(R.drawable.icon_up_carrot);
         }
+
+        @Override
+        protected void clear() {
+
+        }
+
     }
 
     public class SuggestedItemViewHolder extends BaseViewHolder {
@@ -298,6 +305,11 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public SuggestedItemViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            groupName = view.findViewById(R.id.group_name);
+            suggestedImage = view.findViewById(R.id.suggested_image);
+            suggestedSubscribeText = view.findViewById(R.id.group_subscribe_text_layout);
+            suggestedIgnoreText = view.findViewById(R.id.group_ignore_text_layout);
+
         }
 
         @Override
@@ -334,7 +346,7 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.gray_header_text)
         TextView headerText;
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
+        @Override
         protected void clear() {
         }
 
@@ -343,10 +355,10 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             ButterKnife.bind(this, view);
         }
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
+        @Override
         public void onBind(int i) {
             super.onBind(i);
-            this.headerText.setText(((Building) GroupListAdapter.this.buildings.get(i)).getName());
+            this.headerText.setText(GroupListAdapter.this.buildings.get(i).getName());
         }
     }
 

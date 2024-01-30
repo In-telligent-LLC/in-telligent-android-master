@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class SubscriberResponse implements Serializable {
     @SerializedName("Subscriber")
     private Subscriber subscriber;
+
     @SerializedName("success")
     @JsonAdapter(BooleanTypeAdapter.class)
     private boolean success;

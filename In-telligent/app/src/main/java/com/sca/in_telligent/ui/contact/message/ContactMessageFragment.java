@@ -174,6 +174,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             messageEditText = view.findViewById(R.id.contact_send_message_edittext);
             goBackText = view.findViewById(R.id.contact_message_back_text);
 
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
 

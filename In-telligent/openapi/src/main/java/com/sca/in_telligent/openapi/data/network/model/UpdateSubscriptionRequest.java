@@ -5,8 +5,6 @@ import com.facebook.internal.NativeProtocol;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
-@Deprecated
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class UpdateSubscriptionRequest implements Serializable {
     @SerializedName(NativeProtocol.WEB_DIALOG_ACTION)
     private String action;

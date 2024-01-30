@@ -14,7 +14,7 @@ public class SubscriberMock {
         subscriber.setLanguage("en");
         subscriber.setLanguageName("English");
         subscriber.setLightningAlertConfirmed(true);
-        subscriber.setLightningAlertEnabled(true);
+        subscriber.setLightningAlertEnabled(false);
         subscriber.setName("Mock User");
         subscriber.setWeatherAlertEnabled(true);
 

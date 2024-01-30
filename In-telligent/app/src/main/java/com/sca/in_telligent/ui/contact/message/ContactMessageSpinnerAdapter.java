@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.sca.in_telligent.R;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import java.util.List;
 
 public class ContactMessageSpinnerAdapter extends ArrayAdapter<String> {
 
@@ -43,6 +43,9 @@ public class ContactMessageSpinnerAdapter extends ArrayAdapter<String> {
     TextView name;
 
     public ViewHolder(View view) {
+
+      name = view.findViewById(R.id.spinner_item_text);
+
       ButterKnife.bind(this, view);
     }
   }

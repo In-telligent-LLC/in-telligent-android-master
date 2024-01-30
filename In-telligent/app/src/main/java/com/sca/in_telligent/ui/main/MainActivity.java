@@ -1,6 +1,5 @@
 package com.sca.in_telligent.ui.main;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -27,7 +26,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -138,6 +136,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
 
+    Button btnTestNotification;
+
 //    @BindView()
     TextView version_name;
 
@@ -191,19 +191,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         frameLayout = findViewById(R.id.content_frame);
         appBarLayout = findViewById(R.id.app_bar_layout);
         toolbar = findViewById(R.id.toolbar);
-
-        if(OpenAPI.Configuration.isMocked()){
-            Button btnTestNotification = findViewById(R.id.btnTestNotification);
-
-            btnTestNotification.setOnClickListener(view ->
-                    getAudioHelper().startEmergencyRingtone());
-
-        }
+        btnTestNotification = findViewById(R.id.btnTestNotification);
 
 
         setUp();
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
+
     }
 
     private void checkIntent(Intent intent) {
@@ -226,8 +220,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void setUp() {
-
-        showLocationInformation();
+        mPresenter.requestLocationPermissions(false);
         configureNavigationDrawer();
         configureToolbar();
         initSilence();
@@ -237,20 +230,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
+        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
+
         this.mPresenter.getSubscriber();
+
     }
-
-    private void showLocationInformation() {
-        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-            return;
-        }
-        else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest
-                    .permission.ACCESS_FINE_LOCATION}, 1);
-
-        }
-    }
-
 
     @Override
     public void onResume() {
@@ -328,8 +312,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void configureToolbar() {
-        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
-        toolbar = (Toolbar) appBarLayout.findViewById(R.id.toolbar);
+        appBarLayout = findViewById(R.id.app_bar_layout);
+        toolbar = appBarLayout.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -411,12 +395,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     List<NavListItem> addItemsToList() {
         ArrayList arrayList = new ArrayList();
-        NavListItem navListItemCreate = new NavListItem(getResources().getString(R.string.create_a_group), R.drawable.icon_create_group);
         NavListItem navListItem = new NavListItem(getResources().getString(R.string.settings), R.drawable.icon_settings);
         NavListItem navListItem2 = new NavListItem(getResources().getString(R.string.saved_messages), R.drawable.icon_saved_messages);
         arrayList.add(navListItem);
         arrayList.add(navListItem2);
-        arrayList.add(navListItemCreate);
         return arrayList;
     }
 
@@ -430,11 +412,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         } else if (i == 1) {
             this.savedClicked = true;
             this.bottomNavigationView.setSelectedItemId(R.id.action_inbox);
-        } else if (i == 2) {
-            goToCreateGroupFragment();
-            this.drawerLayout.closeDrawers();
-        }
-        else {
+        } else {
             startActivity(LogoutActivity.getStartIntent(this));
         }
     }
@@ -505,7 +483,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void openContactTab() {
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactListFragment.TAG).replace((int) R.id.content_frame, ContactListFragment.newInstance(this.contactableBuildings), ContactListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactListFragment.TAG).replace(R.id.content_frame, ContactListFragment.newInstance(this.contactableBuildings), ContactListFragment.TAG).commit();
     }
 
     @Override
@@ -552,6 +530,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             }
         }
 
+
         if (notification != null) {
             getSupportFragmentManager()
                     .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
@@ -562,21 +541,21 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.contact.list.ContactListFragment.ContactListCallback
+    @Override
     public void callClick(Building building) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactCallFragment.TAG).add((int) R.id.content_frame, ContactCallFragment.newInstance(Integer.toString(building.getId())), ContactCallFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactCallFragment.TAG).add(R.id.content_frame, ContactCallFragment.newInstance(Integer.toString(building.getId())), ContactCallFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.contact.list.ContactListFragment.ContactListCallback
+    @Override
     public void messageClick(Building building) {
         int id = building.getId();
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add((int) R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), isPersonalCommunity(building), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add(R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), isPersonalCommunity(building), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
+    @Override
     public void itemAboutClicked(int i, boolean z) {
         addSuggestedHeaderIfNeeded();
-        getSupportFragmentManager().beginTransaction().addToBackStack(GroupDetailContainerFragment.TAG).replace((int) R.id.content_frame, GroupDetailContainerFragment.newInstance(this.subscriber, this.groups, i), GroupDetailContainerFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(GroupDetailContainerFragment.TAG).replace(R.id.content_frame, GroupDetailContainerFragment.newInstance(this.subscriber, this.groups, i), GroupDetailContainerFragment.TAG).commit();
     }
 
     private void addSuggestedHeaderIfNeeded() {
@@ -605,9 +584,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getSubscriber(false);
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void alertViewSelected(int i) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add( R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
     }
 
     @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
@@ -615,15 +594,15 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getSubscriber();
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void subscribed(int i) {
         this.mPresenter.subscribeToCommunity(i);
     }
 
-    @Override // com.sca.in_telligent.ui.group.alert.list.AlertListFragment.AlertListSelector
+    @Override
     public void onAlertDetailSelected(final Notification notification, int i) {
-        getBuilding(i).subscribe(new SingleObserver<Building>() { // from class: com.sca.in_telligent.ui.main.MainActivity.3
-            @Override // io.reactivex.SingleObserver
+        getBuilding(i).subscribe(new SingleObserver<Building>() {
+            @Override
             public void onSubscribe(Disposable disposable) {
             }
 

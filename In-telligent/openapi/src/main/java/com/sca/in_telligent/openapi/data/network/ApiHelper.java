@@ -139,7 +139,7 @@ public interface ApiHelper {
     @GET(ApiEndPoint.DELIVERY_INFO)
     Observable<DeliveryInfoResponse> getDeliveryInformation(@Path("buildingId") String str, @Path("notificationId") String str2);
 
-    @GET(ApiEndPoint.GET_GEOFENCES)
+    @POST(ApiEndPoint.GET_GEOFENCES)
     Observable<IntelligentGeofenceResponse> getGeofences(@Query("lat") String str, @Query("lng") String str2);
 
     @GET(ApiEndPoint.BUILDING_INVITEES)

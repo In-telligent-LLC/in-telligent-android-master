@@ -65,7 +65,10 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                                         getDataManager()
                                                 .setAutoOptOuts(subscriberResponse.getSubscriber().getSubscriberOptOuts());
                                     }
-                                }, throwable -> getMvpView().hideLoading()));
+                                }, throwable -> {
+                                    Log.e(TAG, throwable.getMessage());
+                                    getMvpView().hideLoading();
+                                }));
     }
 
 

@@ -124,6 +124,12 @@ public class GenerateGroupFragment extends BaseFragment implements GenerateGroup
             createButton = view.findViewById(R.id.generate_group_create_button);
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            createThumbnailImage.setOnClickListener(v -> createThumbnailClick(v));
+            emergencyImage.setOnClickListener(v -> emergencyClick(v));
+            urgentImage.setOnClickListener(v -> urgentClick(v));
+            createButton.setOnClickListener(v -> createClick(v));
+
         }
 
         return view;

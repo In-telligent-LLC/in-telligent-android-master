@@ -43,11 +43,11 @@ public class Subscriber implements Serializable {
     }
 
     public void setWeatherAlertEnabled(boolean z) {
-        this.weatherAlertEnabled = z;
+        this.weatherAlertEnabled = false;
     }
 
     public void setLightningAlertEnabled(boolean z) {
-        this.lightningAlertEnabled = z;
+        this.lightningAlertEnabled = false;
     }
 
     public void setBuildings(ArrayList<Building> arrayList) {
