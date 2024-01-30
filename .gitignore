@@ -20,7 +20,7 @@ build/
 local.properties
 
 #DS_Store Files
-.DS_Store
+**/.DS_Store
 ./OpenAPI/.DS_Store
 ./In-telligent/.DS_Store
 
