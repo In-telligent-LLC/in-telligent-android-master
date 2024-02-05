@@ -23,7 +23,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AlertListFragment extends BaseFragment implements AlertListMvpView, AlertListAdapter.Callback {
     public static final String TAG = "AlertListFragment";
     @Inject
@@ -67,6 +66,7 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
             activityComponent.inject(this);
             swipeRefreshLayoutAlerts = inflate.findViewById(R.id.swipe_refresh_layout_alerts);
             alertListRecyclerView = inflate.findViewById(R.id.alert_list_recyclerview);
+
 
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);

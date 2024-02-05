@@ -179,6 +179,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             mPresenter.onAttach(this);
 
             goBackText.setOnClickListener(v -> backClick());
+            sendMessageButton.setOnClickListener(v -> sendMessage(v));
+
+
         }
 
         return view;
@@ -328,10 +331,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
     }
 
-//    @OnClick(R.id.contact_send_attachment_layout)
-//    void attachmentButtonClick(View v) {
-//        mPresenter.getStoragePermission();
-//    }
+    @OnClick(R.id.contact_send_attachment_layout)
+    void attachmentButtonClick(View v) {
+        mPresenter.getStoragePermission();
+    }
 
     @OnClick(R.id.contact_send_message_button)
     void sendMessage(View v) {

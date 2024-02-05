@@ -4,6 +4,7 @@ import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.NONE;
 import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.SAVED;
 import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.UNREAD;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -100,6 +101,7 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
         inboxSpinner = view.findViewById(R.id.inbox_spinner);
         swipeRefreshLayoutInbox = view.findViewById(R.id.swipe_refresh_layout_inbox);
 
+
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
@@ -185,6 +187,7 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
         inboxSelector.itemClicked(position, notification, savedNotifications != null ? (savedNotifications.size()) : 0);
     }
 
+    @SuppressLint("CheckResult")
     private void createUnreadList() {
         if (notifications != null && notifications.size() > 0) {
             ArrayList<Notification> unreadList = new ArrayList<>();
