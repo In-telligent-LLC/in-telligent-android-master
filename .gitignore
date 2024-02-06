@@ -61,12 +61,17 @@ obj/
 # Firebase App Indexing
 app-indexing/
 
+In-telligent/.gradle/*
+In-telligent/.idea/*
+
 # Fastlane
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+Gemfile.lock
 
 # React Native
 node_modules/
