@@ -1,2 +1,1 @@
-json_key_file("/Users/marianesantana/Documents/Android/in-telligent-ec535-06f5bcdf7a24.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name("com.sca.in_telligent") # e.g. com.krausefx.app

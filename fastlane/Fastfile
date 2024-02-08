@@ -29,6 +29,10 @@ platform :android do
 
   desc "Submit a build to Quality App Distribution with Crashlytics on"
   lane :build_quality do
+    firebase_config = File.new("firebase_config.json", "w")
+    firebase_config.puts(ENV["FIREBASE_CONFIG_JSON"])
+    firebase_config.close
+
     gradle(task: "clean assembleRelease")
     crashlytics
 
