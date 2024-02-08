@@ -28,7 +28,7 @@ platform :android do
   end
 
   desc "Submit a build to Quality App Distribution with Crashlytics on"
-  lane :build_development do
+  lane :build_quality do
     gradle(task: "clean assembleRelease")
     crashlytics
 

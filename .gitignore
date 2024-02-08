@@ -32,7 +32,7 @@ proguard/
 *.log
 
 # Android Studio navigation files
-*.iml
+**.iml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
@@ -61,8 +61,8 @@ obj/
 # Firebase App Indexing
 app-indexing/
 
-In-telligent/.gradle/*
-In-telligent/.idea/*
+**./In-telligent/.gradle/**
+**./In-telligent/.idea/**
 
 # Fastlane
 fastlane/report.xml
@@ -71,7 +71,7 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
-Gemfile.lock
+./Gemfile.lock
 
 # React Native
 node_modules/

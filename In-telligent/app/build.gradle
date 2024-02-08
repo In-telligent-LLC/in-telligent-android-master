@@ -82,11 +82,11 @@ android {
             ext.enableCrashlytics = false
         }
         release {
-            firebaseAppDistribution {
-                artifactType="APK"
-                releaseNotesFile="/path/to/releasenotes.txt"
-                testers="ali@example.com, bri@example.com, cal@example.com"
-            }
+//            firebaseAppDistribution {
+//                artifactType="APK"
+//                releaseNotesFile="/path/to/releasenotes.txt"
+//                testers="ali@example.com, bri@example.com, cal@example.com"
+//            }
             resValue "string", "hostname", "https://quality.in-telligent.com"
             resValue "string", "google_maps_key", "AIzaSyAoCLzXsX_RJQuMdGP1Evf1lXO1k1u8Qz0"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"

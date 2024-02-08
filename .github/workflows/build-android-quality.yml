@@ -1,0 +1,30 @@
+name: Android - Deployment Quality - CI/CD w Fastlane
+
+on:
+  push:
+    branches:
+      - quality
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Install Fastlane
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec fastlane update_fastlane
+          bundle exec fastlane install_plugins
+
+      - name: Build APK with Fastlane
+        run: |
+          bundle exec fastlane build_quality
