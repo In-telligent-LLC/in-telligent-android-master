@@ -3,7 +3,7 @@ name: Android - Deployment Development - CI/CD w Fastlane
 on:
   push:
     branches:
-      - development
+      - INT-220-config
 
 jobs:
   build:
