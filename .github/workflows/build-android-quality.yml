@@ -16,7 +16,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-            distribution: 'store'
+            distribution: 'oracle'
             java-version: '11'
 
       - name: Install Fastlane
