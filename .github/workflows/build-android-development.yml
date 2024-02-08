@@ -22,6 +22,7 @@ jobs:
       - name: Install Fastlane
         run: |
           gem install bundler
+          bundle config set path 'vendor/bundle'
           bundle install
           bundle exec fastlane update_fastlane
           bundle exec fastlane install_plugins
