@@ -59,6 +59,11 @@ public class AttachmentPreviewDialog extends BaseDialog {
     if (component != null) {
 
       component.inject(this);
+      attachmentClose = view.findViewById(R.id.attachment_preview_close);
+      attachmentImage = view.findViewById(R.id.attachment_preview_image);
+      videoView = view.findViewById(R.id.attachment_preview_videoView);
+
+      attachmentClose.setOnClickListener(this::close);
 
       setUnBinder(ButterKnife.bind(this, view));
     }
@@ -67,8 +72,10 @@ public class AttachmentPreviewDialog extends BaseDialog {
 
   @Override
   protected void setUp(View view) {
+    assert getArguments() != null;
     link = getArguments().getString("link");
     type = getArguments().getString("type");
+    assert type != null;
     if (type.equals("image")) {
       attachmentImage.setVisibility(View.VISIBLE);
       videoView.setVisibility(View.GONE);

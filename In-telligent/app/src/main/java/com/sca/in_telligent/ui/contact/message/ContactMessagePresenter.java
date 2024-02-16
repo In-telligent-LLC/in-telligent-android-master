@@ -130,22 +130,13 @@ public void getStoragePermission() {
   }
 
   @Override
-  public void suggestNotification(String buildingId, String title, String body,
-      ArrayList<String> attachmentPaths) {
+  public void suggestNotification(
+          SuggestNotificationRequest suggestNotificationRequest
+  ) {
     getMvpView().showLoading();
 
-    List<Part> parts = new ArrayList<>();
-
-    for (int i = 0; i < attachmentPaths.size(); i++) {
-      parts.add(prepareFilePart("attachment[" + i + "]", attachmentPaths.get(i)));
-    }
-
-    RequestBody buildingIdBody = RequestBody.create(MediaType.parse("text/plain"), buildingId);
-    RequestBody titleBody = RequestBody.create(MediaType.parse("text/plain"), title);
-    RequestBody bodyBody = RequestBody.create(MediaType.parse("text/plain"), body);
-
     getCompositeDisposable().add(
-        getDataManager().suggestNotification(parts, buildingIdBody, titleBody, bodyBody)
+        getDataManager().suggestNotification(suggestNotificationRequest)
             .subscribeOn(getSchedulerProvider().io())
             .observeOn(getSchedulerProvider().ui()).subscribe(
                 successResponse -> {
@@ -158,12 +149,7 @@ public void getStoragePermission() {
                     }
                   }
 
-                }, new Consumer<Throwable>() {
-              @Override
-              public void accept(Throwable throwable) throws Exception {
-                getMvpView().hideLoading();
-              }
-            }));
+                }, throwable -> getMvpView().hideLoading()));
 
   }
 
@@ -174,24 +160,16 @@ public void getStoragePermission() {
     getCompositeDisposable().add(
         getDataManager().suggestNotificationNoThumbnail(suggestNotificationRequest)
             .subscribeOn(getSchedulerProvider().io()).
-            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<SuccessResponse>() {
-          @Override
-          public void accept(SuccessResponse successResponse) throws Exception {
-            getMvpView().hideLoading();
-            if (successResponse.isSuccess()) {
-              getMvpView().messageSendResult(successResponse.isSuccess());
-            } else {
-              if (successResponse.getErrors() != null) {
-                getMvpView().showMessage(successResponse.getErrors().getName().get(0));
+            observeOn(getSchedulerProvider().ui()).subscribe(successResponse -> {
+              getMvpView().hideLoading();
+              if (successResponse.isSuccess()) {
+                getMvpView().messageSendResult(successResponse.isSuccess());
+              } else {
+                if (successResponse.getErrors() != null) {
+                  getMvpView().showMessage(successResponse.getErrors().getName().get(0));
+                }
               }
-            }
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-          }
-        }));
+            }, throwable -> getMvpView().hideLoading()));
   }
 
   private MultipartBody.Part prepareFilePart(String partName, String filePath) {

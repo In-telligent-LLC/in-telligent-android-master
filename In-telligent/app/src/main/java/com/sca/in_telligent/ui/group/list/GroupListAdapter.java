@@ -352,6 +352,7 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         public GrayViewHolder(View view) {
             super(view);
+            headerText = view.findViewById(R.id.gray_header_text);
             ButterKnife.bind(this, view);
         }
 

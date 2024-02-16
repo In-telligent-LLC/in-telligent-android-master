@@ -27,18 +27,10 @@ public class AlertListPresenter<V extends AlertListMvpView> extends BasePresente
         getCompositeDisposable().add(
                 getDataManager().getAllNotifications(buildingId).subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui()).subscribe(
-                                new Consumer<NotificationsResponse>() {
-                                    @Override
-                                    public void accept(NotificationsResponse notificationsResponse) throws Exception {
-                                        getMvpView().hideLoading();
-                                        getMvpView().loadNotifications(notificationsResponse.getNotifications());
-                                    }
-                                }, new Consumer<Throwable>() {
-                                    @Override
-                                    public void accept(Throwable throwable) throws Exception {
-                                        getMvpView().hideLoading();
-                                    }
-                                }));
+                                notificationsResponse -> {
+                                    getMvpView().hideLoading();
+                                    getMvpView().loadNotifications(notificationsResponse.getNotifications());
+                                }, throwable -> getMvpView().hideLoading()));
     }
 
 

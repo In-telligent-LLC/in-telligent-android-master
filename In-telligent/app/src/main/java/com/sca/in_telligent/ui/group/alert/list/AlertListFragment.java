@@ -68,6 +68,7 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
             alertListRecyclerView = inflate.findViewById(R.id.alert_list_recyclerview);
 
 
+
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);
         }

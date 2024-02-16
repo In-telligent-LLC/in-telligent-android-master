@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class SearchCommunityResponse implements Serializable {
-    @SerializedName("Buildings")
+    @SerializedName("buildings")
     ArrayList<Building> buildings;
 
     public ArrayList<Building> getBuildings() {

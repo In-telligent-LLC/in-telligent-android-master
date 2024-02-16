@@ -5,16 +5,13 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Notification implements Parcelable {
-    public static final Creator<Notification> CREATOR = new Creator<Notification>() { // from class: com.sca.in_telligent.openapi.data.network.model.Notification.1
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
+    public static final Creator<Notification> CREATOR = new Creator<Notification>() {
+        @Override
         public Notification createFromParcel(Parcel parcel) {
             return new Notification(parcel);
         }
 
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Notification[] newArray(int i) {
             return new Notification[i];

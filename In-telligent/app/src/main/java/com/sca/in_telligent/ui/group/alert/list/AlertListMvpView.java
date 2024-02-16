@@ -4,7 +4,6 @@ import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.ui.base.MvpView;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public interface AlertListMvpView extends MvpView {
     void alertDeleted(int i);
 

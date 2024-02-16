@@ -47,6 +47,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -180,6 +181,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
             goBackText.setOnClickListener(v -> backClick());
             sendMessageButton.setOnClickListener(v -> sendMessage(v));
+            attachmentText.setOnClickListener(v -> attachmentButtonClick(v));
+
+
 
 
         }
@@ -327,7 +331,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             ContactDeliverDialog contactDeliverDialog = ContactDeliverDialog
                     .newInstance(buildingId, isPersonalCommunity);
             contactDeliverDialog.setContactDeliverSelector(this);
-            contactDeliverDialog.show(getActivity().getSupportFragmentManager(), ContactDeliverDialog.class.getSimpleName());
+            contactDeliverDialog.show(requireActivity().getSupportFragmentManager(), ContactDeliverDialog.class.getSimpleName());
         }
     }
 
@@ -377,8 +381,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     }
 
     private void suggestNotification() {
-        mPresenter.suggestNotification(buildingId, sendTitleEdittext.getText().toString(),
-                messageEditText.getText().toString(), attachmentPaths);
+        SuggestNotificationRequest suggestNotificationRequest = new SuggestNotificationRequest();
+        suggestNotificationRequest.setBuildingId(buildingId);
+        suggestNotificationRequest.setDescription(messageEditText.getText().toString());
+        suggestNotificationRequest.setTitle(sendTitleEdittext.getText().toString());
+        suggestNotificationRequest.setAttachments(attachmentPaths);
+        mPresenter.suggestNotification(suggestNotificationRequest);
     }
 
     private void suggestNotifiationNoThumbnail() {
@@ -496,7 +504,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                     attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                 } else {
                     attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
-//                    attachmentPaths.add(attachmentPath);
+                    attachmentPaths.add(attachmentPath);
                 }
 
                 compressFiles(attachmentFiles);
@@ -704,12 +712,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             if (!activity.isDestroyed() && !activity.isFinishing()) {
                 builder
                         .setTitle(R.string.attachments_too_large_try_again)
-                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
+                        .setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss())
                         .show();
             }
         }

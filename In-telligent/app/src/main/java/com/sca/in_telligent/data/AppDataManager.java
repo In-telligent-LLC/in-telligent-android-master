@@ -248,9 +248,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<SuccessResponse> suggestNotification(List<Part> attachments,
-                                                           RequestBody buildingId, RequestBody title, RequestBody body) {
-        return mApiHelper.suggestNotification(attachments, buildingId, title, body);
+    public Observable<SuccessResponse> suggestNotification(SuggestNotificationRequest suggestNotificationRequest) {
+        return mApiHelper.suggestNotification(suggestNotificationRequest);
     }
 
     @Override

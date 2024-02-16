@@ -277,8 +277,8 @@ public class OpenApiNetworkHelper implements ApiHelper {
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> suggestNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3) {
-        return this.uploadService.suggestNotification(list, requestBody, requestBody2, requestBody3);
+    public Observable<SuccessResponse> suggestNotification(SuggestNotificationRequest suggestNotificationRequest) {
+        return this.uploadService.suggestNotification(suggestNotificationRequest);
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper

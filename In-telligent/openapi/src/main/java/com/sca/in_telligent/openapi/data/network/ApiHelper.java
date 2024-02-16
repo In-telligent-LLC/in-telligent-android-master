@@ -219,8 +219,8 @@ public interface ApiHelper {
     Observable<LoginResponse> signUp(@Body SignUpRequest signUpRequest);
 
     @POST(ApiEndPoint.SUGGEST_NOTIFICATION)
-    @Multipart
-    Observable<SuccessResponse> suggestNotification(@Part List<MultipartBody.Part> list, @Part("building_id") RequestBody requestBody, @Part("title") RequestBody requestBody2, @Part("description") RequestBody requestBody3);
+
+    Observable<SuccessResponse> suggestNotification(@Body SuggestNotificationRequest suggestNotificationRequest);
 
     @POST(ApiEndPoint.SUGGEST_NOTIFICATION)
     Observable<SuccessResponse> suggestNotificationNoThumbnail(@Body SuggestNotificationRequest suggestNotificationRequest);
