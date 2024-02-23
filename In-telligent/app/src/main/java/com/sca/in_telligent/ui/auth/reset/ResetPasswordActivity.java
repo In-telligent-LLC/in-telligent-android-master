@@ -47,6 +47,12 @@ public class ResetPasswordActivity extends BaseActivity implements ResetPassword
     setContentView(R.layout.activity_reset_password);
     getActivityComponent().inject(this);
 
+    resetPasswordSubmit = findViewById(R.id.buttonResetPasswordSubmit);
+    passwordEdittext = findViewById(R.id.editTextEnterPasswordFirst);
+    passwordConfirmEdittext = findViewById(R.id.editTextEnterPasswordSecond);
+
+    resetPasswordSubmit.setOnClickListener(v -> resetPassword(v));
+
     setUnBinder(ButterKnife.bind(this));
 
     mPresenter.onAttach(ResetPasswordActivity.this);

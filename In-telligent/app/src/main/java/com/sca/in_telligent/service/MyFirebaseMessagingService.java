@@ -91,7 +91,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
 
-    // Check if message contains a data payload.
     if (remoteMessage.getData().size() > 0) {
       Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
@@ -104,9 +103,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
       Log.d("STATE EQUALS TO ----->", " " + state);
 
-//      if (state.equals("start")) {
-//        sendForeground(pushNotification);
-//      }
+      if (state.equals("start")) {
+        sendForeground(pushNotification);
+      }
       sendNotification(pushNotification);
 
       if (true) {
@@ -160,18 +159,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     pushTokenRequest.setPushToken(token);
     dataManager.registerPushToken(pushTokenRequest).subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<PushTokenSuccessResponse>() {
-          @Override
-          public void accept(PushTokenSuccessResponse successResponse) throws Exception {
-            if (successResponse.isSuccess()) {
-            }
+        .subscribe(successResponse -> {
+          if (successResponse.isSuccess()) {
           }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            System.out.println();
-          }
-        });
+        }, throwable -> System.out.println());
   }
 
   /**
@@ -185,11 +176,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     intent.putExtra("pushNotification", pushNotification);
 
     int id;
-    PendingIntent pendingIntent;
+//    PendingIntent pendingIntent;
 
-//    PendingIntent pendingIntent = PendingIntent.getActivity(this,
-//        Integer.parseInt(pushNotification.getNotificationId()) /* Request code */, intent,
-//        PendingIntent.FLAG_ONE_SHOT);
+    PendingIntent.getActivity(this,
+            Integer.parseInt(pushNotification.getNotificationId()) /* Request code */, intent,
+            PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
+    PendingIntent pendingIntent;
 
     String type = pushNotification.getType();
     String action = pushNotification.getAction();
