@@ -235,11 +235,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
             return true;
         }
 
-        if (category.getCategory().equalsIgnoreCase(building.getFilterCategory())) {
-            return true;
-        }
-
-        return false;
+        return category.getCategory().equalsIgnoreCase(building.getFilterCategory());
     }
 
     private void initSpinner() {

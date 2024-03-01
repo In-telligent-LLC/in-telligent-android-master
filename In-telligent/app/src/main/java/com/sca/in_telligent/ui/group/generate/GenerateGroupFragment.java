@@ -44,8 +44,8 @@ public class GenerateGroupFragment extends BaseFragment implements GenerateGroup
 
     public static final String TAG = "GenerateGroupFragment";
 
-    private int EMERGENCY_AUDIO_FILE = R.raw.personal_community_emergency;
-    private int URGENT_AUDIO_FILE = R.raw.personal_community_urgent;
+    private final int EMERGENCY_AUDIO_FILE = R.raw.personal_community_emergency;
+    private final int URGENT_AUDIO_FILE = R.raw.personal_community_urgent;
 
     private MediaPlayer playSoundUrgent;
     private MediaPlayer playSoundEmergency;

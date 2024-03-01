@@ -126,6 +126,10 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
       buttonOnly = itemView.findViewById(R.id.notification_setting_only_text);
       buttonNever = itemView.findViewById(R.id.notification_setting_never_text);
 
+      buttonAlways.setOnClickListener(this::syncClick);
+        buttonOnly.setOnClickListener(this::syncClick);
+        buttonNever.setOnClickListener(this::syncClick);
+
       ButterKnife.bind(this, itemView);
     }
 

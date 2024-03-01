@@ -14,9 +14,9 @@ public class City implements Serializable {
         this.stateId = stateId;
     }
     @SerializedName("id")
-    private int id;
+    private final int id;
     @SerializedName("name")
-    private String name;
+    private final String name;
     @SerializedName("stateId")
-    private int stateId;
+    private final int stateId;
 }

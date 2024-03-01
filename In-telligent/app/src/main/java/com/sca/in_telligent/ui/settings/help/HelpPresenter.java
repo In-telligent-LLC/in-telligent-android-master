@@ -23,27 +23,18 @@ public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> imple
 
   @Override
   public void requestPhonePermission() {
-//    getRxPermissions()
-//        .request(permission.CALL_PHONE)
-//        .subscribe(granted -> getMvpView().phonePermissionResult(granted));
+    getMvpView().requestPhonePermission();
+
   }
 
   @Override
   public void sendSupportMail(SupportRequest supportRequest) {
     getCompositeDisposable().add(
         getDataManager().sendSupportMail(supportRequest).subscribeOn(getSchedulerProvider().io())
-            .observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<SuccessResponse>() {
-          @Override
-          public void accept(SuccessResponse successResponse) throws Exception {
-            getMvpView().hideLoading();
-            getMvpView().messageSent(successResponse.isSuccess());
+            .observeOn(getSchedulerProvider().ui()).subscribe(successResponse -> {
+              getMvpView().hideLoading();
+              getMvpView().messageSent(successResponse.isSuccess());
 
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-          }
-        }));
+            }, throwable -> getMvpView().onError(throwable.getMessage());
   }
 }

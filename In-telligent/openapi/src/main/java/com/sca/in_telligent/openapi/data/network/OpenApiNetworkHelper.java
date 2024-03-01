@@ -57,6 +57,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,9 +67,9 @@ import okhttp3.RequestBody;
 import retrofit2.http.Body;
 
 public class OpenApiNetworkHelper implements ApiHelper {
-    private ApiHelper protectedApiService;
-    private ApiHelper publicApiService;
-    private ApiHelper uploadService;
+    private final ApiHelper protectedApiService;
+    private final ApiHelper publicApiService;
+    private final ApiHelper uploadService;
 
     public OpenApiNetworkHelper(ApiHelper protectedApiService,
                                 ApiHelper publicApiService,
@@ -213,7 +214,7 @@ public class OpenApiNetworkHelper implements ApiHelper {
                 Building mockBuilding = BuildingMock.createMockBuilding();
                 SearchCommunityResponse searchCommunityResponse = new SearchCommunityResponse();
                 searchCommunityResponse.setSuccess(true);
-                searchCommunityResponse.setBuildings(new ArrayList<>(Arrays.asList(mockBuilding)));
+                searchCommunityResponse.setBuildings(new ArrayList<>(Collections.singletonList(mockBuilding)));
                 emitter.onNext(searchCommunityResponse);
                 emitter.onComplete();
             });

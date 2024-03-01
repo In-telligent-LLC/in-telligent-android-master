@@ -184,8 +184,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             attachmentText.setOnClickListener(v -> attachmentButtonClick(v));
 
 
-
-
         }
 
         return view;

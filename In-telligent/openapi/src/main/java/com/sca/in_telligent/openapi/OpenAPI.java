@@ -33,10 +33,10 @@ public class OpenAPI {
     public static void init(Context context, Configuration configuration) {
         Objects.requireNonNull(context, "A context is needed to initialize OpenAPI");
         Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
-        if(!configuration.isMocked()) {
+        if(!Configuration.isMocked()) {
             FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
             instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE), newInstance), configuration);
-            ApiHelperProvider.setMocked(configuration.isMocked());
+            ApiHelperProvider.setMocked(Configuration.isMocked());
             ApiHelperProvider.initialize(context);
         }
     }

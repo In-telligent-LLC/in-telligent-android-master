@@ -88,6 +88,7 @@ public class NotificationSettingsFragment extends BaseFragment implements
     notificationSettingRecyclerView = view.findViewById(R.id.notification_setting_recyclerview);
 
 
+
     lightningToggle.setOnClickListener(v -> onLightningSelected(lightningToggle, lightningToggle.isChecked()));
     severeToggle.setOnClickListener(v -> onWeatherSelected(severeToggle, severeToggle.isChecked()));
 

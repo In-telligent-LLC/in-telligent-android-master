@@ -17,13 +17,13 @@ public class State implements Serializable {
     }
 
     @SerializedName("countryId")
-    private int countryId;
+    private final int countryId;
     @SerializedName("id")
-    private int id;
+    private final int id;
     @SerializedName("name")
-    private String name;
+    private final String name;
     @SerializedName("shortName")
-    private String shortName;
+    private final String shortName;
 
     public int getId() {
         return this.id;

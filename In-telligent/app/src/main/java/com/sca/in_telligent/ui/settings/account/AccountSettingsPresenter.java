@@ -28,37 +28,24 @@ public class AccountSettingsPresenter<V extends AccountSettingsMvpView> extends
     getCompositeDisposable().add(
         getDataManager().getLanguages().subscribeOn(getSchedulerProvider().io())
             .observeOn(getSchedulerProvider().ui()).subscribe(
-            new Consumer<NotificationLanguageResponse>() {
-              @Override
-              public void accept(NotificationLanguageResponse notificationLanguageResponse)
-                  throws Exception {
-                getMvpView().loadLanguages(notificationLanguageResponse.getLanguages());
-              }
-            }, new Consumer<Throwable>() {
-              @Override
-              public void accept(Throwable throwable) throws Exception {
+                        notificationLanguageResponse -> getMvpView().loadLanguages(notificationLanguageResponse.getLanguages()),
+                        throwable -> {
+                            getMvpView().onError(throwable.getMessage());
 
-              }
-            }));
+                        }));
   }
 
   @Override
   public void syncMetadata(UpdateSubscriberRequest updateSubscriberRequest) {
     getCompositeDisposable().add(getDataManager().updateUser(updateSubscriberRequest)
         .subscribeOn(getSchedulerProvider().io()).
-            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<SubscriberResponse>() {
-          @Override
-          public void accept(SubscriberResponse subscriberResponse) throws Exception {
-            if (subscriberResponse.isSuccess()) {
-              getMvpView().subscriberLanguageResult(subscriberResponse.getSubscriber());
-            }
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-
-          }
-        }));
+            observeOn(getSchedulerProvider().ui()).subscribe(subscriberResponse -> {
+              if (subscriberResponse.isSuccess()) {
+                getMvpView().subscriberLanguageResult(subscriberResponse.getSubscriber());
+              }
+            }, throwable -> {
+                getMvpView().onError(throwable.getMessage());
+            }));
 
   }
 }
