@@ -20,16 +20,30 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.6' 
-          bundler-cache: true 
+      # - uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '2.6' 
+      #     bundler-cache: true 
+      - name: Install Homebrew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+      - name: Install Bundler
+        run: gem install bundler
+    
       - name: Install Fastlane
         run: |
-          bundle install
-          bundle exec fastlane update_fastlane
-          bundle exec fastlane install_plugins
+          brew install fastlane
+      
+      - name: Bundle Install
+        run: bundle install
+
+    
+
+      # - name: Install Fastlane
+      #   run: |
+      #     bundle install
+      #     bundle exec fastlane update_fastlane
+      #     bundle exec fastlane install_plugins
 
       - name: Build APK with Fastlane
         run: |
