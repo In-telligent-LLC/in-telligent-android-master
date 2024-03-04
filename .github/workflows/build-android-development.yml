@@ -29,9 +29,9 @@ jobs:
 
       - name: Install Bundler
         run: |
-          gem install bundler
-          bundle config set --local path 'vendor/bundle'
-          bundle config set --local deployment 'true'
+          sudo gem install bundler
+          sudo bundle config set --local path 'vendor/bundle'
+          sudo bundle config set --local deployment 'true'
     
       - name: Install Fastlane
         run: |
