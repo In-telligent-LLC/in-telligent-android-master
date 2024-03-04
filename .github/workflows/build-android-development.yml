@@ -38,7 +38,7 @@ jobs:
     
       - name: Install Fastlane
         run: |
-          gem install fastlane
+          brew install fastlane
       
       - name: Bundle Install
         run: bundle install --jobs 4 --retry 3 --path vendor/bundle
