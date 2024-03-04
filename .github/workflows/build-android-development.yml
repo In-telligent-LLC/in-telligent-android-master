@@ -27,8 +27,10 @@ jobs:
       - name: Install Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-          (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          HOMEBREW_INSTALL_PATH="/home/linuxbrew/.linuxbrew"
+          HOMEBREW_COMMAND_PATH="${HOMEBREW_INSTALL_PATH}/bin/brew"
+          echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.bashrc
+          eval "$(${HOMEBREW_COMMAND_PATH} shellenv)"
 
       - name: Install Bundler
         run: |
@@ -38,7 +40,7 @@ jobs:
     
       - name: Install Fastlane
         run: |
-          brew install fastlane
+          ${HOMEBREW_COMMAND_PATH} install fastlane
       
       - name: Bundle Install
         run: bundle install --jobs 4 --retry 3 --path vendor/bundle
