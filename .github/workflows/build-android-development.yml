@@ -37,7 +37,7 @@ jobs:
           sudo gem install fastlane
       
       - name: Bundle Install
-        run: bundle install --jobs 4 --retry 3 --path vendor/bundle
+        run: sudo bundle install --jobs 4 --retry 3 --path vendor/bundle
 
     
 
