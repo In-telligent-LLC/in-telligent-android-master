@@ -27,7 +27,9 @@ jobs:
       - name: Install Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+          echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.bashrc
+          source ~/.bashrc
 
       - name: Install Bundler
         run: |
