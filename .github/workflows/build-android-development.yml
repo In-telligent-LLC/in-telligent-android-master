@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ github.workspace }}/In-telligent/Gemfile
 
     steps:
       - name: Checkout Code
@@ -18,15 +20,19 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6' 
+          bundler-cache: true 
 
       - name: Install Fastlane
         run: |
-          sudo gem install bundler
-          bundle config set path 'vendor/bundle'
           bundle install
           bundle exec fastlane update_fastlane
           bundle exec fastlane install_plugins
 
       - name: Build APK with Fastlane
         run: |
+          bundle exec fastlane init
           bundle exec fastlane build_development
+          gradle sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
