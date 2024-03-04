@@ -39,6 +39,9 @@ jobs:
       - name: Bundle Install
         run: sudo bundle install
 
+
+      - name: Check Fastlane installation
+        run: fastlane --version
     
 
       # - name: Install Fastlane
