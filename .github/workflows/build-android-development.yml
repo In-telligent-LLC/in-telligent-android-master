@@ -19,29 +19,29 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: '8'
+          java-version: '11'
       # - uses: ruby/setup-ruby@v1
       #   with:
       #     ruby-version: '2.6' 
       #     bundler-cache: true 
   
 
-      - name: Install Bundler
-        run: |
-          sudo gem install bundler
-          sudo bundle config set --local path 'vendor/bundle'
-          sudo bundle config set --local deployment 'true'
+      #- name: Install Bundler
+      #  run: |
+      #    sudo gem install bundler
+      #    sudo bundle config set --local path 'vendor/bundle'
+      #    sudo bundle config set --local deployment 'true'
     
-      - name: Install Fastlane
-        run: |
-          sudo gem install fastlane -v 2.117.1
-      
-      - name: Bundle Install
-        run: sudo bundle install
+      #- name: Install Fastlane
+        # run: |
+        #     sudo gem install fastlane -v 2.117.1
+
+      #- name: Bundle Install
+      #  run: sudo bundle install
 
 
-      - name: Check Fastlane installation
-        run: fastlane --version
+      #- name: Check Fastlane installation
+      #  run: fastlane --version
     
 
       # - name: Install Fastlane
@@ -50,8 +50,15 @@ jobs:
       #     bundle exec fastlane update_fastlane
       #     bundle exec fastlane install_plugins
 
-      - name: Build APK with Fastlane
-        run: |
-          bundle exec fastlane init
-          bundle exec fastlane build_development
+      - name: Build APK with Gradle
+        run: | 
+          cd In-telligent
+          chmod +x gradlew
+          ./gradlew assembleDebug
           gradle sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      
+    #  - name: Build APK with Fastlane
+    #    run: |
+    #      bundle exec fastlane init
+    #      bundle exec fastlane build_development
+    #      gradle sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
