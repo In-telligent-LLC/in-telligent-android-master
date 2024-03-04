@@ -28,14 +28,17 @@ jobs:
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
       - name: Install Bundler
-        run: gem install bundler
+        run: |
+          gem install bundler
+          bundle config set --local path 'vendor/bundle'
+          bundle config set --local deployment 'true'
     
       - name: Install Fastlane
         run: |
           brew install fastlane
       
       - name: Bundle Install
-        run: bundle install
+        run: bundle install --jobs 4 --retry 3 --path vendor/bundle
 
     
 
