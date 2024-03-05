@@ -56,6 +56,12 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
           gradle sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-debug
+          path: In-telligent/app/build/outputs/apk/debug/*.apk
       
     #  - name: Build APK with Fastlane
     #    run: |
