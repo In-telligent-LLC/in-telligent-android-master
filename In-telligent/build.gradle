@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.login = "$System.env.SONAR_LOGIN"
     ext.kotlin_version = '1.7.10'
     repositories {
         google()
@@ -26,16 +27,16 @@ sonarqube {
     properties {
         property "sonar.projectName", "In-telligent_android"
         property "sonar.projectKey", "In-telligent_android"
+        property "sonar.projectBaseDir", "app"
+        property "sonar.login", "$login"
         property "sonar.host.url", "https://sonar.in-telligent.com/"
-        property "sonar.tests", ["app/src/test/java"]
-        property "sonar.test.inclusions", "**/*Test*/**"
         property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.sources", "app/src/main/java"
         property "sonar.exclusions", '**/*Test*/**,' +
                 '*.json,' +
                 '**/*test*/**,' +
                 '**/.gradle/**,' +
-                '**/R.class'
+                '**/R.class,' +
+                '**/res/**'
     }
 }
 
