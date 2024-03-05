@@ -3,7 +3,7 @@ name: Android - Deployment Development - CI/CD w Fastlane
 on:
   push:
     branches:
-      - INT-220-config
+      - development
 
 jobs:
   build:
@@ -20,35 +20,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-      # - uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '2.6' 
-      #     bundler-cache: true 
-  
-
-      #- name: Install Bundler
-      #  run: |
-      #    sudo gem install bundler
-      #    sudo bundle config set --local path 'vendor/bundle'
-      #    sudo bundle config set --local deployment 'true'
-    
-      #- name: Install Fastlane
-        # run: |
-        #     sudo gem install fastlane -v 2.117.1
-
-      #- name: Bundle Install
-      #  run: sudo bundle install
-
-
-      #- name: Check Fastlane installation
-      #  run: fastlane --version
-    
-
-      # - name: Install Fastlane
-      #   run: |
-      #     bundle install
-      #     bundle exec fastlane update_fastlane
-      #     bundle exec fastlane install_plugins
 
       - name: Build APK with Gradle
         run: | 
@@ -58,15 +29,8 @@ jobs:
           ./gradlew assembleDebug
           gradle sonar
 
-
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v2
         with:
           name: app-debug
           path: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/production/debug/*.apk
-      
-    #  - name: Build APK with Fastlane
-    #    run: |
-    #      bundle exec fastlane init
-    #      bundle exec fastlane build_development
-    #      gradle sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}

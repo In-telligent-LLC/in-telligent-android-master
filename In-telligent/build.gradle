@@ -27,7 +27,6 @@ sonarqube {
     properties {
         property "sonar.projectName", "In-telligent_android"
         property "sonar.projectKey", "In-telligent_android"
-        property "sonar.projectBaseDir", "app"
         property "sonar.login", "$login"
         property "sonar.host.url", "https://sonar.in-telligent.com/"
         property "sonar.sourceEncoding", "UTF-8"
