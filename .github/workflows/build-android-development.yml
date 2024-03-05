@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: app-debug
-          path: In-telligent/app/build/outputs/apk/debug/*.apk
+          path: /In-telligent/app/build/outputs/apk/androidTest/production/debug/*.apk
       
     #  - name: Build APK with Fastlane
     #    run: |
