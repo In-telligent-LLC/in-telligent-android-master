@@ -1,4 +1,4 @@
-name: Android - Deployment Quality - CI/CD w Fastlane
+name: Android - Deployment Quality
 
 on:
   push:
@@ -16,18 +16,11 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-            distribution: 'temurin'
-            java-version: '8'
+          distribution: 'temurin'
+          java-version: '11'
 
-      - name: Install Fastlane
-        run: |
-        
-          gem install bundler
-          bundle config set path 'vendor/bundle'
-          bundle install
-          bundle exec fastlane update_fastlane
-          bundle exec fastlane install_plugins
-
-      - name: Build APK with Fastlane
-        run: |
-          bundle exec fastlane build_quality
+      - name: Build APK with Gradle
+        run: | 
+          cd In-telligent
+          chmod +x gradlew
+          ./gradlew assembleDebug
