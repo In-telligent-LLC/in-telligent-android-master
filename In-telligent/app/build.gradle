@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -45,22 +47,20 @@ android {
         // Defining debug logging
         buildConfigField "boolean", "LOG_DEBUG_MODE", "false"
 
-        manifestPlaceholders = [hostName: "app.in-telligent.com"]
-    }
-
     viewBinding {
         enabled = false
     }
+    }
 
-//    def signingConfigFile = file("../keystore.json")
-//    def signingConfigJson = new groovy.json.JsonSlurper().parseText(signingConfigFile.text)
+    def signingConfigFile = file("signingConfig.json")
+    def signingConfigJson = new JsonSlurper().parseText(signingConfigFile.text)
 
     signingConfigs {
         release {
-//            storeFile file(signingConfigJson.keystore_file)
-//            storePassword signingConfigJson.keystore_password
-//            keyAlias signingConfigJson.keystore_key_alias
-//            keyPassword signingConfigJson.keystore_key_password
+            storeFile file(signingConfigJson.release.storeFile)
+            storePassword signingConfigJson.release.storePassword
+            keyAlias signingConfigJson.release.keyAlias
+            keyPassword signingConfigJson.release.keyPassword
         }
     }
     kapt {
@@ -72,8 +72,8 @@ android {
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
+            buildConfigField "String", "BASE_URL", "\"https://development-api.in-telligent.com/api\""
             debuggable true
-            resValue "string", "hostname", "https://development.in-telligent.com"
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
             resValue "string", "groundtruth_access_key", "6SeUIx9dXvtGUpcpM0pKsGkDh-eSzdnbdx4AfILJpRMu0ZaWI7vDbZz-khEdiKtGOqhQnAj0XimEyj7L4V7eSeP9NKfM5yQy"
@@ -81,8 +81,7 @@ android {
             ext.enableCrashlytics = false
         }
         release {
-
-            resValue "string", "hostname", "https://quality.in-telligent.com"
+            buildConfigField "String", "BASE_URL", "\"https://quality-api.in-telligent.com\""
             resValue "string", "google_maps_key", "AIzaSyAoCLzXsX_RJQuMdGP1Evf1lXO1k1u8Qz0"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
             resValue "string", "groundtruth_access_key", "6SeUIx9dXvtGUpcpM0pKsGkDh-eSzdnbdx4AfILJpRMu0ZaWI7vDbZz-khEdiKtGOqhQnAj0XimEyj7L4V7eSeP9NKfM5yQy"
@@ -90,7 +89,7 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
 
