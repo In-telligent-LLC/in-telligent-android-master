@@ -23,4 +23,11 @@ jobs:
         run: | 
           cd In-telligent
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleRelease
+
+      - name: Retrieve Firebase cert files
+        run: | 
+          mkdir certs
+          echo ${{ secrets.FIREBASE_CERT }} | base64 -d >> certs/upload_certificate.pem
+          echo ${{ secrets.FIREBASE_KEYSTORE }} | base64 -d >> certs/upload-keystore.jks
+          
