@@ -167,6 +167,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
+
         OpenAPI.Configuration.setMocked(BuildConfig.MOCK);
 
         checkAppUpdates();

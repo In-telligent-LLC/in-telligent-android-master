@@ -1,0 +1,33 @@
+name: Android - Deployment Quality
+
+on:
+  push:
+    branches:
+      - quality
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build APK with Gradle
+        run: | 
+          cd In-telligent
+          chmod +x gradlew
+          ./gradlew assembleRelease
+
+      - name: Retrieve Firebase cert files
+        run: | 
+          mkdir certs
+          echo ${{ secrets.FIREBASE_CERT }} | base64 -d >> certs/upload_certificate.pem
+          echo ${{ secrets.FIREBASE_KEYSTORE }} | base64 -d >> certs/upload-keystore.jks
+          

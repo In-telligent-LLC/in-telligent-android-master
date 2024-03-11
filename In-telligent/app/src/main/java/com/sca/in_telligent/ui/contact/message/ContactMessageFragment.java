@@ -26,7 +26,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.exifinterface.media.ExifInterface;
 
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.AttachmentFile;
@@ -179,6 +178,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             mPresenter.onAttach(this);
 
             goBackText.setOnClickListener(v -> backClick());
+            sendMessageButton.setOnClickListener(v -> sendMessage(v));
+
+
         }
 
         return view;
@@ -328,10 +330,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
     }
 
-//    @OnClick(R.id.contact_send_attachment_layout)
-//    void attachmentButtonClick(View v) {
-//        mPresenter.getStoragePermission();
-//    }
+    @OnClick(R.id.contact_send_attachment_layout)
+    void attachmentButtonClick(View v) {
+        mPresenter.getStoragePermission();
+    }
 
     @OnClick(R.id.contact_send_message_button)
     void sendMessage(View v) {
@@ -472,19 +474,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
             if (data.getData() != null) {
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "data.getData() = " + data.getData());
-                    Log.d("mikes", "data.getDataString() = " + data.getDataString());
-                    Log.d("mikes", "data.getType() = " + data.getType());
-                }
+
 
                 Uri selectedUri = data.getData();
 
                 final String attachmentPath = selectedUri.getPath();
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "attachmentPath = " + attachmentPath);
-                }
 
                 File file = new File(attachmentPath);
                 attachmentText.setText("\t" + file.getName());
@@ -502,9 +497,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 ClipData mClipData = data.getClipData();
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "mClipData.getItemCount = " + mClipData.getItemCount());
-                }
 
                 for (int i = 0; i < mClipData.getItemCount(); i++) {
 
@@ -552,13 +544,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
 
         setLoadAttachmentViewState(LoadAttachmentViewState.COMPRESSING);
-
-        if (BuildConfig1.LOG_DEBUG_MODE) {
-            for (AttachmentFile attachmentFile : inputFiles) {
-                Log.d("CreateCommunityAlert",
-                        "Input filesize: " + attachmentFile.getFile().length() / 1024);
-            }
-        }
 
         @SuppressLint("StaticFieldLeak") AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
             @Override
@@ -632,16 +617,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 attachmentProgressBar.setProgress(values[0]);
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             protected void onPostExecute(ArrayList<String> newFilePaths) {
 
                 for (String newFilePath : newFilePaths) {
                     final long filesize = (new File(newFilePath).length() / 1024);
-
-                    if (BuildConfig1.LOG_DEBUG_MODE) {
-                        Log.d("CreateCommunityAlert", "Output filepath: " + newFilePath);
-                        Log.d("CreateCommunityAlert", "Output filesize: " + filesize);
-                    }
 
                     totalAttachmentsSize += filesize;
                 }
@@ -651,14 +632,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 attachmentPaths.addAll(newFilePaths);
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "Selected Files: " + attachmentPaths.size());
-                    for (String s : attachmentPaths) {
-                        Log.d("mikes", "attachmentPaths: " + s);
-                    }
-
-                    Log.d("mikes", "totalAttachmentsSize: " + totalAttachmentsSize);
-                }
 
                 if (totalAttachmentsSize < MAX_TOTAL_ATTACHMENTS_SIZE_KB) {
                     attachmentText.setText("\t" + attachmentPaths.size() + " " + getString(
@@ -719,15 +692,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             int rotation = exif
                     .getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
 
-            if (BuildConfig1.LOG_DEBUG_MODE) {
-                Log.d("mikes", "rotate bitmap exif rotation = " + rotation);
-            }
 
             int rotationInDegrees = exifToDegrees(rotation);
 
-            if (BuildConfig1.LOG_DEBUG_MODE) {
-                Log.d("mikes", "rotate bitmap exif rotationInDegrees = " + rotationInDegrees);
-            }
+
 
             if (rotationInDegrees == 0) {
 

@@ -7,13 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-import butterknife.internal.DebouncingOnClickListener;
-import butterknife.internal.Utils;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
@@ -22,10 +17,14 @@ import com.sca.in_telligent.ui.group.alert.detail.InboxNotificationTypeMapper;
 import com.sca.in_telligent.ui.inbox.InboxNotificationType;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
@@ -33,7 +32,6 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Callback mCallback;
     private List<Notification> notifications;
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public interface Callback {
         void onAlertSelected(int i);
 

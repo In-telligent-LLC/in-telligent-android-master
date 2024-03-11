@@ -1,6 +1,11 @@
 package com.sca.in_telligent.ui.contact.message;
 
 import android.Manifest.permission;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.CreateNotificationRequest;
@@ -15,7 +20,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
 import okhttp3.MediaType;
@@ -25,6 +29,7 @@ import okhttp3.RequestBody;
 
 public class ContactMessagePresenter<V extends ContactMessageMvpView> extends
     BasePresenter<V> implements ContactMessageMvpPresenter<V> {
+    private static final int MY_PERMISSIONS_REQUEST_CODE = 123;
 
   @Inject
   public ContactMessagePresenter(DataManager dataManager,
@@ -34,12 +39,23 @@ public class ContactMessagePresenter<V extends ContactMessageMvpView> extends
   }
 
 
-//  @Override
-//  public void getStoragePermission() {
-//    getRxPermissions()
-//        .request(permission.READ_EXTERNAL_STORAGE, permission.WRITE_EXTERNAL_STORAGE)
-//        .subscribe(granted -> getMvpView().storagePermissionResult(granted));
-//  }
+@Override
+public void getStoragePermission() {
+    // Check if the permissions are already granted
+    if (ContextCompat.checkSelfPermission(getMvpView().getContext(), permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+        || ContextCompat.checkSelfPermission(getMvpView().getContext(), permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+        // Request the permissions
+        ActivityCompat.requestPermissions(
+            (Activity) getMvpView().getContext(),
+            new String[]{permission.READ_EXTERNAL_STORAGE, permission.WRITE_EXTERNAL_STORAGE},
+            MY_PERMISSIONS_REQUEST_CODE
+        );
+    } else {
+        // Permissions are already granted
+        getMvpView().storagePermissionResult(true);
+    }
+}
 
   @Override
   public void createNotification(String buildingId, String title, String body, String type,
