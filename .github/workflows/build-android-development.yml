@@ -1,0 +1,33 @@
+name: Android - Deployment Development
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build APK with Gradle
+        run: | 
+          cd In-telligent
+          chmod +x gradlew
+          export SONAR_LOGIN=${{ secrets. SONAR_TOKEN }}
+          ./gradlew assembleDebug
+          gradle sonar
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-debug
+          path: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/production/debug/*.apk

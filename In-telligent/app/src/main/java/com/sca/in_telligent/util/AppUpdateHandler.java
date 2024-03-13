@@ -1,18 +1,16 @@
 package com.sca.in_telligent.util;
 
+import static java.util.Objects.requireNonNull;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-
 import android.util.Log;
 
-
-import com.sca.in_telligent.BuildConfig1;
-import com.sca.in_telligent.R;
-
-import static java.util.Objects.requireNonNull;
-
 import androidx.appcompat.app.AlertDialog;
+
+import com.sca.in_telligent.BuildConfig;
+import com.sca.in_telligent.R;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 
@@ -78,7 +76,7 @@ public class AppUpdateHandler {
             return;
         }
 
-        final String appPackageName = BuildConfig1.APPLICATION_ID;
+        final String appPackageName = BuildConfig.APPLICATION_ID;
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("market://details?id=" + appPackageName)));
