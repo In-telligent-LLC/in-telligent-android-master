@@ -1,7 +1,6 @@
 package com.sca.in_telligent.ui.settings.help;
 
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.SupportRequest;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
@@ -9,7 +8,6 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> implements
     HelpMvpPresenter<V> {
@@ -23,7 +21,7 @@ public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> imple
 
   @Override
   public void requestPhonePermission() {
-    getMvpView().requestPhonePermission();
+//    getMvpView().requestPhonePermission();
 
   }
 
@@ -35,6 +33,6 @@ public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> imple
               getMvpView().hideLoading();
               getMvpView().messageSent(successResponse.isSuccess());
 
-            }, throwable -> getMvpView().onError(throwable.getMessage());
+            }, throwable -> getMvpView().onError(throwable.getMessage())));
   }
 }
