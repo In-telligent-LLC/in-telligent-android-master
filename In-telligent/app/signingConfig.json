@@ -1,8 +1,0 @@
-{
-  "release": {
-    "storeFile": "/Users/marianesantana/Documents/Android/keystores/upload-keystore.jks",
-    "storePassword": "upload",
-    "keyAlias": "uploadKey",
-    "keyPassword": "uploadKey"
-  }
-}
