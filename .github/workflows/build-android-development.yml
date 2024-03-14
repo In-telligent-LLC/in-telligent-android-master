@@ -23,7 +23,10 @@ jobs:
 
       - name: Fetch signing json file
         run: | 
-          echo ${{ secrets.GOOGLE_SIGNING_JSON }} | base64 -d >> In-telligent/app/signingConfig.json
+          echo $GOOGLE_SIGNING_JSON  >> "${{ github.workspace }}/In-telligent/app/signingConfig.json"
+        env:
+          GOOGLE_SIGNING_JSON: ${{ secrets.GOOGLE_SIGNING_JSON }}
+
 
       - name: Build APK with Gradle
         run: | 
