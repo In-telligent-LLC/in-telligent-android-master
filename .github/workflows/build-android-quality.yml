@@ -40,12 +40,12 @@ jobs:
 
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
+        
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_CONFIG_JSON }}
           groups: bairesdev-testers
-          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/production/release/*.apk
-          releaseNotes: ${{ inputs.release_notes }}
+          file: build/outputs/apk/production/release/app-production-release-unsigned.apk
 
    
           
