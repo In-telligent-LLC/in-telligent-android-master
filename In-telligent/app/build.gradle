@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 
 plugins {
     id 'com.android.application'
@@ -39,30 +38,30 @@ android {
         minSdkVersion 24
         targetSdkVersion 33
 
-        versionCode appVersionCode.toInteger()
-        versionName appVersionName
+        versionCode 614
+        versionName "5.1.17"
 
         multiDexEnabled true
 
         // Defining debug logging
         buildConfigField "boolean", "LOG_DEBUG_MODE", "false"
 
-    viewBinding {
-        enabled = false
-    }
-    }
-
-    def signingConfigFile = file("signingConfig.json")
-    def signingConfigJson = new JsonSlurper().parseText(signingConfigFile.text)
-
-    signingConfigs {
-        release {
-            storeFile file(signingConfigJson.release.storeFile)
-            storePassword signingConfigJson.release.storePassword
-            keyAlias signingConfigJson.release.keyAlias
-            keyPassword signingConfigJson.release.keyPassword
+        viewBinding {
+            enabled = false
         }
     }
+
+    // def firebaseKeystore = "${System.getenv('FIREBASE_KEYSTORE')}"
+
+
+    // signingConfigs {
+    //     release {
+    //         storeFile file(signingConfigJson.release.storeFile)
+    //         storePassword signingConfigJson.release.storePassword
+    //         keyAlias signingConfigJson.release.keyAlias
+    //         keyPassword signingConfigJson.release.keyPassword
+    //     }
+    // }
     kapt {
         generateStubs = true
         correctErrorTypes = true
@@ -89,7 +88,9 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            ext.enableCrashlytics = true
+
+            // signingConfig signingConfigs.release
         }
     }
 
