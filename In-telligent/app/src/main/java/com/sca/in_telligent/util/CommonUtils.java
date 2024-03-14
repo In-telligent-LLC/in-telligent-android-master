@@ -91,12 +91,14 @@ public final class CommonUtils {
         @SuppressLint("SimpleDateFormat") DateFormat outDf = new SimpleDateFormat("MM/dd/yy h:mm a");
         outDf.setTimeZone(TimeZone.getDefault());
         String date = null;
-        try {
-            Date parse = inDf.parse(oldDate);
-            assert parse != null;
-            date = outDf.format(parse);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if(oldDate != null && !oldDate.isEmpty()) {
+            try {
+                Date parse = inDf.parse(oldDate);
+                assert parse != null;
+                date = outDf.format(parse);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
 
         return date;

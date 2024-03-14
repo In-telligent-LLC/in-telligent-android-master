@@ -27,19 +27,14 @@ public class NotificationSettingsPresenter<V extends NotificationSettingsMvpView
   public void syncAlertSubscription(AlertSubscriptionRequest alertSubscriptionRequest) {
     getCompositeDisposable().add(getDataManager().syncAlertSubscription(alertSubscriptionRequest)
         .subscribeOn(getSchedulerProvider().io()).observeOn(getSchedulerProvider().ui())
-        .subscribe(new Consumer<SuccessResponse>() {
-          @Override
-          public void accept(SuccessResponse successResponse) throws Exception {
-            if (successResponse.isSuccess()) {
-              getMvpView().subscriptonUpdated(alertSubscriptionRequest.getBuildingId(),
-                  alertSubscriptionRequest.getSubscription());
-            }
+        .subscribe(successResponse -> {
+          if (successResponse.isSuccess()) {
+            getMvpView().subscriptonUpdated(alertSubscriptionRequest.getBuildingId(),
+                alertSubscriptionRequest.getSubscription());
           }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
+        }, throwable -> {
+            getMvpView().onError(throwable.getMessage());
 
-          }
         }));
   }
 
@@ -47,18 +42,13 @@ public class NotificationSettingsPresenter<V extends NotificationSettingsMvpView
   public void syncMetadata(UpdateSubscriberRequest updateSubscriberRequest) {
     getCompositeDisposable().add(getDataManager().updateUser(updateSubscriberRequest)
         .subscribeOn(getSchedulerProvider().io()).
-            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<SubscriberResponse>() {
-          @Override
-          public void accept(SubscriberResponse subscriberResponse) throws Exception {
-            if (subscriberResponse.isSuccess()) {
-              getMvpView().subscriberUpdateResult(subscriberResponse.getSubscriber());
-            }
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
+            observeOn(getSchedulerProvider().ui()).subscribe(subscriberResponse -> {
+              if (subscriberResponse.isSuccess()) {
+                getMvpView().subscriberUpdateResult(subscriberResponse.getSubscriber());
+              }
+            }, throwable -> {
+                getMvpView().onError(throwable.getMessage());
 
-          }
-        }));
+            }));
   }
 }

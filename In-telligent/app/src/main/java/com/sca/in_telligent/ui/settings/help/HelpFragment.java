@@ -62,8 +62,15 @@ public class HelpFragment extends BaseFragment implements HelpMvpView {
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            phoneLink = view.findViewById(R.id.settings_support_number_field);
+            sendButton = view.findViewById(R.id.settings_support_send_button);
+            supportMessageText = view.findViewById(R.id.settings_support_message_edittext);
+            hoursText = view.findViewById(R.id.settings_support_hours_field);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            sendButton.setOnClickListener(this::sendSupportMail);
         }
         return view;
     }

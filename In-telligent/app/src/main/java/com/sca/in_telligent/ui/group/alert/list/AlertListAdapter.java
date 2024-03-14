@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.group.alert.list;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,9 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private final Context context;
     private Callback mCallback;
     private List<Notification> notifications;
+    AlertListMvpPresenter<AlertListMvpView> mPresenter;
+    private int buildingId;
+
 
     public interface Callback {
         void onAlertSelected(int i);
@@ -48,7 +52,7 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (i == 1) {
+        if (i == VIEW_TYPE_NORMAL) {
             return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.inbox_notification_item_view, viewGroup, false));
         }
         return new EmptyViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.inbox_notification_empty_view, viewGroup, false));
@@ -60,7 +64,7 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public int getItemCount() {
         List<Notification> list = this.notifications;
-        if (list == null || list.size() <= 0) {
+        if (list == null || list.size() <= VIEW_TYPE_EMPTY) {
             return 1;
         }
         return this.notifications.size();
@@ -97,15 +101,24 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.notification_view_button)
         TextView viewButton;
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
+        @Override
         protected void clear() {
         }
 
         public ViewHolder(View view) {
             super(view);
+            descriptionText = view.findViewById(R.id.notification_description_text);
+            infoText = view.findViewById(R.id.notification_info_text);
+            profileImage = view.findViewById(R.id.notification_profile_image);
+            readImage = view.findViewById(R.id.notification_read_image);
+            titleText = view.findViewById(R.id.notification_title_text);
+            trashImage = view.findViewById(R.id.notification_trash_image);
+            typeImage = view.findViewById(R.id.notification_type_image);
+            viewButton = view.findViewById(R.id.notification_view_button);
             ButterKnife.bind(this, view);
         }
 
+        @SuppressLint("SetTextI18n")
         public void onBind(final int position) {
             super.onBind(position);
 
@@ -150,18 +163,25 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.inbox_retry_button)
         Button retryButton;
 
-        @Override // com.sca.in_telligent.ui.base.BaseViewHolder
+        @Override
         protected void clear() {
         }
 
+
         public EmptyViewHolder(View view) {
             super(view);
+            messageTextView = view.findViewById(R.id.inbox_no_message_text);
+            retryButton = view.findViewById(R.id.inbox_retry_button);
             ButterKnife.bind(this, view);
+
+            retryButton.setOnClickListener(v -> onRetryClick());
         }
 
         @OnClick({R.id.inbox_retry_button})
         void onRetryClick() {
-            Callback unused = AlertListAdapter.this.mCallback;
+            if (mPresenter != null) {
+                mPresenter.getNotifications(Integer.toString(buildingId), true);
+            }
         }
     }
 }

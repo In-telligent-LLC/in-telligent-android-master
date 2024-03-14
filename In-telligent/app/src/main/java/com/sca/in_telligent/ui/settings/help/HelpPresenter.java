@@ -1,7 +1,6 @@
 package com.sca.in_telligent.ui.settings.help;
 
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.SupportRequest;
 import com.sca.in_telligent.ui.base.BasePresenter;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
@@ -9,7 +8,6 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> implements
     HelpMvpPresenter<V> {
@@ -23,27 +21,18 @@ public class HelpPresenter<V extends HelpMvpView> extends BasePresenter<V> imple
 
   @Override
   public void requestPhonePermission() {
-//    getRxPermissions()
-//        .request(permission.CALL_PHONE)
-//        .subscribe(granted -> getMvpView().phonePermissionResult(granted));
+//    getMvpView().requestPhonePermission();
+
   }
 
   @Override
   public void sendSupportMail(SupportRequest supportRequest) {
     getCompositeDisposable().add(
         getDataManager().sendSupportMail(supportRequest).subscribeOn(getSchedulerProvider().io())
-            .observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<SuccessResponse>() {
-          @Override
-          public void accept(SuccessResponse successResponse) throws Exception {
-            getMvpView().hideLoading();
-            getMvpView().messageSent(successResponse.isSuccess());
+            .observeOn(getSchedulerProvider().ui()).subscribe(successResponse -> {
+              getMvpView().hideLoading();
+              getMvpView().messageSent(successResponse.isSuccess());
 
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-          }
-        }));
+            }, throwable -> getMvpView().onError(throwable.getMessage())));
   }
 }

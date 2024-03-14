@@ -1,6 +1,5 @@
 package com.sca.in_telligent.ui.group.list;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public enum GroupSpinnerItemType {
     NONE(0),
     PEOPLE(1),

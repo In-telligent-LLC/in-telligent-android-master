@@ -32,6 +32,7 @@ import com.sca.in_telligent.util.rx.SchedulerProvider;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -189,7 +190,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     @OnItemSelected(R.id.group_list_spinner)
     public void spinnerItemSelected(Spinner spinner, int position) {
         GroupSpinnerItemType spinnerItemType = GroupSpinnerItemType.NONE;
-        switch (spinnerItemType.getSpinnerMode(position)) {
+        switch (Objects.requireNonNull(spinnerItemType.getSpinnerMode(position))) {
             case NONE:
                 adapter.updateItems(buildings);
                 groupListSelector.groupsUpdated(buildings);
@@ -230,15 +231,11 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         }
 
         if (category.getCategory().equalsIgnoreCase(Building.Category.PEOPLE.getCategory()) &&
-                (building.getSubscriberId() != null && building.getSubscriberId().intValue() == subscriberId)) {
+                (building.getSubscriberId() != null && building.getSubscriberId() == subscriberId)) {
             return true;
         }
 
-        if (category.getCategory().equalsIgnoreCase(building.getFilterCategory())) {
-            return true;
-        }
-
-        return false;
+        return category.getCategory().equalsIgnoreCase(building.getFilterCategory());
     }
 
     private void initSpinner() {

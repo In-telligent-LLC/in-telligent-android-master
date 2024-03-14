@@ -16,7 +16,7 @@ public interface ContactMessageMvpPresenter<V extends ContactMessageMvpView> ext
 
   void createNotificationNoAttachment(CreateNotificationRequest createNotificationRequest);
 
-  void suggestNotification(String buildingId, String title, String body, ArrayList<String> attachmentPaths);
+  void suggestNotification(SuggestNotificationRequest suggestNotificationRequest);
 
   void suggestNotificationNoAttachment(SuggestNotificationRequest suggestNotificationRequest);
 }
