@@ -24,7 +24,7 @@ jobs:
 
       - name: Fetch signing json file
         run: | 
-          echo ${{ secrets.GOOGLE_SIGNING_JSON}} 
+          echo $GOOGLE_SIGNING_JSON  >> "${{ github.workspace }}/In-telligent/app/signingConfig.json"
 
       - name: Retrieve Firebase cert files
         run: | 
