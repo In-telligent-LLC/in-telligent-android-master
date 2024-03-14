@@ -24,8 +24,8 @@ jobs:
 
       - name: Fetch signing json file
         run: | 
-          echo ${{ secrets.GOOGLE_SIGNING_JSON }} 
-\
+          echo ${{ secrets.GOOGLE_SIGNING_JSON}} 
+
       - name: Retrieve Firebase cert files
         run: | 
           mkdir certs
