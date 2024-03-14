@@ -22,21 +22,30 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Fetch signing json file
-        run: | 
-          echo $GOOGLE_SIGNING_JSON  >> "${{ github.workspace }}/In-telligent/app/signingConfig.json"
+      # - name: Fetch signing json file
+      #   run: | 
+      #     echo $GOOGLE_SIGNING_JSON  >> "${{ github.workspace }}/In-telligent/app/signingConfig.json"
 
-      - name: Retrieve Firebase cert files
-        run: | 
-          mkdir certs
-          echo $FIREBASE_CERT | base64 -d >> certs/upload_certificate.pem
-          echo $FIREBASE_KEYSTORE | base64 -d >> certs/upload-keystore.jks
+      # - name: Retrieve Firebase cert files
+      #   run: | 
+      #     mkdir certs
+      #     echo $FIREBASE_CERT | base64 -d >> certs/upload_certificate.pem
+      #     echo $FIREBASE_KEYSTORE | base64 -d >> certs/upload-keystore.jks
   
       - name: Build APK with Gradle
         run: | 
           cd In-telligent
           chmod +x gradlew
           ./gradlew assembleRelease
+
+      - name: Upload Artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CONFIG_JSON }}
+          groups: bairesdev-testers
+          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/production/release/*.apk
+          releaseNotes: ${{ inputs.release_notes }}
 
    
           
