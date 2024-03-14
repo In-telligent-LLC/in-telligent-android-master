@@ -29,8 +29,8 @@ jobs:
       - name: Retrieve Firebase cert files
         run: | 
           mkdir certs
-          echo ${{ secrets.FIREBASE_CERT }} | base64 -d >> certs/upload_certificate.pem
-          echo ${{ secrets.FIREBASE_KEYSTORE }} | base64 -d >> certs/upload-keystore.jks
+          echo $FIREBASE_CERT | base64 -d >> certs/upload_certificate.pem
+          echo $FIREBASE_KEYSTORE | base64 -d >> certs/upload-keystore.jks
   
       - name: Build APK with Gradle
         run: | 
