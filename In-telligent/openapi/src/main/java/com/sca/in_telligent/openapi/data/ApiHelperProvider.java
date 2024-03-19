@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
 
+import com.openapi.BuildConfig;
 import com.sca.in_telligent.openapi.data.network.ApiEndPoint;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OkHttpClientProvider;
@@ -31,14 +32,14 @@ public class ApiHelperProvider {
         requireNonNull(context, "Context cannot be null");
         OkHttpClientProvider.PublicInterceptor publicInterceptor = new OkHttpClientProvider.PublicInterceptor();
         OkHttpClient publicOkHttpClient = OkHttpClientProvider.getOkHttpClientInterceptor(publicInterceptor);
-        publicApiHelper = getApiHelper(ApiEndPoint.BASE_URL, publicOkHttpClient);
+        publicApiHelper = getApiHelper(BuildConfig.API_URL, publicOkHttpClient);
 
         OpenApiPreferencesHelper openApiPreferencesHelper = new OpenApiPreferencesHelperImpl(context, OpenApiPreferencesHelperImpl.PREF_NAME);
 
         OkHttpClientProvider.AuthInterceptor authInterceptor = new OkHttpClientProvider.AuthInterceptor(() -> openApiPreferencesHelper.getAccessToken());
         OkHttpClient authOkHttpClient = OkHttpClientProvider.getOkHttpClientInterceptor(authInterceptor);
         uploadApiHelper = getApiHelper(ApiEndPoint.BASE_UPLOAD, authOkHttpClient);
-        authApiHelper = getApiHelper(ApiEndPoint.BASE_URL, authOkHttpClient);
+        authApiHelper = getApiHelper(BuildConfig.API_URL, authOkHttpClient);
     }
 
 

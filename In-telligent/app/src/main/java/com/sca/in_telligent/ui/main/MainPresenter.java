@@ -82,9 +82,8 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
 
     @Override
     public void requestLocationPermissions(boolean phone) {
-//        getRxPermissions()
-//                .request(permission.ACCESS_FINE_LOCATION, permission.ACCESS_COARSE_LOCATION)
-//                .subscribe(granted -> getMvpView().locationPermissionResult(granted, phone));
+
+
     }
 
 

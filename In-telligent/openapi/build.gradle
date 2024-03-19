@@ -14,9 +14,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
+            buildConfigField "String", "API_URL", "\"https://development-api.in-telligent.com/api/\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", "\"https://quality-api.in-telligent.com/api/\""
+
         }
     }
 
