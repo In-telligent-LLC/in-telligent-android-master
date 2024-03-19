@@ -28,7 +28,7 @@ android {
         disable 'NonConstantResourceId'
     }
     buildFeatures {
-        buildConfig = true
+        buildConfig true
     }
     compileSdkVersion 33
     defaultConfig {
@@ -38,13 +38,14 @@ android {
         minSdkVersion 24
         targetSdkVersion 33
 
-        versionCode 614
-        versionName "5.1.17"
+        versionCode versionCode
+        versionName versionName
 
         multiDexEnabled true
 
         // Defining debug logging
         buildConfigField "boolean", "LOG_DEBUG_MODE", "false"
+
 
         viewBinding {
             enabled = false
@@ -89,6 +90,7 @@ android {
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             ext.enableCrashlytics = true
+            signingConfig signingConfigs.debug
 
             // signingConfig signingConfigs.release
         }
@@ -102,22 +104,22 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
-
-    flavorDimensions "only"
-
-    productFlavors {
-        staging {
-            dimension "only"
-            resValue "string", "app_name", "In-telligent Staging"
-            buildConfigField "boolean", "IS_PRODUCTION", "false"
-            applicationIdSuffix ".staging"
-        }
-        production {
-            dimension "only"
-            resValue "string", "app_name", "In-telligent"
-            buildConfigField "boolean", "IS_PRODUCTION", "true"
-        }
-    }
+//
+//    flavorDimensions "only"
+//
+//    productFlavors {
+//        staging {
+//            dimension "only"
+//            resValue "string", "app_name", "In-telligent Staging"
+//            buildConfigField "boolean", "IS_PRODUCTION", "false"
+//            applicationIdSuffix ".staging"
+//        }
+//        production {
+//            dimension "only"
+//            resValue "string", "app_name", "In-telligent"
+//            buildConfigField "boolean", "IS_PRODUCTION", "true"
+//        }
+//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

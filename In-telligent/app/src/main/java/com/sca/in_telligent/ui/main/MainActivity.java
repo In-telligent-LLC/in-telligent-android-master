@@ -40,7 +40,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.openapi.BuildConfig;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -168,7 +167,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onCreate(bundle);
 
 
-        OpenAPI.Configuration.setMocked(BuildConfig.MOCK);
+        OpenAPI.Configuration.setMocked(false);
 
         checkAppUpdates();
         setContentView(R.layout.activity_main);

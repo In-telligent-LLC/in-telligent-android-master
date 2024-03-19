@@ -75,7 +75,7 @@ public class ScaApplication extends Application {
 
     private void initOpenApi() {
         OpenAPI.Configuration configuration = new OpenAPI.Configuration.Builder()
-                .setAppVersion(BuildConfig.VERSION_CODE)
+                .setAppVersion(1)
                 .setDebug(BuildConfig.DEBUG).build();
 
         OpenAPI.init(this, configuration);
