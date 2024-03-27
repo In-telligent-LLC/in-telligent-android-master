@@ -11,21 +11,21 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.openapi.util.AudioHelper;
+import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.util.twilio.AppTwilioUtil.TwilioUtilListener;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
 import com.twilio.voice.Call;
 
-import java.security.Permission;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class IncomingCallActivity extends BaseActivity implements TwilioUtilListener,
     IncomingCallMvpView {
@@ -83,6 +83,14 @@ public class IncomingCallActivity extends BaseActivity implements TwilioUtilList
     getActivityComponent().inject(this);
 
     setUnBinder(ButterKnife.bind(this));
+
+    acceptCall = findViewById(R.id.incoming_call_accept_call);
+    rejectCall = findViewById(R.id.incoming_call_reject_call);
+    centerText = findViewById(R.id.incoming_call_center_text);
+    chronometer = findViewById(R.id.chronometer);
+
+    acceptCall.setOnClickListener(this::acceptClick);
+    rejectCall.setOnClickListener(this::rejectClick);
 
     setUp();
   }
@@ -162,10 +170,6 @@ public class IncomingCallActivity extends BaseActivity implements TwilioUtilList
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {

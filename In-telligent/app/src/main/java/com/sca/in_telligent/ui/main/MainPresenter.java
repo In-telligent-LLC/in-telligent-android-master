@@ -1,5 +1,7 @@
 package com.sca.in_telligent.ui.main;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.location.Location;
 import android.util.Log;
 
@@ -22,7 +24,6 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
     private static final int NO_INVITE_ID = -1112;
     private static final String TAG = "MainPresenter";
     private static final long LAST_CHECKED_EXPIRATION_IN_MILLIS = TimeUnit.MINUTES.toMillis(10);
-
 
     @Inject
     public MainPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
@@ -86,12 +87,14 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
 
     }
 
+    private static final int REQUEST_PHONE_PERMISSION = 1;
 
+    @SuppressLint("CheckResult")
     @Override
     public void requestPhonePermission() {
-//        getRxPermissions()
-//                .request(permission.CALL_PHONE)
-//                .subscribe(granted -> getMvpView().phonePermissionResult(granted));
+        getRxPermissions().request(Manifest.permission.CALL_PHONE)
+                .subscribe(granted -> getMvpView().phonePermissionResult(granted));
+
     }
     @Override
     public void subscribeToCommunity(int buildingId) {

@@ -13,19 +13,17 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.reactivex.rxjava3.annotations.Nullable;
-
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class IntroActivity extends BaseActivity implements IntroMvpView {
 
@@ -94,10 +92,6 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {

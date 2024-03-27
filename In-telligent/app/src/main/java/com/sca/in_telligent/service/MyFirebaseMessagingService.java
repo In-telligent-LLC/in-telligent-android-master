@@ -28,7 +28,6 @@ import com.sca.in_telligent.di.module.ServiceModule;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
-import com.sca.in_telligent.openapi.data.network.model.PushTokenSuccessResponse;
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.ui.popup.IncomingCallActivity;
@@ -51,7 +50,6 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -76,6 +74,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   @Inject
   GeofenceClient geofenceClient;
 
+  String channelId = "my_custom_channel_id";
+
+
   private String state = "";
 
   @Override
@@ -85,16 +86,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         .serviceModule(new ServiceModule(this))
         .applicationComponent(((ScaApplication) getApplication()).getComponent())
         .build();
+
     component.inject(this);
+
   }
 
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
+    Log.d(TAG, "Chego aqui: " + remoteMessage.getNotification());
 
-    if (remoteMessage.getData().size() > 0) {
+    if (remoteMessage.getNotification() != null) {
       Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
       Map<String, String> data = remoteMessage.getData();
+      Log.d(TAG, "Message data payload: " + data);
 
       Gson gson = new Gson();
       JsonElement jsonElement = gson.toJsonTree(data);
@@ -170,17 +175,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
    */
 
   private void sendNotification(PushNotification pushNotification) {
+    Log.d(TAG, "sendNotification: " + pushNotification);
     Intent intent = new Intent(this, MainActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     intent.putExtra("from", "background");
     intent.putExtra("pushNotification", pushNotification);
 
     int id;
-//    PendingIntent pendingIntent;
-
     PendingIntent.getActivity(this,
-            Integer.parseInt(pushNotification.getNotificationId()) /* Request code */, intent,
-            PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
+            Integer.parseInt(pushNotification.getNotificationId()), intent,
+            PendingIntent.FLAG_IMMUTABLE);
     PendingIntent pendingIntent;
 
     String type = pushNotification.getType();
@@ -195,7 +199,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       id = (int) (System.currentTimeMillis() / 1000);
 
       pendingIntent = PendingIntent
-          .getActivity(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+          .getActivity(this, id, intent, PendingIntent.FLAG_IMMUTABLE);
 
     } else if (type != null && type.equals("alert")) {
       intent.putExtra("action", "goToAlert");
@@ -211,14 +215,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       responder.alertDelivered(alertOpenedRequest);
 
       pendingIntent = PendingIntent
-          .getActivity(this, notificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+          .getActivity(this, notificationId, intent,  PendingIntent.FLAG_IMMUTABLE);
 
     } else if (type != null && type.equals("suggested_alert")) {
 
       int suggestionId = Integer.valueOf(pushNotification.getId());
 
       pendingIntent = PendingIntent
-          .getActivity(this, suggestionId, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+          .getActivity(this, suggestionId, intent,  PendingIntent.FLAG_IMMUTABLE);
     } else if (type != null && type.equals("social_media")) {
 
       intent.putExtra("social_type", pushNotification.getSocialType());
@@ -226,7 +230,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       id = 0x134204;
 
       pendingIntent = PendingIntent
-          .getActivity(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+          .getActivity(this, id, intent,  PendingIntent.FLAG_IMMUTABLE);
     } else if (action != null && action.equals("FeedAlert")) {
 
       geofenceClient.populateIntelligentFences(false);

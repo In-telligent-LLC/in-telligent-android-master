@@ -72,7 +72,7 @@ android {
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
-            buildConfigField "String", "BASE_URL", "\"https://development-api.in-telligent.com/api\""
+            buildConfigField "String", "BASE_URL", "\"http://192.168.15.73:3000\""
             debuggable true
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
@@ -216,6 +216,8 @@ dependencies {
     implementation 'com.github.yalantis:ucrop:2.2.8'
     implementation "androidx.compose.foundation:foundation:1.0.0"
     implementation 'androidx.compose.material:material:1.0.0'
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+
 
 //Firebase
     implementation 'com.google.firebase:firebase-config:16.1.3'

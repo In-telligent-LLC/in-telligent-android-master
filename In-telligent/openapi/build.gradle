@@ -16,7 +16,7 @@ android {
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
-            buildConfigField "String", "API_URL", "\"https://development-api.in-telligent.com/api/\""
+            buildConfigField "String", "API_URL", "\"http://192.168.15.73:3000/api/\""
         }
         release {
             minifyEnabled false

@@ -73,6 +73,7 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         ActivityComponent component = getActivityComponent();
         tabHost = view.findViewById(android.R.id.tabhost);
         settingsLogout = view.findViewById(R.id.settings_logout_text);
+        settingsLogout.setOnClickListener(this::logoutClick);
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
@@ -102,7 +103,7 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         for (int i = 0; i < widget.getChildCount(); i++) {
             View tabView = widget.getChildAt(i);
             tabView.setPadding(0, 0, 0, 0);
-            TextView tv = (TextView) tabView.findViewById(android.R.id.title);
+            TextView tv = tabView.findViewById(android.R.id.title);
             tv.setSingleLine();
             tv.setTextSize(14);
         }
