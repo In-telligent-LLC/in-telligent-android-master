@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
@@ -28,30 +27,21 @@ import com.sca.in_telligent.di.module.ServiceModule;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
-import com.sca.in_telligent.openapi.data.network.model.PushTokenSuccessResponse;
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.ui.popup.IncomingCallActivity;
-import com.sca.in_telligent.ui.popup.LifeSafetyPopupActivity;
-import com.sca.in_telligent.ui.popup.PersonalSafetyPopupActivity;
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.TimeoutLocationListener;
 import com.sca.in_telligent.util.WeatherUtil;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -165,262 +155,131 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }, throwable -> System.out.println());
   }
 
-  /**
-   * Create and show a simple notification containing the received FCM message.
-   */
 
   private void sendNotification(PushNotification pushNotification) {
     Intent intent = new Intent(this, MainActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     intent.putExtra("from", "background");
     intent.putExtra("pushNotification", pushNotification);
 
-    int id;
-//    PendingIntent pendingIntent;
+    int flags;
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+      flags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE;
+    } else {
+      flags = PendingIntent.FLAG_CANCEL_CURRENT;
+    }
 
-    PendingIntent.getActivity(this,
-            Integer.parseInt(pushNotification.getNotificationId()) /* Request code */, intent,
-            PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
-    PendingIntent pendingIntent;
+    PendingIntent pendingIntent = PendingIntent.getActivity(this,
+            Integer.parseInt(pushNotification.getNotificationId()),
+            intent, flags);
 
     String type = pushNotification.getType();
     String action = pushNotification.getAction();
 
-    if (type != null && type.equals("offer")) {
-      intent.putExtra("action", "goToOffer");
 
-      int notificationId = Integer.valueOf(pushNotification.getOfferId());
-      intent.putExtra("offerId", notificationId);
-
-      id = (int) (System.currentTimeMillis() / 1000);
-
-      pendingIntent = PendingIntent
-          .getActivity(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-    } else if (type != null && type.equals("alert")) {
-      intent.putExtra("action", "goToAlert");
-
-      int buildingId = Integer.valueOf(pushNotification.getBuildingId());
-      intent.putExtra("buildingId", buildingId);
-      int notificationId = Integer.valueOf(pushNotification.getNotificationId());
-      intent.putExtra("notificationId", notificationId);
-
-      //Old deliveredAlertlogic
-      AlertOpenedRequest alertOpenedRequest = new AlertOpenedRequest();
-      alertOpenedRequest.setNotificationId(notificationId);
-      responder.alertDelivered(alertOpenedRequest);
-
-      pendingIntent = PendingIntent
-          .getActivity(this, notificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-    } else if (type != null && type.equals("suggested_alert")) {
-
-      int suggestionId = Integer.valueOf(pushNotification.getId());
-
-      pendingIntent = PendingIntent
-          .getActivity(this, suggestionId, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-    } else if (type != null && type.equals("social_media")) {
-
-      intent.putExtra("social_type", pushNotification.getSocialType());
-      intent.putExtra("action", "goToSocialMedia");
-      id = 0x134204;
-
-      pendingIntent = PendingIntent
-          .getActivity(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-    } else if (action != null && action.equals("FeedAlert")) {
-
-      geofenceClient.populateIntelligentFences(false);
-
-      if (pushNotification.getFeedAlertId() != null) {
-        weatherUtil.handleWeatherAlert(pushNotification.getFeedAlertId());
+    if (type != null) {
+      switch (type) {
+        case "offer":
+          intent.putExtra("action", "goToOffer");
+          intent.putExtra("offerId", Integer.parseInt(pushNotification.getOfferId()));
+          break;
+        case "alert":
+          intent.putExtra("action", "goToAlert");
+          intent.putExtra("buildingId", Integer.parseInt(pushNotification.getBuildingId()));
+          intent.putExtra("notificationId", Integer.parseInt(pushNotification.getNotificationId()));
+          AlertOpenedRequest alertOpenedRequest = new AlertOpenedRequest();
+          alertOpenedRequest.setNotificationId(Integer.parseInt(pushNotification.getNotificationId()));
+          responder.alertDelivered(alertOpenedRequest);
+          break;
+        case "suggested_alert":
+          break; // Nothing to do here
+        case "social_media":
+          intent.putExtra("social_type", pushNotification.getSocialType());
+          intent.putExtra("action", "goToSocialMedia");
+          break;
+        default:
+          return;
       }
-
-      return;
-    } else if (action != null && action.equals("IncomingCall")) {
-      Intent incomingCallIntent = IncomingCallActivity.getStartIntent(getApplicationContext());
-      incomingCallIntent.putExtra("uuid", pushNotification.getUuid());
-      incomingCallIntent.putExtra("conferenceId", pushNotification.getConferenceId());
-      incomingCallIntent.putExtra("remoteUserName", pushNotification.getRemoteUserName());
-      audioHelper.startVoipRingtone();
-      startActivity(intent);
-
-      return;
-    } else if (action != null && action.equals("LocationPing")) {
-
-      final String msgId = pushNotification.getUuid();
-
-      responder.received(msgId);
-
-      locationUtil.getCurrentLocation(new TimeoutLocationListener(20_000) {
-        @Override
-        public void onTimeout() {
-          Location location = locationUtil.getLastKnownLocation();
-
-          if (location != null) {
-            HashMap<String, Object> map = new HashMap<>();
-
-            map.put("lat", location.getLatitude());
-            map.put("lng", location.getLongitude());
-            map.put("radius", location.getAccuracy());
-            map.put("success", true);
-
-            responder.respond(msgId, map);
-          } else {
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("success", false);
-
-            responder.respond(msgId, map);
+    } else if (action != null) {
+      switch (action) {
+        case "FeedAlert":
+          geofenceClient.populateIntelligentFences(false);
+          if (pushNotification.getFeedAlertId() != null) {
+            weatherUtil.handleWeatherAlert(pushNotification.getFeedAlertId());
           }
-        }
+          return;
+        case "IncomingCall":
+          Intent incomingCallIntent = IncomingCallActivity.getStartIntent(getApplicationContext());
+          incomingCallIntent.putExtra("uuid", pushNotification.getUuid());
+          incomingCallIntent.putExtra("conferenceId", pushNotification.getConferenceId());
+          incomingCallIntent.putExtra("remoteUserName", pushNotification.getRemoteUserName());
+          audioHelper.startVoipRingtone();
+          startActivity(incomingCallIntent);
+          return;
+        case "LocationPing":
+          handleLocationPing(pushNotification.getUuid());
+          return;
+        default:
+          return;
+      }
+    }
 
-        @Override
-        public void onLocationAvailable(Location location) {
-          HashMap<String, Object> map = new HashMap<>();
+    // If we reach here, it means we need to show a notification
+    sendNotificationWithIntent(pushNotification, pendingIntent);
+  }
 
+  private void handleLocationPing(String msgId) {
+    responder.received(msgId);
+    locationUtil.getCurrentLocation(new TimeoutLocationListener(20_000) {
+      @Override
+      public void onTimeout() {
+        Location location = locationUtil.getLastKnownLocation();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("success", location != null);
+        if (location != null) {
           map.put("lat", location.getLatitude());
           map.put("lng", location.getLongitude());
           map.put("radius", location.getAccuracy());
-          map.put("success", true);
-
-          responder.respond(msgId, map);
         }
-      });
-      return;
-    } else {
-      return;
-    }
-
-    @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    String expires = dataManager.getLifeSafetyOverrideExpire();
-    boolean lifeSafetyOverride = false;
-
-    try {
-      if (expires != null && df.parse(expires).after(new Date())) {
-        lifeSafetyOverride = true;
-      }
-    } catch (ParseException ignored) {
-    }
-
-    if (!lifeSafetyOverride && "true".equals(pushNotification.getLife_safety())) {
-
-      audioHelper.startLifeSafetyRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getWeather_alert())) {
-      audioHelper.startWeatherRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getCriticalSafety())) {
-
-      audioHelper.startCriticalRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getPing_alert())) {
-
-      audioHelper.startPingRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if ("true".equals(pushNotification.getPersonal_safety())) {
-
-      Intent popup = new Intent(this, PersonalSafetyPopupActivity.class);
-
-      int notificationId = Integer.valueOf(pushNotification.getNotificationId());
-      int buildingId = Integer.valueOf(pushNotification.getBuildingId());
-      popup.putExtra("buildingId", buildingId);
-      popup.putExtra("notificationId", notificationId);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getLightning_alert())) {
-
-      int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-
-      if (hour < 22 && hour > 7) {
-        audioHelper.startLightningRingtone();
+        responder.respond(msgId, map);
       }
 
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getPc_urgent_alert())) {
-
-      audioHelper.startUrgentRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-
-    } else if (!lifeSafetyOverride && "true".equals(pushNotification.getPc_emergency_alert())) {
-
-      audioHelper.startEmergencyRingtone();
-
-      Intent popup = new Intent(this, LifeSafetyPopupActivity.class);
-      popup.putExtra("title", pushNotification.getTitle());
-      popup.putExtra("body", pushNotification.getBody());
-      popup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      startActivity(popup);
-    } else {
-      if (!state.isEmpty() && state.equals("start")) {
-        sendForeground(pushNotification);
+      @Override
+      public void onLocationAvailable(Location location) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("success", true);
+        map.put("lat", location.getLatitude());
+        map.put("lng", location.getLongitude());
+        map.put("radius", location.getAccuracy());
+        responder.respond(msgId, map);
       }
-    }
+    });
+  }
 
-    Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+  private void sendNotificationWithIntent(PushNotification pushNotification, PendingIntent pendingIntent) {
     NotificationCompat.Builder notificationBuilder =
-        new NotificationCompat.Builder(this, "default")
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle(pushNotification.getTitle())
-            .setContentText(pushNotification.getBody())
-            .setAutoCancel(true)
-            .setSound(defaultSoundUri)
-            .setContentIntent(pendingIntent);
+            new NotificationCompat.Builder(this, "default")
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setContentTitle(pushNotification.getTitle())
+                    .setContentText(pushNotification.getBody())
+                    .setAutoCancel(true)
+                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                    .setContentIntent(pendingIntent);
 
     NotificationManager notificationManager =
-        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-    // Since android Oreo notification channel is needed.
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       NotificationChannel channel = new NotificationChannel("default",
-          "Channel human readable title",
-          NotificationManager.IMPORTANCE_DEFAULT);
+              "Channel human readable title",
+              NotificationManager.IMPORTANCE_DEFAULT);
       notificationManager.createNotificationChannel(channel);
     }
 
     if (pushNotification.getNotificationId() != null) {
-      notificationManager
-          .notify(Integer.parseInt(pushNotification.getNotificationId()) /* ID of notification */,
-              notificationBuilder.build());
+      notificationManager.notify(Integer.parseInt(pushNotification.getNotificationId()), notificationBuilder.build());
     }
-
   }
+
 
   private void sendForeground(PushNotification pushNotification) {
 

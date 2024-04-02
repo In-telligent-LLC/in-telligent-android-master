@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
@@ -11,7 +12,9 @@ import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.Constants;
@@ -19,11 +22,12 @@ import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
+
 import java.util.Locale;
 import java.util.Random;
+
 import javax.inject.Inject;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class VoiceCallNotificationActivity extends AppCompatActivity {
     public static final int ACTIVITY_REQUEST_CODE = 123;
     @Inject
@@ -65,18 +69,13 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
     }
 
     private void init() {
-//        DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).applicationComponent(((ScaApplication) getApplication()).getComponent()).build().inject(this);
         this.notification_title = (TextView) findViewById(R.id.notification_title_text);
         this.call_cancel_view = (FloatingActionButton) findViewById(R.id.incoming_call_reject_call);
         this.call_accept_view = (FloatingActionButton) findViewById(R.id.incoming_call_accept_call);
         this.notification_title.setText(this.pushNotification.getBuilding_name());
         this.handler = new Handler();
-        Runnable runnable = new Runnable() { // from class: com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity.2
-            @Override // java.lang.Runnable
-            public void run() {
-                VoiceCallNotificationActivity.this.autoRejectCall();
-            }
-        };
+
+        Runnable runnable = () -> VoiceCallNotificationActivity.this.autoRejectCall();
         this.timerRunnable = runnable;
         this.handler.postDelayed(runnable, Constants.AUTO_REJECT_TIME);
         this.call_accept_view.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity.3
@@ -120,20 +119,31 @@ public class VoiceCallNotificationActivity extends AppCompatActivity {
         CommonUtils.clearNotification(this, Integer.parseInt(this.pushNotification.getNotificationId()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
+
     public void autoRejectCall() {
         if (getIntent().getBooleanExtra("isAppFourGround", false)) {
             startActivity(getMainActivityIntent("fourGround"));
         } else {
-            PendingIntent activity = PendingIntent.getActivity(this, Integer.valueOf(this.pushNotification.getNotificationId()).intValue(), getMainActivityIntent("background"), PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent mainActivityIntent = getMainActivityIntent("background");
+
+            int flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE;
+            }
+
+            PendingIntent activity = PendingIntent.getActivity(this,
+                    Integer.valueOf(this.pushNotification.getNotificationId()),
+                    mainActivityIntent,
+                    flags);
+
             PushNotification pushNotification = this.pushNotification;
-            CommonUtils.createNotification(this, pushNotification, activity, false, pushNotification.getTitle(), this.pushNotification.getBody(), true);
+            CommonUtils.createNotification(this, pushNotification,
+                    false, pushNotification.getTitle(), this.pushNotification.getBody(), true);
         }
         finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+
     public void acceptNavigationToScreen(PushNotification pushNotification) {
         this.audioHelper.stopRingtone();
         startActivity(getMainActivityIntent("background"));

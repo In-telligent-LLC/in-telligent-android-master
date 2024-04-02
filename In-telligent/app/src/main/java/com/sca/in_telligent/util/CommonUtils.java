@@ -1,7 +1,6 @@
 package com.sca.in_telligent.util;
 
 import android.annotation.SuppressLint;
-import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -13,6 +12,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
@@ -22,6 +22,7 @@ import com.facebook.internal.ServerProtocol;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.util.AudioHelper;
+import com.sca.in_telligent.ui.main.MainActivity;
 
 import org.apache.http.client.config.CookieSpecs;
 
@@ -34,7 +35,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.Timer;
@@ -209,13 +209,25 @@ public final class CommonUtils {
         }
     }
 
-    public static void createNotification(Context context, PushNotification pushNotification, PendingIntent pendingIntent, boolean z, String str, String str2, boolean z2) {
+    public static void createNotification(Context context, PushNotification pushNotification, boolean shouldPlaySound, String notificationTitle, String notificationContent, boolean isOnGoing) {
+        Log.d(TAG, "createNotification: CHEGO AQUI");
         Uri defaultUri = RingtoneManager.getDefaultUri(2);
-        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.STANDARD).setSmallIcon((int) R.drawable.ic_launcher).setContentTitle(str).setContentText(str2).setAutoCancel(true).setContentIntent(pendingIntent);
-        if (z) {
+
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE;
+        }
+
+        Intent pushNotificationIntent = new Intent(context, MainActivity.class);
+
+
+        PendingIntent updatedPendingIntent = PendingIntent.getActivity(context, 0, pushNotificationIntent, flags);
+
+        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.STANDARD).setSmallIcon(R.drawable.ic_launcher).setContentTitle(notificationTitle).setContentText(notificationContent).setAutoCancel(true).setContentIntent(updatedPendingIntent);
+        if (shouldPlaySound) {
             contentIntent.setSound(defaultUri);
         }
-        if (z2) {
+        if (isOnGoing) {
             contentIntent.setOngoing(true);
         }
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -229,25 +241,9 @@ public final class CommonUtils {
         }
     }
 
-    public static void createNotification(Context context, PushNotification pushNotification, PendingIntent pendingIntent, boolean z, String str, String str2) {
-        createNotification(context, pushNotification, pendingIntent, z, str, str2, false);
-    }
 
     public static void clearNotification(Context context, int i) {
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).cancel(i);
     }
 
-    public static boolean isAppOnForeground(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
-        if (runningAppProcesses == null) {
-            return false;
-        }
-        String packageName = context.getPackageName();
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.importance == 100 && runningAppProcessInfo.processName.equals(packageName)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

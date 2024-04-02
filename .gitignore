@@ -20,8 +20,12 @@ gen/
 ./In-telligent/build/*
 ./In-telligent/.gradle/*
 
+In-telligent/.idea/
+In-telligent/build/*
+
 # Ignore Gradle GUI config
 gradle-app.setting
+
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
@@ -98,3 +102,4 @@ fastlane/readme.md
 node_modules/
 npm-debug.log
 yarn.lock
+In-telligent/.idea/workspace.xml
