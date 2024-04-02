@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.ResetPasswordRequest;
@@ -18,9 +14,12 @@ import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class ResetPasswordActivity extends BaseActivity implements ResetPasswordMvpView {
 
@@ -83,11 +82,6 @@ public class ResetPasswordActivity extends BaseActivity implements ResetPassword
   public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
-  }
-
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
   }
 
   @Override

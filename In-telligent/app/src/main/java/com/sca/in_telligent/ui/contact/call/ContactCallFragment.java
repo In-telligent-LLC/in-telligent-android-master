@@ -128,6 +128,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
 
     @OnClick(R.id.fab_start_call)
     void startCallClick(View v) {
+        Log.d(TAG, "Start call clicked");
         mPresenter.requestRecordAudioPermission();
     }
 
@@ -160,6 +161,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
         }
 
         if (!answered) {
+            Log.e(TAG, "caiu aqui");
             showPopup(getString(R.string.there_are_no_available_community_managers_consider));
         }else {
             showPopup(getString(R.string.there_was_error_connecting));
@@ -234,6 +236,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
     @Override
     public void recordAudioPermissionResult(boolean granted) {
         if (granted) {
+            Log.d(TAG, "Record audio permission granted");
             twilioUtil.makeCall(buildingId);
             callStatusImage.setImageResource(R.drawable.call_status2);
         }

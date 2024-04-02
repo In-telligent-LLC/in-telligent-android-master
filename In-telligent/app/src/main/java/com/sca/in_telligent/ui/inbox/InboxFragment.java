@@ -101,6 +101,8 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
         inboxSpinner = view.findViewById(R.id.inbox_spinner);
         swipeRefreshLayoutInbox = view.findViewById(R.id.swipe_refresh_layout_inbox);
 
+//        spinnerItemSelected(inboxSpinner, 0);
+
 
         if (component != null) {
             component.inject(this);

@@ -131,27 +131,27 @@
           android:textColor="@color/white"
           android:textSize="24sp"/>
 
-      <TextView
-          android:id="@+id/version"
-          android:layout_width="80dp"
-          android:layout_height="wrap_content"
-          android:layout_toEndOf="@id/total_silence_off"
-          android:paddingTop="10dp"
-          android:paddingBottom="10dp"
-          android:background="@drawable/total_silence_selector"
-          android:text="@string/version_no_longer_available"
-          android:textAlignment="center"
-          android:textColor="@color/white"
-          android:textSize="24sp"/>
+<!--      <TextView-->
+<!--          android:id="@+id/version"-->
+<!--          android:layout_width="80dp"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:layout_toEndOf="@id/total_silence_off"-->
+<!--          android:paddingTop="10dp"-->
+<!--          android:paddingBottom="10dp"-->
+<!--          android:background="@drawable/total_silence_selector"-->
+<!--          android:text="@string/version_no_longer_available"-->
+<!--          android:textAlignment="center"-->
+<!--          android:textColor="@color/white"-->
+<!--          android:textSize="24sp"/>-->
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnTestNotification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Alarm"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"/>
+<!--    <Button-->
+<!--        android:id="@+id/btnTestNotification"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Test Alarm"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="16dp"/>-->
 
 
 
