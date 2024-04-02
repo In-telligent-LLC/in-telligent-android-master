@@ -6,7 +6,6 @@ import com.sca.in_telligent.openapi.data.network.model.BuildingIdItem;
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.ui.base.MvpView;
 
-import java.security.Permission;
 import java.util.ArrayList;
 
 public interface MainMvpView extends MvpView {
@@ -18,11 +17,13 @@ public interface MainMvpView extends MvpView {
 
     void loadSuggestedGroups(ArrayList<Building> arrayList);
 
-    void locationPermissionResult(boolean z, boolean z2);
+    void locationPermissionResult(boolean granted, boolean phone);
 
-    void phonePermissionResult(Permission permission);
+    void phonePermissionResult(boolean granted);
 
-    void showSubscribeToCommunityDialog(String str, int i, int i2);
+    void showSubscribeToCommunityDialog(String name, int communityId, int inviteId);
 
     void showSubscriptionSuccessfulMessage();
+
+
 }

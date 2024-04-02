@@ -166,7 +166,7 @@
 
         <meta-data
             android:name="com.crashlytics.ApiKey"
-            android:value="AIzaSyCD2J04c3QkLUkQCdpPwIVW01TKo41bTBc" />
+            android:value="AIzaSyDOTwI7es6tQHggdKSd24JF_1EL2tio0GE" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -279,6 +279,10 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
 
     </application>
 

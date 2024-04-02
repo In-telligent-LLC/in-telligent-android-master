@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import androidx.annotation.NonNull;
 
 import com.facebook.CallbackManager;
@@ -31,8 +30,6 @@ import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
-
-import java.security.Permission;
 
 import javax.inject.Inject;
 
@@ -196,11 +193,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
-  }
-
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
   }
 
   @Override

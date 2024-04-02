@@ -143,10 +143,10 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
             this.disconnectButton.setText(getString(R.string.disconnect));
         }
         String createdDate = this.building.getCreated();
-        if (createdDate == null) {
-            createdDate = ""; // ou algum valor padrão
-            this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + createdDate);
-        }
+        CommonUtils.getDateString(createdDate);
+
+        this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + createdDate);
+
         this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + CommonUtils.getDateString(createdDate));
 
         rightArrow.setOnClickListener(v -> rightClick());

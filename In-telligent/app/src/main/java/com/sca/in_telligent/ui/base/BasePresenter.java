@@ -1,8 +1,11 @@
 package com.sca.in_telligent.ui.base;
 
+import androidx.fragment.app.Fragment;
+
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import com.sca.in_telligent.util.twilio.TwilioUtil;
+import com.tbruyelle.rxpermissions3.RxPermissions;
 
 import javax.inject.Inject;
 
@@ -14,8 +17,8 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     private final DataManager mDataManager;
     private V mMvpView;
     private final SchedulerProvider mSchedulerProvider;
-//    @Inject
-//    Permission rxPermissions;
+    @Inject
+    RxPermissions rxPermissions;
     @Inject
     TwilioUtil twilioUtil;
 
@@ -49,6 +52,14 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         if (!isViewAttached()) {
             throw new MvpViewNotAttachedException();
         }
+    }
+
+    public RxPermissions getRxPermissions() {
+        return rxPermissions;
+    }
+
+    public RxPermissions getRxPermissionsFragment(Fragment fragment) {
+        return new RxPermissions(fragment);
     }
 
     public DataManager getDataManager() {

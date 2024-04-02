@@ -3,7 +3,6 @@ package com.sca.in_telligent.ui.auth.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +16,6 @@ import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
-
-import java.security.Permission;
 
 import javax.inject.Inject;
 
@@ -97,11 +94,6 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
     public void showLoading() {
         hideKeyboard();
         super.showLoading();
-    }
-
-    @Override
-    public void phonePermissionResult(Permission permission) {
-
     }
 
     @Override

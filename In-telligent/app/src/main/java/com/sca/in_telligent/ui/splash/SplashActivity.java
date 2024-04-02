@@ -8,21 +8,19 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
-import butterknife.ButterKnife;
-import io.reactivex.rxjava3.annotations.NonNull;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.sca.in_telligent.R;
-import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
+import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.intro.IntroActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import io.reactivex.rxjava3.annotations.NonNull;
 
 
 public class SplashActivity extends BaseActivity implements SplashMvpView {
@@ -82,10 +80,6 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {

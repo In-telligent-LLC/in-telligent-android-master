@@ -149,10 +149,16 @@ public class AppGeofenceClient implements GeofenceClient {
     }
 
     Intent intent = new Intent(mContext, GeofenceBroadcastReceiver.class);
-    int flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-      flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE;
-    }
+      int flags;
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        flags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE;
+      } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        flags = PendingIntent.FLAG_UPDATE_CURRENT;
+
+      }
+      else {
+        flags = PendingIntent.FLAG_CANCEL_CURRENT;
+      }
     mGeofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, flags);
     return mGeofencePendingIntent;
   }

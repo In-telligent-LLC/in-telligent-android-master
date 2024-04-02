@@ -82,7 +82,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   public void onMessageReceived(RemoteMessage remoteMessage) {
 
     if (remoteMessage.getData().size() > 0) {
-      Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+      Log.d(TAG, "Message data payload: " + remoteMessage.getNotification());
 
       Map<String, String> data = remoteMessage.getData();
 
@@ -162,9 +162,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     intent.putExtra("pushNotification", pushNotification);
 
     int flags;
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
       flags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE;
-    } else {
+    } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        flags = PendingIntent.FLAG_UPDATE_CURRENT;
+
+    }
+    else {
       flags = PendingIntent.FLAG_CANCEL_CURRENT;
     }
 
