@@ -58,6 +58,110 @@ public class PushNotification implements Serializable {
     @SerializedName("weather_alert")
     private String weather_alert;
 
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public void setAlertType(String alertType) {
+        this.alertType = alertType;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
+    }
+
+    public void setBuilding_name(String building_name) {
+        this.building_name = building_name;
+    }
+
+    public void setConferenceId(String conferenceId) {
+        this.conferenceId = conferenceId;
+    }
+
+    public void setCriticalSafety(String criticalSafety) {
+        this.criticalSafety = criticalSafety;
+    }
+
+    public void setFeedAlertId(String feedAlertId) {
+        this.feedAlertId = feedAlertId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setIncrement_badge(String increment_badge) {
+        this.increment_badge = increment_badge;
+    }
+
+    public void setLife_safety(String life_safety) {
+        this.life_safety = life_safety;
+    }
+
+    public void setLightning_alert(String lightning_alert) {
+        this.lightning_alert = lightning_alert;
+    }
+
+    public void setMessage_suffix(String message_suffix) {
+        this.message_suffix = message_suffix;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public void setNotification_lang(String notification_lang) {
+        this.notification_lang = notification_lang;
+    }
+
+    public void setNotification_title(String notification_title) {
+        this.notification_title = notification_title;
+    }
+
+    public void setOfferId(String offerId) {
+        this.offerId = offerId;
+    }
+
+    public void setPc_emergency_alert(String pc_emergency_alert) {
+        this.pc_emergency_alert = pc_emergency_alert;
+    }
+
+    public void setPc_urgent_alert(String pc_urgent_alert) {
+        this.pc_urgent_alert = pc_urgent_alert;
+    }
+
+    public void setPersonal_safety(String personal_safety) {
+        this.personal_safety = personal_safety;
+    }
+
+    public void setPing_alert(String ping_alert) {
+        this.ping_alert = ping_alert;
+    }
+
+    public void setRemoteUserName(String remoteUserName) {
+        this.remoteUserName = remoteUserName;
+    }
+
+    public void setSocialType(String socialType) {
+        this.socialType = socialType;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setWeather_alert(String weather_alert) {
+        this.weather_alert = weather_alert;
+    }
+
     public String getRemoteUserName() {
         return this.remoteUserName;
     }
