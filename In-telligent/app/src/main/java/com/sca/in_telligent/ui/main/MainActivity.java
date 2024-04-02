@@ -73,13 +73,13 @@ import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
 
 import java.io.IOException;
-import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -191,7 +191,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         frameLayout = findViewById(R.id.content_frame);
         appBarLayout = findViewById(R.id.app_bar_layout);
         toolbar = findViewById(R.id.toolbar);
-        btnTestNotification = findViewById(R.id.btnTestNotification);
+//        btnTestNotification = findViewById(R.id.btnTestNotification);
+
+
+        buttonSos.setOnClickListener(this::sosClick);
+        totalSilenceOff.setOnClickListener(this::silenceOffClick);
+        totalSilenceOn.setOnClickListener(this::silenceOnClick);
 
 
         setUp();
@@ -230,7 +235,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
+//        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
 
         this.mPresenter.getSubscriber();
 
@@ -244,22 +249,23 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override
-    public void phonePermissionResult(Permission permission) {
-
-    }
 
     @Override
-    public void phonePermissionResult(boolean permission) {
-
+    public void phonePermissionResult(boolean granted) {
+        if (granted) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(countryName)));
+            startActivity(intent);
+        }
     }
+
 
     private void checkDeepLinksParams() {
         Uri data = getIntent().getData();
         if (data == null) {
             Log.d(TAG, "There's no data associated with this intent");
         } else if (SubscribeToCommunityRequest.ACTION_SUBSCRIBE.equals(data.getPathSegments().get(0))) {
-            fetchCommunityInfo(UriToDataMapper.uriToSubscribeToCommunityRequest(data));
+            fetchCommunityInfo(Objects.requireNonNull(UriToDataMapper.uriToSubscribeToCommunityRequest(data)));
         }
     }
 
@@ -734,6 +740,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
     }
 
+    @SuppressLint("CheckResult")
     private void prepareContactBuildings(ArrayList<Building> contactBuildings,
                                          ArrayList<Building> contactPersonalCommunities) {
 
@@ -773,7 +780,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @OnClick({R.id.sos_button})
     public void sosClick(View view) {
-        this.mPresenter.requestPhonePermission();
+        mPresenter.requestPhonePermission();
+
     }
 
     @Override
@@ -795,33 +803,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
-//    @Override
-//    public void phonePermissionResult(Permission permission) {
-//        if (permission.) {
-//            Intent intent = new Intent(Intent.ACTION_CALL);
-//            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
-//            startActivity(intent);
-////        } else if (permission.shouldShowRequestPermissionRationale) {
-////        } else {
-////            showPopup(getResources().getString(R.string.permission_call_message));
-////        }
-//        }
-//
-//
-//    }
 
-//    @Override // com.sca.in_telligent.ui.main.MainMvpView
-//    public void phonePermissionResult(boolean permission) {
-//        if (permission) {
-//            Intent intent = new Intent(Intent.ACTION_CALL);
-//            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
-//            startActivity(intent);
-//        } else if (permission.shouldShowRequestPermissionRationale) {
-//        } else {
-//            showPopup(getResources().getString(R.string.permission_call_message));
-//        }
-//        }
-//    }
 
         private void getLocation() {
 
@@ -884,6 +866,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             this.mPresenter.getSubscriber();
             Toast.makeText((Context) this, (int) R.string.you_are_now_subscribed_to_the_community, Toast.LENGTH_SHORT).show();
         }
+
 
     @Override
     public void weatherWarningUpdated(boolean weatherEnabled, boolean lightningEnabled) {

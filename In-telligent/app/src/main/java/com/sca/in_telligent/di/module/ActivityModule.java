@@ -109,6 +109,7 @@ import com.sca.in_telligent.ui.splash.SplashMvpView;
 import com.sca.in_telligent.ui.splash.SplashPresenter;
 import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
+import com.tbruyelle.rxpermissions3.RxPermissions;
 
 import java.util.ArrayList;
 
@@ -146,6 +147,10 @@ public class ActivityModule {
         return new AppSchedulerProvider();
     }
 
+    @Provides
+    RxPermissions provideRxPermissions() {
+        return new RxPermissions(mActivity);
+    }
 
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {

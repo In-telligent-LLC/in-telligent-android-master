@@ -19,8 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
@@ -36,9 +34,10 @@ import com.sca.in_telligent.util.NetworkUtils;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.VideoDownloader;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.Callback, MvpView {
     @Inject
@@ -253,8 +252,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     public void onResume() {
         super.onResume();
     }
-
-    public abstract void phonePermissionResult(Permission permission);
 
     // com.sca.in_telligent.ui.main.MainMvpView
     public abstract void phonePermissionResult(boolean permission);

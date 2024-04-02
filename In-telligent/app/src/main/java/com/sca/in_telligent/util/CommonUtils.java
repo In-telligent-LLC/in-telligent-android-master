@@ -45,6 +45,7 @@ import java.util.regex.Pattern;
 public final class CommonUtils {
     private static final String TAG = "CommonUtils";
     private static final int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
+    private static final int REQUEST_PHONE_PERMISSION = 1;
 
     private CommonUtils() {
     }
@@ -142,6 +143,7 @@ public final class CommonUtils {
     public static boolean checkLocationPermission(Context context) {
         return ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || (ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0 && ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_BACKGROUND_LOCATION") == 0);
     }
+
 
     public static void openPdfFile(Context context, String str) {
         Intent intent = new Intent("android.intent.action.VIEW");

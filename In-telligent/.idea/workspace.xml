@@ -12,7 +12,48 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d7319f3-f90a-4178-bb5b-db35e6fd7b0d" name="Changes" comment="" />
+    <list default="true" id="3d7319f3-f90a-4178-bb5b-db35e6fd7b0d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/util/PermissionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/di/component/ApplicationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/di/component/ApplicationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/di/module/ActivityModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/di/module/ActivityModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/service/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/service/MyFirebaseMessagingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/login/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/logout/LogoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/logout/LogoutActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/register/SignupDemographicsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/register/SignupDemographicsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/register/SignupPasswordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/register/SignupPasswordActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/reset/ResetPasswordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/reset/ResetPasswordActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/base/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/base/BaseActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/base/BasePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/base/BasePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallMvpPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallMvpPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallMvpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallMvpView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/contact/call/ContactCallPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/group/detail/other/GroupDetailFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/group/detail/other/GroupDetailFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/inbox/InboxFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/inbox/InboxFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/intro/IntroActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/intro/IntroActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainMvpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainMvpView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/notificationdetail/NotificationAttachmentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/notificationdetail/NotificationAttachmentAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/IncomingCallActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/IncomingCallActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/LifeSafetyPopupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/LifeSafetyPopupActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/PersonalSafetyPopupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/popup/PersonalSafetyPopupActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/settings/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/settings/SettingsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/splash/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/splash/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/util/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/util/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/util/twilio/AppTwilioUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/util/twilio/AppTwilioUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/build/generated/source/buildConfig/debug/com/openapi/BuildConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/PushNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/PushNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/VoipCallRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/VoipCallRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/VoipCallResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/src/main/java/com/sca/in_telligent/openapi/data/network/model/VoipCallResponse.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +62,7 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[0051767838]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/marianesantana/.android/avd/Intelligent.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -34,6 +75,9 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/openapi">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
           <activation />
         </task>
         <projects_view>
@@ -74,8 +118,8 @@
         <option value="Kotlin Object" />
         <option value="valueResourceFile" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -135,6 +179,12 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle assembleRelease" />
+      <command value="gradle assembleDebug" />
+    </option>
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration name="In-telligent" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -269,6 +319,54 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="In-telligent [assembleDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleDebug" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="In-telligent [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.In-telligent [assembleRelease]" />
+        <item itemvalue="Gradle.In-telligent [assembleDebug]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -315,7 +413,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/intro/IntroActivity.java</url>
-          <line>82</line>
+          <line>80</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -330,17 +428,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/login/LoginActivity.java</url>
-          <line>130</line>
+          <line>127</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/login/LoginActivity.java</url>
-          <line>132</line>
+          <line>129</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/auth/login/LoginActivity.java</url>
-          <line>176</line>
+          <line>173</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -390,17 +488,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainActivity.java</url>
-          <line>648</line>
+          <line>654</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainActivity.java</url>
-          <line>653</line>
+          <line>659</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/sca/in_telligent/ui/main/MainActivity.java</url>
-          <line>435</line>
+          <line>441</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
