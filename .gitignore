@@ -98,3 +98,9 @@ fastlane/readme.md
 node_modules/
 npm-debug.log
 yarn.lock
+In-telligent/.idea/vcs.xml
+In-telligent/.idea/compiler.xml
+In-telligent/.idea/gradle.xml
+In-telligent/.idea/jarRepositories.xml
+In-telligent/.idea/kotlinc.xml
+In-telligent/.idea/misc.xml
