@@ -325,8 +325,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<VoipTokenResponse> getVoipToken() {
-        return mApiHelper.getVoipToken();
+    public Observable<VoipTokenResponse> getVoipToken(VoipCallRequest voipCallRequest) {
+        return mApiHelper.getVoipToken(voipCallRequest);
     }
 
     @Override

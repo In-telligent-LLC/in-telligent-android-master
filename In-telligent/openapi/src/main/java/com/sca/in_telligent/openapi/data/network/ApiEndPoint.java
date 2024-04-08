@@ -55,8 +55,8 @@ public final class ApiEndPoint {
     public static final String UPDATED_LOCATION = "location-ping/get-subscriber/{subscriberId}";
     public static final String UPDATE_SUBSCRIPTION = "buildings/update-subscription?onlySuccess=1";
     public static final String VOIP_CALL_DETAILS = "voip/callDetails/{conferenceId}";
-    public static final String VOIP_MAKE_CALL = "voip/makeCall";
-    public static final String VOIP_TOKEN = "voip/token";
+    public static final String VOIP_MAKE_CALL = "voip/makeCall/{buildingId}";
+    public static final String VOIP_TOKEN = "voip/token/";
 
     private ApiEndPoint() {
     }
