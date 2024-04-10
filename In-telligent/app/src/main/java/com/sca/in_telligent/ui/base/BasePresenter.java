@@ -40,6 +40,11 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         this.mMvpView = null;
     }
 
+    @Override
+    public void getVoipToken(Integer parseInt) {
+//        return this.mDataManager;
+    }
+
     public boolean isViewAttached() {
         return this.mMvpView != null;
     }

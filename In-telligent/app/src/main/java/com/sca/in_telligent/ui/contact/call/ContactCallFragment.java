@@ -19,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
+import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.util.AnimationUtil;
 import com.sca.in_telligent.util.twilio.AppTwilioUtil.TwilioUtilListener;
@@ -104,7 +105,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
             mPresenter.onAttach(this);
 
             floatingActionButtonEndCall.setOnClickListener(v -> endCallClick(v));
-            floatingActionButtonStartCall.setOnClickListener(v -> startCallClick(v));
+            floatingActionButtonStartCall.setOnClickListener(v -> startCallClick());
         }
 
         return view;
@@ -127,8 +128,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
     }
 
     @OnClick(R.id.fab_start_call)
-    void startCallClick(View v) {
-        Log.d(TAG, "Start call clicked");
+    void startCallClick() {
         mPresenter.requestRecordAudioPermission();
     }
 
@@ -151,7 +151,9 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
                         WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
         );
 
+
         super.onDestroyView();
+
     }
 
     @Override
@@ -237,8 +239,16 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
     public void recordAudioPermissionResult(boolean granted) {
         if (granted) {
             Log.d(TAG, "Record audio permission granted");
-            twilioUtil.makeCall(buildingId);
+            mPresenter.getVoipToken(Integer.parseInt(buildingId));
+        }
+    }
+
+    @Override
+    public void onVoipTokenReceived(VoipTokenResponse voipTokenResponse) {
+        if (voipTokenResponse != null) {
+            twilioUtil.makeCall(voipTokenResponse.getPhoneNumber(), voipTokenResponse.getToken());
             callStatusImage.setImageResource(R.drawable.call_status2);
+
         }
     }
 

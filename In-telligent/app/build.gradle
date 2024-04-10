@@ -72,7 +72,7 @@ android {
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
-            buildConfigField "String", "BASE_URL", "\"https://development-api.in-telligent.com\""
+            buildConfigField "String", "BASE_URL", "\"https://development-api.in-telligent.com/api/\""
             debuggable true
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
@@ -81,7 +81,7 @@ android {
             ext.enableCrashlytics = false
         }
         release {
-            buildConfigField "String", "BASE_URL", "\"https://quality-api.in-telligent.com\""
+            buildConfigField "String", "BASE_URL", "\"https://quality-api.in-telligent.com/api/\""
             resValue "string", "google_maps_key", "AIzaSyAoCLzXsX_RJQuMdGP1Evf1lXO1k1u8Qz0"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
             resValue "string", "groundtruth_access_key", "6SeUIx9dXvtGUpcpM0pKsGkDh-eSzdnbdx4AfILJpRMu0ZaWI7vDbZz-khEdiKtGOqhQnAj0XimEyj7L4V7eSeP9NKfM5yQy"

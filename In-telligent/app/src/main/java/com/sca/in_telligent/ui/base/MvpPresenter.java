@@ -5,4 +5,6 @@ public interface MvpPresenter<V extends MvpView> {
     void onAttach(V v);
 
     void onDetach();
+
+    void getVoipToken(Integer parseInt);
 }

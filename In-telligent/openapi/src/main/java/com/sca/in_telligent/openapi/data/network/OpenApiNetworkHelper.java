@@ -307,6 +307,11 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.getUpdatedLocation(str);
     }
 
+    @Override
+    public Observable<VoipTokenResponse> getVoipToken(VoipCallRequest voiceCallRequest) {
+        return this.protectedApiService.getVoipToken(voiceCallRequest);
+    }
+
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public Observable<String> sendWeatherAlert(String str, LocationModel locationModel) {
         return this.protectedApiService.sendWeatherAlert(str, locationModel);
@@ -352,10 +357,6 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.refreshGeofences(locationModel);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<VoipTokenResponse> getVoipToken() {
-        return this.protectedApiService.getVoipToken();
-    }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public Observable<VoipCallResponse> makeVoipCall(VoipCallRequest voipCallRequest) {

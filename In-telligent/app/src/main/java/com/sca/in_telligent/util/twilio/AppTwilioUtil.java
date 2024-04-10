@@ -1,5 +1,6 @@
 package com.sca.in_telligent.util.twilio;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
@@ -8,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.data.prefs.PreferencesHelper;
 import com.sca.in_telligent.di.ApplicationContext;
+import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import com.twilio.voice.Call;
@@ -17,6 +19,7 @@ import com.twilio.voice.Voice;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 import java.util.Random;
 import java.util.Set;
 
@@ -75,77 +78,31 @@ public class AppTwilioUtil implements TwilioUtil {
     return randomStringBuilder.toString();
   }
 
+  @SuppressLint("CheckResult")
   @Override
-  public void makeCall(String buildingId) {
+  public void makeCall(String phoneNumber, String voipToken) {
 
     if (conferenceId.isEmpty()) {
       conferenceId = randomConferenceId();
     }
 
-    subscriberId = mPreferencesHelper.getSubscriberId();
 
-    mCompositeDisposable.add(mDataManager.getVoipToken().subscribeOn(mSchedulerProvider.io())
-            .observeOn(mSchedulerProvider.ui()).subscribe(
-                    voipTokenResponse -> {
-                      if (voipTokenResponse.getToken() != null & !voipTokenResponse.getToken()
-                              .isEmpty()) {
+    Map<String, String> params = new HashMap<>();
+    params.put("isCM", "true");
+    params.put("conferenceId", conferenceId);
+    params.put("to", phoneNumber);
 
-                        Log.d(TAG, "Voip token: " + voipTokenResponse.getToken());
+    ConnectOptions connectOptions = new ConnectOptions.Builder(voipToken)
+            .params(params)
+            .build();
 
-                        Map<String, String> params = new HashMap<>();
-                        params.put("buildingId", buildingId);
-                        params.put("isCM", "true");
-                        params.put("conferenceId", conferenceId);
-                        params.put("to", "+5511987491403");
+    activeCall = Voice.connect(mContext, connectOptions, getListener());
 
-                        ConnectOptions connectOptions = new ConnectOptions.Builder(voipTokenResponse.getToken())
-                                .params(params)
-                                .build();
-
-                        activeCall = Voice.connect(mContext, connectOptions, getListener());
-
-                        Log.d(TAG, "Twilio call: " + activeCall.getState());
-                        if (activeCall.getState() == Call.State.CONNECTING) {
-                          Log.d(TAG, "connecting linha 110 " + activeCall.getState());
-                            listener.callDidProgress(activeCall);
-
-                        } else if (activeCall.getState() == Call.State.CONNECTED) {
-                          Log.d(TAG, "connected linha 113 " + activeCall.getState());
-                            callWasAnswered();
-                        } else {
-                          Log.d(TAG, "else linha 116 " + activeCall.getState());
-                            failCall();
-                        }
-
-//                        VoipCallRequest voipCallRequest = new VoipCallRequest();
-//                        voipCallRequest.setBuildingId(buildingId);
-//                        voipCallRequest.setConferenceId(conferenceId);
-//                        voipCallRequest.setSenderId(Integer.parseInt(subscriberId));
-
-//                        mCompositeDisposable.add(mDataManager.makeVoipCall(voipCallRequest)
-//                                .subscribeOn(mSchedulerProvider.io())
-//                                .observeOn(mSchedulerProvider.ui()).
-//                                subscribe(voipCallResponse -> {
-//                                  Log.d(TAG, "linha 125: " + activeCall.getState());
-//                                  if (voipCallResponse.isAccepted()) {
-//                                    callWasAnswered();
-//                                  } else {
-//                                    Log.d(TAG, "CAIU no else: " + activeCall.getState());
-//
-//                                    failCall();
-//                                  }
-//                                }, throwable -> {
-//                                  Log.d(TAG, "CAIU aqui no throw: " + activeCall.getState());
-//
-//                                  failCall();
-//                                }));
-
-                      }
-                    }, throwable -> {
-                      Log.e(TAG, "There was an error trying to perform the call", throwable);
-                      failCall();
-                    }));
   }
+
+
+
+
 
   @Override
   public void answerCall() {

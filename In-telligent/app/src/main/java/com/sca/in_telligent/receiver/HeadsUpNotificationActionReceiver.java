@@ -4,7 +4,10 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.openapi.Constants;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
@@ -14,53 +17,91 @@ import com.sca.in_telligent.ui.notificationdetail.VoiceCallNotificationActivity;
 import com.sca.in_telligent.util.CommonUtils;
 
 public class HeadsUpNotificationActionReceiver extends BroadcastReceiver {
-    private void performClickAction(Context context, String str, PushNotification pushNotification) {
-        if (str.equals(Constants.CALL_RECEIVE_ACTION) && pushNotification != null) {
-            Intent intent = new Intent(context, VoiceCallNotificationActivity.class);
-            intent.putExtra("notification", pushNotification);
-            intent.putExtra("accept", true);
-            intent.addFlags(335544320);
-            intent.setFlags(intent.getFlags() | 8388608);
-            context.startActivity(intent);
-            context.stopService(new Intent(context, HeadsUpNotificationService.class));
-        } else if (str.equals(Constants.CALL_CANCEL_ACTION)) {
-            context.stopService(new Intent(context, HeadsUpNotificationService.class));
-            context.startActivity(getCancelIntent(context, pushNotification, "background"));
-        } else if (str.equals(Constants.CALL_AUTO_CANCEL_ACTION)) {
-            context.stopService(new Intent(context, HeadsUpNotificationService.class));
-            String currentState = ((ScaApplication) context.getApplicationContext()).getCurrentState();
-            if (!currentState.isEmpty() && currentState.equals("start")) {
-                context.startActivity(getCancelIntent(context, pushNotification, "fourground"));
-            } else {
-                CommonUtils.createNotification(context, pushNotification, PendingIntent.getActivity(context, Integer.parseInt(pushNotification.getNotificationId()), getCancelIntent(context, pushNotification, "background"), 134217728), false, pushNotification.getTitle(), pushNotification.getBody(), true);
-            }
-        }
-    }
 
-    private Intent getCancelIntent(Context context, PushNotification pushNotification, String str) {
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.addFlags(872415232);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("pushNotification", pushNotification);
-        bundle.putString("from", str);
-        bundle.putBoolean("show_popup", true);
-        bundle.putBoolean("details_screen", true);
-        bundle.putInt("buildingId", Integer.valueOf(pushNotification.getBuildingId()).intValue());
-        bundle.putInt("notificationId", Integer.valueOf(pushNotification.getNotificationId()).intValue());
-        intent.putExtra("bundle", bundle);
-        return intent;
-    }
-
-    @Override // android.content.BroadcastReceiver
+    @Override
     public void onReceive(Context context, Intent intent) {
         if (intent == null || intent.getExtras() == null) {
             return;
         }
-        String stringExtra = intent.getStringExtra(Constants.CALL_RESPONSE_ACTION_KEY);
+
+        String action = intent.getStringExtra(Constants.CALL_RESPONSE_ACTION_KEY);
         PushNotification pushNotification = (PushNotification) intent.getSerializableExtra(Constants.CALL_NOTIFICATION);
-        if (stringExtra != null) {
-            performClickAction(context, stringExtra, pushNotification);
+
+        if (action != null) {
+            performClickAction(context, action, pushNotification);
         }
-        context.sendBroadcast(new Intent("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
+
+        closeSystemDialogs(context);
+    }
+
+    private void performClickAction(Context context, String action, PushNotification pushNotification) {
+        switch (action) {
+            case Constants.CALL_RECEIVE_ACTION:
+                handleReceiveCallAction(context, pushNotification);
+                break;
+            case Constants.CALL_CANCEL_ACTION:
+                handleCancelCallAction(context, pushNotification);
+                break;
+            case Constants.CALL_AUTO_CANCEL_ACTION:
+                handleAutoCancelAction(context, pushNotification);
+                break;
+        }
+    }
+
+    private void handleReceiveCallAction(Context context, PushNotification pushNotification) {
+        if (pushNotification != null) {
+            Intent intent = new Intent(context, VoiceCallNotificationActivity.class);
+            intent.putExtra("notification", pushNotification);
+            intent.putExtra("accept", true);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+            context.stopService(new Intent(context, HeadsUpNotificationService.class));
+        }
+    }
+
+    private void handleCancelCallAction(Context context, PushNotification pushNotification) {
+        context.stopService(new Intent(context, HeadsUpNotificationService.class));
+        context.startActivity(getCancelIntent(context, pushNotification, "background"));
+    }
+
+    private void handleAutoCancelAction(Context context, PushNotification pushNotification) {
+        context.stopService(new Intent(context, HeadsUpNotificationService.class));
+        String currentState = ((ScaApplication) context.getApplicationContext()).getCurrentState();
+        if (!TextUtils.isEmpty(currentState) && currentState.equals("start")) {
+            Intent cancelIntent = getCancelIntent(context, pushNotification, "fourground");
+            cancelIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(cancelIntent);
+        } else {
+            Intent cancelIntent = getCancelIntent(context, pushNotification, "background");
+            int flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                flags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE;
+            }
+            PendingIntent pendingIntent = PendingIntent.getActivity(context,
+                    Integer.parseInt(pushNotification.getNotificationId()),
+                    cancelIntent,
+                    flags);
+            CommonUtils.createNotification(context, pushNotification,
+                    false, pushNotification.getTitle(), pushNotification.getBody(), true);
+        }
+    }
+
+
+    private Intent getCancelIntent(Context context, PushNotification pushNotification, String from) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("pushNotification", pushNotification);
+        bundle.putString("from", from);
+        bundle.putBoolean("show_popup", true);
+        bundle.putBoolean("details_screen", true);
+        bundle.putInt("buildingId", Integer.parseInt(pushNotification.getBuildingId()));
+        bundle.putInt("notificationId", Integer.parseInt(pushNotification.getNotificationId()));
+        intent.putExtra("bundle", bundle);
+        return intent;
+    }
+
+    private void closeSystemDialogs(Context context) {
+        context.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 }
