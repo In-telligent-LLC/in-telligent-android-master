@@ -18,9 +18,9 @@ public interface ServiceComponent {
 
     void inject(MyFirebaseMessagingService service);
 
-  void inject(GeofenceTransitionsIntentService service);
+    void inject(GeofenceTransitionsIntentService service);
 
-  void inject(GeofencesUpdateWorker service);
+    void inject(GeofencesUpdateWorker service);
 
     void inject(VoiceCallNotificationActivity voiceCallNotificationActivity);
 }

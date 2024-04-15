@@ -25,6 +25,7 @@ import com.sca.in_telligent.di.component.DaggerServiceComponent;
 import com.sca.in_telligent.di.component.ServiceComponent;
 import com.sca.in_telligent.di.module.ServiceModule;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
+import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -36,8 +37,12 @@ import com.sca.in_telligent.util.TimeoutLocationListener;
 import com.sca.in_telligent.util.WeatherUtil;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -78,48 +83,35 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     component.inject(this);
   }
 
+  @SuppressLint("CheckResult")
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
+    Log.d(TAG, "Message notification: " + remoteMessage.getNotification().getTitle() + " " + remoteMessage.getNotification().getBody());
 
-    if (remoteMessage.getNotification() != null) {
-      Log.d(TAG, "Message data payload: " + remoteMessage.getNotification().getBody());
+    if (remoteMessage.getData().size() > 0) {
+        Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-//      Map<String, String> data = remoteMessage.getData();
 
-//      Gson gson = new Gson();
-//      JsonElement jsonElement = gson.toJsonTree(data);
-//      Log.d("JSON ELEMENT ----->", " " + jsonElement);
       PushNotification pushNotification = new PushNotification();
         pushNotification.setNotification_title(remoteMessage.getNotification().getTitle());
         pushNotification.setBody(remoteMessage.getNotification().getBody());
-        pushNotification.setType(remoteMessage.getData().get("type"));
+        pushNotification.setAlertType(remoteMessage.getData().get("alertType"));
 
-        Log.d("PUSH NOTIFICATION ----->", " " + pushNotification.getBody() + " " + pushNotification.getType());
 
       state = ((ScaApplication) getApplication()).getCurrentState();
 
-      if (state.equals("start")) {
+      if(state.equals("start")){
         sendForeground(pushNotification);
       }
-      sendNotification(pushNotification);
-
-      if (true) {
-
-      } else {
-        handleNow();
+      else {
+        sendNotification(getApplicationContext(), pushNotification);
       }
+
+      handleNow();
 
     }
   }
-  // [END receive_message]
 
-  // [START on_new_token]
-
-  /**
-   * Called if InstanceID token is updated. This may occur if the security of the previous token had
-   * been compromised. Note that this is called when the InstanceID token is initially generated so
-   * this is where you would retrieve the token.
-   */
   @Override
   public void onNewToken(String token) {
     Log.d(TAG, "Refreshed token: " + token);
@@ -161,9 +153,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   }
 
 
-  private void sendNotification(PushNotification pushNotification) {
-    Log.d("PUSH NOTIFICATION ----->", " " + pushNotification.getBody() + " " + pushNotification.getAlertType());
-    Intent intent = new Intent(this, MainActivity.class);
+  public void sendNotification(Context context, PushNotification pushNotification) {
+    Intent intent = new Intent(context, MainActivity.class);
     intent.putExtra("from", "background");
     intent.putExtra("pushNotification", pushNotification);
 
@@ -174,12 +165,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       flags = PendingIntent.FLAG_CANCEL_CURRENT;
     }
 
-    PendingIntent pendingIntent = PendingIntent.getActivity(this,
+    PendingIntent pendingIntent = PendingIntent.getActivity(context,
             0,
             intent, flags);
 
     String type = pushNotification.getType();
     String action = pushNotification.getAction();
+
+    Log.d(TAG, "Type: " + type);
+    Log.d(TAG, "Action: " + action);
 
 
     if (type != null) {
@@ -294,14 +288,22 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     refreshIntent.putExtra("pushNotification", pushNotification);
     refreshIntent.putExtra("from", "foreground");
 
+
     refreshIntent.putExtra("show_popup", true);
 
     if ("alert".equals(pushNotification.getType())) {
+
       int buildingId = Integer.valueOf(pushNotification.getBuildingId());
       refreshIntent.putExtra("buildingId", buildingId);
       int notificationId = Integer.valueOf(pushNotification.getNotificationId());
       refreshIntent.putExtra("notificationId", notificationId);
+      String title = pushNotification.getTitle();
+      String body = pushNotification.getBody();
+
+      refreshIntent.putExtra("title", title);
+      refreshIntent.putExtra("body", body);
       startActivity(refreshIntent);
+
     } else if ("offer".equals(pushNotification.getType())) {
 
     } else if ("social_media".equals(pushNotification.getType())) {

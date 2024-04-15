@@ -317,7 +317,7 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.sendWeatherAlert(str, locationModel);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<JSONObject> receivedMessage(String str) {
         return this.protectedApiService.receivedMessage(str);
     }

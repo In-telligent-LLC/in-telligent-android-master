@@ -206,7 +206,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void checkIntent(Intent intent) {
-        if (intent.getExtras() != null && intent.getExtras().getSerializable("pushNotification") != null) {
+        if (intent.getExtras() != null && intent.getExtras() != null) {
             handlePush(intent.getExtras());
         } else if (intent.getExtras() == null || intent.getBundleExtra("bundle") == null || intent.getBundleExtra("bundle").getSerializable("pushNotification") == null) {
         } else {
@@ -875,14 +875,20 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
         private void handlePush(Bundle extras) {
-            String from = extras.getString("from", "");
-            PushNotification pushNotification = (PushNotification) extras
-                    .getSerializable("pushNotification");
+            String from = extras.getString("from");
+            String type = extras.getString("type");
+            String alertType = extras.getString("alertType");
 
-            if (pushNotification != null && "alert".equals(pushNotification.getType())) {
+
+            Log.d(TAG, "INTENTS BUNDLES: " + alertType + " " + type + " " + from);
+
+            PushNotification pushNotification = (PushNotification) extras.getSerializable("notification");
+
+
+            if (type != null && type.equals("alert")) {
                 if (extras.getBoolean("show_popup", false)) {
                     MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
-                    if (!from.isEmpty() && from.equals("background")) {
+                    if (from.equals("background") ) {
                         messageViewDialog.show(getSupportFragmentManager());
                     } else {
                         new AlertDialog.Builder(MainActivity.this)
@@ -907,12 +913,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         builder.setView(numberPicker);
         builder.setTitle(str);
         builder.setCancelable(true);
-        builder.setPositiveButton((int) R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.5
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton(R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss());
         return builder.create();
     }
 
@@ -933,7 +934,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void onShowNotificationDetails(Notification notification) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add(R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
     }
 
     @Override

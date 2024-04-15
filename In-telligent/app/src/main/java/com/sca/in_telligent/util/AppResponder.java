@@ -1,5 +1,6 @@
 package com.sca.in_telligent.util;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.sca.in_telligent.data.DataManager;
@@ -40,19 +41,15 @@ public class AppResponder implements Responder {
   public AppResponder() {
   }
 
+  @SuppressLint("CheckResult")
   @Override
   public void received(String msgId) {
     dataManager.receivedMessage(msgId).subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<JSONObject>() {
-          @Override
-          public void accept(JSONObject jsonObject) throws Exception {
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
+        .subscribe(jsonObject -> {
+        }, throwable -> {
 
-          }
+
         });
   }
 
