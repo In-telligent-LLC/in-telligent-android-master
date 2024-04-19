@@ -1,6 +1,8 @@
 package com.sca.in_telligent.di.module;
 
 import android.app.Service;
+
+import com.google.api.Context;
 import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 import dagger.Module;
@@ -12,9 +14,12 @@ public class ServiceModule {
 
   private final Service mService;
 
+
   public ServiceModule(Service service) {
     mService = service;
+
   }
+
 
   @Provides
   CompositeDisposable provideCompositeDisposable() {

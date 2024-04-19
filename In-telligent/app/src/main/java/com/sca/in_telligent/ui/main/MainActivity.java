@@ -203,12 +203,14 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
 
+
     }
 
     private void checkIntent(Intent intent) {
         if (intent.getExtras() != null && intent.getExtras() != null) {
             handlePush(intent.getExtras());
         } else if (intent.getExtras() == null || intent.getBundleExtra("bundle") == null || intent.getBundleExtra("bundle").getSerializable("pushNotification") == null) {
+
         } else {
             handlePush(intent.getBundleExtra("bundle"));
         }
@@ -874,38 +876,32 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         subscriber.setLightningAlertEnabled(lightningEnabled);
     }
 
-        private void handlePush(Bundle extras) {
-            String from = extras.getString("from");
-            String type = extras.getString("type");
-            String alertType = extras.getString("alertType");
+    private void handlePush(Bundle extras) {
+        String from = extras.getString("from", "");
+        PushNotification pushNotification = (PushNotification) extras
+                .getSerializable("pushNotification");
 
-
-            Log.d(TAG, "INTENTS BUNDLES: " + alertType + " " + type + " " + from);
-
-            PushNotification pushNotification = (PushNotification) extras.getSerializable("notification");
-
-
-            if (type != null && type.equals("alert")) {
-                if (extras.getBoolean("show_popup", false)) {
-                    MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
-                    if (from.equals("background") ) {
-                        messageViewDialog.show(getSupportFragmentManager());
-                    } else {
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(pushNotification.getTitle())
-                                .setMessage(pushNotification.getBody())
-                                .setNegativeButton(R.string.ok, (dialog, which) -> {
-                                    dialog.dismiss();
-                                })
-                                .setPositiveButton(R.string.view, (dialog, which) -> {
-                                    dialog.dismiss();
-                                    messageViewDialog.show(getSupportFragmentManager());
-                                })
-                                .show();
-                    }
+        if (pushNotification != null && "alert".equals(pushNotification.getType())) {
+            if (extras.getBoolean("show_popup", false)) {
+                MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
+                if (!from.isEmpty() && from.equals("background")) {
+                    messageViewDialog.show(getSupportFragmentManager());
+                } else {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(pushNotification.getTitle())
+                            .setMessage(pushNotification.getBody())
+                            .setNegativeButton(R.string.ok, (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .setPositiveButton(R.string.view, (dialog, which) -> {
+                                dialog.dismiss();
+                                messageViewDialog.show(getSupportFragmentManager());
+                            })
+                            .show();
                 }
             }
         }
+    }
 
 
     private AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {

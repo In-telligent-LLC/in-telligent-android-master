@@ -67,14 +67,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
   private String state = "";
 
+  private Context mContext;
+
   @Override
   public void onCreate() {
     super.onCreate();
+
     ServiceComponent component = DaggerServiceComponent.builder()
         .serviceModule(new ServiceModule(this))
         .applicationComponent(((ScaApplication) getApplication()).getComponent())
         .build();
     component.inject(this);
+    this.mContext = getApplicationContext();
   }
 
   @SuppressLint("CheckResult")
@@ -146,11 +150,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }, throwable -> System.out.println());
   }
 
-  private Context mContext;
 
-  public void setContext(Context context) {
-    this.mContext = context;
-  }
 
 
 
@@ -280,10 +280,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   }
 
 
-  private void sendForeground(PushNotification pushNotification) {
-    Log.d(TAG, "sendForeground: " + pushNotification);
+  public void sendForeground(PushNotification pushNotification) {
+    Log.d(TAG, "sendForeground: " + pushNotification.getNotification_title() + " : " + pushNotification.getBody() + " : " + pushNotification.getAlertType());
+    if (mContext == null) {
+      Log.e(TAG, "Context is null");
+      return;
+    }
 
-    Intent refreshIntent = new Intent(this, MainActivity.class);
+    Intent refreshIntent = new Intent(mContext, MainActivity.class);
     refreshIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     refreshIntent.putExtra("pushNotification", pushNotification);
     refreshIntent.putExtra("from", "foreground");

@@ -72,7 +72,7 @@ android {
     buildTypes {
         local {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
-            buildConfigField "String", "BASE_URL", "\"http://10.125.141.185:3000/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://10.125.162.12:3000/api/\""
             debuggable true
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
@@ -202,6 +202,7 @@ dependencies {
 
 
     implementation "android.arch.lifecycle:extensions:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.dagger:dagger:2.48.1'
     kapt 'com.google.dagger:dagger-compiler:2.48.1'
