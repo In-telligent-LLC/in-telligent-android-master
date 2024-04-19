@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
@@ -25,7 +26,6 @@ import com.sca.in_telligent.di.component.DaggerServiceComponent;
 import com.sca.in_telligent.di.component.ServiceComponent;
 import com.sca.in_telligent.di.module.ServiceModule;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
-import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.data.network.model.PushTokenRequest;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -37,13 +37,7 @@ import com.sca.in_telligent.util.TimeoutLocationListener;
 import com.sca.in_telligent.util.WeatherUtil;
 import com.sca.in_telligent.util.geofence.GeofenceClient;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -86,15 +80,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   @SuppressLint("CheckResult")
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
-    Log.d(TAG, "Message notification: " + remoteMessage.getNotification().getTitle() + " " + remoteMessage.getNotification().getBody());
+//    Log.d(TAG, "Message notification: " + remoteMessage.getNotification().getTitle() + " " + remoteMessage.getNotification().getBody());
 
     if (remoteMessage.getData().size() > 0) {
         Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
 
       PushNotification pushNotification = new PushNotification();
-        pushNotification.setNotification_title(remoteMessage.getNotification().getTitle());
-        pushNotification.setBody(remoteMessage.getNotification().getBody());
+        pushNotification.setNotification_title(remoteMessage.getData().get("title"));
+        pushNotification.setBody(remoteMessage.getData().get("body"));
         pushNotification.setAlertType(remoteMessage.getData().get("alertType"));
 
 
@@ -104,7 +98,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendForeground(pushNotification);
       }
       else {
-        sendNotification(getApplicationContext(), pushNotification);
+        sendNotification(pushNotification);
       }
 
       handleNow();
@@ -152,9 +146,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }, throwable -> System.out.println());
   }
 
+  private Context mContext;
 
-  public void sendNotification(Context context, PushNotification pushNotification) {
-    Intent intent = new Intent(context, MainActivity.class);
+  public void setContext(Context context) {
+    this.mContext = context;
+  }
+
+
+
+  public void sendNotification(PushNotification pushNotification) {
+    Intent intent = new Intent(mContext, MainActivity.class);
     intent.putExtra("from", "background");
     intent.putExtra("pushNotification", pushNotification);
 
@@ -165,15 +166,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       flags = PendingIntent.FLAG_CANCEL_CURRENT;
     }
 
-    PendingIntent pendingIntent = PendingIntent.getActivity(context,
+    PendingIntent pendingIntent = PendingIntent.getActivity(mContext,
             0,
             intent, flags);
 
     String type = pushNotification.getType();
     String action = pushNotification.getAction();
-
-    Log.d(TAG, "Type: " + type);
-    Log.d(TAG, "Action: " + action);
 
 
     if (type != null) {
@@ -256,17 +254,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
   }
 
   private void sendNotificationWithIntent(PushNotification pushNotification, PendingIntent pendingIntent) {
+    Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
     NotificationCompat.Builder notificationBuilder =
             new NotificationCompat.Builder(this, "default")
                     .setSmallIcon(R.drawable.ic_launcher)
                     .setContentTitle(pushNotification.getTitle())
                     .setContentText(pushNotification.getBody())
                     .setAutoCancel(true)
-                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                    .setSound(defaultSoundUri)
                     .setContentIntent(pendingIntent);
 
     NotificationManager notificationManager =
-            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       NotificationChannel channel = new NotificationChannel("default",
@@ -282,6 +281,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
   private void sendForeground(PushNotification pushNotification) {
+    Log.d(TAG, "sendForeground: " + pushNotification);
 
     Intent refreshIntent = new Intent(this, MainActivity.class);
     refreshIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
