@@ -6,7 +6,7 @@ on:
       - quality
   push:
     branches:
-      - quality
+      - generate-firebase-apk
 
 jobs:
   build:
