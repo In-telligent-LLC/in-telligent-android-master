@@ -70,9 +70,19 @@ android {
     }
 
     buildTypes {
-        debug {
+        local {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
             buildConfigField "String", "BASE_URL", "\"http://192.168.15.73:3000\""
+            debuggable true
+            resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
+            resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
+            resValue "string", "groundtruth_access_key", "6SeUIx9dXvtGUpcpM0pKsGkDh-eSzdnbdx4AfILJpRMu0ZaWI7vDbZz-khEdiKtGOqhQnAj0XimEyj7L4V7eSeP9NKfM5yQy"
+            resValue "string", "groundtruth_aes_key", "K6WTBPB4KIELG3ACE9UHUUUV4FYJC76Q"
+            ext.enableCrashlytics = false
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
+            buildConfigField "String", "BASE_URL", "\"http://development-api.in-telligent.com/\""
             debuggable true
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"
