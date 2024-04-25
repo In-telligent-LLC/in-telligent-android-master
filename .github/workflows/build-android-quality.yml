@@ -44,14 +44,20 @@ jobs:
           name: app-debug
           path: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/*.apk
 
+      - name: ECHO WORKSPACE
+        run: | 
+            echo "${{ github.workspace }}
+
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
+
+      
         
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: bairesdev-testers
-          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/app-release-unsigned.apk
+          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/app-release.apk
 
    
           
