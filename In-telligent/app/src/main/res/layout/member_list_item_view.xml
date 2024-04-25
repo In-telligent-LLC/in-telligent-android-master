@@ -58,10 +58,10 @@
         android:padding="@dimen/spacing_medium"
         android:scaleType="fitCenter"
         android:src="@drawable/baseline_close_white_48"
-        android:tint="@color/tab_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/tab_gray" />
 
     <View
         android:layout_width="0dp"

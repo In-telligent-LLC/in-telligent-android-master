@@ -30,13 +30,13 @@
       android:layout_width="30dp"
       android:layout_height="30dp"
       android:layout_marginBottom="8dp"
-      android:tint="@color/translate_button_black"
       app:layout_constraintBottom_toBottomOf="@+id/notification_attachment_document_title"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.45"
-      app:srcCompat="@drawable/baseline_picture_as_pdf_white_48" />
+      app:srcCompat="@drawable/baseline_picture_as_pdf_white_48"
+      app:tint="@color/translate_button_black" />
 
   <TextView
       android:id="@+id/notification_attachment_document_title"
