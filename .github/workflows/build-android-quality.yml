@@ -51,7 +51,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: bairesdev-testers
-          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/*.apk
+          file: /home/runner/work/in-telligent-android-master/in-telligent-android-master/In-telligent/app/build/outputs/apk/release/app-release.apk
 
    
           
