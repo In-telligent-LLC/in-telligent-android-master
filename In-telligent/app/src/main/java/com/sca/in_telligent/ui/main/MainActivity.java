@@ -178,7 +178,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         ButterKnife.bind(this);
 
         this.mPresenter.onAttach(this);
-        CommonUtils.checkDNDPermission(this);
 
         navigationViewListView = findViewById(R.id.navigation_view_listview);
         totalSilenceNumber = findViewById(R.id.total_silence_number);
@@ -256,6 +255,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 //        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
 
         this.mPresenter.getSubscriber();
+        CommonUtils.checkDNDPermission(this);
+
 
     }
 
