@@ -41,13 +41,14 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private final List<Building> suggestedBuildings;
 
     public interface Callback {
-        void onAboutClicked(int i, boolean z);
 
-        void onConnectClicked(String str, boolean z, boolean z2);
+        void onAboutClicked(int position, boolean createdByMe);
 
-        void onContactClicked(int i);
+        void onContactClicked(int position);
 
-        void onIgnoreClicked(String str, int i);
+        void onConnectClicked(String buildingId, boolean connect, boolean suggested);
+
+        void onIgnoreClicked(String buildingId, int ignoredPosition);
     }
 
 
@@ -137,28 +138,32 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    public void onBindViewHolder(BaseViewHolder baseViewHolder, int i) {
-        baseViewHolder.onBind(i);
+
+    @Override
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+        holder.onBind(position);
     }
 
+    @Override
     public int getItemCount() {
-        List<Building> list = this.buildings;
-        if (list == null || list.size() <= 1) {
+        if (buildings != null && buildings.size() > 0) {
+            return buildings.size();
+        } else {
             return 1;
         }
-        return this.buildings.size();
     }
 
-    public int getItemViewType(int i) {
-        List<Building> list = this.buildings;
-        if (list == null || list.size() <= 1) {
-            return 4;
+    @Override
+    public int getItemViewType(int position) {
+        if (buildings != null && buildings.size() > 0) {
+            return buildings.get(position).getType().getNumber();
+        } else {
+            return VIEW_TYPE_EMPTY;
         }
-        return this.buildings.get(i).getType().getNumber();
     }
 
-    public Building getItem(int i) {
-        return this.buildings.get(i);
+    public Building getItem(int position) {
+        return buildings.get(position);
     }
 
     public class ViewHolder extends BaseViewHolder {

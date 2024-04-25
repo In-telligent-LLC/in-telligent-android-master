@@ -11,7 +11,7 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void getSubscriber();
 
-    void getSubscriber(boolean z);
+    void getSubscriber(boolean showLoading);
 
     void getSuggestedGroups();
 
@@ -29,7 +29,7 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void startFetchingAds();
 
-    void subscribeToCommunity(int i);
+    void subscribeToCommunity(int buildingId);
 
-    void subscribeToCommunity(int i, int i2);
+    void subscribeToCommunity(int buildingId, int inviteId);
 }

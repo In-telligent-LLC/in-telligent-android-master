@@ -9,13 +9,13 @@ import com.sca.in_telligent.ui.base.MvpView;
 import java.util.ArrayList;
 
 public interface MainMvpView extends MvpView {
-    void loadGroups(ArrayList<Building> arrayList, ArrayList<Building> arrayList2, ArrayList<BuildingIdItem> arrayList3);
-
+    void loadGroups(ArrayList<Building> buildings, ArrayList<Building> personalCommunities,
+                    ArrayList<BuildingIdItem> ids);
     void loadImage(AdResponse.BannerAd bannerAd);
 
     void loadSubscriber(Subscriber subscriber);
 
-    void loadSuggestedGroups(ArrayList<Building> arrayList);
+    void loadSuggestedGroups(ArrayList<Building> suggestedGroups);
 
     void locationPermissionResult(boolean granted, boolean phone);
 
