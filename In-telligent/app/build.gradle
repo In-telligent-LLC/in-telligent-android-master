@@ -72,7 +72,7 @@ android {
     buildTypes {
         local {
             buildConfigField "boolean", "LOG_DEBUG_MODE", "true"
-            buildConfigField "String", "BASE_URL", "\"http://10.125.162.12:3000/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://192.168.15.73:3000/api/\""
             debuggable true
             resValue "string", "google_maps_key", "AIzaSyBKhXynCzE4BYPbMDpebDjdoyMDO1MJUYg"
             resValue "string", "factual_api_key", "HUO9PKsmMmydyA1rJ3dxOzwLEad4tYGL8GMDGqYV"

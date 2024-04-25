@@ -155,7 +155,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
   public void sendNotification(PushNotification pushNotification) {
-    Intent intent = new Intent(mContext, MainActivity.class);
+    Context context = getApplicationContext();
+
+    Intent intent = new Intent(context, MainActivity.class);
     intent.putExtra("from", "background");
     intent.putExtra("pushNotification", pushNotification);
 
@@ -166,63 +168,70 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
       flags = PendingIntent.FLAG_CANCEL_CURRENT;
     }
 
-    PendingIntent pendingIntent = PendingIntent.getActivity(mContext,
-            0,
-            intent, flags);
-
-    String type = pushNotification.getType();
-    String action = pushNotification.getAction();
-
-
-    if (type != null) {
-      switch (type) {
-        case "offer":
-          intent.putExtra("action", "goToOffer");
-          intent.putExtra("offerId", Integer.parseInt(pushNotification.getOfferId()));
-          break;
-        case "alert":
-          intent.putExtra("action", "goToAlert");
-          intent.putExtra("buildingId", Integer.parseInt(pushNotification.getBuildingId()));
-          intent.putExtra("notificationId", Integer.parseInt(pushNotification.getNotificationId()));
-          AlertOpenedRequest alertOpenedRequest = new AlertOpenedRequest();
-          alertOpenedRequest.setNotificationId(Integer.parseInt(pushNotification.getNotificationId()));
-          responder.alertDelivered(alertOpenedRequest);
-          break;
-        case "suggested_alert":
-          break; // Nothing to do here
-        case "social_media":
-          intent.putExtra("social_type", pushNotification.getSocialType());
-          intent.putExtra("action", "goToSocialMedia");
-          break;
-        default:
-          return;
-      }
-    } else if (action != null) {
-      switch (action) {
-        case "FeedAlert":
-          geofenceClient.populateIntelligentFences(false);
-          if (pushNotification.getFeedAlertId() != null) {
-            weatherUtil.handleWeatherAlert(pushNotification.getFeedAlertId());
-          }
-          return;
-        case "IncomingCall":
-          Intent incomingCallIntent = IncomingCallActivity.getStartIntent(getApplicationContext());
-          incomingCallIntent.putExtra("uuid", pushNotification.getUuid());
-          incomingCallIntent.putExtra("conferenceId", pushNotification.getConferenceId());
-          incomingCallIntent.putExtra("remoteUserName", pushNotification.getRemoteUserName());
-          audioHelper.startVoipRingtone();
-          startActivity(incomingCallIntent);
-          return;
-        case "LocationPing":
-          handleLocationPing(pushNotification.getUuid());
-          return;
-        default:
-          return;
-      }
+    if(context == null) {
+      Log.e("FirebaseBroadcastReceiver", "Context is null");
     }
+    else {
 
-    // If we reach here, it means we need to show a notification
-    sendNotificationWithIntent(pushNotification, pendingIntent);
+      PendingIntent pendingIntent = PendingIntent.getActivity(context,
+              0,
+              intent, flags);
+
+      String type = pushNotification.getType();
+      String action = pushNotification.getAction();
+
+
+      if (type != null) {
+        switch (type) {
+          case "offer":
+            intent.putExtra("action", "goToOffer");
+            intent.putExtra("offerId", Integer.parseInt(pushNotification.getOfferId()));
+            break;
+          case "alert":
+            intent.putExtra("action", "goToAlert");
+            intent.putExtra("buildingId", Integer.parseInt(pushNotification.getBuildingId()));
+            intent.putExtra("notificationId", Integer.parseInt(pushNotification.getNotificationId()));
+            AlertOpenedRequest alertOpenedRequest = new AlertOpenedRequest();
+            alertOpenedRequest.setNotificationId(Integer.parseInt(pushNotification.getNotificationId()));
+            responder.alertDelivered(alertOpenedRequest);
+            break;
+          case "suggested_alert":
+            break; // Nothing to do here
+          case "social_media":
+            intent.putExtra("social_type", pushNotification.getSocialType());
+            intent.putExtra("action", "goToSocialMedia");
+            break;
+          default:
+            return;
+        }
+      } else if (action != null) {
+        switch (action) {
+          case "FeedAlert":
+            geofenceClient.populateIntelligentFences(false);
+            if (pushNotification.getFeedAlertId() != null) {
+              weatherUtil.handleWeatherAlert(pushNotification.getFeedAlertId());
+            }
+            return;
+          case "IncomingCall":
+            Intent incomingCallIntent = IncomingCallActivity.getStartIntent(getApplicationContext());
+            incomingCallIntent.putExtra("uuid", pushNotification.getUuid());
+            incomingCallIntent.putExtra("conferenceId", pushNotification.getConferenceId());
+            incomingCallIntent.putExtra("remoteUserName", pushNotification.getRemoteUserName());
+            audioHelper.startVoipRingtone();
+            startActivity(incomingCallIntent);
+            return;
+          case "LocationPing":
+            handleLocationPing(pushNotification.getUuid());
+            return;
+          default:
+            return;
+        }
+
+      }
+
+      // If we reach here, it means we need to show a notification
+      sendNotificationWithIntent(pushNotification, pendingIntent);
+    }
   }
 
   private void handleLocationPing(String msgId) {

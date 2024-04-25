@@ -207,12 +207,28 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void checkIntent(Intent intent) {
-        if (intent.getExtras() != null && intent.getExtras() != null) {
-            handlePush(intent.getExtras());
-        } else if (intent.getExtras() == null || intent.getBundleExtra("bundle") == null || intent.getBundleExtra("bundle").getSerializable("pushNotification") == null) {
+        if (intent.getBooleanExtra("show_popup", false)) {
+            Bundle extras = intent.getExtras();
+            PushNotification pushNotification = (PushNotification) extras
+                    .getSerializable("pushNotification");
 
-        } else {
-            handlePush(intent.getBundleExtra("bundle"));
+            MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
+
+
+            assert pushNotification != null;
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(pushNotification.getTitle())
+                    .setMessage(pushNotification.getBody())
+                    .setNegativeButton(R.string.ok, (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .setPositiveButton(R.string.view, (dialog, which) -> {
+                        dialog.dismiss();
+                        messageViewDialog.show(getSupportFragmentManager());
+                    })
+                    .show();
+
+
         }
     }
 
@@ -729,7 +745,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void groupRightClick(int i) {
         GroupDetailContainerFragment groupDetailContainerFragment = (GroupDetailContainerFragment) getSupportFragmentManager().findFragmentByTag(GroupDetailContainerFragment.TAG);
         if (groupDetailContainerFragment != null) {
@@ -874,33 +890,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     public void weatherWarningUpdated(boolean weatherEnabled, boolean lightningEnabled) {
         subscriber.setWeatherAlertEnabled(weatherEnabled);
         subscriber.setLightningAlertEnabled(lightningEnabled);
-    }
-
-    private void handlePush(Bundle extras) {
-        String from = extras.getString("from", "");
-        PushNotification pushNotification = (PushNotification) extras
-                .getSerializable("pushNotification");
-
-        if (pushNotification != null && "alert".equals(pushNotification.getType())) {
-            if (extras.getBoolean("show_popup", false)) {
-                MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
-                if (!from.isEmpty() && from.equals("background")) {
-                    messageViewDialog.show(getSupportFragmentManager());
-                } else {
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle(pushNotification.getTitle())
-                            .setMessage(pushNotification.getBody())
-                            .setNegativeButton(R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            })
-                            .setPositiveButton(R.string.view, (dialog, which) -> {
-                                dialog.dismiss();
-                                messageViewDialog.show(getSupportFragmentManager());
-                            })
-                            .show();
-                }
-            }
-        }
     }
 
 
