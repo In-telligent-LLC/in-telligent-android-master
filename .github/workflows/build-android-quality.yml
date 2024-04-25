@@ -41,17 +41,17 @@ jobs:
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: app-debug
+          name: app-release
           path: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/*.apk
 
+     
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
-        
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CONFIG_JSON }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: bairesdev-testers
-          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/app-release.apk
+          file: /home/runner/work/in-telligent-android-master/in-telligent-android-master/In-telligent/app/build/outputs/apk/release/app-release.apk
 
    
           
