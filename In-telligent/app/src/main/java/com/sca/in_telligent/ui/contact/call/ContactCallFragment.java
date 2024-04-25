@@ -19,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
+import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.util.AnimationUtil;
 import com.sca.in_telligent.util.twilio.AppTwilioUtil.TwilioUtilListener;
@@ -94,8 +95,17 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            callStatusImage = view.findViewById(R.id.contact_call_status_image);
+            dialPad = view.findViewById(R.id.dial_pad_layout);
+            floatingActionButtonStartCall = view.findViewById(R.id.fab_start_call);
+            floatingActionButtonEndCall = view.findViewById(R.id.fab_end_call);
+            chronometer = view.findViewById(R.id.chronometer);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            floatingActionButtonEndCall.setOnClickListener(v -> endCallClick(v));
+            floatingActionButtonStartCall.setOnClickListener(v -> startCallClick());
         }
 
         return view;
@@ -118,7 +128,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
     }
 
     @OnClick(R.id.fab_start_call)
-    void startCallClick(View v) {
+    void startCallClick() {
         mPresenter.requestRecordAudioPermission();
     }
 
@@ -141,7 +151,9 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
                         WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
         );
 
+
         super.onDestroyView();
+
     }
 
     @Override
@@ -151,6 +163,7 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
         }
 
         if (!answered) {
+            Log.e(TAG, "caiu aqui");
             showPopup(getString(R.string.there_are_no_available_community_managers_consider));
         }else {
             showPopup(getString(R.string.there_was_error_connecting));
@@ -225,8 +238,17 @@ public class ContactCallFragment extends BaseFragment implements ContactCallMvpV
     @Override
     public void recordAudioPermissionResult(boolean granted) {
         if (granted) {
-            twilioUtil.makeCall(buildingId);
+            Log.d(TAG, "Record audio permission granted");
+            mPresenter.getVoipToken(Integer.parseInt(buildingId));
+        }
+    }
+
+    @Override
+    public void onVoipTokenReceived(VoipTokenResponse voipTokenResponse) {
+        if (voipTokenResponse != null) {
+            twilioUtil.makeCall(voipTokenResponse.getPhoneNumber(), voipTokenResponse.getToken());
             callStatusImage.setImageResource(R.drawable.call_status2);
+
         }
     }
 

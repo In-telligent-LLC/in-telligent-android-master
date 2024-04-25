@@ -7,11 +7,11 @@ import com.google.android.gms.maps.model.LatLng;
 public interface LocationUtil {
 
 
-  public void getCurrentLocation(final TimeoutLocationListener timeoutLocationListener);
+  void getCurrentLocation(final TimeoutLocationListener timeoutLocationListener);
 
-  public Location getLastKnownLocation();
+  Location getLastKnownLocation();
 
-  public LatLng getLatLngFromZip(final Context context, final String zipCode);
+  LatLng getLatLngFromZip(final Context context, final String zipCode);
 
   boolean isProviderEnabled();
 }

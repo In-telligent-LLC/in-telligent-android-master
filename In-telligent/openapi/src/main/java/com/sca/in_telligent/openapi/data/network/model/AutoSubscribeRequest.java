@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class AutoSubscribeRequest {
     @SerializedName("buildingId")
-    private int communityId;
+    private final int communityId;
     @SerializedName("value")
     private boolean optOut;
 

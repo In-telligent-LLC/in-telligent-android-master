@@ -6,38 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import butterknife.internal.Utils;
+
 import com.sca.in_telligent.R;
+
 import java.util.List;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class GroupListSpinnerAdapter extends ArrayAdapter<String> {
-    private Context context;
-    private List<String> items;
+    private final Context context;
+    private final List<String> items;
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-    public class ViewHolder_ViewBinding implements Unbinder {
-        private ViewHolder target;
 
-        public ViewHolder_ViewBinding(ViewHolder viewHolder, View view) {
-            this.target = viewHolder;
-            viewHolder.name = (TextView) Utils.findRequiredViewAsType(view, (int) R.id.spinner_item_text, "field 'name'", TextView.class);
-        }
-
-        public void unbind() {
-            ViewHolder viewHolder = this.target;
-            if (viewHolder == null) {
-                throw new IllegalStateException("Bindings already cleared.");
-            }
-            this.target = null;
-            viewHolder.name = null;
-        }
-    }
-
-    @Override // android.widget.ArrayAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
+    @Override
     public View getDropDownView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (view == null) {
@@ -51,12 +33,13 @@ public class GroupListSpinnerAdapter extends ArrayAdapter<String> {
         return view;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     static class ViewHolder {
         @BindView(R.id.spinner_item_text)
         TextView name;
 
         public ViewHolder(View view) {
+            name = view.findViewById(R.id.spinner_item_text);
+
             ButterKnife.bind(this, view);
         }
     }

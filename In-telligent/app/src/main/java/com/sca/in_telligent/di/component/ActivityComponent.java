@@ -16,22 +16,23 @@ import com.sca.in_telligent.ui.findlocation.FindLocationDialog;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailFragment;
 import com.sca.in_telligent.ui.group.alert.list.AlertListFragment;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment;
+import com.sca.in_telligent.ui.group.generate.GenerateGroupFragment;
 import com.sca.in_telligent.ui.group.list.GroupListFragment;
-
 import com.sca.in_telligent.ui.inbox.AttachmentPreviewDialog;
 import com.sca.in_telligent.ui.inbox.InboxFragment;
-import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
 import com.sca.in_telligent.ui.intro.IntroActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
+import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
 import com.sca.in_telligent.ui.popup.IncomingCallActivity;
 import com.sca.in_telligent.ui.popup.LifeSafetyPopupActivity;
 import com.sca.in_telligent.ui.popup.PersonalSafetyPopupActivity;
 import com.sca.in_telligent.ui.preview.MessageViewDialog;
 import com.sca.in_telligent.ui.settings.SettingsFragment;
 import com.sca.in_telligent.ui.settings.account.AccountSettingsFragment;
-import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
 import com.sca.in_telligent.ui.settings.help.HelpFragment;
+import com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment;
 import com.sca.in_telligent.ui.splash.SplashActivity;
+
 import dagger.Component;
 
 @PerActivity
@@ -72,6 +73,7 @@ public interface ActivityComponent {
 
   void inject(GroupDetailFragment fragment);
 
+  void inject(GenerateGroupFragment fragment);
 
   void inject(AlertListFragment fragment);
 

@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Objects;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class Building implements Serializable {
     @SerializedName("BuildingAddress")
     private BuildingAddress buildingAddress;
@@ -89,7 +88,12 @@ public class Building implements Serializable {
         return this.buildingAddress;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+    public void setId(int i) {
+    }
+
+    public void setDescription(String mockBuilding) {
+    }
+
     public enum Type {
         SUGGESTED_HEADER(0),
         SUGGESTED_ITEM(1),
@@ -107,7 +111,6 @@ public class Building implements Serializable {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public enum Category {
         ORGANIZATION("organization"),
         PEOPLE("people"),
@@ -191,6 +194,54 @@ public class Building implements Serializable {
 
     public String getFilterCategory() {
         return this.filterCategory;
+    }
+
+    public void setBuildingAddress(BuildingAddress buildingAddress) {
+        this.buildingAddress = buildingAddress;
+    }
+
+    public void setBuildingCategory(BuildingCategory buildingCategory) {
+        this.buildingCategory = buildingCategory;
+    }
+
+    public void setBuildingsSubscriber(BuildingsSubscriber buildingsSubscriber) {
+        this.buildingsSubscriber = buildingsSubscriber;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public void setFilterCategory(String filterCategory) {
+        this.filterCategory = filterCategory;
+    }
+
+    public void setManagedByCurrentUser(boolean managedByCurrentUser) {
+        isManagedByCurrentUser = managedByCurrentUser;
+    }
+
+    public void setTextEnabled(boolean textEnabled) {
+        isTextEnabled = textEnabled;
+    }
+
+    public void setVoipEnabled(boolean voipEnabled) {
+        isVoipEnabled = voipEnabled;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setSubscriberCount(int subscriberCount) {
+        this.subscriberCount = subscriberCount;
+    }
+
+    public void setSubscriberId(Integer subscriberId) {
+        this.subscriberId = subscriberId;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getImageUrl() {

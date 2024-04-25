@@ -75,6 +75,7 @@ public class ContactListFragment extends BaseFragment implements ContactListMvpV
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact_list, container, false);
         ActivityComponent component = getActivityComponent();
+        contactListRecyclerview = view.findViewById(R.id.contact_list_recyclerview);
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));

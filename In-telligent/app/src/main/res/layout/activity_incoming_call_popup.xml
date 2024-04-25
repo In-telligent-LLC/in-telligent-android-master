@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="@color/white">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
   <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/incoming_call_accept_call"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/settings_tab_unselected"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+      android:id="@+id/incoming_call_accept_call"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/settings_tab_unselected"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
       tools:ignore="MissingConstraints">
 
     <ImageView
-      android:id="@+id/incoming_call_accept_image"
-      android:layout_width="75dp"
-      android:layout_height="75dp"
-      android:layout_margin="20dp"
-      android:src="@drawable/start_call"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/incoming_call_accept_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/start_call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-      android:id="@+id/incoming_call_accept_text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
-      android:text="@string/accept_call"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:textColor="#515151"
-      app:layout_constraintBottom_toBottomOf="@id/incoming_call_accept_image"
-      app:layout_constraintStart_toEndOf="@id/incoming_call_accept_image"
-      app:layout_constraintTop_toTopOf="@id/incoming_call_accept_image"/>
+        android:id="@+id/incoming_call_accept_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/accept_call"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#515151"
+        app:layout_constraintBottom_toBottomOf="@id/incoming_call_accept_image"
+        app:layout_constraintStart_toEndOf="@id/incoming_call_accept_image"
+        app:layout_constraintTop_toTopOf="@id/incoming_call_accept_image"/>
   </androidx.constraintlayout.widget.ConstraintLayout>
 
   <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/incoming_call_reject_call"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/settings_tab_unselected"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
-
-    <ImageView
-      android:id="@+id/incoming_call_reject_image"
-      android:layout_width="75dp"
-      android:layout_height="75dp"
-      android:layout_margin="20dp"
-      android:src="@drawable/end_call"
+      android:id="@+id/incoming_call_reject_call"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/settings_tab_unselected"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+      app:layout_constraintEnd_toEndOf="parent">
+
+    <ImageView
+        android:id="@+id/incoming_call_reject_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/end_call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-      android:id="@+id/incoming_call_reject_text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
-      android:text="@string/reject_end_call"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:textColor="#515151"
-      app:layout_constraintBottom_toBottomOf="@id/incoming_call_reject_image"
-      app:layout_constraintStart_toEndOf="@id/incoming_call_reject_image"
-      app:layout_constraintTop_toTopOf="@id/incoming_call_reject_image"/>
+        android:id="@+id/incoming_call_reject_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/reject_end_call"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#515151"
+        app:layout_constraintBottom_toBottomOf="@id/incoming_call_reject_image"
+        app:layout_constraintStart_toEndOf="@id/incoming_call_reject_image"
+        app:layout_constraintTop_toTopOf="@id/incoming_call_reject_image"/>
   </androidx.constraintlayout.widget.ConstraintLayout>
 
   <TextView
-    android:id="@+id/incoming_call_center_text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/incoming_call"
-    android:textColor="#515151"
-    android:textSize="22dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+      android:id="@+id/incoming_call_center_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/incoming_call"
+      android:textColor="#515151"
+      android:textSize="22dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 
   <Chronometer
-    android:id="@+id/chronometer"
-    android:textStyle="bold"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:format="Timer: %s"
-    android:textSize="30sp"
-    app:layout_constraintBottom_toTopOf="@+id/incoming_call_center_text"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+      android:id="@+id/chronometer"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:format="Timer: %s"
+      android:textSize="30sp"
+      app:layout_constraintBottom_toTopOf="@+id/incoming_call_center_text"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

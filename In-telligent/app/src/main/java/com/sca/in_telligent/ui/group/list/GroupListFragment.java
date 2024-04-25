@@ -1,9 +1,11 @@
 package com.sca.in_telligent.ui.group.list;
 
+import static com.sca.in_telligent.util.AlertUtil.showConfirmationAlert;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,36 +13,34 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Predicate;
 
+//import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Building;
-import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest;
 import com.sca.in_telligent.ui.base.BaseFragment;
-
-import com.sca.in_telligent.util.AlertUtil;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
-import java.util.function.Function;
+import java.util.Objects;
+
 import javax.inject.Inject;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnItemSelected;
+import io.reactivex.rxjava3.core.Observable;
+
 public class GroupListFragment extends BaseFragment implements GroupListMvpView, GroupListAdapter.Callback {
     public static final String ARG_GROUPS = "groups";
     public static final String ARG_SUBSCRIBER_ID = "subscriber_id";
@@ -66,6 +66,11 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     private int subscriberId;
     @BindView(R.id.swipe_refresh_layout_groups)
     SwipeRefreshLayout swipeRefreshLayout;
+
+//    @BindView(R.id.fab_create_group)
+//    FloatingActionButton fabCreateGroup;
+
+
     private ArrayList<Building> buildings = new ArrayList<>();
     private ArrayList<Building> suggestedBuildings = new ArrayList<>();
     private ArrayList<Building> otherBuildings = new ArrayList<>();
@@ -73,139 +78,140 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     private ArrayList<Building> buildingsUpdated = new ArrayList<>();
     private ArrayList<Building> combinedBuildings = new ArrayList<>();
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public interface GroupListSelector {
-        void groupsUpdated(ArrayList<Building> arrayList);
 
-        void itemAboutClicked(int i, boolean z);
+        void itemAboutClicked(int position, boolean createdByMe);
+
+        void groupsUpdated(ArrayList<Building> updatedGroups);
+
+        void onCreateGroupClicked();
 
         void onPullToRefreshGroups();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$unsubscribed$21(DialogInterface dialogInterface, int i) {
-    }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
+    @Override
     public void onContactClicked(int i) {
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListMvpView
+    @Override
     public void onOptOutFromCommunitySuccess() {
     }
 
-    public static GroupListFragment newInstance(ArrayList<Building> arrayList, ArrayList<Building> arrayList2, int i) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(ARG_GROUPS, arrayList);
-        bundle.putSerializable(ARG_SUGGESTED, arrayList2);
-        bundle.putInt(ARG_SUBSCRIBER_ID, i);
-        GroupListFragment groupListFragment = new GroupListFragment();
-        groupListFragment.setArguments(bundle);
-        return groupListFragment;
+    public static GroupListFragment newInstance(ArrayList<Building> groups,
+                                                ArrayList<Building> suggested, int subscriberId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_GROUPS, groups);
+        args.putSerializable(ARG_SUGGESTED, suggested);
+        args.putInt(ARG_SUBSCRIBER_ID, subscriberId);
+        GroupListFragment fragment = new GroupListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.groupListSelector = (GroupListSelector) context;
-        this.buildings = (ArrayList) getArguments().getSerializable(ARG_GROUPS);
-        this.suggestedBuildings = (ArrayList) getArguments().getSerializable(ARG_SUGGESTED);
-        this.subscriberId = getArguments().getInt(ARG_SUBSCRIBER_ID);
+        buildings = (ArrayList<Building>) getArguments().getSerializable(ARG_GROUPS);
+        suggestedBuildings = (ArrayList<Building>) getArguments().getSerializable(ARG_SUGGESTED);
+        subscriberId = getArguments().getInt(ARG_SUBSCRIBER_ID);
     }
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_group_list, viewGroup, false);
         ActivityComponent activityComponent = getActivityComponent();
+
+
         if (activityComponent != null) {
             activityComponent.inject(this);
+
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);
+
+            swipeRefreshLayout = inflate.findViewById(R.id.swipe_refresh_layout_groups);
+            searchEdittext = inflate.findViewById(R.id.group_list_edittext_search);
+            spinnerAdapter = new GroupListSpinnerAdapter(getContext(), new ArrayList<>());
+            groupListSpinner = inflate.findViewById(R.id.group_list_spinner);
+            groupList = inflate.findViewById(R.id.group_recyclerview);
+//            fabCreateGroup = inflate.findViewById(R.id.fab_create_group);
+
+
         }
         return inflate;
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
+    @Override
     protected void setUp(View view) {
-        this.adapter.setCallback(this);
-        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        this.groupList.setLayoutManager(this.mLayoutManager);
-        this.groupList.setAdapter(this.adapter);
+
+        adapter.setCallback(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        groupList.setLayoutManager(mLayoutManager);
+        groupList.setAdapter(adapter);
+
         addItems(this.buildings, this.suggestedBuildings);
+
         initSpinner();
         setTextWatcher();
         setUpPullToRefresh();
+
+//        fabCreateGroup.setOnClickListener(v -> groupListSelector.onCreateGroupClicked());
+        onContactClicked(subscriberId);
+
+        groupListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spinnerItemSelected(groupListSpinner, position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+        });
+
+
     }
 
     private void setUpPullToRefresh() {
-        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListFragment$$ExternalSyntheticLambda16
-            public final void onRefresh() {
-                GroupListFragment.this.m211x85891d1f();
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            if (groupListSelector != null) {
+                groupListSelector.onPullToRefreshGroups();
             }
         });
     }
 
-    /* renamed from: lambda$setUpPullToRefresh$0$com-sca-in_telligent-ui-group-list-GroupListFragment  reason: not valid java name */
-    public /* synthetic */ void m211x85891d1f() {
-        GroupListSelector groupListSelector = this.groupListSelector;
-        if (groupListSelector != null) {
-            groupListSelector.onPullToRefreshGroups();
-        }
+    public void addItems(ArrayList<Building> buildings, ArrayList<Building> suggestedBuildings) {
+        swipeRefreshLayout.setRefreshing(false);
+        adapter.addItems(buildings, suggestedBuildings);
     }
 
-    public void addItems(ArrayList<Building> arrayList, ArrayList<Building> arrayList2) {
-        this.swipeRefreshLayout.setRefreshing(false);
-        this.adapter.addItems(arrayList, arrayList2);
-    }
 
-    /* renamed from: com.sca.in_telligent.ui.group.list.GroupListFragment$2  reason: invalid class name */
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-    static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType;
-
-        static {
-            int[] iArr = new int[GroupSpinnerItemType.values().length];
-            $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType = iArr;
-            try {
-                iArr[GroupSpinnerItemType.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType[GroupSpinnerItemType.PEOPLE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType[GroupSpinnerItemType.ORGANIZATIONS.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType[GroupSpinnerItemType.HELPLINES.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                $SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType[GroupSpinnerItemType.EMERGENCY.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-        }
-    }
-
-    public void spinnerItemSelected(Spinner spinner, int i) {
-        int i2 = AnonymousClass2.$SwitchMap$com$sca$in_telligent$ui$group$list$GroupSpinnerItemType[GroupSpinnerItemType.NONE.getSpinnerMode(i).ordinal()];
-        if (i2 == 1) {
-            this.adapter.updateItems(this.buildings);
-            this.groupListSelector.groupsUpdated(this.buildings);
-        } else if (i2 == 2) {
-            updateSpinnerList(Building.Category.PEOPLE);
-        } else if (i2 == 3) {
-            updateSpinnerList(Building.Category.ORGANIZATION);
-        } else if (i2 == 4) {
-            updateSpinnerList(Building.Category.HELPLINE);
-        } else if (i2 != 5) {
-        } else {
-            updateSpinnerList(Building.Category.EMERGENCY);
+    @OnItemSelected(R.id.group_list_spinner)
+    public void spinnerItemSelected(Spinner spinner, int position) {
+        GroupSpinnerItemType spinnerItemType = GroupSpinnerItemType.NONE;
+        switch (Objects.requireNonNull(spinnerItemType.getSpinnerMode(position))) {
+            case NONE:
+                adapter.updateItems(buildings);
+                groupListSelector.groupsUpdated(buildings);
+                break;
+            case PEOPLE:
+                updateSpinnerList(Building.Category.PEOPLE);
+                break;
+            case ORGANIZATIONS:
+                updateSpinnerList(Building.Category.ORGANIZATION);
+                break;
+            case HELPLINES:
+                updateSpinnerList(Building.Category.HELPLINE);
+                break;
+            case EMERGENCY:
+                updateSpinnerList(Building.Category.EMERGENCY);
+                break;
         }
     }
 
 
+    @SuppressLint("CheckResult")
     private void updateSpinnerList(Building.Category category) {
         Observable.fromIterable(buildings)
                 .filter(
@@ -217,7 +223,6 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
                 });
     }
 
-
     private boolean belongsToCategory(Building.Category category, Building building) {
 
         if (category == null) {
@@ -226,15 +231,11 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         }
 
         if (category.getCategory().equalsIgnoreCase(Building.Category.PEOPLE.getCategory()) &&
-                (building.getSubscriberId() != null && building.getSubscriberId().intValue() == subscriberId)) {
+                (building.getSubscriberId() != null && building.getSubscriberId() == subscriberId)) {
             return true;
         }
 
-        if (category.getCategory().equalsIgnoreCase(building.getFilterCategory())) {
-            return true;
-        }
-
-        return false;
+        return category.getCategory().equalsIgnoreCase(building.getFilterCategory());
     }
 
     private void initSpinner() {
@@ -253,80 +254,68 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         super.onDestroyView();
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
+    @Override
     public void onAboutClicked(int i, boolean z) {
         this.groupListSelector.itemAboutClicked(i, z);
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
-    public void onConnectClicked(String str, boolean z, boolean z2) {
-        final UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
-        updateSubscriptionRequest.setBuildingId(str);
-        if (z) {
-            updateSubscriptionRequest.setAction(SubscribeToCommunityRequest.ACTION_SUBSCRIBE);
-            this.mPresenter.subscribe(updateSubscriptionRequest, z2);
-            return;
+
+    @Override
+    public void onConnectClicked(String buildingId, boolean connect, boolean suggested) {
+        UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
+        updateSubscriptionRequest.setBuildingId(buildingId);
+        if (connect) {
+            updateSubscriptionRequest.setAction("subscribe");
+            mPresenter.subscribe(updateSubscriptionRequest, suggested);
+        } else {
+            showConfirmationAlert(getContext(),
+                    R.string.are_you_sure_you_want_to_unsubscribe_from_this_community,
+                    (dialog, which) -> {
+                        updateSubscriptionRequest.setAction("unsubscribe");
+                        mPresenter.unsubscribe(updateSubscriptionRequest);
+                    });
         }
-        AlertUtil.showConfirmationAlert(getContext(), R.string.are_you_sure_you_want_to_unsubscribe_from_this_community, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.list.GroupListFragment$$ExternalSyntheticLambda11
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                GroupListFragment.this.m210xaabd6bde(updateSubscriptionRequest, dialogInterface, i);
+    }
+
+    @Override
+    public void onIgnoreClicked(String buildingId, int ignoredPosition) {
+        mPresenter.onIgnoreCommunityClicked(buildingId, ignoredPosition);
+    }
+
+    private void setTextWatcher() {
+        searchEdittext.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @SuppressLint("CheckResult")
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.toString().trim().length() >= 3) {
+                    Observable.fromIterable(buildings)
+                            .filter(building -> building.getName().toLowerCase()
+                                    .contains(editable.toString().toLowerCase()))
+                            .toList()
+                            .subscribe(filteredList -> {
+                                filteredBuildings = (ArrayList<Building>) filteredList;
+                                groupListSelector.groupsUpdated(filteredBuildings);
+                            });
+                    mPresenter.searchCommunities(editable.toString());
+                } else {
+                        buildings.removeAll(otherBuildings);
+                        combinedBuildings = new ArrayList<>();
+                        adapter.updateItems(buildings);
+                        groupListSelector.groupsUpdated(buildings);
+                }
             }
         });
     }
 
-    /* renamed from: lambda$onConnectClicked$3$com-sca-in_telligent-ui-group-list-GroupListFragment  reason: not valid java name */
-    public /* synthetic */ void m210xaabd6bde(UpdateSubscriptionRequest updateSubscriptionRequest, DialogInterface dialogInterface, int i) {
-        updateSubscriptionRequest.setAction(SubscribeToCommunityRequest.ACTION_UNSUBSCRIBE);
-        this.mPresenter.unsubscribe(updateSubscriptionRequest);
-    }
-
-    @Override // com.sca.in_telligent.ui.group.list.GroupListAdapter.Callback
-    public void onIgnoreClicked(String str, int i) {
-        this.mPresenter.onIgnoreCommunityClicked(str, i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.sca.in_telligent.ui.group.list.GroupListFragment$1  reason: invalid class name */
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
-    public class AnonymousClass1 implements TextWatcher {
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        }
-
-        AnonymousClass1() {
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            if (editable.toString().trim().length() >= 3) {
-                Observable.fromIterable(buildings)
-                        .filter(building -> building.getName().toLowerCase()
-                                .contains(editable.toString().toLowerCase())).toList()
-                        .subscribe(filteredList -> {
-                            filteredBuildings = (ArrayList<Building>) filteredList;
-                            groupListSelector.groupsUpdated(filteredBuildings);
-                        });
-
-                mPresenter.searchCommunities(editable.toString());
-            } else {
-//          buildings.removeAll(otherBuildings);
-                combinedBuildings = new ArrayList<>();
-                adapter.updateItems(buildings);
-                groupListSelector.groupsUpdated(buildings);
-            }
-        }
-
-    }
-
-    private void setTextWatcher() {
-        this.searchEdittext.addTextChangedListener(new AnonymousClass1());
-    }
-
+    @SuppressLint("CheckResult")
     @Override
     public void updateGroupList(ArrayList<Building> otherGroups) {
 
@@ -358,6 +347,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
 
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void subscribed(String buildingId, boolean suggested) {
         if (suggested) {
@@ -401,6 +391,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
     }
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void unsubscribed(String buildingId) {
 
@@ -459,7 +450,7 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
         this.adapter.updateSuggestedItems(this.suggestedBuildings);
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListMvpView
+    @Override
     public void updateNextSuggested(Building building, int i) {
         this.suggestedBuildings.set(i, building);
         this.adapter.updateSuggestedItems(this.suggestedBuildings);
@@ -478,13 +469,13 @@ public class GroupListFragment extends BaseFragment implements GroupListMvpView,
             this.buildings.remove(building);
             this.adapter.updateItems(this.buildings);
         }
-        if (this.filteredBuildings.size() > 0 && this.filteredBuildings.contains(building)) {
+        if (this.filteredBuildings.size() > 0) {
             this.filteredBuildings.remove(building);
         }
-        if (this.buildingsUpdated.size() > 0 && this.buildingsUpdated.contains(building)) {
+        if (this.buildingsUpdated.size() > 0) {
             this.buildingsUpdated.remove(building);
         }
-        if (this.adapter.getBuildings().size() > 0 && this.adapter.getBuildings().contains(building)) {
+        if (this.adapter.getBuildings().size() > 0) {
             this.adapter.getBuildings().remove(building);
         }
         this.adapter.notifyItemRemoved(i);

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sca.in_telligent">
 
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -11,14 +13,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature android:name="android.hardware.location.gps" />
     <uses-feature android:name="android.hardware.location.network" />
@@ -39,11 +36,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
-
-
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
 
     <uses-feature
@@ -75,14 +70,17 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <action android:name=".MainActivity" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.LAUNCHER" />
 
                 <data
-                    android:host="${hostName}"
+                    android:host="http://app-intelligent.com"
                     android:pathPrefix="/subscribe/"
-                    android:scheme="https" />
+                    android:scheme="http" />
             </intent-filter>
 
 
@@ -144,9 +142,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="${hostName}"
+                    android:host="http://app-intelligent.com"
                     android:pathPrefix="/subscribers/reset"
-                    android:scheme="https" />
+                    android:scheme="http" />
 
             </intent-filter>
         </activity>
@@ -169,7 +167,7 @@
 
         <meta-data
             android:name="com.crashlytics.ApiKey"
-            android:value="7ca8d63a6bb601f03f788e3057f838ae1baad344" />
+            android:value="AIzaSyDOTwI7es6tQHggdKSd24JF_1EL2tio0GE" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -178,6 +176,7 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -235,14 +234,23 @@
 <!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
 
         <receiver android:name="com.factual.android.LocationUpdateReceiver" />
+        <receiver
+            android:name="com.sca.in_telligent.receiver.FirebaseBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name="com.factual.android.ObservationGraphJobService"
             android:label="Observation Graph Job Service"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name=".service.MyFirebaseMessagingService"
-            android:exported="true">
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -280,6 +288,10 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
 
     </application>
 

@@ -12,20 +12,18 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.auth.register.SignupDemographicsActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class IntroActivity extends BaseActivity implements IntroMvpView {
 
@@ -33,13 +31,14 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   IntroMvpPresenter<IntroMvpView> mPresenter;
 
   @BindView(R.id.first_time_user_btn)
-  TextView firstTimeUserButton;
+  TextView firstTimeUserButton = null;
 
   @BindView(R.id.returning_subscriber_btn)
   TextView returningSubscriberButton;
 
   @BindView(R.id.imageAnimated)
-  ImageView imageAnimated;
+  ImageView imageAnimated = null;
+
 
   int[] images = {R.drawable.slideshow_image_01, R.drawable.slideshow_image_02,
       R.drawable.slideshow_image_03, R.drawable.slideshow_image_04, R.drawable.slideshow_image_05,
@@ -50,18 +49,27 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     return intent;
   }
 
+  @Nullable
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_intro);
     getActivityComponent().inject(this);
 
-    setUnBinder(ButterKnife.bind(this));
+    imageAnimated = findViewById(R.id.imageAnimated);
+    firstTimeUserButton = findViewById(R.id.first_time_user_btn);
+    firstTimeUserButton.setOnClickListener(view -> firstTimeClick(view));
+
+    returningSubscriberClick();
+
+
+    ButterKnife.bind(this);
 
     mPresenter.onAttach(IntroActivity.this);
     animate(imageAnimated, images, 0);
 
   }
+
 
   @OnClick(R.id.first_time_user_btn)
   void firstTimeClick(View v) {
@@ -69,7 +77,7 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
   @OnClick(R.id.returning_subscriber_btn)
-  void returningSubscriberClick(View v) {
+  void returningSubscriberClick() {
     startActivityWithDeeplink(LoginActivity.getStartIntent(this));
   }
 
@@ -84,10 +92,6 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {
@@ -95,7 +99,7 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
   }
 
 
-  private void animate(final ImageView imageView, final int images[], final int imageIndex) {
+  private void animate(final ImageView imageView, final int[] images, final int imageIndex) {
     int fadeInDuration = 1000;
     int timeBetween = 1000;
     int fadeOutDuration = 1000;

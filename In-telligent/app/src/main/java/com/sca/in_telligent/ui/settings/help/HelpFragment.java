@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.SupportRequest;
@@ -63,8 +62,15 @@ public class HelpFragment extends BaseFragment implements HelpMvpView {
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            phoneLink = view.findViewById(R.id.settings_support_number_field);
+            sendButton = view.findViewById(R.id.settings_support_send_button);
+            supportMessageText = view.findViewById(R.id.settings_support_message_edittext);
+            hoursText = view.findViewById(R.id.settings_support_hours_field);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            sendButton.setOnClickListener(this::sendSupportMail);
         }
         return view;
     }
@@ -77,9 +83,10 @@ public class HelpFragment extends BaseFragment implements HelpMvpView {
 
         hoursText.setLongClickable(true);
         hoursText.setOnLongClickListener(v -> {
-            Toast.makeText(getContext(), String.format("Version %s (%s)",
-                    BuildConfig1.VERSION_NAME,
-                    BuildConfig1.VERSION_CODE),
+            Toast.makeText(getContext(), String.format("Version %s (%s)"
+//                    BuildConfig.VERSION_NAME,
+//                    BuildConfig.VERSION_CODE
+                    ),
                     Toast.LENGTH_LONG).show();
 
             return false;

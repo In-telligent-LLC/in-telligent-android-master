@@ -3,18 +3,12 @@ package com.sca.in_telligent.ui.auth.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.annotations.Nullable;
 
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
@@ -34,9 +28,13 @@ import com.sca.in_telligent.ui.auth.logout.LogoutActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.util.CommonUtils;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.Nullable;
 
 public class SignupDemographicsActivity extends BaseActivity implements SignupDemographicsMvpView,
     OnConnectionFailedListener {
@@ -47,22 +45,22 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   SignupDemographicsMvpPresenter<SignupDemographicsMvpView> mPresenter;
 
   @BindView(R.id.inputName)
-  EditText inputName;
+  EditText inputName = null;
 
   @BindView(R.id.inputEmail)
-  EditText inputEmail;
+  EditText inputEmail = null;
 
   @BindView(R.id.btnGoToSignupPassword)
-  Button buttonGoToSignupPassword;
+  Button buttonGoToSignupPassword = null;
 
   @BindView(R.id.btnGoToLogin)
-  TextView buttonGoToLogin;
+  TextView buttonGoToLogin = null;
 
   @BindView(R.id.btnLoginFacebookCustom)
-  ImageView buttonFacebook;
+  ImageView buttonFacebook = null;
 
   @BindView(R.id.btnLoginGooglePlus)
-  ImageView buttonGooglePlus;
+  ImageView buttonGooglePlus = null;
 
   CallbackManager callbackManager;
 
@@ -84,6 +82,23 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
     mPresenter.onAttach(SignupDemographicsActivity.this);
 
     callbackManager = CallbackManager.Factory.create();
+
+    buttonFacebook = findViewById(R.id.btnLoginFacebookCustom);
+    buttonFacebook.setOnClickListener(v -> facebookLoginClick(v));
+
+    buttonGooglePlus = findViewById(R.id.btnLoginGooglePlus);
+    buttonGooglePlus.setOnClickListener(v -> googleLoginClick(v));
+
+    buttonGoToLogin = findViewById(R.id.btnGoToLogin);
+    buttonGoToLogin.setOnClickListener(v -> goToLogin(v));
+
+    buttonGoToSignupPassword = findViewById(R.id.btnGoToSignupPassword);
+    buttonGoToSignupPassword.setOnClickListener(v -> signUpPasswordClick(v));
+
+    inputName = findViewById(R.id.inputName);
+    inputEmail = findViewById(R.id.inputEmail);
+
+
   }
 
   @OnClick(R.id.btnGoToSignupPassword)
@@ -169,11 +184,6 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   public void onDestroy() {
     mPresenter.onDetach();
     super.onDestroy();
-  }
-
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
   }
 
   @Override

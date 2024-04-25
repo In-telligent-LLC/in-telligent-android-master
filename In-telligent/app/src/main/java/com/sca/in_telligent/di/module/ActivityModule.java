@@ -7,15 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.sca.in_telligent.di.ActivityContext;
+import com.sca.in_telligent.di.PerActivity;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingMember;
-import com.sca.in_telligent.openapi.data.network.model.DeliveryInfoItem;
 import com.sca.in_telligent.openapi.data.network.model.Invitee;
 import com.sca.in_telligent.openapi.data.network.model.NavListItem;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.openapi.data.network.model.NotificationAttachment;
-import com.sca.in_telligent.di.ActivityContext;
-import com.sca.in_telligent.di.PerActivity;
 import com.sca.in_telligent.ui.auth.forgot.ForgotPasswordMvpPresenter;
 import com.sca.in_telligent.ui.auth.forgot.ForgotPasswordMvpView;
 import com.sca.in_telligent.ui.auth.forgot.ForgotPasswordPresenter;
@@ -52,7 +51,6 @@ import com.sca.in_telligent.ui.contact.message.deliver.ContactDeliverPresenter;
 import com.sca.in_telligent.ui.findlocation.FindLocationMvpPresenter;
 import com.sca.in_telligent.ui.findlocation.FindLocationMvpView;
 import com.sca.in_telligent.ui.findlocation.FindLocationPresenter;
-
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailMvpPresenter;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailMvpView;
 import com.sca.in_telligent.ui.group.alert.detail.AlertDetailPresenter;
@@ -60,17 +58,17 @@ import com.sca.in_telligent.ui.group.alert.list.AlertListAdapter;
 import com.sca.in_telligent.ui.group.alert.list.AlertListMvpPresenter;
 import com.sca.in_telligent.ui.group.alert.list.AlertListMvpView;
 import com.sca.in_telligent.ui.group.alert.list.AlertListPresenter;
-
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpPresenter;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpView;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailPresenter;
-
+import com.sca.in_telligent.ui.group.generate.GenerateGroupMvpPresenter;
+import com.sca.in_telligent.ui.group.generate.GenerateGroupMvpView;
+import com.sca.in_telligent.ui.group.generate.GenerateGroupPresenter;
 import com.sca.in_telligent.ui.group.list.GroupListAdapter;
 import com.sca.in_telligent.ui.group.list.GroupListMvpPresenter;
 import com.sca.in_telligent.ui.group.list.GroupListMvpView;
 import com.sca.in_telligent.ui.group.list.GroupListPresenter;
 import com.sca.in_telligent.ui.group.list.GroupListSpinnerAdapter;
-
 import com.sca.in_telligent.ui.inbox.InboxAdapter;
 import com.sca.in_telligent.ui.inbox.InboxMvpPresenter;
 import com.sca.in_telligent.ui.inbox.InboxMvpView;
@@ -111,6 +109,7 @@ import com.sca.in_telligent.ui.splash.SplashMvpView;
 import com.sca.in_telligent.ui.splash.SplashPresenter;
 import com.sca.in_telligent.util.rx.AppSchedulerProvider;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
+import com.tbruyelle.rxpermissions3.RxPermissions;
 
 import java.util.ArrayList;
 
@@ -121,7 +120,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 @Module
 public class ActivityModule {
 
-    private AppCompatActivity mActivity;
+    private final AppCompatActivity mActivity;
 
     public ActivityModule(AppCompatActivity activity) {
         this.mActivity = activity;
@@ -148,10 +147,10 @@ public class ActivityModule {
         return new AppSchedulerProvider();
     }
 
-//    @Provides
-//    RxPermissions provideRxPermissions() {
-//        return new RxPermissions(mActivity);
-//    }
+    @Provides
+    RxPermissions provideRxPermissions() {
+        return new RxPermissions(mActivity);
+    }
 
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {
@@ -385,6 +384,12 @@ public class ActivityModule {
     @PerActivity
     IncomingCallMvpPresenter<IncomingCallMvpView> provideIncomingCallPresenter(
             IncomingCallPresenter<IncomingCallMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    GenerateGroupMvpPresenter<GenerateGroupMvpView> provideGenerateGroupPresenter(
+            GenerateGroupPresenter<GenerateGroupMvpView> presenter) {
         return presenter;
     }
 }

@@ -43,14 +43,17 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import org.json.JSONObject;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -136,7 +139,7 @@ public interface ApiHelper {
     @GET(ApiEndPoint.DELIVERY_INFO)
     Observable<DeliveryInfoResponse> getDeliveryInformation(@Path("buildingId") String str, @Path("notificationId") String str2);
 
-    @GET(ApiEndPoint.GET_GEOFENCES)
+    @POST(ApiEndPoint.GET_GEOFENCES)
     Observable<IntelligentGeofenceResponse> getGeofences(@Query("lat") String str, @Query("lng") String str2);
 
     @GET(ApiEndPoint.BUILDING_INVITEES)
@@ -161,7 +164,7 @@ public interface ApiHelper {
     Observable<LocationModel> getUpdatedLocation(@Path("subscriberId") String str);
 
     @POST(ApiEndPoint.VOIP_TOKEN)
-    Observable<VoipTokenResponse> getVoipToken();
+    Observable<VoipTokenResponse> getVoipToken(@Body VoipCallRequest voipRequest);
 
     @POST(ApiEndPoint.SUGGESTED_BUILDINGS_IGNORE)
     Observable<SuccessResponse> ignoreBuilding(@Path("buildingId") String str);
@@ -176,6 +179,7 @@ public interface ApiHelper {
     Observable<LoginResponse> loginGoogle(@Body GoogleLoginRequest googleLoginRequest);
 
     @POST(ApiEndPoint.LOGIN_WITH_PASSWORD)
+    @NonNull
     Observable<LoginResponse> loginWithPassword(@Body LoginRequest loginRequest);
 
     @POST(ApiEndPoint.VOIP_MAKE_CALL)
@@ -215,8 +219,8 @@ public interface ApiHelper {
     Observable<LoginResponse> signUp(@Body SignUpRequest signUpRequest);
 
     @POST(ApiEndPoint.SUGGEST_NOTIFICATION)
-    @Multipart
-    Observable<SuccessResponse> suggestNotification(@Part List<MultipartBody.Part> list, @Part("building_id") RequestBody requestBody, @Part("title") RequestBody requestBody2, @Part("description") RequestBody requestBody3);
+
+    Observable<SuccessResponse> suggestNotification(@Body SuggestNotificationRequest suggestNotificationRequest);
 
     @POST(ApiEndPoint.SUGGEST_NOTIFICATION)
     Observable<SuccessResponse> suggestNotificationNoThumbnail(@Body SuggestNotificationRequest suggestNotificationRequest);

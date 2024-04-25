@@ -82,18 +82,19 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_create_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:backgroundTint="@color/tab_green"
-        android:src="@drawable/baseline_add_white_24"
-        app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh_layout_groups"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/darkGreen" />
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab_create_group"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="end|bottom"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        app:backgroundTint="@color/tab_green"-->
+<!--        android:src="@drawable/baseline_add_white_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh_layout_groups"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:rippleColor="@color/darkGreen" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

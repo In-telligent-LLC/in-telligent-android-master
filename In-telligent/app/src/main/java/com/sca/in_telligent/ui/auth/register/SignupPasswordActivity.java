@@ -3,7 +3,6 @@ package com.sca.in_telligent.ui.auth.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +16,6 @@ import com.sca.in_telligent.ui.auth.login.LoginActivity;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
-
-import java.security.Permission;
 
 import javax.inject.Inject;
 
@@ -54,10 +51,17 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_password);
         getActivityComponent().inject(this);
+        inputPasswordFirst = findViewById(R.id.inputPasswordFirst);
+        inputPasswordSecond = findViewById(R.id.inputPasswordSecond);
+        buttonSignup = findViewById(R.id.btnSignup);
+        buttonGoToLogin = findViewById(R.id.btnGoToLogin);
 
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(SignupPasswordActivity.this);
+
+        buttonGoToLogin.setOnClickListener(v -> goToLogin(v));
+        buttonSignup.setOnClickListener(v -> signUpClick(v));
 
     }
 
@@ -90,11 +94,6 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
     public void showLoading() {
         hideKeyboard();
         super.showLoading();
-    }
-
-    @Override
-    public void phonePermissionResult(Permission permission) {
-
     }
 
     @Override

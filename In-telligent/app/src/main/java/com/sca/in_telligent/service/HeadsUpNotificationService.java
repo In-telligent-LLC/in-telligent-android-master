@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.Constants;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
@@ -18,8 +19,8 @@ import com.sca.in_telligent.receiver.HeadsUpNotificationActionReceiver;
 import java.util.Objects;
 
 public class HeadsUpNotificationService extends Service {
-    private String CHANNEL_ID = "VoipChannel";
-    private String CHANNEL_NAME = "Voip Channel";
+    private final String CHANNEL_ID = "VoipChannel";
+    private final String CHANNEL_NAME = "Voip Channel";
     private Context context;
     private PushNotification data;
     private Handler handler;
@@ -35,18 +36,19 @@ public class HeadsUpNotificationService extends Service {
         super.onCreate();
         this.context = this;
         this.handler = new Handler();
-        Runnable runnable = new Runnable() { // from class: com.sca.in_telligent.service.HeadsUpNotificationService.1
-            @Override // java.lang.Runnable
-            public void run() {
-                Intent intent = new Intent(HeadsUpNotificationService.this.context, HeadsUpNotificationActionReceiver.class);
-                intent.putExtra(Constants.CALL_RESPONSE_ACTION_KEY, Constants.CALL_AUTO_CANCEL_ACTION);
-                intent.putExtra(Constants.CALL_NOTIFICATION, HeadsUpNotificationService.this.data);
-                intent.setAction("CANCEL_CALL");
-                HeadsUpNotificationService.this.sendBroadcast(intent);
-            }
+
+        Runnable cancelCallRunnable = () -> {
+
+            Intent cancelIntent = new Intent(HeadsUpNotificationService.this.context, HeadsUpNotificationActionReceiver.class);
+            cancelIntent.putExtra(Constants.CALL_RESPONSE_ACTION_KEY, Constants.CALL_AUTO_CANCEL_ACTION);
+            cancelIntent.putExtra(Constants.CALL_NOTIFICATION, HeadsUpNotificationService.this.data);
+            cancelIntent.setAction("CANCEL_CALL");
+
+            HeadsUpNotificationService.this.sendBroadcast(cancelIntent);
         };
-        this.timerRunnable = runnable;
-        this.handler.postDelayed(runnable, Constants.AUTO_REJECT_TIME);
+
+        this.timerRunnable = cancelCallRunnable;
+        this.handler.postDelayed(cancelCallRunnable, Constants.AUTO_REJECT_TIME);
     }
 
     @Override // android.app.Service

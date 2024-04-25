@@ -5,21 +5,21 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.os.Build;
 import android.util.Log;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.sca.in_telligent.data.DataManager;
-import com.sca.in_telligent.openapi.data.network.model.IntelligentGeofence;
 import com.sca.in_telligent.di.ApplicationContext;
+import com.sca.in_telligent.openapi.data.network.model.IntelligentGeofence;
 import com.sca.in_telligent.receiver.GeofenceBroadcastReceiver;
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.TimeoutLocationListener;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 import javax.inject.Inject;
@@ -28,7 +28,6 @@ import javax.inject.Singleton;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.core.Observable;
 
 
 
@@ -53,12 +52,12 @@ public class AppGeofenceClient implements GeofenceClient {
   public AppGeofenceClient(GeofencingClient geofencingClient, LocationUtil locationUtil,
       DataManager dataManager, SchedulerProvider schedulerProvider,
       CompositeDisposable compositeDisposable, @ApplicationContext Context context) {
-    mGeofencingClient = geofencingClient;
-    mLocationUtil = locationUtil;
-    mDataManager = dataManager;
-    mSchedulerProvider = schedulerProvider;
-    mCompositeDisposable = compositeDisposable;
-    mContext = context;
+        mGeofencingClient = geofencingClient;
+        mLocationUtil = locationUtil;
+        mDataManager = dataManager;
+        mSchedulerProvider = schedulerProvider;
+        mCompositeDisposable = compositeDisposable;
+        mContext = context;
   }
 
   public void populateIntelligentFences(boolean useCache) {
@@ -145,16 +144,25 @@ public class AppGeofenceClient implements GeofenceClient {
   }
 
   private PendingIntent getGeofencePendingIntent() {
-    // Reuse the PendingIntent if we already have it.
     if (mGeofencePendingIntent != null) {
       return mGeofencePendingIntent;
     }
+
     Intent intent = new Intent(mContext, GeofenceBroadcastReceiver.class);
-    // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
-    // addGeofences() and removeGeofences().
-    mGeofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+      int flags;
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        flags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE;
+      } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        flags = PendingIntent.FLAG_UPDATE_CURRENT;
+
+      }
+      else {
+        flags = PendingIntent.FLAG_CANCEL_CURRENT;
+      }
+    mGeofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, flags);
     return mGeofencePendingIntent;
   }
+
 
   private Geofence createGeofence(IntelligentGeofence intelligentGeofence) {
     Geofence.Builder builder = new Geofence.Builder();
@@ -166,8 +174,7 @@ public class AppGeofenceClient implements GeofenceClient {
         .setTransitionTypes(
             Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_EXIT);
 
-    Geofence fence = builder.build();
-    return fence;
+    return builder.build();
   }
 
   @SuppressLint("Range")

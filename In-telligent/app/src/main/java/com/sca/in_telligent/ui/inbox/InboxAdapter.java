@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.inbox;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import android.view.LayoutInflater;
@@ -27,9 +28,9 @@ import butterknife.OnClick;
 
 public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<Notification> notifications;
+    private final List<Notification> notifications;
     private Callback mCallback;
-    private Context context;
+    private final Context context;
 
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
@@ -126,6 +127,14 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            profileImage = itemView.findViewById(R.id.notification_profile_image);
+            titleText = itemView.findViewById(R.id.notification_title_text);
+            infoText = itemView.findViewById(R.id.notification_info_text);
+            descriptionText = itemView.findViewById(R.id.notification_description_text);
+            readImage = itemView.findViewById(R.id.notification_read_image);
+            trashImage = itemView.findViewById(R.id.notification_trash_image);
+            typeImage = itemView.findViewById(R.id.notification_type_image);
+            viewButton = itemView.findViewById(R.id.notification_view_button);
         }
 
         @Override
@@ -133,6 +142,7 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         }
 
+        @SuppressLint("SetTextI18n")
         public void onBind(final int position) {
             super.onBind(position);
             Notification notification = notifications.get(position);
@@ -207,6 +217,10 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public EmptyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            retryButton = itemView.findViewById(R.id.inbox_retry_button);
+            messageTextView = itemView.findViewById(R.id.inbox_no_message_text);
+
+            retryButton.setOnClickListener(v -> onRetryClick());
         }
 
         @Override

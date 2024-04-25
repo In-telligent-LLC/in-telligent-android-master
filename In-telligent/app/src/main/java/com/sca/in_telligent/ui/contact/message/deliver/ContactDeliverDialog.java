@@ -121,6 +121,13 @@ public class ContactDeliverDialog extends BaseDialog implements ContactDeliverMv
 
         ActivityComponent component = getActivityComponent();
         if (component != null) {
+            searchView = view.findViewById(R.id.contact_deliver_search);
+            contactList = view.findViewById(R.id.contact_deliver_recyclerview);
+            okButton = view.findViewById(R.id.contact_deliver_ok_button);
+            progressBar = view.findViewById(R.id.contact_deliver_progressbar);
+            emptyText = view.findViewById(R.id.contact_delivery_no_member_text);
+
+            okButton.setOnClickListener(this::okClicked);
 
             component.inject(this);
 

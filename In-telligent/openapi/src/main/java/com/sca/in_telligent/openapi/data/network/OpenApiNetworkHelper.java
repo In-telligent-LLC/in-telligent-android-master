@@ -1,10 +1,15 @@
 package com.sca.in_telligent.openapi.data.network;
 
+
+import android.annotation.SuppressLint;
+
+import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.AlertDeleteRequest;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.openapi.data.network.model.AlertSubscriptionRequest;
 import com.sca.in_telligent.openapi.data.network.model.AutoSubscribeRequest;
+import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingMember;
 import com.sca.in_telligent.openapi.data.network.model.CallDetailResponse;
 import com.sca.in_telligent.openapi.data.network.model.CheckEmailResponse;
@@ -33,6 +38,7 @@ import com.sca.in_telligent.openapi.data.network.model.SearchCommunityResponse;
 import com.sca.in_telligent.openapi.data.network.model.SignUpRequest;
 import com.sca.in_telligent.openapi.data.network.model.SingleNotificationResponse;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
+import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.openapi.data.network.model.SubscriberResponse;
 import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.SuggestNotificationRequest;
@@ -43,36 +49,55 @@ import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest
 import com.sca.in_telligent.openapi.data.network.model.VoipCallRequest;
 import com.sca.in_telligent.openapi.data.network.model.VoipCallResponse;
 import com.sca.in_telligent.openapi.data.network.model.VoipTokenResponse;
+import com.sca.in_telligent.openapi.util.mock.BuildingMock;
+import com.sca.in_telligent.openapi.util.mock.LoginResponseMock;
+import com.sca.in_telligent.openapi.util.mock.SubscriberMock;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import org.json.JSONObject;
 import retrofit2.http.Body;
 
 public class OpenApiNetworkHelper implements ApiHelper {
-    private ApiHelper protectedApiService;
-    private ApiHelper publicApiService;
-    private ApiHelper uploadService;
+    private final ApiHelper protectedApiService;
+    private final ApiHelper publicApiService;
+    private final ApiHelper uploadService;
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    public OpenApiNetworkHelper(ApiHelper protectedApiService,
+                                ApiHelper publicApiService,
+                                ApiHelper uploadService) {
+        this.protectedApiService = protectedApiService;
+        this.publicApiService = publicApiService;
+        this.uploadService = uploadService;
+    }
+
+    @Override
     public ApiHeader getApiHeader() {
         return null;
     }
 
-    public OpenApiNetworkHelper(ApiHelper apiHelper, ApiHelper apiHelper2, ApiHelper apiHelper3) {
-        this.protectedApiService = apiHelper;
-        this.publicApiService = apiHelper2;
-        this.uploadService = apiHelper3;
-    }
-
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<LoginResponse> loginWithPassword(@Body LoginRequest loginRequest) {
-        return this.publicApiService.loginWithPassword(loginRequest);
+        if (OpenAPI.Configuration.isMocked()) {
+            LoginResponse mockResponse = LoginResponseMock.createMockLoginResponse();
+            return Observable.create(emitter -> {
+                LoginResponse loginResponse = new LoginResponse();
+                loginResponse.setToken(mockResponse.getToken());
+                emitter.onNext(loginResponse);
+                emitter.onComplete();
+            });
+
+        } else {
+            return this.publicApiService.loginWithPassword(loginRequest);
+        }
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
@@ -105,47 +130,64 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.publicApiService.forgotPassword(forgotPasswordRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @SuppressLint("CheckResult")
+    @Override
     public Observable<SubscriberResponse> getCurrentSubscriber() {
+
+        if(OpenAPI.Configuration.isMocked()){
+
+
+            Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+
+            return Observable.create(emitter -> {
+                SubscriberResponse subscriberResponse = new SubscriberResponse();
+                subscriberResponse.setSuccess(true);
+                subscriberResponse.setSubscriber(mockSubscriber);
+                emitter.onNext(subscriberResponse);
+                emitter.onComplete();
+            });
+        }
+
         return this.protectedApiService.getCurrentSubscriber();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationResponse> getCurrentSubscriberInbox(String str) {
         return this.protectedApiService.getCurrentSubscriberInbox(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationResponse> getSavedMessages() {
         return this.protectedApiService.getSavedMessages();
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> editSavedMessage(EditSaveMessageRequest editSaveMessageRequest) {
         return this.protectedApiService.editSavedMessage(editSaveMessageRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @SuppressLint("CheckResult")
+    @Override
     public Observable<SearchCommunityResponse> searchCommunities(String str) {
         return this.protectedApiService.searchCommunities(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<CommunityResponse> getCommunity(int i) {
         return this.protectedApiService.getCommunity(i);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationsResponse> getAllNotifications(String str) {
         return this.protectedApiService.getAllNotifications(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SingleNotificationResponse> getNotification(String str) {
         return this.protectedApiService.getNotification(str);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<NotificationLanguageResponse> getLanguages() {
         return this.protectedApiService.getLanguages();
     }
@@ -165,8 +207,18 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.uploadService.createOrEditGroupNoThumbnail(str, createEditGroupRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SearchCommunityResponse> getSuggestedGroups() {
+        if (OpenAPI.Configuration.isMocked()) {
+            return Observable.create(emitter -> {
+                Building mockBuilding = BuildingMock.createMockBuilding();
+                SearchCommunityResponse searchCommunityResponse = new SearchCommunityResponse();
+                searchCommunityResponse.setSuccess(true);
+                searchCommunityResponse.setBuildings(new ArrayList<>(Collections.singletonList(mockBuilding)));
+                emitter.onNext(searchCommunityResponse);
+                emitter.onComplete();
+            });
+        }
         return this.protectedApiService.getSuggestedGroups();
     }
 
@@ -205,8 +257,18 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.removeMember(i);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SubscriberResponse> updateUser(UpdateSubscriberRequest updateSubscriberRequest) {
+        if (OpenAPI.Configuration.isMocked()) {
+            Subscriber mockSubscriber = SubscriberMock.createMockSubscriber();
+            return Observable.create(emitter -> {
+                SubscriberResponse subscriberResponse = new SubscriberResponse();
+                subscriberResponse.setSuccess(true);
+                subscriberResponse.setSubscriber(mockSubscriber);
+                emitter.onNext(subscriberResponse);
+                emitter.onComplete();
+            });
+        }
         return this.protectedApiService.updateUser(updateSubscriberRequest);
     }
 
@@ -216,8 +278,8 @@ public class OpenApiNetworkHelper implements ApiHelper {
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<SuccessResponse> suggestNotification(List<MultipartBody.Part> list, RequestBody requestBody, RequestBody requestBody2, RequestBody requestBody3) {
-        return this.uploadService.suggestNotification(list, requestBody, requestBody2, requestBody3);
+    public Observable<SuccessResponse> suggestNotification(SuggestNotificationRequest suggestNotificationRequest) {
+        return this.uploadService.suggestNotification(suggestNotificationRequest);
     }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
@@ -245,12 +307,17 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.getUpdatedLocation(str);
     }
 
+    @Override
+    public Observable<VoipTokenResponse> getVoipToken(VoipCallRequest voiceCallRequest) {
+        return this.protectedApiService.getVoipToken(voiceCallRequest);
+    }
+
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public Observable<String> sendWeatherAlert(String str, LocationModel locationModel) {
         return this.protectedApiService.sendWeatherAlert(str, locationModel);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<JSONObject> receivedMessage(String str) {
         return this.protectedApiService.receivedMessage(str);
     }
@@ -290,10 +357,6 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.refreshGeofences(locationModel);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
-    public Observable<VoipTokenResponse> getVoipToken() {
-        return this.protectedApiService.getVoipToken();
-    }
 
     @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
     public Observable<VoipCallResponse> makeVoipCall(VoipCallRequest voipCallRequest) {
@@ -330,8 +393,16 @@ public class OpenApiNetworkHelper implements ApiHelper {
         return this.protectedApiService.autoSubscribe(autoSubscribeRequest);
     }
 
-    @Override // com.sca.in_telligent.openapi.data.network.ApiHelper
+    @Override
     public Observable<SuccessResponse> appOpened() {
+        if (OpenAPI.Configuration.isMocked()) {
+            return Observable.create(emitter -> {
+                SuccessResponse successResponse = new SuccessResponse();
+                successResponse.setSuccess(true);
+                emitter.onNext(successResponse);
+                emitter.onComplete();
+            });
+        }
         return this.protectedApiService.appOpened();
     }
 

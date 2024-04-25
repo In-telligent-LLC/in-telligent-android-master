@@ -5,10 +5,8 @@ import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.AutoSubscribeRequest;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.SearchCommunityResponse;
-import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest;
 import com.sca.in_telligent.ui.base.BasePresenter;
-import com.sca.in_telligent.ui.group.list.GroupListMvpView;
 import com.sca.in_telligent.util.rx.SchedulerProvider;
 
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Function;
 
 public class GroupListPresenter<V extends GroupListMvpView> extends BasePresenter<V> implements GroupListMvpPresenter<V> {
-    private int ignoredPosition;
+    private final int ignoredPosition;
 
     @Inject
     public GroupListPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {

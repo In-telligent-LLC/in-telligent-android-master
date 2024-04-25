@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "484603426402-82jdip7qqo0sbnchrtvru8b5gsfb6run.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sca.in_telligent",
+            "certificate_hash": "7daf8f599b281a2106046485d25128a5da1041ae"
+          }
+        },
+        {
+          "client_id": "484603426402-9v5hghai0bermhmhpfi6sqgajqt9kkgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sca.in_telligent",
+            "certificate_hash": "65e326cbb31b1abb652abbdb6d5b1bd1ca5540a8"
+          }
+        },
+        {
+          "client_id": "484603426402-mk6mjed6sfnl2crta5tvh2dgfpd2akke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sca.in_telligent",
+            "certificate_hash": "f5f41c2b9409cb3469a942b41cba7ff4161b0e27"
+          }
+        },
+        {
           "client_id": "484603426402-ag8ijfll5knqtd4ebvg5g7bcngoap95p.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -25,15 +49,21 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106679077753629518435",
+              "client_type": 3
+            },
+            {
+              "client_id": "484603426402-ar5b6n8rs4h380956cij99vpvgegdtr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sca-intelligent.In-telligent",
+                "app_store_id": "984017211"
+              }
+            }
+          ]
         }
       },
       "admob_app_id": "ca-app-pub-1601359787130836~8204410709"
@@ -43,6 +73,59 @@
         "mobilesdk_app_id": "1:484603426402:android:4e3928b1cd5012e1",
         "android_client_info": {
           "package_name": "com.sca.in_telligent.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484603426402-i6ur6u69qqicqmq8jsoc750s7nhi0j06.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sca.in_telligent.staging",
+            "certificate_hash": "7daf8f599b281a2106046485d25128a5da1041ae"
+          }
+        },
+        {
+          "client_id": "484603426402-u0gfhpitrvg44n7bumihmppekf33v52i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sca.in_telligent.staging",
+            "certificate_hash": "f5f41c2b9409cb3469a942b41cba7ff4161b0e27"
+          }
+        },
+        {
+          "client_id": "484603426402-ag8ijfll5knqtd4ebvg5g7bcngoap95p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD2J04c3QkLUkQCdpPwIVW01TKo41bTBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106679077753629518435",
+              "client_type": 3
+            },
+            {
+              "client_id": "484603426402-ar5b6n8rs4h380956cij99vpvgegdtr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sca-intelligent.In-telligent",
+                "app_store_id": "984017211"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484603426402:android:d5081dd7a796151030c33b",
+        "android_client_info": {
+          "package_name": "com.sg.openapitest"
         }
       },
       "oauth_client": [
@@ -57,15 +140,21 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106679077753629518435",
+              "client_type": 3
+            },
+            {
+              "client_id": "484603426402-ar5b6n8rs4h380956cij99vpvgegdtr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sca-intelligent.In-telligent",
+                "app_store_id": "984017211"
+              }
+            }
+          ]
         }
       }
     }

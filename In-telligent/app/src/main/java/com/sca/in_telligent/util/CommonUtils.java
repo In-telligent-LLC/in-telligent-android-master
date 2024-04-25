@@ -1,44 +1,51 @@
 package com.sca.in_telligent.util;
 
-import android.app.ActivityManager;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+
 import com.facebook.internal.ServerProtocol;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.PushNotification;
 import com.sca.in_telligent.openapi.util.AudioHelper;
+import com.sca.in_telligent.ui.main.MainActivity;
+
+import org.apache.http.client.config.CookieSpecs;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.client.config.CookieSpecs;
 
 public final class CommonUtils {
-    static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final String TAG = "CommonUtils";
-    private static int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
+    private static final int[] defaultImages = {R.drawable.arm_at_baseball_game, R.drawable.blonde_girl_in_class, R.drawable.blonde_with_phone, R.drawable.business_suit_guy, R.drawable.closeup_phone, R.drawable.couple_looking_at_tablet, R.drawable.elevator_women, R.drawable.girl_in_pink_sweater, R.drawable.guy_glasses_and_tablet, R.drawable.guy_with_glasses, R.drawable.kid_sitting_with_backpack, R.drawable.lobby_guy, R.drawable.man_at_convention, R.drawable.man_leaning_on_wall, R.drawable.man_on_bike, R.drawable.man_with_glasses, R.drawable.sitting_with_books, R.drawable.two_girls_at_football_game, R.drawable.two_girls_looking_at_phone, R.drawable.woman_in_library, R.drawable.women_in_white_dress, R.drawable.women_plus_coffee_cup, R.drawable.women_looking_down, R.drawable.women_outside_on_wall, R.drawable.women_striped_dress};
+    private static final int REQUEST_PHONE_PERMISSION = 1;
 
     private CommonUtils() {
     }
@@ -60,36 +67,53 @@ public final class CommonUtils {
         return Settings.Secure.getString(context.getContentResolver(), "android_id");
     }
 
-    public static Date getSilenceDate(String str) {
-        if (str != null) {
+    public static Date getSilenceDate(String dateString) {
+        if (dateString != null) {
+            DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str);
+                return inDf.parse(dateString);
             } catch (ParseException e) {
                 e.printStackTrace();
+                return null;
             }
-        }
-        return null;
-    }
-
-    public static String getSilenceDateString(Date date) {
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-    }
-
-    public static String getDateString(String str) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("MM/dd/yy h:mm a");
-        simpleDateFormat2.setTimeZone(TimeZone.getDefault());
-        try {
-            return simpleDateFormat2.format(simpleDateFormat.parse(str));
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } else {
             return null;
         }
     }
 
-    public static boolean isEmailValid(String str) {
-        return Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$").matcher(str).matches();
+    public static String getSilenceDateString(Date date) {
+        @SuppressLint("SimpleDateFormat") DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return inDf.format(date);
+    }
+
+    public static String getDateString(String oldDate) {
+        @SuppressLint("SimpleDateFormat") DateFormat inDf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
+        inDf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        @SuppressLint("SimpleDateFormat") DateFormat outDf = new SimpleDateFormat("MM/dd/yy h:mm a");
+        outDf.setTimeZone(TimeZone.getDefault());
+        String date = null;
+        if(oldDate != null && !oldDate.isEmpty()) {
+            try {
+                Date parse = inDf.parse(oldDate);
+                assert parse != null;
+                date = outDf.format(parse);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return date;
+    }
+
+    public static boolean isEmailValid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public static String loadJSONFromAsset(Context context, String str) throws IOException {
@@ -97,7 +121,7 @@ public final class CommonUtils {
         byte[] bArr = new byte[open.available()];
         open.read(bArr);
         open.close();
-        return new String(bArr, "UTF-8");
+        return new String(bArr, StandardCharsets.UTF_8);
     }
 
     public static int getDefaultImage(int i) {
@@ -120,6 +144,7 @@ public final class CommonUtils {
         return ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || (ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0 && ActivityCompat.checkSelfPermission(context, "android.permission.ACCESS_BACKGROUND_LOCATION") == 0);
     }
 
+
     public static void openPdfFile(Context context, String str) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setDataAndType(Uri.parse("http://docs.google.com/viewer?url=" + str), "text/html");
@@ -130,14 +155,14 @@ public final class CommonUtils {
         context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
     }
 
-    public static void toggleDoNotDIsturb(Context context, final AudioHelper audioHelper) {
+    public static void toggleDoNotDisturb(Context context, final AudioHelper audioHelper) {
         final NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (notificationManager.getCurrentInterruptionFilter() != NotificationManager.INTERRUPTION_FILTER_ALL) {
             final int currentInterruptionFilter = notificationManager.getCurrentInterruptionFilter();
             if (notificationManager.isNotificationPolicyAccessGranted()) {
                 notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
-                new Timer().schedule(new TimerTask() { // from class: com.sca.in_telligent.util.CommonUtils.1
-                    @Override // java.util.TimerTask, java.lang.Runnable
+                new Timer().schedule(new TimerTask() {
+                    @Override
                     public void run() {
                         notificationManager.setInterruptionFilter(currentInterruptionFilter);
                         if (currentInterruptionFilter != 1) {
@@ -151,17 +176,8 @@ public final class CommonUtils {
 
     public static void buildAlertMessage(String str, String str2, final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda0
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"));
-            }
-        }).setNegativeButton(context.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.util.CommonUtils$$ExternalSyntheticLambda1
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+
+        builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"))).setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }
 
@@ -195,13 +211,31 @@ public final class CommonUtils {
         }
     }
 
-    public static void createNotification(Context context, PushNotification pushNotification, PendingIntent pendingIntent, boolean z, String str, String str2, boolean z2) {
+    public static void createNotification(Context context, PushNotification pushNotification, boolean shouldPlaySound, String notificationTitle, String notificationContent, boolean isOnGoing) {
+        Log.d(TAG, "createNotification: CHEGO AQUI");
         Uri defaultUri = RingtoneManager.getDefaultUri(2);
-        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.STANDARD).setSmallIcon((int) R.drawable.ic_launcher).setContentTitle(str).setContentText(str2).setAutoCancel(true).setContentIntent(pendingIntent);
-        if (z) {
+
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE;
+        } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            flags = PendingIntent.FLAG_UPDATE_CURRENT;
+
+        }
+        else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
+
+        Intent pushNotificationIntent = new Intent(context, MainActivity.class);
+
+
+        PendingIntent updatedPendingIntent = PendingIntent.getActivity(context, 0, pushNotificationIntent, flags);
+
+        NotificationCompat.Builder contentIntent = new NotificationCompat.Builder(context, CookieSpecs.STANDARD).setSmallIcon(R.drawable.ic_launcher).setContentTitle(notificationTitle).setContentText(notificationContent).setAutoCancel(true).setContentIntent(updatedPendingIntent);
+        if (shouldPlaySound) {
             contentIntent.setSound(defaultUri);
         }
-        if (z2) {
+        if (isOnGoing) {
             contentIntent.setOngoing(true);
         }
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -215,25 +249,9 @@ public final class CommonUtils {
         }
     }
 
-    public static void createNotification(Context context, PushNotification pushNotification, PendingIntent pendingIntent, boolean z, String str, String str2) {
-        createNotification(context, pushNotification, pendingIntent, z, str, str2, false);
-    }
 
     public static void clearNotification(Context context, int i) {
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).cancel(i);
     }
 
-    public static boolean isAppOnForeground(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
-        if (runningAppProcesses == null) {
-            return false;
-        }
-        String packageName = context.getPackageName();
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.importance == 100 && runningAppProcessInfo.processName.equals(packageName)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

@@ -4,23 +4,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.Subscriber;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.reactivex.rxjava3.annotations.Nullable;
+
 public class GroupDetailContainerFragment extends BaseFragment {
     private static final String ARG_KEY_GROUPS = "ARG_KEY_GROUPS";
     private static final String ARG_KEY_POSITION = "ARG_KEY_POSITION";
@@ -43,23 +46,19 @@ public class GroupDetailContainerFragment extends BaseFragment {
         return groupDetailContainerFragment;
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.groups = (List) ((List) getArguments().getSerializable(ARG_KEY_GROUPS)).stream().filter(new Predicate() { // from class: com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment$$ExternalSyntheticLambda0
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                return GroupDetailContainerFragment.lambda$onCreate$0((Building) obj);
-            }
-        }).collect(Collectors.toList());
-        this.subscriber = (Subscriber) getArguments().getSerializable(ARG_KEY_SUBSCRIBER);
-        this.position = getArguments().getInt(ARG_KEY_POSITION);
-        adjustPosition();
-    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onCreate$0(Building building) {
-        return building.getType() == Building.Type.NORMAL;
+        groups = ((List<Building>) getArguments().getSerializable(ARG_KEY_GROUPS))
+                .stream()
+                .filter(building -> building.getType() == Building.Type.NORMAL)
+                .collect(Collectors.toList());
+
+        subscriber = (Subscriber) getArguments().getSerializable(ARG_KEY_SUBSCRIBER);
+        position = getArguments().getInt(ARG_KEY_POSITION);
+
+        adjustPosition();
     }
 
     private void adjustPosition() {
@@ -72,10 +71,12 @@ public class GroupDetailContainerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_group_detail_container, viewGroup, false);
         setUnBinder(ButterKnife.bind(this, inflate));
+        viewPagerContainer = inflate.findViewById(R.id.viewpager_container);
+
         return inflate;
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
+    @Override
     protected void setUp(View view) {
         GroupDetailPagerAdapter groupDetailPagerAdapter = new GroupDetailPagerAdapter(this.groups, this.subscriber, getChildFragmentManager());
         this.adapter = groupDetailPagerAdapter;
@@ -83,8 +84,8 @@ public class GroupDetailContainerFragment extends BaseFragment {
         this.viewPagerContainer.setCurrentItem(this.position);
     }
 
-    public void goToPosition(int i) {
-        this.viewPagerContainer.setCurrentItem(i);
+    public void goToPosition(int position) {
+        this.viewPagerContainer.setCurrentItem(position);
     }
 
     public void goLeft() {
@@ -101,7 +102,6 @@ public class GroupDetailContainerFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static class GroupDetailPagerAdapter extends FragmentStatePagerAdapter {
         private final List<Building> groups;
         private final Subscriber subscriber;

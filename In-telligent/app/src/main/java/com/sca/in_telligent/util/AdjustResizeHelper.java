@@ -25,9 +25,9 @@ public class AdjustResizeHelper {
     new AdjustResizeHelper(activity);
   }
 
-  private View mChildOfContent;
+  private final View mChildOfContent;
   private int usableHeightPrevious;
-  private FrameLayout.LayoutParams frameLayoutParams;
+  private final FrameLayout.LayoutParams frameLayoutParams;
 
   private int mNavBarHeight = 0;
 

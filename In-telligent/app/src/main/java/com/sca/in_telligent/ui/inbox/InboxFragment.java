@@ -1,5 +1,10 @@
 package com.sca.in_telligent.ui.inbox;
 
+import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.NONE;
+import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.SAVED;
+import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.UNREAD;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,11 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.sca.in_telligent.R;
+import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.AlertDeleteRequest;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.openapi.data.network.model.Notification;
-import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.util.AppResponder.ResponderListener;
 
@@ -28,14 +37,6 @@ import butterknife.OnItemSelected;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.core.Observable;
-
-import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.NONE;
-import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.SAVED;
-import static com.sca.in_telligent.ui.inbox.InboxSpinnerItemType.UNREAD;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAdapter.Callback,
         ResponderListener {
@@ -96,6 +97,13 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inbox, container, false);
         ActivityComponent component = getActivityComponent();
+        inboxNotificationRecyclerview = view.findViewById(R.id.inbox_recyclerview);
+        inboxSpinner = view.findViewById(R.id.inbox_spinner);
+        swipeRefreshLayoutInbox = view.findViewById(R.id.swipe_refresh_layout_inbox);
+
+//        spinnerItemSelected(inboxSpinner, 0);
+
+
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
@@ -181,6 +189,7 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
         inboxSelector.itemClicked(position, notification, savedNotifications != null ? (savedNotifications.size()) : 0);
     }
 
+    @SuppressLint("CheckResult")
     private void createUnreadList() {
         if (notifications != null && notifications.size() > 0) {
             ArrayList<Notification> unreadList = new ArrayList<>();

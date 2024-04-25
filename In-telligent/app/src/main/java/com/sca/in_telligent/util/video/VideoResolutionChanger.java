@@ -43,7 +43,7 @@ public class VideoResolutionChanger {
   private String mOutputFile, mInputFile;
 
   private long totalDuration;
-  private ProgressReporter reporter;
+  private final ProgressReporter reporter;
 
   public VideoResolutionChanger(ProgressReporter reporter) {
     this.reporter = reporter;
@@ -59,8 +59,8 @@ public class VideoResolutionChanger {
     if (splitByDot != null && splitByDot.length > 1) {
       ext = splitByDot[splitByDot.length - 1];
     }
-    String fileName = mInputFile.substring(mInputFile.lastIndexOf(File.separator) + 1,
-        mInputFile.length());
+    String fileName = mInputFile.substring(mInputFile.lastIndexOf(File.separator) + 1
+    );
     if (ext.length() > 0) {
       fileName = fileName.replace("." + ext, "_out.mp4");
     } else {
@@ -82,7 +82,7 @@ public class VideoResolutionChanger {
   private static class ChangerWrapper implements Runnable {
 
     private Throwable mThrowable;
-    private VideoResolutionChanger mChanger;
+    private final VideoResolutionChanger mChanger;
 
     private ChangerWrapper(VideoResolutionChanger changer) {
       mChanger = changer;

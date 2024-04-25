@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import androidx.annotation.NonNull;
 
 import com.facebook.CallbackManager;
@@ -32,14 +31,11 @@ import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.ui.main.MainActivity;
 import com.sca.in_telligent.util.CommonUtils;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 
 public class LoginActivity extends BaseActivity implements LoginMvpView,
@@ -50,12 +46,14 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   @Inject
   LoginMvpPresenter<LoginMvpView> mPresenter;
 
+  @BindView(R.id.inputUsername)
+  EditText inputUserName = null;
 
-  EditText inputUserName = findViewById(R.id.inputUsername);
+  @BindView(R.id.inputPassword)
+  EditText inputPasword = null;
 
-  EditText inputPasword = findViewById(R.id.inputPassword);
-
-  Button buttonLogin = findViewById(R.id.btnLogin);
+  @BindView(R.id.btnLogin)
+  Button buttonLogin;
 
   @BindView(R.id.btnGoToSignup)
   TextView buttonGoToSignup;
@@ -87,25 +85,50 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
 
     getActivityComponent().inject(this);
 
+    buttonLogin = findViewById(R.id.btnLogin);
+    buttonLogin.setOnClickListener(this::loginWithPassword);
+
+    buttonGoToSignup = findViewById(R.id.btnGoToSignup);
+    buttonGoToSignup.setOnClickListener(this::goToSignup);
+
+    buttonForgotPassword = findViewById(R.id.btnForgotPassword);
+    buttonForgotPassword.setOnClickListener(this::forgotPassword);
+
+    buttonFacebook = findViewById(R.id.btnLoginFacebookCustom);
+    buttonFacebook.setOnClickListener(this::facebookLoginClick);
+
+    buttonGooglePlus = findViewById(R.id.btnLoginGooglePlus);
+    buttonGooglePlus.setOnClickListener(this::googleLoginClick);
+
+    inputUserName = findViewById(R.id.inputUsername);
+    inputPasword = findViewById(R.id.inputPassword);
+
+
     setUnBinder(ButterKnife.bind(this));
 
     mPresenter.onAttach(LoginActivity.this);
 
     callbackManager = CallbackManager.Factory.create();
 
-    hideKeyboard();
 
+    hideKeyboard();
     setUp();
+
+
+
+
+
   }
 
-
-
+  @OnClick(R.id.btnLogin)
   void loginWithPassword(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
     } else {
+      Log.d("Chego aqui", inputUserName.getText().toString());
+
       if (inputUserName.getText().toString().length() > 3
-          && inputPasword.getText().toString().length() > 3) {
+              && inputPasword.getText().toString().length() > 3) {
         String android_id = CommonUtils.getDeviceId(this);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setDeviceId(android_id);
@@ -113,12 +136,13 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
         loginRequest.setPassword(inputPasword.getText().toString().trim());
         mPresenter.loginWithPassword(loginRequest);
       }
+
+      hideKeyboard();
     }
-    hideKeyboard();
   }
 
-
-  void facebookLoginClick(View v) {
+  @OnClick(R.id.btnLoginFacebookCustom)
+  public void facebookLoginClick(View v) {
     if (!isNetworkConnected()) {
       showNetworkDialog();
     } else {
@@ -172,11 +196,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   }
 
   @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
-
-  @Override
   public void phonePermissionResult(boolean permission) {
 
   }
@@ -185,6 +204,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   protected void setUp() {
     inputUserName.setText("");
     inputPasword.setText("");
+
   }
 
   @Override

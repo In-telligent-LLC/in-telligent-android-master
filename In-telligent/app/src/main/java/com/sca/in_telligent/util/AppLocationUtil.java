@@ -30,7 +30,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 @Singleton
 public class AppLocationUtil implements LocationUtil {
 
-  private Context context;
+  private final Context context;
 
   @Inject
   public AppLocationUtil(@ApplicationContext Context context) {

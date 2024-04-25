@@ -4,7 +4,6 @@ import com.sca.in_telligent.R;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.EditSaveMessageRequest;
 import com.sca.in_telligent.openapi.data.network.model.NotificationLanguageResponse;
-import com.sca.in_telligent.openapi.data.network.model.NotificationResponse;
 import com.sca.in_telligent.openapi.data.network.model.SuccessResponse;
 import com.sca.in_telligent.openapi.data.network.model.TranslationResponse;
 import com.sca.in_telligent.ui.base.BasePresenter;

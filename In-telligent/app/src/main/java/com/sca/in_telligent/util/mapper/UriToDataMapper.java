@@ -28,8 +28,8 @@ public class UriToDataMapper {
     }
 
     public static class SubscribeToCommunityData {
-        private int communityId;
-        private int inviteId;
+        private final int communityId;
+        private final int inviteId;
 
         public SubscribeToCommunityData(int communityId, int inviteId) {
             this.communityId = communityId;

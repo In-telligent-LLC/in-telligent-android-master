@@ -9,13 +9,12 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ui.base.BaseActivity;
 
-import java.security.Permission;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LifeSafetyPopupActivity extends BaseActivity {
 
@@ -62,10 +61,6 @@ public class LifeSafetyPopupActivity extends BaseActivity {
     setUp();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {

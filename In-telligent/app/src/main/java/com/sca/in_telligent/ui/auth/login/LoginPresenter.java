@@ -58,26 +58,22 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
     getMvpView().showLoading();
     getCompositeDisposable().add(
         getDataManager().loginWithPassword(loginRequest).subscribeOn(getSchedulerProvider().io())
-            .observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<LoginResponse>() {
-          @Override
-          public void accept(LoginResponse loginResponse) throws Exception {
-            getMvpView().hideLoading();
-            if (loginResponse.isSuccess()) {
-              getDataManager()
-                  .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
-              sendRegistrationToServer();
-            } else {
-              getMvpView().showMessage(loginResponse.getError());
-            }
+            .observeOn(getSchedulerProvider().ui()).subscribe(loginResponse -> {
+                Log.d("Loginresponse:", loginResponse.toString());
+              getMvpView().hideLoading();
+              if (loginResponse.isSuccess()) {
+                getDataManager()
+                    .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
+                sendRegistrationToServer();
+              } else {
+                getMvpView().showMessage(loginResponse.getError());
+              }
 
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-            RetrofitException retrofitException = (RetrofitException) throwable;
-          }
-        }));
+            }, throwable -> {
+              getMvpView().hideLoading();
+              RetrofitException retrofitException = (RetrofitException) throwable;
+              Log.e(TAG, "loginWithPassword: " + retrofitException.getKind());
+            }));
   }
 
   @Override

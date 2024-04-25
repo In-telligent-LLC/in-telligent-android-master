@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import com.sca.in_telligent.openapi.util.CommonUtils;
 import java.io.Serializable;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class LoginRequest implements Serializable {
     @SerializedName("adId")
     private String adId;
@@ -15,9 +14,9 @@ public class LoginRequest implements Serializable {
     @SerializedName("password")
     private String password;
     @SerializedName("deviceModel")
-    private String deviceModel = CommonUtils.getDeviceInfo();
+    private final String deviceModel = CommonUtils.getDeviceInfo();
     @SerializedName("osVersion")
-    private String osVersion = CommonUtils.getDeviceOs();
+    private final String osVersion = CommonUtils.getDeviceOs();
 
     public void setDeviceId(String str) {
         this.deviceId = str;

@@ -76,8 +76,14 @@ public class AccountSettingsFragment extends BaseFragment implements AccountSett
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            nameEdittext = view.findViewById(R.id.settings_account_name_edittext);
+            mailEdittext = view.findViewById(R.id.settings_account_mail_edittext);
+            alertLanguageSelect = view.findViewById(R.id.settings_account_language_selected);
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            alertLanguageSelect.setOnClickListener(this::alertLanguageClick);
         }
         return view;
     }
@@ -88,7 +94,7 @@ public class AccountSettingsFragment extends BaseFragment implements AccountSett
 
         nameEdittext.setText(name);
         mailEdittext.setText(mail);
-//    alertLanguageSelect.setText(languageName);
+        alertLanguageSelect.setText(languageName);
     }
 
     @OnClick(R.id.settings_account_language_selected)

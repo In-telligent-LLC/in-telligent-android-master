@@ -1,14 +1,14 @@
 package com.sca.in_telligent.openapi.data.network;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+
 public final class ApiEndPoint {
     public static final String AD = "subscribers/ad";
     public static final String ALERT_DELIVERED = "subscribers/deliveredAlert";
     public static final String ALERT_OPENED = "subscribers/openedAlert";
     public static final String AUTO_SUBSCRIBE = "subscribers/autosubscribeOptOut";
-    public static final String BASE_IMAGE_URL = "https://app.in-telligent.com";
-    public static final String BASE_UPLOAD = "https://app.in-telligent.com/api/";
-    public static final String BASE_URL = "https://api.in-telligent.com/api/";
+    public static final String BASE_IMAGE_URL = "http://127.0.0.1";
+    public static final String BASE_UPLOAD = "http://192.168.15.73:3000/api/";
+    public static final String BASE_URL = "";
     public static final String BUILDING_INVITEES = "buildings/personal-communities/{buildingId}/invites";
     public static final String BUILDING_MEMBERS = "buildings/{buildingId}/subscribers";
     public static final String CHECK_EMAIL = "subscribers/checkEmail";
@@ -55,8 +55,8 @@ public final class ApiEndPoint {
     public static final String UPDATED_LOCATION = "location-ping/get-subscriber/{subscriberId}";
     public static final String UPDATE_SUBSCRIPTION = "buildings/update-subscription?onlySuccess=1";
     public static final String VOIP_CALL_DETAILS = "voip/callDetails/{conferenceId}";
-    public static final String VOIP_MAKE_CALL = "voip/makeCall";
-    public static final String VOIP_TOKEN = "voip/token";
+    public static final String VOIP_MAKE_CALL = "voip/makeCall/{buildingId}";
+    public static final String VOIP_TOKEN = "voip/token/";
 
     private ApiEndPoint() {
     }

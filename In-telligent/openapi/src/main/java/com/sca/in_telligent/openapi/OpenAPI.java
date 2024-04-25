@@ -2,6 +2,7 @@ package com.sca.in_telligent.openapi;
 
 import android.content.Context;
 import android.os.Vibrator;
+
 import com.sca.in_telligent.openapi.data.ApiHelperProvider;
 import com.sca.in_telligent.openapi.data.network.ApiHelper;
 import com.sca.in_telligent.openapi.data.network.OpenApiNetworkHelper;
@@ -9,16 +10,16 @@ import com.sca.in_telligent.openapi.util.AudioHelper;
 import com.sca.in_telligent.openapi.util.FlashHelper;
 import com.sca.in_telligent.openapi.util.OpenApiAudioHelper;
 import com.sca.in_telligent.openapi.util.OpenApiFlashHelper;
+
 import java.util.Objects;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public class OpenAPI {
     private static final String TAG = "OpenAPI";
     private static OpenAPI instance;
     private final AudioHelper audioHelper;
     private final AudioManager audioManager;
     private final Configuration configuration;
-    private Context context;
+    private final Context context;
     private final FlashHelper flashHelper;
 
     private OpenAPI(Context context, AudioManager audioManager, FlashHelper flashHelper, AudioHelper audioHelper, Configuration configuration) {
@@ -30,11 +31,14 @@ public class OpenAPI {
     }
 
     public static void init(Context context, Configuration configuration) {
-        Objects.requireNonNull(context, "A context is needed to initialize OpanAPI");
+        Objects.requireNonNull(context, "A context is needed to initialize OpenAPI");
         Objects.requireNonNull(configuration, "A configuration instance is needed to initialize OpenApi");
-        FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
-        instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService("audio"), (Vibrator) context.getSystemService("vibrator"), newInstance), configuration);
-        ApiHelperProvider.initialize(context);
+        if(!Configuration.isMocked()) {
+            FlashHelper newInstance = OpenApiFlashHelper.newInstance(context);
+            instance = new OpenAPI(context, new AudioManager(context), newInstance, OpenApiAudioHelper.newInstance(context, (android.media.AudioManager) context.getSystemService(Context.AUDIO_SERVICE), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE), newInstance), configuration);
+            ApiHelperProvider.setMocked(Configuration.isMocked());
+            ApiHelperProvider.initialize(context);
+        }
     }
 
     public static OpenAPI getInstance() {
@@ -75,14 +79,22 @@ public class OpenAPI {
         return this.configuration;
     }
 
-    /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
     public static final class Configuration {
-        private int appVersion;
-        private boolean debug;
+        private final int appVersion;
+        private final boolean debug;
+        private static boolean isMock = false;
 
-        protected Configuration(Builder builder) {
+        private Configuration(Builder builder) {
             this.debug = builder.debug;
             this.appVersion = builder.appVersion;
+        }
+
+        public static boolean isMocked() {
+            return isMock;
+        }
+
+        public static void setMocked(boolean mocked) {
+            isMock = mocked;
         }
 
         public boolean isDebug() {
@@ -93,7 +105,6 @@ public class OpenAPI {
             return this.appVersion;
         }
 
-        /* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
         public static class Builder {
             private boolean debug = true;
             private int appVersion = 1;

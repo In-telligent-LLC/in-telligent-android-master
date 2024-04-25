@@ -2,6 +2,7 @@ package com.sca.in_telligent.ui.main;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -37,8 +39,8 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
+import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.openapi.data.network.model.BuildingIdItem;
@@ -56,6 +58,7 @@ import com.sca.in_telligent.ui.group.alert.detail.AlertDetailFragment;
 import com.sca.in_telligent.ui.group.alert.list.AlertListFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailContainerFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailSelector;
+import com.sca.in_telligent.ui.group.generate.GenerateGroupFragment;
 import com.sca.in_telligent.ui.group.list.GroupListFragment;
 import com.sca.in_telligent.ui.inbox.InboxFragment;
 import com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment;
@@ -70,15 +73,14 @@ import com.sca.in_telligent.util.geofence.GeofenceClient;
 import com.sca.in_telligent.util.mapper.UriToDataMapper;
 
 import java.io.IOException;
-import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.UUID;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -87,14 +89,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
-import android.app.AlertDialog;
 
 
-public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback {
+public class MainActivity extends BaseActivity implements MainMvpView, NavigationDrawerAdapter.Callback, BottomNavigationView.OnNavigationItemSelectedListener, InboxFragment.InboxSelector, NotificationDetailFragment.NotificationDetailCallback, ContactListFragment.ContactListCallback, GroupListFragment.GroupListSelector, GroupDetailSelector, AlertListFragment.AlertListSelector, NotificationSettingsFragment.NotificationSettingsSelector, AccountSettingsFragment.AccountSettingsSelector, MessageViewDialog.PushNotificationDetailCallback, SettingsFragment.SettingsCallback, GenerateGroupFragment.GenerateGroupSelector {
     private static final String TAG = "MainActivity";
     ActionBarDrawerToggle actionBarDrawerToggle;
     @BindView(R.id.ad_footer_image)
@@ -120,8 +122,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     LinearLayoutManager mLayoutManager;
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
-//    @BindView(R.id.navigation_view_listview)
-//    RecyclerView navigationViewListView;
+    RecyclerView navigationViewListView;
 
     private NumberPicker silenceTimePicker;
     Subscriber subscriber;
@@ -133,9 +134,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.total_silence_on)
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
-    @SuppressLint("ResourceType")
-    @BindView(R.string.version)
+
+    Button btnTestNotification;
+
+//    @BindView()
     TextView version_name;
+
     ArrayList<Building> groups = new ArrayList<>();
     ArrayList<Building> buildings = new ArrayList<>();
     ArrayList<Building> personalCommunities = new ArrayList<>();
@@ -157,34 +161,79 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+    @SuppressLint("ResourceType")
+    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+
+        OpenAPI.Configuration.setMocked(false);
+
         checkAppUpdates();
         setContentView(R.layout.activity_main);
         checkIntent(getIntent());
         getActivityComponent().inject(this);
         getAudioHelper().stopRingtone();
-        setUnBinder(ButterKnife.bind(this));
+
+        ButterKnife.bind(this);
+
         this.mPresenter.onAttach(this);
         CommonUtils.checkDNDPermission(this);
+
+        navigationViewListView = findViewById(R.id.navigation_view_listview);
+        totalSilenceNumber = findViewById(R.id.total_silence_number);
+        totalSilenceOn = findViewById(R.id.total_silence_on);
+        totalSilenceOff = findViewById(R.id.total_silence_off);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        adImageView = findViewById(R.id.ad_footer_image);
+        buttonSos = findViewById(R.id.sos_button);
+        frameLayout = findViewById(R.id.content_frame);
+        appBarLayout = findViewById(R.id.app_bar_layout);
+        toolbar = findViewById(R.id.toolbar);
+//        btnTestNotification = findViewById(R.id.btnTestNotification);
+
+
+        buttonSos.setOnClickListener(this::sosClick);
+        totalSilenceOff.setOnClickListener(this::silenceOffClick);
+        totalSilenceOn.setOnClickListener(this::silenceOnClick);
+
+
         setUp();
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
+
+
     }
 
     private void checkIntent(Intent intent) {
-        if (intent.getExtras() != null && intent.getExtras().getSerializable("pushNotification") != null) {
-            handlePush(intent.getExtras());
-        } else if (intent.getExtras() == null || intent.getBundleExtra("bundle") == null || intent.getBundleExtra("bundle").getSerializable("pushNotification") == null) {
-        } else {
-            handlePush(intent.getBundleExtra("bundle"));
+        if (intent.getBooleanExtra("show_popup", false)) {
+            Bundle extras = intent.getExtras();
+            PushNotification pushNotification = (PushNotification) extras
+                    .getSerializable("pushNotification");
+
+            MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
+
+
+            assert pushNotification != null;
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(pushNotification.getTitle())
+                    .setMessage(pushNotification.getBody())
+                    .setNegativeButton(R.string.ok, (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .setPositiveButton(R.string.view, (dialog, which) -> {
+                        dialog.dismiss();
+                        messageViewDialog.show(getSupportFragmentManager());
+                    })
+                    .show();
+
+
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private void checkAppUpdates() {
-//        new AppUpdateHandler().start(this);
+        new AppUpdateHandler().start(this);
     }
 
     protected void onSaveInstanceState(Bundle bundle) {
@@ -192,33 +241,25 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         bundle.clear();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
-    protected void setUp() {
-        this.version_name.setText(getString(R.string.version) + " " + BuildConfig1.VERSION_NAME);
-        showLocationInformation();
-//        configureNavigationDrawer();
+    @Override
+    public void setUp() {
+        mPresenter.requestLocationPermissions(false);
+        configureNavigationDrawer();
         configureToolbar();
         initSilence();
         configureTotalSilence();
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, this.toolbar, (int) R.string.drawer_open, (int) R.string.drawer_closed);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, this.toolbar, R.string.drawer_open, R.string.drawer_closed);
         this.actionBarDrawerToggle = actionBarDrawerToggle;
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+//        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
+
         this.mPresenter.getSubscriber();
+
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    private void showLocationInformation() {
-        if (LocationUtils.hasLocationPermission(this) || LocationUtils.neverAskAgainSelected(this)) {
-            return;
-        }
-//        startActivity(LocationPromptActivity.Companion.getStartIntent(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+    @Override
     public void onResume() {
         super.onResume();
         if (LocationUtils.isPermissionsGranted(this)) {
@@ -226,12 +267,23 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
+
+    @Override
+    public void phonePermissionResult(boolean granted) {
+        if (granted) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(countryName)));
+            startActivity(intent);
+        }
+    }
+
+
     private void checkDeepLinksParams() {
         Uri data = getIntent().getData();
         if (data == null) {
             Log.d(TAG, "There's no data associated with this intent");
         } else if (SubscribeToCommunityRequest.ACTION_SUBSCRIBE.equals(data.getPathSegments().get(0))) {
-            fetchCommunityInfo(UriToDataMapper.uriToSubscribeToCommunityRequest(data));
+            fetchCommunityInfo(Objects.requireNonNull(UriToDataMapper.uriToSubscribeToCommunityRequest(data)));
         }
     }
 
@@ -239,37 +291,25 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getCommunityInfo(subscribeToCommunityData.getCommunityId(), subscribeToCommunityData.getInviteId());
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void showSubscribeToCommunityDialog(String str, final int i, final int i2) {
+    @SuppressLint("StringFormatMatches")
+    @Override
+    public void showSubscribeToCommunityDialog(String name, int communityId, int inviteId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.you_were_invited_to_join_a_comunnity, new Object[]{str}));
+        builder.setTitle(getString(R.string.you_were_invited_to_join_a_comunnity, name));
         builder.setMessage(R.string.are_you_sure_you_want_to_join);
-        builder.setPositiveButton(17039370, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda0
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i3) {
-                MainActivity.this.m266x381bc0d4(i, i2, dialogInterface, i3);
-            }
-        });
-        builder.setNegativeButton(17039360, (DialogInterface.OnClickListener) null);
-        AlertDialog create = builder.create();
-        create.setCanceledOnTouchOutside(false);
-        create.show();
+        builder.setPositiveButton(android.R.string.ok, (dialogInterface, i) -> mPresenter.subscribeToCommunity(communityId, inviteId));
+        builder.setNegativeButton(android.R.string.cancel, null);
+        Dialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
     }
 
-    /* renamed from: lambda$showSubscribeToCommunityDialog$0$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-    public /* synthetic */ void m266x381bc0d4(int i, int i2, DialogInterface dialogInterface, int i3) {
-        this.mPresenter.subscribeToCommunity(i, i2);
-    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sca.in_telligent.ui.base.BaseActivity
+    @Override
     public void onDestroy() {
-        this.mPresenter.onDetach();
-        CountDownTimer countDownTimer = this.totalSilenceTimer;
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
+        mPresenter.onDetach();
+        if (totalSilenceTimer != null) {
+            totalSilenceTimer.cancel();
         }
         super.onDestroy();
     }
@@ -278,7 +318,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         return new Intent(context, MainActivity.class);
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseActivity, com.sca.in_telligent.ui.base.BaseFragment.Callback
+    @Override
     public void onFragmentAttached() {
         DrawerLayout drawerLayout = this.drawerLayout;
         if (drawerLayout != null) {
@@ -286,7 +326,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseActivity, com.sca.in_telligent.ui.base.BaseFragment.Callback
+    @Override
     public void onFragmentDetached(String str) {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(str);
@@ -296,37 +336,32 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     private void configureToolbar() {
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
-        this.appBarLayout = appBarLayout;
-        @SuppressLint("ResourceType") Toolbar toolbar = (Toolbar) appBarLayout.findViewById(2131231479);
-        this.toolbar = toolbar;
+        appBarLayout = findViewById(R.id.app_bar_layout);
+        toolbar = appBarLayout.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator((int) R.drawable.ic_menu_icon);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_icon);
     }
 
-//    private void configureNavigationDrawer() {
-//        this.adapter.setCallback(this);
-//        this.adapter.addItems(addItemsToList());
-//        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
-//        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
-//        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
-//        this.navigationViewListView.setAdapter(this.adapter);
-//    }
+    private void configureNavigationDrawer() {
+        this.adapter.setCallback(this);
+        this.adapter.addItems(addItemsToList());
+        this.mLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        this.navigationViewListView.setLayoutManager(this.mLayoutManager);
+        this.navigationViewListView.setItemAnimator(new DefaultItemAnimator());
+        this.navigationViewListView.setAdapter(this.adapter);
+    }
 
 
     private void configureTotalSilence() {
         silenceTimePicker = new NumberPicker(this);
         silenceTimeDialog = setUpAlertDialog(silenceTimePicker, getString(R.string.hours_of_silence),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Date now = new Date();
-                        getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
-                                new Date(now.getTime() + 1000 * 60 * 60 * silenceTimePicker.getValue())));
-                        initSilence();
-                    }
+                (dialog, which) -> {
+                    Date now = new Date();
+                    getDataManager().setLifeSafetyOverrideExpire(CommonUtils.getSilenceDateString(
+                            new Date(now.getTime() + 1000L * 60 * 60 * silenceTimePicker.getValue())));
+                    initSilence();
                 });
 
         silenceTimePicker.setMinValue(1);
@@ -335,8 +370,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         silenceTimePicker.setWrapSelectorWheel(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v5, types: [com.sca.in_telligent.ui.main.MainActivity$2] */
+
     public void initSilence() {
         Date date = new Date();
         Date silenceDate = CommonUtils.getSilenceDate(getDataManager().getLifeSafetyOverrideExpire());
@@ -354,8 +388,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.totalSilenceOn.setSelected(true);
         long time = silenceDate.getTime() - date.getTime();
         this.totalSilenceNumber.setText(DateUtils.formatElapsedTime(time / 1000));
-        this.totalSilenceTimer = new CountDownTimer(time, 1000L) { // from class: com.sca.in_telligent.ui.main.MainActivity.2
-            @Override // android.os.CountDownTimer
+        this.totalSilenceTimer = new CountDownTimer(time, 1000L) {
+            @Override
             public void onTick(long j) {
                 MainActivity.this.totalSilenceNumber.setText(DateUtils.formatElapsedTime(j / 1000));
             }
@@ -367,7 +401,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }.start();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+
     @OnClick({R.id.total_silence_on})
     public void silenceOnClick(View view) {
         AlertDialog alertDialog = this.silenceTimeDialog;
@@ -376,7 +410,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+
     @OnClick({R.id.total_silence_off})
     public void silenceOffClick(View view) {
         getDataManager().setLifeSafetyOverrideExpire(null);
@@ -392,8 +426,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         return arrayList;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.main.NavigationDrawerAdapter.Callback
+    @Override
     public void onItemClicked(int i) {
         if (!isNetworkConnected()) {
             showNetworkDialog();
@@ -408,126 +441,164 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
-        if (!isNetworkConnected()) {
-            showNetworkDialog();
-            return true;
-        }
-        int itemId = menuItem.getItemId();
-        if (itemId == 2131230785) {
-            openContactTab();
-            return true;
-        } else if (itemId != 2131230789) {
-            if (itemId != 2131230791) {
-                return true;
-            }
-            getSupportFragmentManager().beginTransaction().addToBackStack(InboxFragment.TAG).replace((int) R.id.content_frame, InboxFragment.newInstance(this.savedClicked), InboxFragment.TAG).commit();
-            this.savedClicked = false;
-            return true;
-        } else {
-            GroupListFragment groupListFragment = (GroupListFragment) getSupportFragmentManager().findFragmentByTag(GroupListFragment.TAG);
-            if (groupListFragment != null && !this.groupCreated) {
-                getSupportFragmentManager().beginTransaction().addToBackStack(GroupListFragment.TAG).replace((int) R.id.content_frame, groupListFragment, GroupListFragment.TAG).commit();
-                return true;
-            }
-            this.groupCreated = false;
-            if (groupListFragment != null) {
-                getSupportFragmentManager().beginTransaction().addToBackStack(GroupListFragment.TAG).replace((int) R.id.content_frame, groupListFragment, GroupListFragment.TAG).commit();
-            }
-            this.mPresenter.getSubscriber();
-            return true;
-        }
+
+    private void goToCreateGroupFragment() {
+        getSupportFragmentManager()
+                .beginTransaction().addToBackStack(GenerateGroupFragment.TAG)
+                .replace(R.id.content_frame, GenerateGroupFragment.newInstance(null),
+                        GenerateGroupFragment.TAG)
+                .commit();
     }
 
-    @Override // com.sca.in_telligent.ui.inbox.InboxFragment.InboxSelector
-    public void itemClicked(int i, Notification notification, int i2) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        if (!isNetworkConnected()) {
+            showNetworkDialog();
+        } else {
+            switch (menuItem.getItemId()) {
+                case R.id.action_groups:
+                    GroupListFragment groupListFragment = (GroupListFragment) getSupportFragmentManager()
+                            .findFragmentByTag(GroupListFragment.TAG);
+                    if (groupListFragment != null && !groupCreated) {
+                        getSupportFragmentManager()
+                                .beginTransaction().addToBackStack(GroupListFragment.TAG)
+                                .replace(R.id.content_frame, groupListFragment,
+                                        GroupListFragment.TAG)
+                                .commit();
+                    } else {
+                        groupCreated = false;
+                        if (groupListFragment != null) {
+                            getSupportFragmentManager()
+                                    .beginTransaction().addToBackStack(GroupListFragment.TAG)
+                                    .replace(R.id.content_frame, groupListFragment,
+                                            GroupListFragment.TAG)
+                                    .commit();
+                        }
+                        mPresenter.getSubscriber();
+                    }
+                    break;
+
+                case R.id.action_contact:
+                    openContactTab();
+                    break;
+
+                case R.id.action_inbox:
+                    getSupportFragmentManager()
+                            .beginTransaction().addToBackStack(InboxFragment.TAG)
+                            .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
+                                    InboxFragment.TAG)
+                            .commit();
+                    savedClicked = false;
+                    break;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public void itemClicked(int position, Notification notification, int lastIndex) {
+        getSupportFragmentManager()
+                .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                .add(R.id.content_frame,
+                        NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                        NotificationDetailFragment.TAG)
+                .commit();
     }
 
     private void openContactTab() {
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactListFragment.TAG).replace((int) R.id.content_frame, ContactListFragment.newInstance(this.contactableBuildings), ContactListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactListFragment.TAG).replace(R.id.content_frame, ContactListFragment.newInstance(this.contactableBuildings), ContactListFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment.NotificationDetailCallback
-    public void nextClick(int i, int i2, boolean z) {
-        Notification notification;
-        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager().findFragmentByTag(InboxFragment.TAG);
-        if (z) {
-            if (inboxFragment.getSavedNotifications() != null && inboxFragment.getSavedNotifications().size() > 0) {
-                notification = inboxFragment.getSavedNotifications().get(i);
+    @Override
+    public void nextClick(int position, int lastIndex, boolean saved) {
+        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager()
+                .findFragmentByTag(InboxFragment.TAG);
+        Notification notification = null;
+
+        if (saved) {
+            if (inboxFragment.getSavedNotifications() != null
+                    && inboxFragment.getSavedNotifications().size() > 0) {
+                notification = inboxFragment.getSavedNotifications().get(position);
             }
-            notification = null;
         } else {
             if (inboxFragment.getNotifications() != null && inboxFragment.getNotifications().size() > 0) {
-                notification = inboxFragment.getNotifications().get(i);
+                notification = inboxFragment.getNotifications().get(position);
             }
-            notification = null;
         }
         if (notification != null) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+            getSupportFragmentManager()
+                    .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                    .add(R.id.content_frame,
+                            NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                            NotificationDetailFragment.TAG)
+                    .commit();
         }
+
     }
 
-    @Override // com.sca.in_telligent.ui.notificationdetail.NotificationDetailFragment.NotificationDetailCallback
-    public void previousClick(int i, int i2, boolean z) {
-        Notification notification;
-        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager().findFragmentByTag(InboxFragment.TAG);
-        if (z) {
-            if (inboxFragment.getSavedNotifications() != null && inboxFragment.getSavedNotifications().size() > 0) {
-                notification = inboxFragment.getSavedNotifications().get(i);
+    @Override
+    public void previousClick(int position, int lastIndex, boolean saved) {
+        InboxFragment inboxFragment = (InboxFragment) getSupportFragmentManager()
+                .findFragmentByTag(InboxFragment.TAG);
+        Notification notification = null;
+
+        if (saved) {
+            if (inboxFragment.getSavedNotifications() != null
+                    && inboxFragment.getSavedNotifications().size() > 0) {
+                notification = inboxFragment.getSavedNotifications().get(position);
             }
-            notification = null;
         } else {
             if (inboxFragment.getNotifications() != null && inboxFragment.getNotifications().size() > 0) {
-                notification = inboxFragment.getNotifications().get(i);
+                notification = inboxFragment.getNotifications().get(position);
             }
-            notification = null;
         }
+
+
         if (notification != null) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(NotificationDetailFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification, i, i2), NotificationDetailFragment.TAG).commit();
+            getSupportFragmentManager()
+                    .beginTransaction().addToBackStack(NotificationDetailFragment.TAG)
+                    .add(R.id.content_frame,
+                            NotificationDetailFragment.newInstance(notification, position, lastIndex),
+                            NotificationDetailFragment.TAG)
+                    .commit();
         }
     }
 
-    @Override // com.sca.in_telligent.ui.contact.list.ContactListFragment.ContactListCallback
+    @Override
     public void callClick(Building building) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactCallFragment.TAG).add((int) R.id.content_frame, ContactCallFragment.newInstance(Integer.toString(building.getId())), ContactCallFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactCallFragment.TAG).add(R.id.content_frame, ContactCallFragment.newInstance(Integer.toString(building.getId())), ContactCallFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.contact.list.ContactListFragment.ContactListCallback
+    @Override
     public void messageClick(Building building) {
         int id = building.getId();
-        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add((int) R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), isPersonalCommunity(building), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(ContactMessageFragment.TAG).add(R.id.content_frame, ContactMessageFragment.newInstance(isManaged(id), isPersonalCommunity(building), this.subscriber.getUser().isCanSendLSA(), id + ""), ContactMessageFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
+    @Override
     public void itemAboutClicked(int i, boolean z) {
         addSuggestedHeaderIfNeeded();
-        getSupportFragmentManager().beginTransaction().addToBackStack(GroupDetailContainerFragment.TAG).replace((int) R.id.content_frame, GroupDetailContainerFragment.newInstance(this.subscriber, this.groups, i), GroupDetailContainerFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(GroupDetailContainerFragment.TAG).replace(R.id.content_frame, GroupDetailContainerFragment.newInstance(this.subscriber, this.groups, i), GroupDetailContainerFragment.TAG).commit();
     }
 
     private void addSuggestedHeaderIfNeeded() {
-        if (this.groups.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda3
-            @Override // java.util.function.Predicate
-            public final boolean test(Object obj) {
-                return MainActivity.lambda$addSuggestedHeaderIfNeeded$1((Building) obj);
-            }
-        })) {
-            return;
+        if (!groups.stream().anyMatch(building -> building.getType() == Building.Type.SUGGESTED_HEADER)) {
+            Building suggestedHeader = new Building();
+            suggestedHeader.setType(Building.Type.SUGGESTED_HEADER);
+            groups.add(0, suggestedHeader);
         }
-        Building building = new Building();
-        building.setType(Building.Type.SUGGESTED_HEADER);
-        this.groups.add(0, building);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$addSuggestedHeaderIfNeeded$1(Building building) {
-        return building.getType() == Building.Type.SUGGESTED_HEADER;
-    }
-
-    @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
+    @Override
     public void groupsUpdated(ArrayList<Building> arrayList) {
         this.groups = arrayList;
+    }
+
+    @Override
+    public void onCreateGroupClicked() {
+        goToCreateGroupFragment();
+
     }
 
 
@@ -537,9 +608,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getSubscriber(false);
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void alertViewSelected(int i) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add( R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
     }
 
     @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
@@ -547,19 +618,19 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         this.mPresenter.getSubscriber();
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void subscribed(int i) {
         this.mPresenter.subscribeToCommunity(i);
     }
 
-    @Override // com.sca.in_telligent.ui.group.alert.list.AlertListFragment.AlertListSelector
+    @Override
     public void onAlertDetailSelected(final Notification notification, int i) {
-        getBuilding(i).subscribe(new SingleObserver<Building>() { // from class: com.sca.in_telligent.ui.main.MainActivity.3
-            @Override // io.reactivex.SingleObserver
+        getBuilding(i).subscribe(new SingleObserver<Building>() {
+            @Override
             public void onSubscribe(Disposable disposable) {
             }
 
-            @Override // io.reactivex.SingleObserver
+            @Override
             public void onSuccess(Building building) {
                 MainActivity.this.getSupportFragmentManager().beginTransaction().addToBackStack(AlertDetailFragment.TAG).add((int) R.id.content_frame, AlertDetailFragment.newInstance(notification), AlertDetailFragment.TAG).commit();
             }
@@ -614,7 +685,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         prepareContactBuildings(buildingsFetched, personalCommunitiesFetched);
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    @Override
     public void loadSubscriber(Subscriber subscriber) {
         this.subscriber = subscriber;
     }
@@ -674,7 +745,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void groupRightClick(int i) {
         GroupDetailContainerFragment groupDetailContainerFragment = (GroupDetailContainerFragment) getSupportFragmentManager().findFragmentByTag(GroupDetailContainerFragment.TAG);
         if (groupDetailContainerFragment != null) {
@@ -687,6 +758,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
     }
 
+    @SuppressLint("CheckResult")
     private void prepareContactBuildings(ArrayList<Building> contactBuildings,
                                          ArrayList<Building> contactPersonalCommunities) {
 
@@ -726,11 +798,11 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @OnClick({R.id.sos_button})
     public void sosClick(View view) {
-        this.mPresenter.requestPhonePermission();
+        mPresenter.requestPhonePermission();
+
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
+    @Override
     public void locationPermissionResult(boolean z, boolean z2) {
         if (z) {
             if (getLocationUtil().isProviderEnabled()) {
@@ -740,50 +812,16 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Location Services Not Active");
             builder.setMessage("Please enable Location Services and GPS");
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.4
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    MainActivity.this.startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"));
-                }
-            });
+            builder.setPositiveButton("OK", (dialogInterface, i) ->
+                    MainActivity.this.startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS")));
             AlertDialog create = builder.create();
             create.setCanceledOnTouchOutside(false);
             create.show();
         }
     }
 
-    @Override
-    public void phonePermissionResult(Permission permission) {
 
-    }
 
-//    @Override
-//    public void phonePermissionResult(Permission permission) {
-//        if (permission) {
-//            Intent intent = new Intent(Intent.ACTION_CALL);
-//            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
-//            startActivity(intent);
-////        } else if (permission.shouldShowRequestPermissionRationale) {
-////        } else {
-////            showPopup(getResources().getString(R.string.permission_call_message));
-////        }
-//        }
-//
-//
-//    }
-
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void phonePermissionResult(boolean permission) {
-        if (permission) {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + CommonUtils.getCountrySet().get(this.countryName)));
-            startActivity(intent);
-//        } else if (permission.shouldShowRequestPermissionRationale) {
-//        } else {
-//            showPopup(getResources().getString(R.string.permission_call_message));
-//        }
-        }
-    }
 
         private void getLocation() {
 
@@ -823,49 +861,21 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             }
         }
 
-        /* renamed from: lambda$getLocation$7$com-sca-in_telligent-ui-main-MainActivity  reason: not valid java name */
-        public /* synthetic */ void m259lambda$getLocation$7$comscain_telligentuimainMainActivity
-        (Task task){
-            if (task.isSuccessful()) {
-                Location location = (Location) task.getResult();
-                this.mLastKnownLocation = location;
-                if (location != null) {
-                    this.mPresenter.refreshGeofences(location);
-                    try {
-                        List<Address> fromLocation = new Geocoder(getApplicationContext(), new Locale("en", "US")).getFromLocation(this.mLastKnownLocation.getLatitude(), this.mLastKnownLocation.getLongitude(), 1);
-                        if (fromLocation == null || fromLocation.size() <= 0) {
-                            return;
-                        }
-                        this.countryName = fromLocation.get(0).getCountryName();
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                }
-                getLocationUtil().getLastKnownLocation();
-                return;
-            }
-            Log.d(TAG, "Current location is null. Using defaults.");
-            Log.e(TAG, "Exception: %s", task.getException());
+        private boolean isManaged(int buildingId) {
+            boolean isManaged = userBuildingIds.stream()
+                    .anyMatch(buildingIdItem -> buildingIdItem.getId() == buildingId);
+            return isManaged;
         }
 
-        private boolean isManaged ( final int i){
-            return this.userBuildingIds.stream().anyMatch(new Predicate() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda12
-                @Override // java.util.function.Predicate
-                public final boolean test(Object obj) {
-                    return MainActivity.lambda$isManaged$8(i, (BuildingIdItem) obj);
-                }
-            });
-        }
-
-        public static /* synthetic */ boolean lambda$isManaged$8 ( int i, BuildingIdItem
-        buildingIdItem){
-            return buildingIdItem.getId() == i;
-        }
-
-        @Override // com.sca.in_telligent.ui.settings.notification.NotificationSettingsFragment.NotificationSettingsSelector
-        public void alertSubscriptionUpdated (String str, String str2){
+        @Override
+        public void alertSubscriptionUpdated(String buildingId, String subscription) {
+    //    Observable.fromIterable(subscriber.getBuildings())
+    //        .doOnNext(
+    //            building -> {
+    //              if (building.getId() == Integer.parseInt(buildingId)) {
+    //                building.getBuildingsSubscriber().setAlertsSubscription(subscription);
+    //              }
+    //            }).toList().subscribe(updatedBuildings -> subscriber.setBuildings(buildings));
             System.out.println();
         }
 
@@ -875,63 +885,20 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
             Toast.makeText((Context) this, (int) R.string.you_are_now_subscribed_to_the_community, Toast.LENGTH_SHORT).show();
         }
 
-        @Override
-        public void weatherWarningUpdated ( boolean z, boolean z2){
-            this.subscriber.setWeatherAlertEnabled(z);
-            this.subscriber.setLightningAlertEnabled(z2);
-        }
 
-        private void handlePush(Bundle extras) {
-            String from = extras.getString("from", "");
-            PushNotification pushNotification = (PushNotification) extras
-                    .getSerializable("pushNotification");
-
-            if (pushNotification != null && "alert".equals(pushNotification.getType())) {
-                if (extras.getBoolean("show_popup", false)) {
-                    MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
-                    if (!from.isEmpty() && from.equals("background")) {
-                        messageViewDialog.show(getSupportFragmentManager());
-                    } else {
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(pushNotification.getTitle())
-                                .setMessage(pushNotification.getBody())
-                                .setNegativeButton(R.string.ok, (dialog, which) -> {
-                                    dialog.dismiss();
-                                })
-                                .setPositiveButton(R.string.view, (dialog, which) -> {
-                                    dialog.dismiss();
-                                    messageViewDialog.show(getSupportFragmentManager());
-                                })
-                                .show();
-                    }
-                }
-            }
-        }
-
-    public /* synthetic */ void m261lambda$handlePush$9$comscain_telligentuimainMainActivity(PushNotification pushNotification, DialogInterface dialogInterface, int i) {
-        getAudioHelper().stopRingtone();
-        CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
-        dialogInterface.dismiss();
+    @Override
+    public void weatherWarningUpdated(boolean weatherEnabled, boolean lightningEnabled) {
+        subscriber.setWeatherAlertEnabled(weatherEnabled);
+        subscriber.setLightningAlertEnabled(lightningEnabled);
     }
 
-    public /* synthetic */ void m260lambda$handlePush$10$comscain_telligentuimainMainActivity(PushNotification pushNotification, MessageViewDialog messageViewDialog, DialogInterface dialogInterface, int i) {
-        getAudioHelper().stopRingtone();
-        dialogInterface.dismiss();
-        CommonUtils.clearNotification(this, Integer.parseInt(pushNotification.getNotificationId()));
-        messageViewDialog.show(getSupportFragmentManager());
-    }
 
     private AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(numberPicker);
         builder.setTitle(str);
         builder.setCancelable(true);
-        builder.setPositiveButton((int) R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.5
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton(R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss());
         return builder.create();
     }
 
@@ -950,12 +917,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onStop();
     }
 
-    @Override // com.sca.in_telligent.ui.preview.MessageViewDialog.PushNotificationDetailCallback
+    @Override
     public void onShowNotificationDetails(Notification notification) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add(R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.settings.SettingsFragment.SettingsCallback
+    @Override
     public void onLogout() {
         cancelJobs();
     }
@@ -974,28 +941,31 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.main.MainMvpView
-    public void loadImage(final AdResponse.BannerAd bannerAd) {
-        Glide.with(this).load(bannerAd.getImage()).into(this.adImageView);
-        this.adImageView.setOnClickListener(new View.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity$$ExternalSyntheticLambda6
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                MainActivity.this.m262lambda$loadImage$11$comscain_telligentuimainMainActivity(bannerAd, view);
+    @Override
+    public void loadImage(AdResponse.BannerAd bannerAd) {
+        Glide.with(this)
+                .load(bannerAd.getImage())
+                .into(adImageView);
+
+        adImageView.setOnClickListener(v -> {
+
+            mPresenter.onClickAd(bannerAd.getAdId());
+
+            if (!TextUtils.isEmpty(bannerAd.getUrl())) {
+                CommonUtils.openUrl(this, bannerAd.getUrl());
             }
         });
     }
 
-    public /* synthetic */ void m262lambda$loadImage$11$comscain_telligentuimainMainActivity(AdResponse.BannerAd bannerAd, View view) {
-        this.mPresenter.onClickAd(bannerAd.getAdId());
-        if (TextUtils.isEmpty(bannerAd.getUrl())) {
-            return;
-        }
-        CommonUtils.openUrl(this, bannerAd.getUrl());
-    }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+
+    @Override
+    public void groupCreated() {
+        groupCreated = true;
     }
 
 //    @NonNull

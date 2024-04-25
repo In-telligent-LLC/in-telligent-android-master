@@ -8,22 +8,24 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.Building;
 import com.sca.in_telligent.ui.base.BaseViewHolder;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
   public static final int VIEW_TYPE_EMPTY = 0;
   public static final int VIEW_TYPE_NORMAL = 1;
 
-  private List<Building> buildings;
+  private final List<Building> buildings;
   private Callback mCallback;
 
   public NotificationSettingAdapter(List<Building> buildings) {
@@ -117,6 +119,17 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
 
     public ViewHolder(View itemView) {
       super(itemView);
+
+      itemImage = itemView.findViewById(R.id.notification_setting_item_image);
+      titleText = itemView.findViewById(R.id.notification_setting_title_text);
+      buttonAlways = itemView.findViewById(R.id.notification_setting_always_text);
+      buttonOnly = itemView.findViewById(R.id.notification_setting_only_text);
+      buttonNever = itemView.findViewById(R.id.notification_setting_never_text);
+
+      buttonAlways.setOnClickListener(this::syncClick);
+        buttonOnly.setOnClickListener(this::syncClick);
+        buttonNever.setOnClickListener(this::syncClick);
+
       ButterKnife.bind(this, itemView);
     }
 
@@ -170,6 +183,7 @@ public class NotificationSettingAdapter extends RecyclerView.Adapter<BaseViewHol
 
     public EmptyViewHolder(View itemView) {
       super(itemView);
+
       ButterKnife.bind(this, itemView);
     }
 

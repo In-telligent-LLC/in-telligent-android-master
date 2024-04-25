@@ -1,8 +1,10 @@
 package com.sca.in_telligent.ui.group.detail.other;
 
+import static com.sca.in_telligent.util.AlertUtil.showConfirmationAlert;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.content.ContextCompat;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Building;
@@ -23,12 +22,15 @@ import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityReque
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest;
 import com.sca.in_telligent.ui.base.BaseFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailSelector;
-import com.sca.in_telligent.util.AlertUtil;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
+
 import javax.inject.Inject;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpView {
     public static final String TAG = "GroupDetailFragment";
     Building building;
@@ -69,7 +71,7 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         return groupDetailFragment;
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.groupDetailSelector = (GroupDetailSelector) context;
@@ -88,14 +90,20 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         ActivityComponent activityComponent = getActivityComponent();
         if (activityComponent != null) {
             activityComponent.inject(this);
+            descriptionLongText = inflate.findViewById(R.id.group_detail_description_long);
+            descriptionShortText = inflate.findViewById(R.id.group_detail_description_short);
+            disconnectButton = inflate.findViewById(R.id.group_detail_disconnect);
+            groupDetailInfo = inflate.findViewById(R.id.group_detail_info);
+            groupName = inflate.findViewById(R.id.group_detail_name);
+            leftArrow = inflate.findViewById(R.id.group_detail_left_arrow);
+            mainImage = inflate.findViewById(R.id.group_detail_main_image);
+            messageFeedButton = inflate.findViewById(R.id.group_detail_message_feed);
+            readMoreButton = inflate.findViewById(R.id.group_detail_read_more);
+            rightArrow = inflate.findViewById(R.id.group_detail_right_arrow);
+
+
             setUnBinder(ButterKnife.bind(this, inflate));
             this.mPresenter.onAttach(this);
-        }
-        if (this.position == 0) {
-            this.leftArrow.setForeground(ContextCompat.getDrawable(getActivity(), (int) R.color.translate_button_black));
-        }
-        if (this.position == this.buildingsSize - 1) {
-            this.rightArrow.setForeground(ContextCompat.getDrawable(getActivity(), (int) R.color.translate_button_black));
         }
         return inflate;
     }
@@ -105,7 +113,8 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         super.onDestroyView();
     }
 
-    @Override // com.sca.in_telligent.ui.base.BaseFragment
+    @SuppressLint("SetTextI18n")
+    @Override
     protected void setUp(View view) {
         Building building = this.building;
         if (building == null) {
@@ -121,52 +130,59 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
             this.mainImage.setImageResource(CommonUtils.getDefaultImage(this.building.getId()));
         }
         if (this.building.getDescription().isEmpty()) {
-            this.readMoreButton.setVisibility(8);
+            this.readMoreButton.setVisibility(View.GONE);
         }
         if (isEllipsized()) {
-            this.readMoreButton.setVisibility(0);
+            this.readMoreButton.setVisibility(View.VISIBLE);
         } else {
-            this.readMoreButton.setVisibility(8);
+            this.readMoreButton.setVisibility(View.GONE);
         }
         if (this.building.isOther()) {
             this.disconnectButton.setText(getString(R.string.connect));
         } else {
             this.disconnectButton.setText(getString(R.string.disconnect));
         }
-        this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + CommonUtils.getDateString(this.building.getCreated()));
+        String createdDate = this.building.getCreated();
+        CommonUtils.getDateString(createdDate);
+
+        this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + createdDate);
+
+        this.groupDetailInfo.setText(getResources().getString(R.string.created_on) + " " + CommonUtils.getDateString(createdDate));
+
+        rightArrow.setOnClickListener(v -> rightClick());
+        leftArrow.setOnClickListener(v -> leftClick());
+        readMoreButton.setOnClickListener(v -> readMoreClick());
+        messageFeedButton.setOnClickListener(this::messageFeedClick);
+        disconnectButton.setOnClickListener(this::onClick);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.group_detail_message_feed})
     public void messageFeedClick(View view) {
         this.groupDetailSelector.messageFeedClick(this.building.getId());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.group_detail_read_more})
-    public void readMoreClick(View view) {
+    public void readMoreClick() {
         if (!this.textExpanded) {
-            this.descriptionShortText.setVisibility(8);
-            this.descriptionLongText.setVisibility(0);
+            this.descriptionShortText.setVisibility(View.GONE);
+            this.descriptionLongText.setVisibility(View.VISIBLE);
             this.readMoreButton.setText(getString(R.string.read_less));
         } else {
-            this.descriptionShortText.setVisibility(0);
-            this.descriptionLongText.setVisibility(8);
+            this.descriptionShortText.setVisibility(View.VISIBLE);
+            this.descriptionLongText.setVisibility(View.GONE);
             this.readMoreButton.setText(getString(R.string.read_more));
         }
         this.textExpanded = !this.textExpanded;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.group_detail_right_arrow})
-    public void rightClick(View view) {
+    public void rightClick() {
         this.groupDetailSelector.groupRightClick(this.position);
         getBaseActivity().onFragmentDetached(TAG);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @OnClick({R.id.group_detail_left_arrow})
-    public void leftClick(View view) {
+    public void leftClick() {
         this.groupDetailSelector.groupLeftClicked(this.position);
         getBaseActivity().onFragmentDetached(TAG);
     }
@@ -175,33 +191,29 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         return this.descriptionShortText.getEllipsize().toString().length() > 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @OnClick({R.id.group_detail_disconnect})
-    public void onClick(View view) {
-        if (this.building.isOther()) {
-            if (this.building.getPassword() != null) {
-                showPasswordDialog(this.building);
-                return;
+    @OnClick(R.id.group_detail_disconnect)
+    void onClick(View v) {
+
+        if (building.isOther()) {
+            if (building.getPassword() != null) {
+                showPasswordDialog(building);
+            } else {
+                UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
+                updateSubscriptionRequest.setBuildingId(Integer.toString(building.getId()));
+                updateSubscriptionRequest.setAction("subscribe");
+                disconnectButton.setText(getString(R.string.disconnect));
+                mPresenter.connectGroup(updateSubscriptionRequest);
             }
-            UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
-            updateSubscriptionRequest.setBuildingId(Integer.toString(this.building.getId()));
-            updateSubscriptionRequest.setAction(SubscribeToCommunityRequest.ACTION_SUBSCRIBE);
-            this.disconnectButton.setText(getString(R.string.disconnect));
-            this.mPresenter.connectGroup(updateSubscriptionRequest);
-            return;
+        } else {
+            showConfirmationAlert(getContext(),
+                    R.string.are_you_sure_you_want_to_unsubscribe_from_this_community,
+                    (dialog, which) -> {
+                        performDisconnect();
+                    });
         }
-        AlertUtil.showConfirmationAlert(getContext(), R.string.are_you_sure_you_want_to_unsubscribe_from_this_community, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda0
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                GroupDetailFragment.this.m195xa583d217(dialogInterface, i);
-            }
-        });
     }
 
-    /* renamed from: lambda$onClick$0$com-sca-in_telligent-ui-group-detail-other-GroupDetailFragment  reason: not valid java name */
-    public /* synthetic */ void m195xa583d217(DialogInterface dialogInterface, int i) {
-        performDisconnect();
-    }
+
 
     private void performDisconnect() {
         UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
@@ -211,50 +223,50 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         this.mPresenter.disconnectGroup(updateSubscriptionRequest);
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpView
+    @Override
     public void unsubscribed(String str) {
         getActivity().onBackPressed();
         this.groupDetailSelector.unSubscribed(Integer.parseInt(str));
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.other.GroupDetailMvpView
+    @Override
     public void subscribed(String str) {
         this.groupDetailSelector.subscribed(Integer.parseInt(str));
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 
-    private void showPasswordDialog(final Building building) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.password);
-        builder.setMessage(getString(R.string.enter_password));
-        final EditText editText = new EditText(getActivity());
-        editText.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        builder.setView(editText);
-        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda1
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                GroupDetailFragment.this.m196x2e90ab05(editText, building, dialogInterface, i);
-            }
-        });
-        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.group.detail.other.GroupDetailFragment$$ExternalSyntheticLambda2
-            @Override // android.content.DialogInterface.OnClickListener
-            public final void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder.show();
+    private void showPasswordDialog(Building building) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle(R.string.password);
+        alertDialog.setMessage(getString(R.string.enter_password));
+
+        final EditText input = new EditText(getActivity());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input);
+
+        alertDialog.setPositiveButton(R.string.yes,
+                (dialog, which) -> {
+                    String password1 = input.getText().toString();
+
+                    if (password1.equals(building.getPassword())) {
+                        UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
+                        updateSubscriptionRequest.setBuildingId(Integer.toString(building.getId()));
+                        updateSubscriptionRequest.setAction("subscribe");
+                        disconnectButton.setText(getString(R.string.disconnect));
+                        mPresenter.connectGroup(updateSubscriptionRequest);
+                    } else {
+                        showMessage(getString(R.string.invalid_password));
+                    }
+                });
+        alertDialog.setNegativeButton(R.string.no,
+                (dialog, which) -> dialog.cancel());
+
+        alertDialog.show();
+
     }
 
-    /* renamed from: lambda$showPasswordDialog$1$com-sca-in_telligent-ui-group-detail-other-GroupDetailFragment  reason: not valid java name */
-    public /* synthetic */ void m196x2e90ab05(EditText editText, Building building, DialogInterface dialogInterface, int i) {
-        if (editText.getText().toString().equals(building.getPassword())) {
-            UpdateSubscriptionRequest updateSubscriptionRequest = new UpdateSubscriptionRequest();
-            updateSubscriptionRequest.setBuildingId(Integer.toString(building.getId()));
-            updateSubscriptionRequest.setAction(SubscribeToCommunityRequest.ACTION_SUBSCRIBE);
-            this.disconnectButton.setText(getString(R.string.disconnect));
-            this.mPresenter.connectGroup(updateSubscriptionRequest);
-            return;
-        }
-        showMessage(getString(R.string.invalid_password));
-    }
+
 }

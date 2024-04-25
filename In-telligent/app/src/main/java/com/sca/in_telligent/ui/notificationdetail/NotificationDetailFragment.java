@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.notificationdetail;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -173,8 +174,27 @@ public class NotificationDetailFragment extends BaseFragment implements Notifica
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            notificationTitleText = view.findViewById(R.id.notification_detail_title_text);
+            notificationInfoText = view.findViewById(R.id.notification_detail_info_text);
+            notificationAttachmentText = view.findViewById(R.id.notification_detail_attachment_text);
+            notificationDescriptionText = view.findViewById(R.id.notification_detail_description_text);
+            notificationAttachmentList = view.findViewById(R.id.notification_detail_attachment_list);
+            backLayout = view.findViewById(R.id.notification_detail_back_layout);
+            translateButton = view.findViewById(R.id.notification_detail_translate);
+            ttsButton = view.findViewById(R.id.notification_detail_tts);
+            saveButton = view.findViewById(R.id.notification_detail_save);
+            previousButton = view.findViewById(R.id.notification_detail_left_arrow);
+            nextButton = view.findViewById(R.id.notification_detail_right_arrow);
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            backLayout.setOnClickListener(v -> backClick(v));
+            saveButton.setOnClickListener(v -> editSave(v));
+            translateButton.setOnClickListener(v -> translateClick(v));
+            ttsButton.setOnClickListener(v -> textToSpeechClick(v));
+            nextButton.setOnClickListener(v -> nextNotification(v));
+            previousButton.setOnClickListener(v -> previousNotification(v));
+
         }
 
         return view;
@@ -189,7 +209,7 @@ public class NotificationDetailFragment extends BaseFragment implements Notifica
             attachments = notification.getNotificationAttachments();
             if (attachments.size() > 0) {
                 Observable.fromIterable(attachments)
-                        .filter(notificationAttachment -> !notificationAttachment.getType().equals("unknown"))
+                        .filter((@SuppressLint("CheckResult") NotificationAttachment notificationAttachment) -> !notificationAttachment.getType().equals("unknown"))
                         .toList()
                         .subscribe(
                                 (notificationAttachments, throwable) -> attachments = (ArrayList<NotificationAttachment>) notificationAttachments);
@@ -379,7 +399,7 @@ public class NotificationDetailFragment extends BaseFragment implements Notifica
         super.onDestroyView();
     }
 
-    private UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+    private final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
         @Override
         public void onStart(String utteranceId) {
         }

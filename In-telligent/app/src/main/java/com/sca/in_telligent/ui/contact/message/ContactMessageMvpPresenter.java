@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface ContactMessageMvpPresenter<V extends ContactMessageMvpView> extends
     MvpPresenter<V> {
 
-//  void getStoragePermission();
+  void getStoragePermission();
 
   void createNotification(String buildingId, String title, String body, String type,
       ArrayList<String> attachmentPaths, String sendToEmail,
@@ -16,7 +16,7 @@ public interface ContactMessageMvpPresenter<V extends ContactMessageMvpView> ext
 
   void createNotificationNoAttachment(CreateNotificationRequest createNotificationRequest);
 
-  void suggestNotification(String buildingId, String title, String body, ArrayList<String> attachmentPaths);
+  void suggestNotification(SuggestNotificationRequest suggestNotificationRequest);
 
   void suggestNotificationNoAttachment(SuggestNotificationRequest suggestNotificationRequest);
 }

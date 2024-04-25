@@ -26,7 +26,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.exifinterface.media.ExifInterface;
 
-import com.sca.in_telligent.BuildConfig1;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.AttachmentFile;
@@ -47,6 +46,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -116,6 +116,8 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     @BindView(R.id.contact_send_message_edittext)
     EditText messageEditText;
 
+    TextView goBackText;
+
     private boolean managed;
     private boolean isPersonalCommunity;
     private boolean canSendLSA;
@@ -158,8 +160,29 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
+            alertSpinner = view.findViewById(R.id.contact_alert_spinner);
+            sendSpinner = view.findViewById(R.id.contact_send_to_spinner);
+            sendSpinnerLayout = view.findViewById(R.id.contact_send_spinner_layout);
+            alertSpinnerLayout = view.findViewById(R.id.contact_alert_spinner_layout);
+            sendAttachmentLayout = view.findViewById(R.id.contact_send_attachment_layout);
+            attachmentText = view.findViewById(R.id.contact_send_attachment_text);
+            attachmentProgressBar = view.findViewById(R.id.contact_send_attachment_progress_bar);
+            requiredAlertType = view.findViewById(R.id.required_alert_type);
+            requiredSendTo = view.findViewById(R.id.required_send_to);
+            sendMessageButton = view.findViewById(R.id.contact_send_message_button);
+            sendTitleEdittext = view.findViewById(R.id.contact_send_title_edittext);
+            messageEditText = view.findViewById(R.id.contact_send_message_edittext);
+            goBackText = view.findViewById(R.id.contact_message_back_text);
+
+
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            goBackText.setOnClickListener(v -> backClick());
+            sendMessageButton.setOnClickListener(v -> sendMessage(v));
+            attachmentText.setOnClickListener(v -> attachmentButtonClick(v));
+
+
         }
 
         return view;
@@ -201,7 +224,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
 
     @OnClick({R.id.contact_message_back_button, R.id.contact_message_back_text})
-    void backClick(View v) {
+    void backClick() {
         getActivity().onBackPressed();
     }
 
@@ -305,14 +328,14 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             ContactDeliverDialog contactDeliverDialog = ContactDeliverDialog
                     .newInstance(buildingId, isPersonalCommunity);
             contactDeliverDialog.setContactDeliverSelector(this);
-            contactDeliverDialog.show(getActivity().getSupportFragmentManager(), ContactDeliverDialog.class.getSimpleName());
+            contactDeliverDialog.show(requireActivity().getSupportFragmentManager(), ContactDeliverDialog.class.getSimpleName());
         }
     }
 
-//    @OnClick(R.id.contact_send_attachment_layout)
-//    void attachmentButtonClick(View v) {
-//        mPresenter.getStoragePermission();
-//    }
+    @OnClick(R.id.contact_send_attachment_layout)
+    void attachmentButtonClick(View v) {
+        mPresenter.getStoragePermission();
+    }
 
     @OnClick(R.id.contact_send_message_button)
     void sendMessage(View v) {
@@ -355,8 +378,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
     }
 
     private void suggestNotification() {
-        mPresenter.suggestNotification(buildingId, sendTitleEdittext.getText().toString(),
-                messageEditText.getText().toString(), attachmentPaths);
+        SuggestNotificationRequest suggestNotificationRequest = new SuggestNotificationRequest();
+        suggestNotificationRequest.setBuildingId(buildingId);
+        suggestNotificationRequest.setDescription(messageEditText.getText().toString());
+        suggestNotificationRequest.setTitle(sendTitleEdittext.getText().toString());
+        suggestNotificationRequest.setAttachments(attachmentPaths);
+        mPresenter.suggestNotification(suggestNotificationRequest);
     }
 
     private void suggestNotifiationNoThumbnail() {
@@ -453,19 +480,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
             if (data.getData() != null) {
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "data.getData() = " + data.getData());
-                    Log.d("mikes", "data.getDataString() = " + data.getDataString());
-                    Log.d("mikes", "data.getType() = " + data.getType());
-                }
+
 
                 Uri selectedUri = data.getData();
 
                 final String attachmentPath = selectedUri.getPath();
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "attachmentPath = " + attachmentPath);
-                }
 
                 File file = new File(attachmentPath);
                 attachmentText.setText("\t" + file.getName());
@@ -474,7 +494,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                     attachmentFiles.add(new AttachmentFile(FileType.VIDEO, file, selectedUri.toString()));
                 } else {
                     attachmentFiles.add(new AttachmentFile(FileType.IMAGE, file, selectedUri.toString()));
-//                    attachmentPaths.add(attachmentPath);
+                    attachmentPaths.add(attachmentPath);
                 }
 
                 compressFiles(attachmentFiles);
@@ -483,9 +503,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 ClipData mClipData = data.getClipData();
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "mClipData.getItemCount = " + mClipData.getItemCount());
-                }
 
                 for (int i = 0; i < mClipData.getItemCount(); i++) {
 
@@ -533,13 +550,6 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         }
 
         setLoadAttachmentViewState(LoadAttachmentViewState.COMPRESSING);
-
-        if (BuildConfig1.LOG_DEBUG_MODE) {
-            for (AttachmentFile attachmentFile : inputFiles) {
-                Log.d("CreateCommunityAlert",
-                        "Input filesize: " + String.valueOf(attachmentFile.getFile().length() / 1024));
-            }
-        }
 
         @SuppressLint("StaticFieldLeak") AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>> asyncTask = new AsyncTask<ArrayList<AttachmentFile>, Integer, ArrayList<String>>() {
             @Override
@@ -613,16 +623,12 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
                 attachmentProgressBar.setProgress(values[0]);
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             protected void onPostExecute(ArrayList<String> newFilePaths) {
 
                 for (String newFilePath : newFilePaths) {
                     final long filesize = (new File(newFilePath).length() / 1024);
-
-                    if (BuildConfig1.LOG_DEBUG_MODE) {
-                        Log.d("CreateCommunityAlert", "Output filepath: " + newFilePath);
-                        Log.d("CreateCommunityAlert", "Output filesize: " + filesize);
-                    }
 
                     totalAttachmentsSize += filesize;
                 }
@@ -632,17 +638,9 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
 
                 attachmentPaths.addAll(newFilePaths);
 
-                if (BuildConfig1.LOG_DEBUG_MODE) {
-                    Log.d("mikes", "Selected Files: " + attachmentPaths.size());
-                    for (String s : attachmentPaths) {
-                        Log.d("mikes", "attachmentPaths: " + s);
-                    }
-
-                    Log.d("mikes", "totalAttachmentsSize: " + totalAttachmentsSize);
-                }
 
                 if (totalAttachmentsSize < MAX_TOTAL_ATTACHMENTS_SIZE_KB) {
-                    attachmentText.setText("\t" + String.valueOf(attachmentPaths.size()) + " " + getString(
+                    attachmentText.setText("\t" + attachmentPaths.size() + " " + getString(
                             R.string.attachments));
                 } else {
                     attachmentPaths.clear();
@@ -682,12 +680,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             if (!activity.isDestroyed() && !activity.isFinishing()) {
                 builder
                         .setTitle(R.string.attachments_too_large_try_again)
-                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
+                        .setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss())
                         .show();
             }
         }
@@ -700,15 +693,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             int rotation = exif
                     .getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
 
-            if (BuildConfig1.LOG_DEBUG_MODE) {
-                Log.d("mikes", "rotate bitmap exif rotation = " + rotation);
-            }
 
             int rotationInDegrees = exifToDegrees(rotation);
 
-            if (BuildConfig1.LOG_DEBUG_MODE) {
-                Log.d("mikes", "rotate bitmap exif rotationInDegrees = " + rotationInDegrees);
-            }
+
 
             if (rotationInDegrees == 0) {
 

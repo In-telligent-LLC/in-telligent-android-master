@@ -58,6 +58,50 @@ public class BuildingAddress implements Serializable {
         return this.radius;
     }
 
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public void setFormattedAddress(String formattedAddress) {
+        this.formattedAddress = formattedAddress;
+    }
+
+    public void setVirtual(boolean virtual) {
+        isVirtual = virtual;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    public void setRoute(String route) {
+        this.route = route;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
     public boolean isVirtual() {
         return this.isVirtual;
     }

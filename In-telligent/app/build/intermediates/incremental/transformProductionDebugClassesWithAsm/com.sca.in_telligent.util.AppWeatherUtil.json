@@ -1,1 +1,0 @@
-{"className":"com.sca.in_telligent.util.AppWeatherUtil","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.WeatherUtil"],"superClasses":["java.lang.Object"]}

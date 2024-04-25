@@ -43,9 +43,9 @@ public class NotificationAttachmentAdapter extends RecyclerView.Adapter<BaseView
 
     VideoDownloader videoDownloader;
 
-    private List<NotificationAttachment> notificationAttachments;
+    private final List<NotificationAttachment> notificationAttachments;
     private Callback mCallback;
-    private Context mContext;
+    private final Context mContext;
 
     public void setActivityContext(Context activityContext) {
         this.activityContext = activityContext;
@@ -106,6 +106,10 @@ public class NotificationAttachmentAdapter extends RecyclerView.Adapter<BaseView
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            documentTitle = itemView.findViewById(R.id.notification_attachment_document_title);
+            thumbnailContainer = itemView.findViewById(R.id.notification_attachment_thumbnail_image_container);
+            thumbnailImage = itemView.findViewById(R.id.notification_attachment_thumbnail_image);
+            imageViewDocumentType = itemView.findViewById(R.id.imageview_document_type);
         }
 
         @Override

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
@@ -15,18 +14,17 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.material.snackbar.Snackbar;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.ScaApplication;
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.component.ActivityComponent;
-import com.sca.in_telligent.di.component.ApplicationComponent;
 import com.sca.in_telligent.di.component.DaggerActivityComponent;
 import com.sca.in_telligent.di.module.ActivityModule;
 import com.sca.in_telligent.openapi.util.AudioHelper;
@@ -36,9 +34,10 @@ import com.sca.in_telligent.util.NetworkUtils;
 import com.sca.in_telligent.util.Responder;
 import com.sca.in_telligent.util.VideoDownloader;
 
-import java.security.Permission;
-
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.Callback, MvpView {
     @Inject
@@ -77,12 +76,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return this.locationUtil;
     }
 
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-//        mActivityComponent = DaggerActivityComponent.builder()
-//                .activityModule(new ActivityModule(this))
-//                .applicationComponent(((ScaApplication) getApplication()).getComponent()).build();
+        mActivityComponent = DaggerActivityComponent.builder()
+                .activityModule(new ActivityModule(this))
+                .applicationComponent(((ScaApplication) getApplication()).getComponent())
+                .build();
+
         setUnBinder(ButterKnife.bind(this));
 
 
@@ -100,7 +101,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return checkSelfPermission(str) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void onDestroy() {
         Unbinder unbinder = this.mUnBinder;
         if (unbinder != null) {
@@ -113,7 +113,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.mUnBinder = unbinder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     public void showLoading() {
         hideLoading();
         this.mProgressDialog = CommonUtils.showLoadingDialog(this);
@@ -128,12 +127,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.mProgressDialog.cancel();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @SuppressLint("ResourceType")
-    private void showSnackBar(String str) {
-        @SuppressLint("ResourceType") Snackbar make = Snackbar.make(findViewById(16908290), str, -1);
-        ((TextView) make.getView().findViewById(2131231390)).setTextColor(ContextCompat.getColor(this, 17170443));
-        make.show();
+    private void showSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                message, Snackbar.LENGTH_SHORT);
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView
+                .findViewById(R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
+        snackbar.show();
     }
 
     @Override // com.sca.in_telligent.ui.base.MvpView
@@ -145,13 +146,12 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void onError(int i) {
         onError(getString(i));
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showMessage(String str) {
         if (str != null) {
             Toast.makeText((Context) this, (CharSequence) str, Toast.LENGTH_LONG).show();
@@ -233,17 +233,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         return this.responder;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     @SuppressLint("ResourceType")
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showNetworkDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Alert");
         builder.setMessage(R.string.please_check_your_network_connection_try_again);
-        builder.setNeutralButton(getString(17039370), new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.base.BaseActivity.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
+        builder.setNeutralButton(getString(R.string.ok), (dialogInterface, i) -> {
         });
         builder.show();
     }
@@ -256,8 +252,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     public void onResume() {
         super.onResume();
     }
-
-    public abstract void phonePermissionResult(Permission permission);
 
     // com.sca.in_telligent.ui.main.MainMvpView
     public abstract void phonePermissionResult(boolean permission);

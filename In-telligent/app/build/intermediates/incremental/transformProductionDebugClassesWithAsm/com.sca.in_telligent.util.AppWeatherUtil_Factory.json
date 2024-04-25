@@ -1,1 +1,0 @@
-{"className":"com.sca.in_telligent.util.AppWeatherUtil_Factory","classAnnotations":[],"interfaces":["dagger.internal.Factory","javax.inject.Provider"],"superClasses":["java.lang.Object"]}

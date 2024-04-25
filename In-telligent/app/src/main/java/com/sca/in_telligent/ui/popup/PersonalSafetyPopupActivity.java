@@ -6,18 +6,17 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.data.network.model.AlertOpenedRequest;
 import com.sca.in_telligent.ui.base.BaseActivity;
 import com.sca.in_telligent.util.AppResponder.ResponderListener;
 
-import java.security.Permission;
 import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PersonalSafetyPopupActivity extends BaseActivity implements ResponderListener {
 
@@ -62,10 +61,6 @@ public class PersonalSafetyPopupActivity extends BaseActivity implements Respond
     setUp();
   }
 
-  @Override
-  public void phonePermissionResult(Permission permission) {
-
-  }
 
   @Override
   public void phonePermissionResult(boolean permission) {
