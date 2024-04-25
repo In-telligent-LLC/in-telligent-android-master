@@ -58,6 +58,7 @@ public class MessageViewDialog extends BaseDialog implements MessageViewMvpView 
   public void onAttach(Context context) {
     super.onAttach(context);
     pushNotificationDetailCallback = (PushNotificationDetailCallback) context;
+    assert getArguments() != null;
     pushNotification = (PushNotification) getArguments().getSerializable("pushNotification");
   }
 
@@ -66,6 +67,13 @@ public class MessageViewDialog extends BaseDialog implements MessageViewMvpView 
       Bundle savedInstanceState) {
 
     View view = inflater.inflate(R.layout.message_view_dialog, container, false);
+    bodyText = view.findViewById(R.id.message_preview_body_text);
+    titleText = view.findViewById(R.id.message_preview_title_text);
+    okButton = view.findViewById(R.id.message_view_ok_button);
+
+    okButton.setOnClickListener(this::okClicked);
+    bodyText.setOnClickListener(this::seeFullMessageClicked);
+
 
     ActivityComponent component = getActivityComponent();
     if (component != null) {
