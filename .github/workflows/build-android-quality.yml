@@ -49,9 +49,9 @@ jobs:
         
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CONFIG_JSON }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: bairesdev-testers
-          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/app-release.apk
+          file: ${{ github.workspace }}/In-telligent/app/build/outputs/apk/release/app-release-unsigned.apk
 
    
           
