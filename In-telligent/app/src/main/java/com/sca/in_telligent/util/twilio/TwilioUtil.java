@@ -8,7 +8,7 @@ public interface TwilioUtil {
 
   void answerCall();
 
-  void makeCall(String buildingId);
+  void makeCall(String phoneNumber, String voipToken);
 
   void rejectCall();
 

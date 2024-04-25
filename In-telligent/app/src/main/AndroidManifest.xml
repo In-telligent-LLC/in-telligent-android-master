@@ -70,9 +70,12 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <action android:name=".MainActivity" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.LAUNCHER" />
 
                 <data
                     android:host="http://app-intelligent.com"
@@ -231,6 +234,14 @@
 <!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
 
         <receiver android:name="com.factual.android.LocationUpdateReceiver" />
+        <receiver
+            android:name="com.sca.in_telligent.receiver.FirebaseBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name="com.factual.android.ObservationGraphJobService"

@@ -70,6 +70,8 @@ public class ScaApplication extends Application {
             }
         });
 
+
+
         ProcessLifecycleOwner.get().getLifecycle().addObserver(appLifecycleObserver);
     }
 

@@ -40,6 +40,9 @@ public class IncomingCallPresenter<V extends IncomingCallMvpView> extends
 
     @Override
     public void requestRecordAudioPermission() {
+        getRxPermissions()
+                .request(permission.RECORD_AUDIO)
+                .subscribe(granted -> getMvpView().recordAudioPermissionResult(granted));
 
     }
 

@@ -68,7 +68,7 @@ public class HeadsUpNotificationActionReceiver extends BroadcastReceiver {
         context.stopService(new Intent(context, HeadsUpNotificationService.class));
         String currentState = ((ScaApplication) context.getApplicationContext()).getCurrentState();
         if (!TextUtils.isEmpty(currentState) && currentState.equals("start")) {
-            Intent cancelIntent = getCancelIntent(context, pushNotification, "fourground");
+            Intent cancelIntent = getCancelIntent(context, pushNotification, "foreground");
             cancelIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(cancelIntent);
         } else {

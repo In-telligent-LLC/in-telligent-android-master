@@ -11,7 +11,9 @@ import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.di.ApplicationContext;
 import com.sca.in_telligent.di.module.ApplicationModule;
 import com.sca.in_telligent.openapi.util.AudioHelper;
+import com.sca.in_telligent.receiver.FirebaseBroadcastReceiver;
 import com.sca.in_telligent.service.GeofenceTransitionsIntentService;
+import com.sca.in_telligent.service.MyFirebaseMessagingService;
 import com.sca.in_telligent.util.LifecycleInterface;
 import com.sca.in_telligent.util.LocationUtil;
 import com.sca.in_telligent.util.Responder;
@@ -31,6 +33,11 @@ public interface ApplicationComponent {
   void inject(ScaApplication app);
 
   void inject(GeofenceTransitionsIntentService service);
+
+  void inject (MyFirebaseMessagingService service);
+
+  void inject(FirebaseBroadcastReceiver receiver);
+
 
   @ApplicationContext
   Context context();

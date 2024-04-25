@@ -164,7 +164,7 @@ public interface ApiHelper {
     Observable<LocationModel> getUpdatedLocation(@Path("subscriberId") String str);
 
     @POST(ApiEndPoint.VOIP_TOKEN)
-    Observable<VoipTokenResponse> getVoipToken();
+    Observable<VoipTokenResponse> getVoipToken(@Body VoipCallRequest voipRequest);
 
     @POST(ApiEndPoint.SUGGESTED_BUILDINGS_IGNORE)
     Observable<SuccessResponse> ignoreBuilding(@Path("buildingId") String str);

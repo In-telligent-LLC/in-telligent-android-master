@@ -203,14 +203,32 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         checkDeepLinksParams();
         this.mGeofenceClient.populateIntelligentFences(false);
 
+
     }
 
     private void checkIntent(Intent intent) {
-        if (intent.getExtras() != null && intent.getExtras().getSerializable("pushNotification") != null) {
-            handlePush(intent.getExtras());
-        } else if (intent.getExtras() == null || intent.getBundleExtra("bundle") == null || intent.getBundleExtra("bundle").getSerializable("pushNotification") == null) {
-        } else {
-            handlePush(intent.getBundleExtra("bundle"));
+        if (intent.getBooleanExtra("show_popup", false)) {
+            Bundle extras = intent.getExtras();
+            PushNotification pushNotification = (PushNotification) extras
+                    .getSerializable("pushNotification");
+
+            MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
+
+
+            assert pushNotification != null;
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(pushNotification.getTitle())
+                    .setMessage(pushNotification.getBody())
+                    .setNegativeButton(R.string.ok, (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .setPositiveButton(R.string.view, (dialog, which) -> {
+                        dialog.dismiss();
+                        messageViewDialog.show(getSupportFragmentManager());
+                    })
+                    .show();
+
+
         }
     }
 
@@ -727,7 +745,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void groupRightClick(int i) {
         GroupDetailContainerFragment groupDetailContainerFragment = (GroupDetailContainerFragment) getSupportFragmentManager().findFragmentByTag(GroupDetailContainerFragment.TAG);
         if (groupDetailContainerFragment != null) {
@@ -874,45 +892,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         subscriber.setLightningAlertEnabled(lightningEnabled);
     }
 
-        private void handlePush(Bundle extras) {
-            String from = extras.getString("from", "");
-            PushNotification pushNotification = (PushNotification) extras
-                    .getSerializable("pushNotification");
-
-            if (pushNotification != null && "alert".equals(pushNotification.getType())) {
-                if (extras.getBoolean("show_popup", false)) {
-                    MessageViewDialog messageViewDialog = MessageViewDialog.newInstance(pushNotification);
-                    if (!from.isEmpty() && from.equals("background")) {
-                        messageViewDialog.show(getSupportFragmentManager());
-                    } else {
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(pushNotification.getTitle())
-                                .setMessage(pushNotification.getBody())
-                                .setNegativeButton(R.string.ok, (dialog, which) -> {
-                                    dialog.dismiss();
-                                })
-                                .setPositiveButton(R.string.view, (dialog, which) -> {
-                                    dialog.dismiss();
-                                    messageViewDialog.show(getSupportFragmentManager());
-                                })
-                                .show();
-                    }
-                }
-            }
-        }
-
 
     private AlertDialog setUpAlertDialog(NumberPicker numberPicker, String str, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(numberPicker);
         builder.setTitle(str);
         builder.setCancelable(true);
-        builder.setPositiveButton((int) R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, new DialogInterface.OnClickListener() { // from class: com.sca.in_telligent.ui.main.MainActivity.5
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton(R.string.set, onClickListener).setNegativeButton((int) R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss());
         return builder.create();
     }
 
@@ -933,7 +919,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void onShowNotificationDetails(Notification notification) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add(R.id.content_frame, NotificationDetailFragment.newInstance(notification), AlertListFragment.TAG).commit();
     }
 
     @Override
