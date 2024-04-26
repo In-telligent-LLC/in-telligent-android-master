@@ -47,6 +47,8 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
     @BindView(R.id.settings_logout_text)
     TextView settingsLogout;
 
+    TextView backButton;
+
     private Subscriber subscriber;
     private SettingsCallback settingsCallback;
 
@@ -73,17 +75,22 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         ActivityComponent component = getActivityComponent();
         tabHost = view.findViewById(android.R.id.tabhost);
         settingsLogout = view.findViewById(R.id.settings_logout_text);
+        backButton = view.findViewById(R.id.settings_back_text);
         settingsLogout.setOnClickListener(this::logoutClick);
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
+
+            backButton.setOnClickListener(this::backClick);
+
         }
         return view;
     }
 
     @Override
     protected void setUp(View view) {
+
         tabHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
         tabHost.addTab(
