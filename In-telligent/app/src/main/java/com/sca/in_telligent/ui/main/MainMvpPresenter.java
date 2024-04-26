@@ -7,7 +7,7 @@ import com.sca.in_telligent.ui.main.MainMvpView;
 
 @PerActivity
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
-    void getCommunityInfo(int i, int i2);
+    void getCommunityInfo(int communityId, int inviteId);
 
     void getSubscriber();
 
@@ -23,7 +23,7 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void refreshGeofences(Location location);
 
-    void requestLocationPermissions(boolean z);
+    void requestLocationPermissions(boolean location);
 
     void requestPhonePermission();
 

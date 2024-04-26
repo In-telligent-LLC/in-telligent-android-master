@@ -1,6 +1,7 @@
 package com.sca.in_telligent.ui.findlocation;
 
 import android.Manifest.permission;
+import android.annotation.SuppressLint;
 
 import androidx.fragment.app.Fragment;
 
@@ -30,26 +31,19 @@ public class FindLocationPresenter<V extends FindLocationMvpView> extends
   public void getUpdatedLocation(String subscriberId) {
     getCompositeDisposable().add(getDataManager().getUpdatedLocation(subscriberId)
         .subscribeOn(getSchedulerProvider().io()).
-            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<LocationModel>() {
-          @Override
-          public void accept(LocationModel locationModel) throws Exception {
-            if (locationModel != null) {
-              getMvpView().updatedLocationFetched(locationModel);
-            }
-          }
-        }, new Consumer<Throwable>() {
-          @Override
-          public void accept(Throwable throwable) throws Exception {
-            getMvpView().hideLoading();
-          }
-        }));
+            observeOn(getSchedulerProvider().ui()).subscribe(locationModel -> {
+              if (locationModel != null) {
+                getMvpView().updatedLocationFetched(locationModel);
+              }
+            }, throwable -> getMvpView().hideLoading()));
   }
 
+  @SuppressLint("CheckResult")
   @Override
   public void requestLocationPermission() {
-//    getRxPermissionsFragment((Fragment) getMvpView())
-//        .request(permission.ACCESS_FINE_LOCATION)
-//        .subscribe(granted -> getMvpView().locationPermissionResult(granted));
+    getRxPermissionsFragment((Fragment) getMvpView())
+        .request(permission.ACCESS_FINE_LOCATION)
+        .subscribe(granted -> getMvpView().locationPermissionResult(granted));
   }
 
 }

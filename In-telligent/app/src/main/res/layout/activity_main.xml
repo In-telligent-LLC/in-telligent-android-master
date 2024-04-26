@@ -31,7 +31,9 @@
           app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintVertical_bias="0.0"
-          tools:layout_editor_absoluteX="0dp" />
+          tools:layout_editor_absoluteX="0dp" >
+
+      </FrameLayout>
 
       <com.google.android.material.bottomnavigation.BottomNavigationView
           android:id="@+id/bottom_navigation"
@@ -45,7 +47,22 @@
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:menu="@menu/bottom_navigation_main" />
+          app:menu="@menu/bottom_navigation_main" >
+
+<!--        <TextView-->
+<!--            android:id="@+id/version_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/total_silence_selector"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingBottom="10dp"-->
+<!--            android:text="6.0.2 (650)"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textAppearance="@style/SettingsTabLayout"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="12sp"-->
+<!--            android:visibility="visible" />-->
+      </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -131,21 +148,10 @@
           android:textColor="@color/white"
           android:textSize="24sp"/>
 
-<!--      <TextView-->
-<!--          android:id="@+id/version"-->
-<!--          android:layout_width="80dp"-->
-<!--          android:layout_height="wrap_content"-->
-<!--          android:layout_toEndOf="@id/total_silence_off"-->
-<!--          android:paddingTop="10dp"-->
-<!--          android:paddingBottom="10dp"-->
-<!--          android:background="@drawable/total_silence_selector"-->
-<!--          android:text="@string/version_no_longer_available"-->
-<!--          android:textAlignment="center"-->
-<!--          android:textColor="@color/white"-->
-<!--          android:textSize="24sp"/>-->
+
     </RelativeLayout>
 
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/btnTestNotification"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
