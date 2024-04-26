@@ -74,8 +74,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
   private static final int RC_SIGN_IN = 12332;
 
   public static Intent getStartIntent(Context context) {
-    Intent intent = new Intent(context, LoginActivity.class);
-    return intent;
+    return new Intent(context, LoginActivity.class);
   }
 
   @Override
@@ -113,10 +112,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
 
     hideKeyboard();
     setUp();
-
-
-
-
 
   }
 

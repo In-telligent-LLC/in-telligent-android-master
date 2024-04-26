@@ -1,9 +1,6 @@
 name: Android - Deployment Quality
 
 on:
-  pull_request:
-    branches:
-      - quality
   push:
     branches:
       - quality
