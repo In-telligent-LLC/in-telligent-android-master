@@ -268,7 +268,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 //        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
 
         this.mPresenter.getSubscriber();
-//        CommonUtils.checkDNDPermission(this);
+        CommonUtils.checkDNDPermission(this);
+        CommonUtils.checkLocationPermission(this);
 
 
     }
