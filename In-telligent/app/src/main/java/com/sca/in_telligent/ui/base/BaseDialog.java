@@ -20,7 +20,6 @@ import butterknife.Unbinder;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 
-/* loaded from: C:\Users\BairesDev\Downloads\base-master_decoded_by_apktool\classes3.dex */
 public abstract class BaseDialog extends DialogFragment implements DialogMvpView {
     private BaseActivity mActivity;
     private Unbinder mUnBinder;
@@ -52,7 +51,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void hideLoading() {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -60,7 +59,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void onError(String str) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -68,7 +67,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void onError(int i) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -76,7 +75,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showMessage(String str) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -84,7 +83,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showMessage(int i) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {

@@ -62,13 +62,13 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void showLoading() {
         hideLoading();
         this.mProgressDialog = CommonUtils.showLoadingDialog(getContext());
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void hideLoading() {
         Dialog dialog = this.mProgressDialog;
         if (dialog == null || !dialog.isShowing()) {
@@ -77,7 +77,7 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         this.mProgressDialog.cancel();
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void onError(String str) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -93,19 +93,19 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
-    public void showMessage(String str) {
+    @Override
+    public void showMessage(String message) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
-            baseActivity.showMessage(str);
+            baseActivity.showMessage(message);
         }
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
-    public void showMessage(int i) {
+    @Override
+    public void showMessage(int resId) {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
-            baseActivity.showMessage(i);
+            baseActivity.showMessage(resId);
         }
     }
 
@@ -114,15 +114,15 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content),
                 message, Snackbar.LENGTH_SHORT);
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView
+        TextView textView = sbView
                 .findViewById(R.id.snackbar_text);
         textView.setTextColor(ContextCompat.getColor(getActivity(), android.R.color.white));
         snackbar.show();
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
-    public void showMessageSnack(String str) {
-        showSnackBar(str);
+    @Override
+    public void showMessageSnack(String message) {
+        showSnackBar(message);
     }
 
     @Override
@@ -132,17 +132,14 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         alertDialog.setMessage(message);
 
         alertDialog
-                .setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                .setNeutralButton(getString(android.R.string.ok), (dialogInterface, i) -> {
 
-                    }
                 });
 
         alertDialog.show();
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public boolean isNetworkConnected() {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -156,7 +153,7 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         super.onDetach();
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void hideKeyboard() {
         BaseActivity baseActivity = this.mActivity;
         if (baseActivity != null) {
@@ -172,9 +169,9 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         return null;
     }
 
-    @Override // com.sca.in_telligent.ui.base.MvpView
+    @Override
     public void startActivityWithDeeplink(Intent intent) {
-        Uri uri = (Uri) getActivity().getIntent().getParcelableExtra("deep_link_uri");
+        Uri uri = getActivity().getIntent().getParcelableExtra("deep_link_uri");
         if (uri != null) {
             intent.putExtra("deep_link_uri", uri);
         }
@@ -189,13 +186,13 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         return null;
     }
 
-    public FusedLocationProviderClient getFusedLocationProviderClient() {
-        BaseActivity baseActivity = this.mActivity;
-        if (baseActivity != null) {
-            return baseActivity.getFusedLocationProviderClient();
-        }
-        return null;
-    }
+//    public FusedLocationProviderClient getFusedLocationProviderClient() {
+//        BaseActivity baseActivity = this.mActivity;
+//        if (baseActivity != null) {
+//            return baseActivity.getFusedLocationProviderClient();
+//        }
+//        return null;
+//    }
 
     public Responder getResponder() {
         return this.mActivity.responder;
@@ -228,11 +225,8 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         alertDialog.setMessage(R.string.please_check_your_network_connection_try_again);
 
         alertDialog
-                .setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                .setNeutralButton(getString(android.R.string.ok), (dialogInterface, i) -> {
 
-                    }
                 });
 
         alertDialog.show();
