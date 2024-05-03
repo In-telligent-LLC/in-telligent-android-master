@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -57,17 +58,19 @@
 
   <TextView
       android:id="@+id/settings_logout_text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
       android:layout_margin="10dp"
-      android:padding="5dp"
       android:background="@color/red"
+      android:padding="5dp"
       android:text="@string/logout"
-      android:textColor="@color/white"
+      android:textColor="@color/black"
       android:textSize="12sp"
+      android:visibility="visible"
       app:layout_constraintBottom_toBottomOf="@id/settings_back_button"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@id/settings_back_button"/>
+      app:layout_constraintTop_toTopOf="@id/settings_back_button"
+      tools:text="@string/logout" />
 
   <androidx.fragment.app.FragmentTabHost
       android:id="@android:id/tabhost"

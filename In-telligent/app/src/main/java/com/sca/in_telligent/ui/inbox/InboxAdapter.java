@@ -29,8 +29,10 @@ import butterknife.OnClick;
 public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private final List<Notification> notifications;
+
     private Callback mCallback;
     private final Context context;
+    private InboxMvpPresenter<InboxMvpView> mPresenter;
 
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
@@ -59,8 +61,11 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         LayoutInflater
                                 .from(parent.getContext())
                                 .inflate(R.layout.inbox_notification_empty_view, parent, false));
+
+
         }
     }
+
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
@@ -211,14 +216,11 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.inbox_retry_button)
         Button retryButton;
 
-        @BindView(R.id.inbox_no_message_text)
-        TextView messageTextView;
 
         public EmptyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             retryButton = itemView.findViewById(R.id.inbox_retry_button);
-            messageTextView = itemView.findViewById(R.id.inbox_no_message_text);
 
             retryButton.setOnClickListener(v -> onRetryClick());
         }
@@ -231,16 +233,21 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @OnClick(R.id.inbox_retry_button)
         void onRetryClick() {
             if (mCallback != null) {
+                mPresenter.getInbox("0", true);
+
             }
+
         }
+
+        }
+
+
+        public interface Callback {
+
+            void onNotificationSelected(int position, Notification notification);
+
+            void onSavedMessageSelected(int position, Notification notification);
+
+            void onAlertDelete(Notification notification, int position);
+     }
     }
-
-    public interface Callback {
-
-        void onNotificationSelected(int position, Notification notification);
-
-        void onSavedMessageSelected(int position, Notification notification);
-
-        void onAlertDelete(Notification notification, int position);
-    }
-}
