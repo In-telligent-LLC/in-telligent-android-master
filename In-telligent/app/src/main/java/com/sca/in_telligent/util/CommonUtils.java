@@ -181,11 +181,12 @@ public final class CommonUtils {
         builder.create().show();
     }
 
-    public static void checkDNDPermission(Context context) {
+    public static boolean checkDNDPermission(Context context) {
         if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
-            return;
+            return true;
         }
         buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
+        return false;
     }
 
     public static void openAudioType(AudioHelper audioHelper, PushNotification pushNotification, Context context) {

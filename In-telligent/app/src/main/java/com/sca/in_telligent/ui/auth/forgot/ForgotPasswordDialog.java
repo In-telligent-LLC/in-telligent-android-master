@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
 
@@ -27,12 +26,8 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
   @Inject
   ForgotPasswordMvpPresenter<ForgotPasswordMvpView> mPresenter;
 
-  @BindView(R.id.forgotPasswordEditText)
+  @BindView(R.id.forgotPasswordEmail)
   EditText forgotPasswordEmail;
-
-  TextView forgotPasswordSubmit;
-
-  TextView forgotPasswordCancel;
 
   public static ForgotPasswordDialog newInstance() {
     ForgotPasswordDialog fragment = new ForgotPasswordDialog();
@@ -51,15 +46,9 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
     if (component != null) {
 
       component.inject(this);
-      forgotPasswordEmail = view.findViewById(R.id.forgotPasswordEditText);
-      forgotPasswordSubmit = view.findViewById(R.id.forgotPasswordSubmit);
-      forgotPasswordCancel = view.findViewById(R.id.forgotPasswordCancel);
+      forgotPasswordEmail = view.findViewById(R.id.forgotPasswordEmail);
 
       setUnBinder(ButterKnife.bind(this, view));
-
-      forgotPasswordSubmit.setOnClickListener(v -> forgotPasswordSubmit());
-
-      forgotPasswordCancel.setOnClickListener(this::cancelClick);
 
       mPresenter.onAttach(this);
 
@@ -75,7 +64,7 @@ public class ForgotPasswordDialog extends BaseDialog implements ForgotPasswordMv
   }
 
   @OnClick(R.id.forgotPasswordSubmit)
-  void forgotPasswordSubmit() {
+  void forgotPasswordSubmit(View v) {
     ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest();
     forgotPasswordRequest.setEmail(forgotPasswordEmail.getText().toString());
     mPresenter.submitEmail(forgotPasswordRequest);

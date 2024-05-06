@@ -25,7 +25,7 @@ public class AppPreferencesHelper extends OpenApiPreferencesHelperImpl implement
     @Override
     public String getCurrentUserId() {
         String userId = mPrefs.getString(Constants.Preferences.PREF_KEY_CURRENT_USER_ID, AppConstants.NULL_INDEX);
-        return userId.equals(AppConstants.NULL_INDEX) ? null : userId;
+        return userId == AppConstants.NULL_INDEX ? null : userId;
     }
 
     @Override

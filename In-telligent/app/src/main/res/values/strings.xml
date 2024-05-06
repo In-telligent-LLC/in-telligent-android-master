@@ -357,7 +357,7 @@
     <string name="type_comment_here">Type Comment Here</string>
     <string name="my_account">My Account</string>
     <string name="unable_updated_location">Unable to get an up to date location.</string>
-    <string name="some_error">Something is not right, try again later!</string>
+    <string name="some_error">Some Error</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_closed">Close</string>
     <string name="create_a_group">Create a Group</string>
