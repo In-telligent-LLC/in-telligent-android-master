@@ -1,6 +1,5 @@
 package com.sca.in_telligent.ui.settings.account;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -123,7 +122,6 @@ public class AccountSettingsFragment extends BaseFragment implements AccountSett
                 .show();
     }
 
-    @SuppressLint("CheckResult")
     @Override
     public void loadLanguages(ArrayList<NotificationLanguage> notificationLanguages) {
         languages = notificationLanguages;

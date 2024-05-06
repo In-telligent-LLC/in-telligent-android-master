@@ -7,11 +7,11 @@ import com.sca.in_telligent.ui.main.MainMvpView;
 
 @PerActivity
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
-    void getCommunityInfo(int communityId, int inviteId);
+    void getCommunityInfo(int i, int i2);
 
     void getSubscriber();
 
-    void getSubscriber(boolean showLoading);
+    void getSubscriber(boolean z);
 
     void getSuggestedGroups();
 
@@ -23,13 +23,13 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void refreshGeofences(Location location);
 
-    void requestLocationPermissions(boolean location);
+    void requestLocationPermissions(boolean z);
 
     void requestPhonePermission();
 
     void startFetchingAds();
 
-    void subscribeToCommunity(int buildingId);
+    void subscribeToCommunity(int i);
 
-    void subscribeToCommunity(int buildingId, int inviteId);
+    void subscribeToCommunity(int i, int i2);
 }

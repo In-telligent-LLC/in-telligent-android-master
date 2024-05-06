@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -89,7 +88,6 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
     public void onAttach(Context context) {
         super.onAttach(context);
         inboxSelector = (InboxSelector) context;
-        assert getArguments() != null;
         openSaved = getArguments().getBoolean("openSaved");
     }
 
@@ -104,19 +102,6 @@ public class InboxFragment extends BaseFragment implements InboxMvpView, InboxAd
         swipeRefreshLayoutInbox = view.findViewById(R.id.swipe_refresh_layout_inbox);
 
 //        spinnerItemSelected(inboxSpinner, 0);
-
-        inboxSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                spinnerItemSelected(inboxSpinner, position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                spinnerItemSelected(inboxSpinner, 0);
-            }
-
-        });
 
 
         if (component != null) {

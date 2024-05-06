@@ -94,16 +94,11 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                     pushNotification.setNotificationId(dataBundle.getString("buildindId"));
 
 
-
-
-                if (audioHelper == null) {
+                    if (audioHelper == null) {
                         Log.e("FirebaseBroadcastReceiver", "AudioHelper is null");
                     } else {
-
-                    handleRingtone(pushNotification.getAlertType());
-
-                    PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class),
-                                PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ? PendingIntent.FLAG_IMMUTABLE : 0));
+                        handleRingtone(pushNotification.getAlertType());
+                        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Builder notificationBuilder =
                                 new NotificationCompat.Builder(context, "default")
                                         .setSmallIcon(R.drawable.ic_launcher)
@@ -118,7 +113,7 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             NotificationChannel channel = new NotificationChannel("default",
                                     "Channel human readable title",
-                                    NotificationManager.IMPORTANCE_HIGH);
+                                    NotificationManager.IMPORTANCE_DEFAULT);
                             notificationManager.createNotificationChannel(channel);
                         }
 
@@ -127,6 +122,10 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                         }
 
                     }
+
+
+
+
             }
         }
     }

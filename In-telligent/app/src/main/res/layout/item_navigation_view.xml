@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/gray2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -51,6 +50,6 @@
       android:background="@color/gray59"
       app:layout_constraintStart_toStartOf="@id/guideline_left"
       app:layout_constraintEnd_toEndOf="@id/guideline_right"
-      app:layout_constraintTop_toBottomOf="@id/item_navigation_image" />
+      app:layout_constraintTop_toBottomOf="@id/item_navigation_image"></View>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

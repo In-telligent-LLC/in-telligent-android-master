@@ -36,12 +36,9 @@ import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
 import com.bumptech.glide.Glide;
-import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.core.CrashlyticsCore;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.sca.in_telligent.BuildConfig;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.openapi.OpenAPI;
 import com.sca.in_telligent.openapi.data.network.model.AdResponse;
@@ -92,7 +89,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.fabric.sdk.android.Fabric;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
@@ -139,6 +135,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     TextView totalSilenceOn;
     private CountDownTimer totalSilenceTimer;
 
+    Button btnTestNotification;
+
 //    @BindView()
     TextView version_name;
 
@@ -169,8 +167,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onCreate(bundle);
 
 
-//        OpenAPI.Configuration.setMocked(false);
-        initCrashlytics();
+        OpenAPI.Configuration.setMocked(false);
 
         checkAppUpdates();
         setContentView(R.layout.activity_main);
@@ -180,7 +177,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
         ButterKnife.bind(this);
 
-        this.mPresenter.onAttach(MainActivity.this);
+        this.mPresenter.onAttach(this);
+        CommonUtils.checkDNDPermission(this);
 
         navigationViewListView = findViewById(R.id.navigation_view_listview);
         totalSilenceNumber = findViewById(R.id.total_silence_number);
@@ -238,13 +236,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         new AppUpdateHandler().start(this);
     }
 
-    private void initCrashlytics() {
-        Crashlytics crashlyticsKit = new Crashlytics.Builder()
-                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
-                .build();
-        Fabric.with(this, crashlyticsKit);
-    }
-
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.clear();
@@ -252,25 +243,19 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void setUp() {
-        mPresenter.requestLocationPermissions(true);
+        mPresenter.requestLocationPermissions(false);
         configureNavigationDrawer();
         configureToolbar();
         initSilence();
         configureTotalSilence();
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.drawer_open, R.string.drawer_closed);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, this.toolbar, R.string.drawer_open, R.string.drawer_closed);
         this.actionBarDrawerToggle = actionBarDrawerToggle;
         this.drawerLayout.addDrawerListener(actionBarDrawerToggle);
-
-
         this.bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
 //        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
 
         this.mPresenter.getSubscriber();
-        CommonUtils.checkDNDPermission(this);
-        CommonUtils.checkLocationPermission(this);
-
 
     }
 
@@ -442,31 +427,19 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     @Override
-    public void onItemClicked(int position) {
+    public void onItemClicked(int i) {
         if (!isNetworkConnected()) {
             showNetworkDialog();
+        } else if (i == 0) {
+            getSupportFragmentManager().beginTransaction().addToBackStack(SettingsFragment.TAG).add((int) R.id.content_frame, SettingsFragment.newInstance(this.subscriber), SettingsFragment.TAG).commit();
+            this.drawerLayout.closeDrawers();
+        } else if (i == 1) {
+            this.savedClicked = true;
+            this.bottomNavigationView.setSelectedItemId(R.id.action_inbox);
         } else {
-            switch (position) {
-                case 0:
-                    getSupportFragmentManager()
-                            .beginTransaction().addToBackStack(SettingsFragment.TAG)
-                            .add(R.id.content_frame, SettingsFragment.newInstance(subscriber),
-                                    SettingsFragment.TAG)
-                            .commit();
-                    drawerLayout.closeDrawers();
-                    break;
-                case 1:
-                    savedClicked = true;
-                    getSupportFragmentManager()
-                            .beginTransaction().addToBackStack(InboxFragment.TAG)
-                            .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
-                                    InboxFragment.TAG)
-                            .commit();
-                    break;
-            }
+            startActivity(LogoutActivity.getStartIntent(this));
         }
     }
-
 
 
     private void goToCreateGroupFragment() {
@@ -510,12 +483,12 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
                     break;
 
                 case R.id.action_inbox:
-                    savedClicked = false;
                     getSupportFragmentManager()
                             .beginTransaction().addToBackStack(InboxFragment.TAG)
                             .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
                                     InboxFragment.TAG)
                             .commit();
+                    savedClicked = false;
                     break;
             }
         }
