@@ -161,7 +161,6 @@
 //        });
 //    }
 //
-//    /* JADX INFO: Access modifiers changed from: private */
 //    public final void nextBtnTapped() {
 //        if (LocationUtils.isPermissionsGranted((Context) this)) {
 //            finish();

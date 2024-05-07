@@ -190,10 +190,6 @@ public class LoginActivity extends BaseActivity implements LoginMvpView,
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
 
   @Override
   protected void setUp() {

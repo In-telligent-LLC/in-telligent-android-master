@@ -37,7 +37,7 @@ public class AppLocationUtil implements LocationUtil {
     this.context = context;
   }
 
-  @SuppressLint("MissingPermission")
+  @SuppressLint({"MissingPermission", "CheckResult"})
   public void getCurrentLocation(final TimeoutLocationListener timeoutLocationListener) {
 
     LocationManager locationManager = (LocationManager) context

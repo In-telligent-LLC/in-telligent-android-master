@@ -36,16 +36,15 @@ public class LogoutActivity extends BaseActivity implements LogoutMvpView {
     setContentView(R.layout.activity_logout);
     getActivityComponent().inject(this);
 
+    logoutButton = findViewById(R.id.testLogoutButton);
+    logoutButton.setOnClickListener(this::logOut);
+
     setUnBinder(ButterKnife.bind(this));
 
     mPresenter.onAttach(LogoutActivity.this);
 
   }
 
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
 
   @OnClick(R.id.testLogoutButton)
   void logOut(View v) {

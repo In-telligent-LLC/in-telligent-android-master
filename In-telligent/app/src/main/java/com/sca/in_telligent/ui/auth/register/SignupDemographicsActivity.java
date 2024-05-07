@@ -187,12 +187,6 @@ public class SignupDemographicsActivity extends BaseActivity implements SignupDe
   }
 
   @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
-
-
-  @Override
   public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
     Log.d(TAG, "Google Login: onConnectionFailed: " + connectionResult.getErrorMessage());
   }

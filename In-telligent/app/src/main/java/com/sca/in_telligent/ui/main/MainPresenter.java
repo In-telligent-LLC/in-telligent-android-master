@@ -1,7 +1,11 @@
 package com.sca.in_telligent.ui.main;
 
+import static com.sca.in_telligent.util.CommonUtils.buildAlertMessage;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 
@@ -85,10 +89,22 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                                 }, throwable -> getMvpView().hideLoading()));
     }
 
+
+    @Override
+    public void requestDNDPermission(Context context) {
+        if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).isNotificationPolicyAccessGranted()) {
+            return;
+        }
+        buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
+
+    }
+
+    @SuppressLint("CheckResult")
     @Override
     public void requestLocationPermissions(boolean phone) {
-
-
+        getRxPermissions()
+                .request(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+                .subscribe(granted -> getMvpView().locationPermissionResult(granted, phone));
     }
 
     private static final int REQUEST_PHONE_PERMISSION = 1;

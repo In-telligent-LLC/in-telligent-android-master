@@ -256,5 +256,4 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         super.onResume();
     }
 
-    public abstract void phonePermissionResult(boolean permission);
 }

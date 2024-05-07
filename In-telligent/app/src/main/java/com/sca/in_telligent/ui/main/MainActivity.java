@@ -12,6 +12,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -252,7 +253,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     @Override
     public void setUp() {
-        mPresenter.requestLocationPermissions(true);
+        handlePermissions();
         configureNavigationDrawer();
         configureToolbar();
         initSilence();
@@ -268,10 +269,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 //        btnTestNotification.setOnClickListener(v -> getAudioHelper().startEmergencyRingtone());
 
         this.mPresenter.getSubscriber();
-        CommonUtils.checkDNDPermission(this);
-        CommonUtils.checkLocationPermission(this);
 
+    }
 
+    private void handlePermissions() {
+        mPresenter.requestLocationPermissions(false);
+        mPresenter.requestPhonePermission();
+        mPresenter.requestDNDPermission(this);
     }
 
     @Override
@@ -829,21 +833,24 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     }
 
+    @SuppressLint("MissingPermission")
     @Override
-    public void locationPermissionResult(boolean z, boolean z2) {
-        if (z) {
+    public void locationPermissionResult(boolean granted, boolean phone) {
+        if (granted) {
             if (getLocationUtil().isProviderEnabled()) {
                 getLocation();
-                return;
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Location Services Not Active");
+                builder.setMessage("Please enable Location Services and GPS");
+                builder.setPositiveButton("OK", (dialogInterface, i) -> {
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                });
+                Dialog alertDialog = builder.create();
+                alertDialog.setCanceledOnTouchOutside(false);
+                alertDialog.show();
             }
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Location Services Not Active");
-            builder.setMessage("Please enable Location Services and GPS");
-            builder.setPositiveButton("OK", (dialogInterface, i) ->
-                    MainActivity.this.startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS")));
-            AlertDialog create = builder.create();
-            create.setCanceledOnTouchOutside(false);
-            create.show();
         }
     }
 
@@ -954,9 +961,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         cancelJobs();
     }
 
-    public void onLocationNext() {
-        this.mPresenter.requestLocationPermissions(false);
-    }
 
     private void cancelJobs() {
 

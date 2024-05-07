@@ -79,12 +79,6 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
 
   @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
-
-
-  @Override
   public void openLoginActivity() {
     Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
     startActivity(intent);

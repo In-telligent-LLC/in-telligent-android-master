@@ -54,17 +54,20 @@ public class PersonalSafetyPopupActivity extends BaseActivity implements Respond
 
     setContentView(R.layout.activity_personal_safety_popup);
 
+    titleText = findViewById(R.id.personal_safety_title);
+    bodyText = findViewById(R.id.personal_safety_body);
+
+    noButton = findViewById(R.id.personal_safety_no_button);
+    yesButton = findViewById(R.id.personal_safety_yes_button);
+
+    noButton.setOnClickListener(this::noClick);
+    yesButton.setOnClickListener(this::yesClick);
+
     getActivityComponent().inject(this);
 
     setUnBinder(ButterKnife.bind(this));
 
     setUp();
-  }
-
-
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
   }
 
   @Override
