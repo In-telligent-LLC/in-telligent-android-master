@@ -84,11 +84,6 @@ public class ResetPasswordActivity extends BaseActivity implements ResetPassword
     super.onDestroy();
   }
 
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
-
 
   @Override
   public void passwordChanged() {

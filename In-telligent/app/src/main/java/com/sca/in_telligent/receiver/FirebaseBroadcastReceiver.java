@@ -46,7 +46,7 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                 if (type.equals("emergency")) {
                     audioHelper.startEmergencyRingtone();
 
-                } else if (type.equals("life_safety")) {
+                } else if (type.equals("life-safety")) {
                     audioHelper.startLifeSafetyRingtone();
 
                 } else if (type.equals("critical")) {

@@ -172,11 +172,6 @@ public class IncomingCallActivity extends BaseActivity implements TwilioUtilList
 
 
   @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
-
-  @Override
   public void callDidFail() {
 
   }

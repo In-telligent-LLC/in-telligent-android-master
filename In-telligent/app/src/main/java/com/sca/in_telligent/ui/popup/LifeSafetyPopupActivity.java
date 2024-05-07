@@ -41,9 +41,9 @@ public class LifeSafetyPopupActivity extends BaseActivity {
             WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
     );
 
-//    WindowManager.LayoutParams windowManager = getWindow().getAttributes();
-//    windowManager.alpha = 0.75f;
-//    getWindow().setAttributes(windowManager);
+    WindowManager.LayoutParams windowManager = getWindow().getAttributes();
+    windowManager.alpha = 0.75f;
+    getWindow().setAttributes(windowManager);
   }
 
   @Override
@@ -52,20 +52,22 @@ public class LifeSafetyPopupActivity extends BaseActivity {
 
     setContentView(R.layout.activity_life_safety_popup);
 
+    buttonOk = findViewById(R.id.life_safety_alert_button_ok);
+    titleText = findViewById(R.id.life_safety_alert_title);
+    bodyText = findViewById(R.id.life_safety_alert_body);
+    lifeSafetyMain = findViewById(R.id.life_safety_main);
+
+    buttonOk.setOnClickListener(this::okClick);
+
     getActivityComponent().inject(this);
 
     setUnBinder(ButterKnife.bind(this));
 
-//    lifeSafetyMain.getBackground().setAlpha(0);
+    lifeSafetyMain.getBackground().setAlpha(0);
 
     setUp();
   }
 
-
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
 
   @Override
   protected void setUp() {

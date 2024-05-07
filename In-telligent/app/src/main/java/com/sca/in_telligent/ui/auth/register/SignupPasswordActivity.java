@@ -96,10 +96,6 @@ public class SignupPasswordActivity extends BaseActivity implements SignupPasswo
         super.showLoading();
     }
 
-    @Override
-    public void phonePermissionResult(boolean permission) {
-
-    }
 
     @Override
     public void onDestroy() {

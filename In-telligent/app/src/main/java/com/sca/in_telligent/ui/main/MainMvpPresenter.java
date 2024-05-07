@@ -1,5 +1,6 @@
 package com.sca.in_telligent.ui.main;
 
+import android.content.Context;
 import android.location.Location;
 import com.sca.in_telligent.di.PerActivity;
 import com.sca.in_telligent.ui.base.MvpPresenter;
@@ -23,7 +24,9 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void refreshGeofences(Location location);
 
-    void requestLocationPermissions(boolean location);
+    void requestDNDPermission(Context context);
+
+    void requestLocationPermissions(boolean phone);
 
     void requestPhonePermission();
 

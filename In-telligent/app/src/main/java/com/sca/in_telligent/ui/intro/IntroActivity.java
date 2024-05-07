@@ -58,7 +58,9 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
 
     imageAnimated = findViewById(R.id.imageAnimated);
     firstTimeUserButton = findViewById(R.id.first_time_user_btn);
-    firstTimeUserButton.setOnClickListener(view -> firstTimeClick(view));
+    firstTimeUserButton.setOnClickListener(this::firstTimeClick);
+    returningSubscriberButton = findViewById(R.id.returning_subscriber_btn);
+    returningSubscriberButton.setOnClickListener(view -> returningSubscriberClick());
 
     returningSubscriberClick();
 
@@ -91,13 +93,6 @@ public class IntroActivity extends BaseActivity implements IntroMvpView {
     mPresenter.onDetach();
     super.onDestroy();
   }
-
-
-  @Override
-  public void phonePermissionResult(boolean permission) {
-
-  }
-
 
   private void animate(final ImageView imageView, final int[] images, final int imageIndex) {
     int fadeInDuration = 1000;

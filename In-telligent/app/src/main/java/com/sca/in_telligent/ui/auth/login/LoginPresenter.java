@@ -57,22 +57,20 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
   public void loginWithPassword(LoginRequest loginRequest) {
     getMvpView().showLoading();
     getCompositeDisposable().add(
-        getDataManager().loginWithPassword(loginRequest).subscribeOn(getSchedulerProvider().io())
-            .observeOn(getSchedulerProvider().ui()).subscribe(loginResponse -> {
-                Log.d("Loginresponse:", loginResponse.toString());
-              getMvpView().hideLoading();
-              if (loginResponse.isSuccess()) {
-                getDataManager()
-                    .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
-                sendRegistrationToServer();
-              } else {
-                getMvpView().showMessage(loginResponse.getError());
-              }
-
-            }, throwable -> {
-              getMvpView().hideLoading();
-              RetrofitException retrofitException = (RetrofitException) throwable;
-              Log.e(TAG, "loginWithPassword: " + retrofitException.getKind());
+        getDataManager().loginWithPassword(loginRequest).subscribeOn(getSchedulerProvider().io()).
+            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<LoginResponse>() {
+                @Override
+                public void accept(LoginResponse loginResponse) throws Exception {
+                    getMvpView().hideLoading();
+                    getDataManager()
+                            .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
+                    getMvpView().openMainActivity();
+                }
+            }, new Consumer<Throwable>() {
+                @Override
+                public void accept(Throwable throwable) throws Exception {
+                    getMvpView().hideLoading();
+                }
             }));
   }
 
@@ -160,15 +158,19 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
           .add(getDataManager().registerPushToken(pushTokenRequest)
               .subscribeOn(getSchedulerProvider().io())
               .observeOn(getSchedulerProvider().ui())
-              .subscribe(successResponse -> {
-                if (successResponse.isSuccess()) {
-                    getMvpView().openMainActivity();
+                  .subscribe(new Consumer<PushTokenSuccessResponse>() {
+                      @Override
+                      public void accept(PushTokenSuccessResponse successResponse) throws Exception {
+                          if (successResponse.isSuccess()) {
+                          }
 
-                }
-
-              }, throwable -> {
-                Log.e(TAG, "sendRegistrationToServer: ", throwable);
-              }));
+                      }
+                  }, new Consumer<Throwable>() {
+                      @Override
+                      public void accept(Throwable throwable) throws Exception {
+                      }
+                  }));
     }
+      getMvpView().openMainActivity();
   }
 }
