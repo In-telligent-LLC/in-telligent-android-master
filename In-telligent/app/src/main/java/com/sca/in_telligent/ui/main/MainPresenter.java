@@ -6,8 +6,14 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.data.DataManager;
@@ -99,6 +105,14 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
 
     }
 
+    @Override
+    public void requestNotification(Context context) {
+        if (((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).areNotificationsEnabled()) {
+            return;
+        }
+        buildAlertMessage(context.getString(R.string.permission_to_manage_dnd), context.getString(R.string.permission_to_manage_dnd_description), context);
+    }
+
     @SuppressLint("CheckResult")
     @Override
     public void requestLocationPermissions(boolean phone) {
@@ -146,6 +160,28 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(successResponse -> Log.i(TAG, "onAppOpened success"),
                         throwable -> Log.e(TAG, "onAppOpened error", throwable)));
+    }
+
+    public static void buildAlertMessage(String title, String message, final Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        builder.setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
+                        context.startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        Uri uri = Uri.fromParts("package", context.getPackageName(), null);
+                        intent.setData(uri);
+                        context.startActivity(intent);
+                    }
+                })
+                .setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
+        builder.create().show();
     }
 
     @Override
