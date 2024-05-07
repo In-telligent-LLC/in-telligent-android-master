@@ -53,9 +53,8 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
                 getDataManager().getCurrentSubscriber().subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui()).subscribe(
                                 subscriberResponse -> {
-                                    Log.d(TAG, "getSubscriber: " + subscriberResponse.getSubscriber().getBuildings().size());
-
-                                    if (subscriberResponse.getSubscriber().getBuildings().size() == 0) {
+                                    if (subscriberResponse.getSubscriber().getBuildings().size() == 0
+                                            && subscriberResponse.getSubscriber().getPersonalCommunities().size() == 0) {
                                         getMvpView().hideLoading();
                                     } else {
                                         getMvpView().loadSubscriber(subscriberResponse.getSubscriber());
@@ -83,10 +82,7 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
         getCompositeDisposable().add(
                 getDataManager().getSuggestedGroups().subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui()).subscribe(
-                                searchCommunityResponse -> {
-                                    Log.d(TAG, "getSuggestedGroups: " + searchCommunityResponse.getBuildings());
-                                    getMvpView().loadSuggestedGroups(searchCommunityResponse.getBuildings());
-                                }, throwable -> getMvpView().hideLoading()));
+                                searchCommunityResponse -> getMvpView().loadSuggestedGroups(searchCommunityResponse.getBuildings()), throwable -> getMvpView().hideLoading()));
     }
 
 

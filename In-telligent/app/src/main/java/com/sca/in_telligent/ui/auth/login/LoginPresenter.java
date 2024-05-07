@@ -106,12 +106,20 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
     getMvpView().showLoading();
     getCompositeDisposable().add(getDataManager().loginFacebook(facebookLoginRequest)
         .subscribeOn(getSchedulerProvider().io()).
-            observeOn(getSchedulerProvider().ui()).subscribe(loginResponse -> {
-              getMvpView().hideLoading();
-              getDataManager()
-                  .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
-              getMvpView().openMainActivity();
-            }, throwable -> getMvpView().hideLoading()));
+            observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<LoginResponse>() {
+          @Override
+          public void accept(LoginResponse loginResponse) throws Exception {
+            getMvpView().hideLoading();
+            getDataManager()
+                .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
+            getMvpView().openMainActivity();
+          }
+        }, new Consumer<Throwable>() {
+          @Override
+          public void accept(Throwable throwable) throws Exception {
+            getMvpView().hideLoading();
+          }
+        }));
   }
 
   @Override
@@ -145,7 +153,12 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
             .updateUserInfo(loginResponse.getToken(), LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
         getMvpView().openMainActivity();
       }
-    }, throwable -> getMvpView().hideLoading()));
+    }, new Consumer<Throwable>() {
+      @Override
+      public void accept(Throwable throwable) throws Exception {
+        getMvpView().hideLoading();
+      }
+    }));
   }
 
   private void sendRegistrationToServer() {
@@ -172,5 +185,6 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                   }));
     }
       getMvpView().openMainActivity();
+
   }
 }
