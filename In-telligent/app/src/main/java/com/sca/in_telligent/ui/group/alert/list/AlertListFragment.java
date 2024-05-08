@@ -3,6 +3,7 @@ package com.sca.in_telligent.ui.group.alert.list;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,16 +41,16 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
     SwipeRefreshLayout swipeRefreshLayoutAlerts;
 
     public interface AlertListSelector {
-        void onAlertDetailSelected(Notification notification, int i);
+        void onAlertDetailSelected(Notification notification, int buildingId);
     }
 
 
-    public static AlertListFragment newInstance(int i) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("buildingId", i);
-        AlertListFragment alertListFragment = new AlertListFragment();
-        alertListFragment.setArguments(bundle);
-        return alertListFragment;
+    public static AlertListFragment newInstance(int buildingId) {
+        Bundle args = new Bundle();
+        args.putInt("buildingId", buildingId);
+        AlertListFragment fragment = new AlertListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -77,13 +78,14 @@ public class AlertListFragment extends BaseFragment implements AlertListMvpView,
 
     @Override
     protected void setUp(View view) {
+
         String id;
         try {
             id = Integer.toString(buildingId);
-            mPresenter.getNotifications(id, true);
+            mPresenter.loadNotifications(id, true);
 
             swipeRefreshLayoutAlerts.setOnRefreshListener(() ->
-                    mPresenter.getNotifications(id, false));
+                    mPresenter.loadNotifications(id, false));
 
         } catch (Exception e) {
             e.printStackTrace();

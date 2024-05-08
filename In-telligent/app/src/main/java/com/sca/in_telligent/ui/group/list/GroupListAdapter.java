@@ -151,7 +151,7 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public int getItemViewType(int position) {
         List<Building> list = this.buildings;
-        if (list == null || list.size() > 0) {
+        if (list == null || list.size() <= 0) {
             return VIEW_TYPE_EMPTY;
         }
         return this.buildings.get(position).getType().getNumber();
@@ -268,6 +268,8 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public SuggestedHeaderViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            suggestedItemArrow = itemView.findViewById(R.id.suggested_item_arrow);
+            headerText = itemView.findViewById(R.id.header_text);
         }
 
         @OnClick(R.id.suggested_groups_header_container)
