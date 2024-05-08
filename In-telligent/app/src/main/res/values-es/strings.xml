@@ -131,6 +131,9 @@
     <string name="hours_of_silence">Horas de silencio</string>
     <string name="are_you_sure_you_want_to_logout">¿Estás seguro de que quieres cerrar sesión? Dejarás de recibir todas las alertas.</string>
     <string name="never_mind">No importa</string>
+    <string name="permission_to_manage_dnd">"In-telligent" ¿Desea desactivar las Alertas?</string>
+    <string name="permission_to_manage_dnd_description" >Las notificaciones pueden incluir alertas, sonidos e íconos. Estos se pueden configurar en Configuración.</string>
+
     <string name="no_personal_communities">No comunidades personales</string>
     <string name="edit_time">Tiempo de edición</string>
     <string name="total_silence_on">Silencio total encendido:</string>

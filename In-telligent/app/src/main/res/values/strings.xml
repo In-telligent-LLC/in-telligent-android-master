@@ -4,8 +4,8 @@
 
     <string name="facebook_app_id" translatable="false">1830932323800441</string>
     <string name="facebook_client_token" translatable="false">1830932323800441</string>
-    <string name="permission_to_manage_dnd" translatable="false">"In-telligent" Would Like to Send You Notifications</string>
-    <string name="permission_to_manage_dnd_description" translatable="false">Notifications may include alerts, sounds, and icon badges. These can be configured in Settings</string>
+    <string name="permission_to_manage_dnd" translatable="true">"In-telligent" Would Like to Send You Notifications</string>
+    <string name="permission_to_manage_dnd_description" translatable="true">Notifications may include alerts, sounds, and icon badges. These can be configured in Settings</string>
 
     <string name="default_notification_channel_id" translatable="false">default</string>
 

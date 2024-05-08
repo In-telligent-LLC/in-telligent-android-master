@@ -174,10 +174,10 @@ public final class CommonUtils {
         }
     }
 
-    public static void buildAlertMessage(String str, String str2, final Context context) {
+    public static void buildAlertMessage(String title, String message, final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        builder.setTitle(str).setMessage(str2).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"))).setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
+        builder.setTitle(title).setMessage(message).setCancelable(false).setPositiveButton(context.getResources().getString(R.string.ok), (dialogInterface, i) -> context.startActivity(new Intent("android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"))).setNegativeButton(context.getResources().getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }
 
