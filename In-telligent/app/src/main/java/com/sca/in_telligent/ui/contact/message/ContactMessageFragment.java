@@ -182,6 +182,10 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
             sendMessageButton.setOnClickListener(v -> sendMessage(v));
             attachmentText.setOnClickListener(v -> attachmentButtonClick(v));
 
+//            contactAlertSpinnerAdapter = new ContactMessageSpinnerAdapter(requireContext(),
+//                    new ArrayList<>());
+//            contactAlertSpinnerAdapter.setDropDownViewResource(R.layout.spinner_list_item);
+
 
         }
 
@@ -250,6 +254,7 @@ public class ContactMessageFragment extends BaseFragment implements ContactMessa
         spinnerItems.add(getString(R.string.select_alert_type));
 
         contactAlertSpinnerAdapter.addItems(spinnerItems);
+
 
         alertSpinner.setAdapter(contactAlertSpinnerAdapter);
         alertSpinner.setSelection(contactAlertSpinnerAdapter.getCount());

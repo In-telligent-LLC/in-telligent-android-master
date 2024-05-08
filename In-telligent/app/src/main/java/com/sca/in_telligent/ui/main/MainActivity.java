@@ -264,8 +264,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
 
     private void handlePermissions() {
         mPresenter.requestLocationPermissions(false);
-        mPresenter.requestPhonePermission();
         mPresenter.requestDNDPermission(this);
+        mPresenter.requestNotification(this);
+
     }
 
     @Override
@@ -644,7 +645,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
                 MainActivity.this.getSupportFragmentManager().beginTransaction().addToBackStack(AlertDetailFragment.TAG).add((int) R.id.content_frame, AlertDetailFragment.newInstance(notification), AlertDetailFragment.TAG).commit();
             }
 
-            @Override // io.reactivex.SingleObserver
+            @Override
             public void onError(Throwable th) {
                 Log.e(MainActivity.TAG, th.getMessage(), th);
             }

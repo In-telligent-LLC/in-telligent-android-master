@@ -26,7 +26,9 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void requestDNDPermission(Context context);
 
-    void requestLocationPermissions(boolean phone);
+    void requestNotification(Context context);
+
+    void requestLocationPermissions(boolean location);
 
     void requestPhonePermission();
 
