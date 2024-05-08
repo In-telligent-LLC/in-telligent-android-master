@@ -1,15 +1,21 @@
 package com.sca.in_telligent.ui.group.detail;
 
 public interface GroupDetailSelector {
-    void alertViewSelected(int i);
+    void groupLeftClicked(int position);
 
-    void groupLeftClicked(int i);
+    void groupRightClick(int position);
 
-    void groupRightClick(int i);
+    void loadNotifications(int buildingId);
 
-    void messageFeedClick(int i);
+//    void viewMemberSelected(int buldingId,int memberCount, String groupName);
+//
+//    void inviteOtherSelected(int buildingId);
+//
+    void alertViewSelected(int buildingId);
+//
+//    void editGroupSelected(int position);
 
-    void subscribed(int i);
+    void unSubscribed(int buildingId);
 
-    void unSubscribed(int i);
+    void subscribed(int buildingId);
 }

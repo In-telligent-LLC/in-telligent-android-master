@@ -437,17 +437,28 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     @Override
-    public void onItemClicked(int i) {
+    public void onItemClicked(int position) {
         if (!isNetworkConnected()) {
             showNetworkDialog();
-        } else if (i == 0) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(SettingsFragment.TAG).add((int) R.id.content_frame, SettingsFragment.newInstance(this.subscriber), SettingsFragment.TAG).commit();
-            this.drawerLayout.closeDrawers();
-        } else if (i == 1) {
-            this.savedClicked = true;
-            this.bottomNavigationView.setSelectedItemId(R.id.action_inbox);
-        } else {
-            startActivity(LogoutActivity.getStartIntent(this));
+        } else{
+            switch (position) {
+            case 0:
+                getSupportFragmentManager()
+                        .beginTransaction().addToBackStack(SettingsFragment.TAG)
+                        .add(R.id.content_frame, SettingsFragment.newInstance(subscriber),
+                                SettingsFragment.TAG)
+                        .commit();
+                drawerLayout.closeDrawers();
+                break;
+            case 1:
+                savedClicked = true;
+                getSupportFragmentManager()
+                        .beginTransaction().addToBackStack(InboxFragment.TAG)
+                        .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
+                                InboxFragment.TAG)
+                        .commit();
+                break;
+            }
         }
     }
 
@@ -612,18 +623,17 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
 
-    @Override // com.sca.in_telligent.ui.group.list.GroupListFragment.GroupListSelector
+    @Override
     public void onPullToRefreshGroups() {
         getLocation();
         this.mPresenter.getSubscriber(false);
     }
-
     @Override
-    public void alertViewSelected(int i) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add( R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
+    public void alertViewSelected(int buildingId) {
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add( R.id.content_frame, AlertListFragment.newInstance(buildingId), AlertListFragment.TAG).commit();
     }
 
-    @Override // com.sca.in_telligent.ui.group.detail.GroupDetailSelector
+    @Override
     public void unSubscribed(int i) {
         this.mPresenter.getSubscriber();
     }
@@ -764,8 +774,8 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     @Override
-    public void messageFeedClick(int i) {
-        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add((int) R.id.content_frame, AlertListFragment.newInstance(i), AlertListFragment.TAG).commit();
+    public void loadNotifications(int buildingId) {
+        getSupportFragmentManager().beginTransaction().addToBackStack(AlertListFragment.TAG).add(R.id.content_frame, AlertListFragment.newInstance(buildingId), AlertListFragment.TAG).commit();
     }
 
     @SuppressLint("CheckResult")

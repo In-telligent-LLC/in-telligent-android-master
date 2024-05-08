@@ -18,7 +18,6 @@ import com.sca.in_telligent.util.CommonUtils;
 import javax.inject.Inject;
 
 public class AlertDetailFragment extends BaseFragment implements AlertDetailMvpView {
-//    static final boolean $assertionsDisabled = false;
     public static final String ARG_NOTIFICATION = "arg_notification";
     public static final String TAG = "AlertDetailFragment";
     @BindView(R.id.alert_detail_title_text)

@@ -1,5 +1,7 @@
 package com.sca.in_telligent.ui.group.alert.list;
 
+import android.util.Log;
+
 import com.sca.in_telligent.data.DataManager;
 import com.sca.in_telligent.openapi.data.network.model.AlertDeleteRequest;
 import com.sca.in_telligent.openapi.data.network.model.NotificationsResponse;
@@ -20,7 +22,7 @@ public class AlertListPresenter<V extends AlertListMvpView> extends BasePresente
     }
 
     @Override
-    public void getNotifications(String buildingId, boolean showLoading) {
+    public void loadNotifications(String buildingId, boolean showLoading) {
         if (showLoading) {
             getMvpView().showLoading();
         }

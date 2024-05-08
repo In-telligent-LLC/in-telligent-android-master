@@ -18,12 +18,17 @@ import android.widget.TextView;
 import com.sca.in_telligent.R;
 import com.sca.in_telligent.di.component.ActivityComponent;
 import com.sca.in_telligent.openapi.data.network.model.Building;
+import com.sca.in_telligent.openapi.data.network.model.Notification;
 import com.sca.in_telligent.openapi.data.network.model.SubscribeToCommunityRequest;
 import com.sca.in_telligent.openapi.data.network.model.UpdateSubscriptionRequest;
 import com.sca.in_telligent.ui.base.BaseFragment;
+import com.sca.in_telligent.ui.group.alert.list.AlertListFragment;
 import com.sca.in_telligent.ui.group.detail.GroupDetailSelector;
+import com.sca.in_telligent.ui.inbox.InboxAdapter;
 import com.sca.in_telligent.util.CommonUtils;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -152,13 +157,15 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         rightArrow.setOnClickListener(v -> rightClick());
         leftArrow.setOnClickListener(v -> leftClick());
         readMoreButton.setOnClickListener(v -> readMoreClick());
-        messageFeedButton.setOnClickListener(this::messageFeedClick);
+        messageFeedButton.setOnClickListener(this::loadNotifications);
         disconnectButton.setOnClickListener(this::onClick);
     }
 
     @OnClick({R.id.group_detail_message_feed})
-    public void messageFeedClick(View view) {
-        this.groupDetailSelector.messageFeedClick(this.building.getId());
+    public void loadNotifications(View view) {
+        groupDetailSelector.loadNotifications(this.building.getId());
+
+
     }
 
     @OnClick({R.id.group_detail_read_more})
@@ -230,6 +237,12 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
     }
 
     @Override
+    public void loadNotifications(ArrayList<Notification> notifications) {
+        Log.d(TAG, notifications.toString());
+
+    }
+
+    @Override
     public void subscribed(String str) {
         this.groupDetailSelector.subscribed(Integer.parseInt(str));
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
@@ -267,6 +280,5 @@ public class GroupDetailFragment extends BaseFragment implements GroupDetailMvpV
         alertDialog.show();
 
     }
-
 
 }

@@ -112,8 +112,15 @@ public class GroupDetailContainerFragment extends BaseFragment {
             this.subscriber = subscriber;
         }
 
-        public Fragment getItem(int i) {
-            return GroupDetailFragment.newInstance(this.groups.get(i), i, this.groups.size());
+        private boolean isPersonalCommunity(Building building) {
+            boolean isPersonal =
+                    building.getSubscriberId() != null &&
+                            (building.getSubscriberId().intValue() == subscriber.getId());
+            return isPersonal;
+        }
+
+        public Fragment getItem(int position) {
+            return GroupDetailFragment.newInstance(this.groups.get(position), position, this.groups.size());
         }
 
         public int getCount() {

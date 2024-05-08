@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
@@ -47,6 +48,9 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
     @BindView(R.id.settings_logout_text)
     TextView settingsLogout;
 
+    ImageView backClick;
+    TextView backClickText;
+
     private Subscriber subscriber;
     private SettingsCallback settingsCallback;
 
@@ -73,7 +77,12 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         ActivityComponent component = getActivityComponent();
         tabHost = view.findViewById(android.R.id.tabhost);
         settingsLogout = view.findViewById(R.id.settings_logout_text);
+        backClickText = view.findViewById(R.id.settings_back_text);
+        backClick = view.findViewById(R.id.settings_back_button);
+        backClick.setOnClickListener(this::backClick);
+        backClickText.setOnClickListener(this::backClick);
         settingsLogout.setOnClickListener(this::logoutClick);
+
         if (component != null) {
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));

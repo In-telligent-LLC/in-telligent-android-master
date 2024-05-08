@@ -2,6 +2,7 @@ package com.sca.in_telligent.ui.group.alert.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,35 +52,52 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         this.mCallback = callback;
     }
 
-    public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (i == VIEW_TYPE_NORMAL) {
-            return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.inbox_notification_item_view, viewGroup, false));
+    @Override
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        switch (viewType) {
+            case VIEW_TYPE_NORMAL:
+                return new AlertListAdapter.ViewHolder(
+                        LayoutInflater
+                                .from(parent.getContext())
+                                .inflate(R.layout.inbox_notification_item_view, parent, false));
+            case VIEW_TYPE_EMPTY:
+            default:
+                return new AlertListAdapter.EmptyViewHolder(
+                        LayoutInflater
+                                .from(parent.getContext())
+                                .inflate(R.layout.inbox_notification_empty_view, parent, false));
         }
-        return new EmptyViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.inbox_notification_empty_view, viewGroup, false));
     }
 
-    public void onBindViewHolder(BaseViewHolder baseViewHolder, int i) {
-        baseViewHolder.onBind(i);
+    @Override
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+        holder.onBind(position);
     }
 
+    @Override
     public int getItemCount() {
-        List<Notification> list = this.notifications;
-        if (list == null || list.size() <= VIEW_TYPE_EMPTY) {
+        if (notifications != null && notifications.size() >= 0) {
+            return notifications.size();
+        } else {
             return 1;
         }
-        return this.notifications.size();
     }
 
-    public int getItemViewType(int i) {
-        List<Notification> list = this.notifications;
-        return (list == null || list.size() <= 0) ? 0 : 1;
-    }
-
-    public void addItems(List<Notification> list, int i) {
-        if (i == 0) {
-            this.notifications = new ArrayList();
+    @Override
+    public int getItemViewType(int position) {
+        if (notifications != null && notifications.size() > 0) {
+            return VIEW_TYPE_NORMAL;
+        } else {
+            return VIEW_TYPE_EMPTY;
         }
-        this.notifications.addAll(list);
+    }
+
+    public void addItems(List<Notification> listObjects, int page) {
+        if (page == 0) {
+            notifications = new ArrayList<>();
+        }
+        notifications.addAll(listObjects);
         notifyDataSetChanged();
     }
 
@@ -116,6 +134,9 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             typeImage = view.findViewById(R.id.notification_type_image);
             viewButton = view.findViewById(R.id.notification_view_button);
             ButterKnife.bind(this, view);
+
+            Log.d("AlertListAdapter", "ViewHolder: chego aqui");
+
         }
 
         @SuppressLint("SetTextI18n")
@@ -174,13 +195,14 @@ public class AlertListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             retryButton = view.findViewById(R.id.inbox_retry_button);
             ButterKnife.bind(this, view);
 
+
             retryButton.setOnClickListener(v -> onRetryClick());
         }
 
         @OnClick({R.id.inbox_retry_button})
         void onRetryClick() {
             if (mPresenter != null) {
-                mPresenter.getNotifications(Integer.toString(buildingId), true);
+                mPresenter.loadNotifications(String.valueOf(buildingId), true);
             }
         }
     }

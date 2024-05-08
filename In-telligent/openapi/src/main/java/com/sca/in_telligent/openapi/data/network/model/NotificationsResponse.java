@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NotificationsResponse implements Serializable {
-    @SerializedName("Notifications")
+    @SerializedName("notifications")
     private ArrayList<Notification> notifications;
 
     public ArrayList<Notification> getNotifications() {

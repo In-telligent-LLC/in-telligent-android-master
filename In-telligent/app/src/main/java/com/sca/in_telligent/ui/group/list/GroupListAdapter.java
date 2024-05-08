@@ -41,13 +41,13 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private final List<Building> suggestedBuildings;
 
     public interface Callback {
-        void onAboutClicked(int i, boolean z);
+        void onAboutClicked(int position, boolean createdByMe);
 
-        void onConnectClicked(String str, boolean z, boolean z2);
+        void onContactClicked(int position);
 
-        void onContactClicked(int i);
+        void onConnectClicked(String buildingId, boolean connect, boolean suggested);
 
-        void onIgnoreClicked(String str, int i);
+        void onIgnoreClicked(String buildingId, int ignoredPosition);
     }
 
 
@@ -142,23 +142,23 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public int getItemCount() {
-        List<Building> list = this.buildings;
-        if (list == null || list.size() <= 1) {
+        if (buildings != null && buildings.size() > 0) {
+            return buildings.size();
+        } else {
             return 1;
         }
-        return this.buildings.size();
     }
 
-    public int getItemViewType(int i) {
+    public int getItemViewType(int position) {
         List<Building> list = this.buildings;
-        if (list == null || list.size() <= 1) {
-            return 4;
+        if (list == null || list.size() <= 0) {
+            return VIEW_TYPE_EMPTY;
         }
-        return this.buildings.get(i).getType().getNumber();
+        return this.buildings.get(position).getType().getNumber();
     }
 
-    public Building getItem(int i) {
-        return this.buildings.get(i);
+    public Building getItem(int position) {
+        return this.buildings.get(position);
     }
 
     public class ViewHolder extends BaseViewHolder {
@@ -268,6 +268,8 @@ public class GroupListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public SuggestedHeaderViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            suggestedItemArrow = itemView.findViewById(R.id.suggested_item_arrow);
+            headerText = itemView.findViewById(R.id.header_text);
         }
 
         @OnClick(R.id.suggested_groups_header_container)
