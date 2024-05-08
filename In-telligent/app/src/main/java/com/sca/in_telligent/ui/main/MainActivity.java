@@ -436,17 +436,28 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     }
 
     @Override
-    public void onItemClicked(int i) {
+    public void onItemClicked(int position) {
         if (!isNetworkConnected()) {
             showNetworkDialog();
-        } else if (i == 0) {
-            getSupportFragmentManager().beginTransaction().addToBackStack(SettingsFragment.TAG).add((int) R.id.content_frame, SettingsFragment.newInstance(this.subscriber), SettingsFragment.TAG).commit();
-            this.drawerLayout.closeDrawers();
-        } else if (i == 1) {
-            this.savedClicked = true;
-            this.bottomNavigationView.setSelectedItemId(R.id.action_inbox);
-        } else {
-            startActivity(LogoutActivity.getStartIntent(this));
+        } else{
+            switch (position) {
+            case 0:
+                getSupportFragmentManager()
+                        .beginTransaction().addToBackStack(SettingsFragment.TAG)
+                        .add(R.id.content_frame, SettingsFragment.newInstance(subscriber),
+                                SettingsFragment.TAG)
+                        .commit();
+                drawerLayout.closeDrawers();
+                break;
+            case 1:
+                savedClicked = true;
+                getSupportFragmentManager()
+                        .beginTransaction().addToBackStack(InboxFragment.TAG)
+                        .replace(R.id.content_frame, InboxFragment.newInstance(savedClicked),
+                                InboxFragment.TAG)
+                        .commit();
+                break;
+            }
         }
     }
 

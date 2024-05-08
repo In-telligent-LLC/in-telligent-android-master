@@ -30,6 +30,7 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private final List<Notification> notifications;
     private Callback mCallback;
+    private InboxMvpPresenter<InboxMvpView> mPresenter;
     private final Context context;
 
     public static final int VIEW_TYPE_EMPTY = 0;
@@ -69,7 +70,7 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (notifications != null && notifications.size() > 1) {
+        if (notifications != null && notifications.size() > 0) {
             return notifications.size();
         } else {
             return 1;
@@ -231,6 +232,7 @@ public class InboxAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @OnClick(R.id.inbox_retry_button)
         void onRetryClick() {
             if (mCallback != null) {
+                mPresenter.getInbox("0", true);
             }
         }
     }
