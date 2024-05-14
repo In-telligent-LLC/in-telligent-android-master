@@ -98,8 +98,8 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                         Log.e("FirebaseBroadcastReceiver", "AudioHelper is null");
                     } else {
                         handleRingtone(pushNotification.getAlertType());
-                        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
-                        NotificationCompat.Builder notificationBuilder =
+                        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class),
+                                PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ? PendingIntent.FLAG_IMMUTABLE : 0));                        NotificationCompat.Builder notificationBuilder =
                                 new NotificationCompat.Builder(context, "default")
                                         .setSmallIcon(R.drawable.ic_launcher)
                                         .setContentTitle(pushNotification.getTitle())
@@ -113,7 +113,7 @@ public class FirebaseBroadcastReceiver extends WakefulBroadcastReceiver  {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             NotificationChannel channel = new NotificationChannel("default",
                                     "Channel human readable title",
-                                    NotificationManager.IMPORTANCE_DEFAULT);
+                                    NotificationManager.IMPORTANCE_HIGH);
                             notificationManager.createNotificationChannel(channel);
                         }
 
