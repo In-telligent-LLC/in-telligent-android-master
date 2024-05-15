@@ -34,7 +34,19 @@ jobs:
           chmod +x gradlew
           export SONAR_LOGIN=${{ secrets. SONAR_TOKEN }}
           ./gradlew assembleDebug
-          gradle sonar
+          ./gradlew sonar
+
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        with:
+          scanMetadataReportFile: In-telligent/build/sonar/report-task.txt
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
+      - name: "Show SonarQube Quality Gate Check Result"
+        run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v2
