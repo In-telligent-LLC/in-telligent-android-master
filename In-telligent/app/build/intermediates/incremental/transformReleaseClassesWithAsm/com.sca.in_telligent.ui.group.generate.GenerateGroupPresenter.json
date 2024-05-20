@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.group.generate.GenerateGroupPresenter","classAnnotations":[],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter","com.sca.in_telligent.ui.group.generate.GenerateGroupMvpPresenter"],"superClasses":["com.sca.in_telligent.ui.base.BasePresenter","java.lang.Object"]}

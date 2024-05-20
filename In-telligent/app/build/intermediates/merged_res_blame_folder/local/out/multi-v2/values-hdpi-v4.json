@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sca.in_telligent.app-mergeLocalResources-78:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/marianesantana/.gradle/caches/transforms-3/ff49bb35c3abd65cd67b34a659624ee5/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

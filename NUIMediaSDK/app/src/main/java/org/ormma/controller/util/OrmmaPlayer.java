@@ -1,0 +1,251 @@
+/*  Copyright (c) 2011 The ORMMA.org project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree. All contributing project authors may
+ *  be found in the AUTHORS file in the root of the source tree.
+ */
+
+
+package org.ormma.controller.util;
+
+import aje.android.sdk.Logger;
+import android.content.Context;
+import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnErrorListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.net.Uri;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.MediaController;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.VideoView;
+import org.ormma.controller.OrmmaController.PlayerProperties;
+
+/**
+ * Player class to play audio and video
+ */
+public class OrmmaPlayer extends VideoView implements OnCompletionListener, OnErrorListener, OnPreparedListener {
+
+	private PlayerProperties playProperties;
+	private AudioManager audioManager;
+	private OrmmaPlayerListener listener;
+	private int mutedVolume;
+	private String contentURL;
+	private RelativeLayout transientLayout;
+
+	private static final String TRANSIENT_TEXT = "Loading. Please Wait..";
+	private static final String LOG_TAG = "Ormma Player";
+	private boolean isReleased;
+
+	/**
+	 * Constructor
+	 *
+	 * @param context - Current context	 *
+	 */
+	public OrmmaPlayer(Context context) {
+		super(context);
+		audioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+	}
+
+	/**
+	 * @param properties - player properties
+	 * @param url        - url to play
+	 */
+	public void setPlayData(PlayerProperties properties, String url) {
+		isReleased = false;
+		playProperties = properties;
+		contentURL = url;
+	}
+
+	/**
+	 * Play audio
+	 */
+	public void playAudio() {
+		loadContent();
+	}
+
+	/**
+	 * Show player control
+	 */
+	void displayControl() {
+
+		if (playProperties.showControl()) {
+			MediaController ctrl = new MediaController(getContext());
+			setMediaController(ctrl);
+			ctrl.setAnchorView(this);
+		}
+
+	}
+
+	/**
+	 * Load audio/video content
+	 */
+	private  void loadContent() {
+		contentURL = contentURL.trim();
+
+		contentURL = OrmmaUtils.convert(contentURL);
+		if (contentURL == null && listener != null) {
+			removeView();
+			listener.onError();
+			return;
+		}
+
+		setVideoURI(Uri.parse(contentURL));
+		displayControl();
+		startContent();
+	}
+
+	/**
+	 * Play start
+	 */
+	private void startContent() {
+		setOnCompletionListener(this);
+		setOnErrorListener(this);
+		setOnPreparedListener(this);
+
+		if (!playProperties.inline) {
+			addTransientMessage();
+		}
+
+		if (playProperties.isAutoPlay()) {
+			start();
+		}
+	}
+
+	/**
+	 * Play video
+	 */
+	public void playVideo() {
+
+		if (playProperties.doMute()) {
+			mutedVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+			audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, AudioManager.FLAG_PLAY_SOUND);
+
+		}
+		loadContent();
+	}
+
+	/**
+	 * Unmute audio
+	 */
+	void unMute() {
+		audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mutedVolume, AudioManager.FLAG_PLAY_SOUND);
+	}
+
+	/**
+	 * Set callback listener
+	 *
+	 * @param listener - callback listener
+	 */
+	public void setListener(OrmmaPlayerListener listener) {
+		this.listener = listener;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onCompletion(MediaPlayer mp) {
+		if (playProperties.doLoop()) {
+			start();
+		} else if (playProperties.exitOnComplete() || playProperties.inline) {
+			// for inline audio on completion, release player
+			releasePlayer();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onError(MediaPlayer mp, int what, int extra) {
+		Logger.i(LOG_TAG, "Player error : " + what);
+		clearTransientMessage();
+		removeView();
+		if (listener != null) {
+			listener.onError();
+		}
+		return false;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onPrepared(MediaPlayer mp) {
+		clearTransientMessage();
+		if (listener != null) {
+			listener.onPrepared();
+		}
+	}
+
+	/**
+	 * Remove player from parent
+	 */
+	void removeView() {
+		ViewGroup parent = (ViewGroup) getParent();
+		if (parent != null) {
+			parent.removeView(this);
+		}
+	}
+
+	/**
+	 * Release player session, notify the listener
+	 */
+	public void releasePlayer() {
+		if (isReleased) {
+			return;
+		}
+
+		isReleased = true;
+
+		stopPlayback();
+		removeView();
+		if (playProperties != null && playProperties.doMute()) {
+			unMute();
+		}
+		if (listener != null) {
+			listener.onComplete();
+		}
+	}
+
+	/**
+	 * Add transient message
+	 */
+	void addTransientMessage() {
+
+		if (playProperties.inline) {
+			return;
+		}
+
+		transientLayout = new RelativeLayout(getContext());
+		transientLayout.setLayoutParams(getLayoutParams());
+
+		//create a transient text view
+		TextView transientView = new TextView(getContext());
+		transientView.setText(TRANSIENT_TEXT);
+		transientView.setTextColor(Color.WHITE);
+
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		params.addRule(RelativeLayout.CENTER_IN_PARENT);
+
+		transientLayout.addView(transientView, params);
+		ViewGroup parent = (ViewGroup) getParent();
+		parent.addView(transientLayout);
+	}
+
+	/**
+	 * Clear transient message
+	 */
+	void clearTransientMessage() {
+		if (transientLayout != null) {
+			ViewGroup parent = (ViewGroup) getParent();
+			parent.removeView(transientLayout);
+		}
+	}
+}

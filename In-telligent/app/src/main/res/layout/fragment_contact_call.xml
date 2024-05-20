@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:animateLayoutChanges="true"
+    android:clickable="true">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:format="Timer: %s"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+    <ImageView
+        android:id="@+id/contact_call_status_image"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/call_status1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/dial_pad_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="H, 1: 1"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/contact_call_status_image">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dial_constraint_one"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/dial_constraint_two"
+            app:layout_constraintDimensionRatio="H, 1:0.33"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/dialOneLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialTwoLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <TextView
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialTwoLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialThreeLayout"
+                app:layout_constraintStart_toEndOf="@+id/dialOneLayout">
+
+                <TextView
+                    android:id="@+id/dial_two_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="2"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_two_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="A B C"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialThreeLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dialTwoLayout">
+
+                <TextView
+                    android:id="@+id/dial_three_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="3"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_three_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/d_e_f"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dial_constraint_two"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/dial_constraint_three"
+            app:layout_constraintDimensionRatio="H, 1:0.33"
+            app:layout_constraintTop_toBottomOf="@+id/dial_constraint_one">
+
+            <RelativeLayout
+                android:id="@+id/dialFourLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialFiveLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/dial_four_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="4"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_four_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/g_h_i"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialFiveLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialSixLayout"
+                app:layout_constraintStart_toEndOf="@+id/dialFourLayout">
+
+                <TextView
+                    android:id="@+id/dial_five_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="5"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_five_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/j_k_l"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialSixLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dialFiveLayout">
+
+                <TextView
+                    android:id="@+id/dial_six_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="6"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_six_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/m_n_o"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dial_constraint_three"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H, 1:0.33"
+            app:layout_constraintTop_toBottomOf="@+id/dial_constraint_two">
+
+            <RelativeLayout
+                android:id="@+id/dialSevenLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialEightLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/dial_seven_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="7"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_seven_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/p_q_r_s"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialEightLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toStartOf="@+id/dialNineLayout"
+                app:layout_constraintStart_toEndOf="@+id/dialSevenLayout">
+
+                <TextView
+                    android:id="@+id/dial_eight_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="8"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_eight_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/t_u_v"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialNineLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/dial_number_background"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dialEightLayout">
+
+                <TextView
+                    android:id="@+id/dial_nine_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="9"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray59"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dial_nine_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/w_x_y_z"
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+            </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/call_buttons_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/dial_pad_layout">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_start_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_medium"
+            android:backgroundTint="@color/dull_lime"
+            android:src="@drawable/baseline_call_white_24"
+            app:fabSize="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_end_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_small"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/baseline_call_end_white_24"
+            android:visibility="gone"
+            app:fabSize="normal" />
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

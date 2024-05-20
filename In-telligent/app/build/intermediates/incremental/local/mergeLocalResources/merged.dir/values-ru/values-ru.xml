@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d новое уведомление</item>
+    <item quantity="few">%d новых уведомления</item>
+    <item quantity="many">%d новых уведомлений</item>
+    <item quantity="other">%d нового уведомления</item>
+  </plurals>
+    <string name="_120_mins">120 минут</string>
+    <string name="_15_mins">15 минут</string>
+    <string name="_30_mins">30 минут</string>
+    <string name="_60_mins">60 мин.</string>
+    <string name="_8am_6pm_mon_fri">8 утра - 6 вечера CST пн-пт</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перейти вверх"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ещё"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Показать все"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Выберите приложение"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ВЫКЛ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ВКЛ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Ввод"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Пробел"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Введите запрос"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Удалить запрос"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Поисковый запрос"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Поиск"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Отправить запрос"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Голосовой поиск"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="about">Около</string>
+    <string name="accept_call">Принять вызов</string>
+    <string name="account">учетная запись</string>
+    <string name="add">добавлять</string>
+    <string name="add_another_contact">Добавить другой контакт</string>
+    <string name="add_attachment">Добавить приложение</string>
+    <string name="add_new">Добавить новое</string>
+    <string name="add_new_community">Добавить новое сообщество</string>
+    <string name="add_pc">Добавить ПК</string>
+    <string name="age">Возраст</string>
+    <string name="alert_has_been_sent_to_community_manager">Alert был отправлен вашему менеджеру сообщества</string>
+    <string name="alert_language">Язык предупреждений</string>
+    <string name="already_have_an_account">У вас уже есть учетная запись?</string>
+    <string name="also_disable">Вы также хотели бы отключить автоматическую подписку?</string>
+    <string name="always">Всегда</string>
+    <string name="are_you_ok">С тобой все в порядке?</string>
+    <string name="are_you_sure_you_want_to_delete">Вы уверены, что хотите удалить ""</string>
+    <string name="are_you_sure_you_want_to_join">Вы уверены, что хотите присоединиться?</string>
+    <string name="are_you_sure_you_want_to_logout">Вы действительно хотите выйти? Вы перестанете получать все предупреждения.</string>
+    <string name="are_you_sure_you_want_to_remove_from_community">Are you sure you want to remove %1$s from %2$s?</string>
+    <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
+    <string name="attachment_1_total">Прикрепленное изображение: %1$d всего</string>
+    <string name="attachments">Вложения</string>
+    <string name="attachments_too_large">Вложения слишком большие</string>
+    <string name="attachments_too_large_try_again">Вложения слишком большие. Пожалуйста, попробуйте еще раз.</string>
+    <string name="attachments_total">Вложения</string>
+    <string name="back">назад</string>
+    <string name="begin_call">Начало звонка</string>
+    <string name="body">тело</string>
+    <string name="bottomsheet_action_collapse">Свернуть нижний экран</string>
+    <string name="bottomsheet_action_expand">Развернуть нижний экран</string>
+    <string name="bottomsheet_action_expand_halfway">Развернуть наполовину</string>
+    <string name="bottomsheet_drag_handle_clicked">Двойное нажатие на маркер перемещения</string>
+    <string name="bottomsheet_drag_handle_content_description">Маркер перемещения</string>
+    <string name="by_community">По сообществу</string>
+    <string name="by_type">По типу</string>
+    <string name="call_1_708_428_6322">Вызов: 1-708-428-6322</string>
+    <string name="call_1_866_991_6883_opt_2">Вызов: 1-866-991-6883 opt 2</string>
+    <string name="call_active">Call Active</string>
+    <string name="call_community_manager">Вызов менеджера сообщества</string>
+    <string name="call_disconnected">Звонок отключен</string>
+    <string name="call_ended">Звонок окончен</string>
+    <string name="call_manager">Менеджер вызовов</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Ответить"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Видео"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Отклонить"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Завершить"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Входящий вызов"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Текущий вызов"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Фильтрация входящего вызова"</string>
+    <string name="cancel">отменить</string>
+    <string name="change_naccount">Изменить аккаунт</string>
+    <string name="character_counter_content_description">Введено символов: %1$d из %2$d</string>
+    <string name="character_counter_overflowed_content_description">Превышено ограничение на количество символов (%1$d из %2$d)</string>
+    <string name="check_your_email_for_reset_link">Проверьте свой адрес электронной почты для ссылки на сброс.</string>
+    <string name="clear_message">Очистить сообщение</string>
+    <string name="clear_text_end_icon_content_description">Очистить текстовое поле</string>
+    <string name="close">БЛИЗКО</string>
+    <string msgid="406453423630273620" name="close_drawer">"Закрыть меню навигации"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Закрыть лист"</string>
+    <string gender="unknown" name="com_facebook_device_auth_instructions">Перейдите на &lt;b>facebook.com/device&lt;/b> и введите код, указанный выше.</string>
+    <string gender="unknown" name="com_facebook_image_download_unknown_error">Неожиданная ошибка при скачивании изображения.</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_message">Для входа через WebView необходимо разрешение INTERNET</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_title">Ошибка AndroidManifest</string>
+    <string gender="unknown" name="com_facebook_like_button_liked">Нравится</string>
+    <string gender="unknown" name="com_facebook_like_button_not_liked">Нравится</string>
+    <string gender="unknown" name="com_facebook_loading">Загрузка…</string>
+    <string gender="unknown" name="com_facebook_loginview_cancel_action">Отмена</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button">Войти</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_continue">Продолжить с Facebook</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_long">Вход через Facebook</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_action">Выйти</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_button">Выйти</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_as">Вы вошли как %1$s</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_using_facebook">Выполнен вход через Facebook</string>
+    <string gender="unknown" name="com_facebook_send_button_text">Отправить</string>
+    <string gender="unknown" name="com_facebook_share_button_text">Поделиться</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions">Чтобы привязать ваш аккаунт, откройте приложение Facebook на своем мобильном устройстве и проверьте уведомления.</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions_or">- ИЛИ -</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_cancel">Это не вы?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Продолжить как %1$s</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_title">Подтвердите вход</string>
+    <string gender="unknown" name="com_facebook_tooltip_default">Контроль над данными — выберите, какой информацией вы хотите делиться с приложениями.</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Включить</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Для работы приложения \"%1$s\" требуется включить сервисы Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Включите сервисы Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Установить</string>
+    <string name="common_google_play_services_install_text">Для работы приложения \"%1$s\" требуется установить сервисы Google Play.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Установите сервисы Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Доступность сервисов Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Ошибка сервисов Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Приложению \"%1$s\" не удается подключиться к сервисам Google Play. Повторите попытку.</string>
+    <string name="common_google_play_services_unsupported_text">Для работы с приложением \"%1$s\" требуются сервисы Google Play. Они не поддерживаются на вашем устройстве.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Обновить</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Чтобы запустить приложение \"%1$s\", обновите сервисы Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Обновите сервисы Google Play</string>
+    <string name="common_google_play_services_updating_text">Сервисы Google Play, необходимые для работы приложения \"%1$s\", в настоящий момент обновляются.</string>
+    <string name="common_google_play_services_wear_update_text">Версия сервисов Google Play устарела. Они автоматически обновятся в ближайшее время.</string>
+    <string name="common_open_on_phone">Открыть на телефоне</string>
+    <string name="common_signin_button_text">Войти</string>
+    <string name="common_signin_button_text_long">Войти через аккаунт Google</string>
+    <string name="communities">Сообщества</string>
+    <string name="community_manager">Менеджер сообщества</string>
+    <string name="community_members">Участники сообщества</string>
+    <string name="compressing_file_message">Сжатие, пожалуйста, подождите…</string>
+    <string name="confirm_password">Подтвердите Пароль</string>
+    <string name="congratulations">Поздравляем!</string>
+    <string name="connect">соединять</string>
+    <string name="connecting">соединительный</string>
+    <string name="contact">контакт</string>
+    <string name="contact_profile">Контактная информация</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Ссылка скопирована в буфер обмена."</string>
+    <string name="could_not_get_current_location">Не удалось получить текущее местоположение</string>
+    <string name="create">Создайте</string>
+    <string name="create_a_group">Создать группу</string>
+    <string name="create_a_new_group">Создать новую группу</string>
+    <string name="create_account">Создать учетную запись</string>
+    <string name="create_personal_community">Создать личное сообщество</string>
+    <string name="create_thumbnail">Создать миниатюру</string>
+    <string name="created">созданный</string>
+    <string name="created_on">Создано на</string>
+    <string name="critical_alert">Критическое предупреждение</string>
+    <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Неправильный ввод"</string>
+    <string msgid="6312721426453364202" name="default_popup_window_title">"Всплывающее окно"</string>
+    <string name="default_thumbnail">Миниатюра по умолчанию</string>
+    <string name="delete">удалять</string>
+    <string name="delete_community">Удалить сообщество</string>
+    <string name="delete_contact">Удалить контакт</string>
+    <string name="deliver_to">Доставить</string>
+    <string name="delivery_information">информация о доставке</string>
+    <string name="disable_auto_subscribe">Отключить автоматическую подписку</string>
+    <string name="disconnect">Отключить</string>
+    <string name="do_you_want_disable_audible_alerts">Вы хотите отключить звуковые сигналы молнии?</string>
+    <string name="drawer_closed">близко</string>
+    <string name="drawer_open">открыто</string>
+    <string msgid="1890207353314751437" name="dropdown_menu">"Раскрывающееся меню"</string>
+    <string name="edit">редактировать</string>
+    <string name="edit_group">Изменить группу</string>
+    <string name="edit_member">Редактировать участника</string>
+    <string name="edit_personal_community">Изменить личное сообщество</string>
+    <string name="edit_time">Изменить время</string>
+    <string name="email">Эл. адрес</string>
+    <string name="email_is_required">Требуется электронная почта</string>
+    <string name="email_searches_powered_by">Поиск по электронной почте</string>
+    <string name="email_support_in_telligent_com">Электронная почта: support@in-telligent.com</string>
+    <string name="email_support_surgeforward_com">Электронная почта: support@surgeforward.com</string>
+    <string name="emergency">Чрезвычайная ситуация</string>
+    <string name="emergency_service">СЛУЖБЫ СПАСЕНИЯ</string>
+    <string name="enable_auto_subscribe">Включить автоматическую подписку</string>
+    <string name="end_call">Конец вызова</string>
+    <string name="enter_contact_email">Введите контактный адрес электронной почты</string>
+    <string name="enter_contact_name">Введите контактное имя</string>
+    <string name="enter_contact_phone">Введите контактный телефон</string>
+    <string name="enter_email">Введите адрес электронной почты</string>
+    <string name="enter_email_address">Введите адрес электронной почты</string>
+    <string name="enter_message">Введите сообщение</string>
+    <string name="enter_message_italic">undefined</string>
+    <string name="enter_name">Введите имя</string>
+    <string name="enter_names_from_phone_contacts">Введите имена из телефонной книги</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="enter_phone">Введите телефон</string>
+    <string name="enter_title">Введите заголовок</string>
+    <string name="enter_title_italic">undefined</string>
+    <string name="entered">Поступил</string>
+    <string name="error_icon_content_description">Ошибка</string>
+    <string name="exit">Выход</string>
+    <string name="exposed_dropdown_menu_content_description">Показать раскрывающееся меню</string>
+    <string name="facebook_app_id">1830932323800441</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Копировать ссылку"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Открыть в браузере"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Отправить ссылку"</string>
+    <string name="female">женский</string>
+    <string name="filename">Имя файла</string>
+    <string name="filter">ФИЛЬТР: %1$s</string>
+    <string name="filters">фильтры</string>
+    <string name="find">найти</string>
+    <string name="find_member">Найти участника</string>
+    <string name="first_time_user_str">Первый пользователь</string>
+    <string name="forgot_password">ЗАГРУЗИТЬ / ИЗМЕНИТЬ ПАРОЛЬ</string>
+    <string name="forgot_password_enter_email_for_link">Забыли пароль? Просто введите адрес электронной почты, используемый для создания вашей учетной записи, и мы отправим вам ссылку для ее сброса.</string>
+    <string name="frequency">частота</string>
+    <string name="frequency_of_searches">Частота поисков</string>
+    <string name="full_name">ФИО</string>
+    <string name="functionality_in_progress">Выполняемые функции.</string>
+    <string name="g_h_i">RECORD</string>
+    <string name="gender">Пол</string>
+    <string name="general_inquiries">Общие запросы по расследованию</string>
+    <string name="group_deleted">Группа удалена</string>
+    <string name="groups">группы</string>
+    <string name="help_desk">Служба поддержки</string>
+    <string name="helplines">Горячие линии и горячие линии</string>
+    <string name="hours">часов</string>
+    <string name="hours_8am_6pm_est_mon_fri">Часы работы: с 8:00 до 18:00 по восточному стандартному времени</string>
+    <string name="hours_of_silence">Часы молчания</string>
+    <string name="icon_content_description">Значок диалогового окна</string>
+    <string name="ignore">игнорировать</string>
+    <string msgid="6827826412747255547" name="in_progress">"Выполняется"</string>
+    <string name="in_telligent_search_from_my_app">In-telligent Search из моего In-telligent приложения:</string>
+    <string name="in_telligent_searches">In-telligent Searches</string>
+    <string name="inbox">входящие</string>
+    <string name="inbox_new">Входящие ()</string>
+    <string name="incoming_call">Входящий звонок</string>
+    <string name="incoming_call_from">Входящий звонок от</string>
+    <string name="incoming_call_from_tenant">Входящий звонок от арендатора</string>
+    <string msgid="7933458017204019916" name="indeterminate">"Отмечено частично"</string>
+    <string name="intelligent_and_all">In-telligent и все письма</string>
+    <string name="intelligent_and_imported">In-telligent и импортированные электронные письма</string>
+    <string name="intelligent_only">Только для собеседования</string>
+    <string name="interests">интересы</string>
+    <string name="internet_searches_powered_by">Интернет-поисковые системы</string>
+    <string name="invalid_password">Неправильный пароль</string>
+    <string name="invite_again">Пригласить снова</string>
+    <string name="invite_and_save_contact">Пригласить и сохранить контакт</string>
+    <string name="invite_new_member">Пригласить нового пользователя</string>
+    <string name="invite_others">Пригласить других</string>
+    <string name="invite_others_to_join">Пригласите других присоединиться</string>
+    <string name="invite_sent">Приглашение отправлено.</string>
+    <string name="invited">приглашенный</string>
+    <string name="item_view_role_description">Вкладка</string>
+    <string name="j_k_l">JKL</string>
+    <string name="join_now">ПРИСОЕДИНЯЙСЯ СЕЙЧАС</string>
+    <string name="joined">Регистрация</string>
+    <string name="label_select_picture">Выбрать изображение</string>
+    <string name="left">Оставил</string>
+    <string name="life_safety">Безопасность жизни</string>
+    <string name="lightning">молниеносный</string>
+    <string name="listen_to_emergency">Слушайте аварийное звуковое оповещение</string>
+    <string name="listen_to_urgent">Слушайте экстренное звуковое оповещение</string>
+    <string name="local_ncalendar">МЕСТНЫЙ КАЛЕНДАРЬ</string>
+    <string name="local_ninformation">МЕСТНАЯ ИНФОРМАЦИЯ</string>
+    <string name="local_nnews">МЕСТНЫЕ НОВОСТИ</string>
+    <string name="location_permissions">Разрешения на размещение</string>
+    <string name="location_permissions_confirm">Уверены ли вы?</string>
+    <string name="location_permissions_required_prompt">Для правильного функционирования приложения необходимы разрешения на размещение, примите разрешения на размещение и повторите попытку.</string>
+    <string name="location_services_timed_out">Время ожидания службы</string>
+    <string name="log_in">АВТОРИЗОВАТЬСЯ</string>
+    <string name="logout">Выйти</string>
+    <string name="lorem_ipsum">Lorem Ipsum боль сидеть Амет, consectetur adipiscing Элит, SED Tempor и жизнеспособность, так что труд и горе, некоторые важные вещи, чтобы сделать eiusmod.</string>
+    <string name="m_n_o">МНО</string>
+    <string name="male">мужчина</string>
+    <string name="material_clock_toggle_content_description">Выберите AM (до полудня) или PM (после полудня)</string>
+    <string name="material_hour_24h_suffix">%1$s ч.</string>
+    <string name="material_hour_selection">Выберите час</string>
+    <string name="material_hour_suffix">%1$s ч.</string>
+    <string name="material_minute_selection">Выберите минуты</string>
+    <string name="material_minute_suffix">%1$s мин.</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Чтобы ввести время, перейдите в режим часов.</string>
+    <string name="material_timepicker_hour">Час</string>
+    <string name="material_timepicker_minute">Минуты</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Выбор времени</string>
+    <string name="material_timepicker_text_input_mode_description">Чтобы ввести время, перейдите в режим ввода текста.</string>
+    <string name="members_in_community">Участники сообщества</string>
+    <string name="menu">Меню</string>
+    <string name="message_feed">Сообщение</string>
+    <string name="message_is_saved">Ваше сообщение сохранено</string>
+    <string name="message_not_saved">Не удалось сохранить ваше сообщение</string>
+    <string name="messages">Сообщения</string>
+    <string name="messages_from">Сообщения от</string>
+    <string name="more">…Больше</string>
+    <string name="mtrl_badge_numberless_content_description">Новое уведомление</string>
+    <string name="mtrl_chip_close_icon_content_description">Удалить \"%1$s\"</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Новых уведомлений больше %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Перейти к следующему месяцу</string>
+    <string name="mtrl_picker_a11y_prev_month">Перейти к предыдущему месяцу</string>
+    <string name="mtrl_picker_announce_current_range_selection">Выбранная дата начала: %1$s. Выбранная дата окончания: %2$s.</string>
+    <string name="mtrl_picker_announce_current_selection">Выбранный элемент: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">нет</string>
+    <string name="mtrl_picker_cancel">Отмена</string>
+    <string name="mtrl_picker_confirm">ОК</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Выберите дату</string>
+    <string name="mtrl_picker_date_header_unselected">Выбранная дата</string>
+    <string name="mtrl_picker_day_of_week_column_header">Столбец со днями недели: %1$s</string>
+    <string name="mtrl_picker_end_date_description">Дата окончания: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Недействительный формат.</string>
+    <string name="mtrl_picker_invalid_format_example">Пример: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Используйте: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Недопустимый диапазон.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">Перейти к текущему году: %1$d</string>
+    <string name="mtrl_picker_navigate_to_year_description">Перейти к %1$d году</string>
+    <string name="mtrl_picker_out_of_range">Вне диапазона: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Дата начала – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата окончания</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Выберите диапазон дат</string>
+    <string name="mtrl_picker_range_header_unselected">Дата начала – дата окончания</string>
+    <string name="mtrl_picker_save">Сохранить</string>
+    <string name="mtrl_picker_start_date_description">Дата начала: %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">Дата</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Дата окончания</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Дата начала</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_today_description">Сегодня: %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Перейти в режим выбора дней</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Нажмите, чтобы перейти к Календарю</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Перейти в режим ввода текста</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Нажмите, чтобы выбрать год</string>
+    <string name="mtrl_timepicker_cancel">Отмена</string>
+    <string name="mtrl_timepicker_confirm">ОК</string>
+    <string name="my_account">Мой аккаунт</string>
+    <string name="my_communities">Мои сообщества</string>
+    <string name="my_info">Моя информация</string>
+    <string name="name">название</string>
+    <string name="name_your_community">Назовите свое сообщество</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Меню навигации"</string>
+    <string name="near_me">Около меня</string>
+    <string name="never">Никогда</string>
+    <string name="never_mind">Не берите в голову</string>
+    <string name="newest_first">Новички вперед</string>
+    <string name="news">Новости</string>
+    <string name="news_and_traffic">Новости и трафик</string>
+    <string name="news_for">Новости для</string>
+    <string name="news_from_my_in_telligent_app">Новости моего приложения In-telligent</string>
+    <string name="news_source">ИСТОЧНИК НОВОСТИ</string>
+    <string name="news_source_feed_title">Заголовок источника новостей новостей</string>
+    <string name="next">следующий</string>
+    <string name="no">нет</string>
+    <string name="no_alerts">Нет предупреждений</string>
+    <string name="no_groups">Нет групп</string>
+    <string name="no_le_support">Нет поддержки LE.</string>
+    <string name="no_members">Нет участников</string>
+    <string name="no_personal_communities">Нет личных сообществ</string>
+    <string name="no_results_found">результаты не найдены</string>
+    <string name="no_saved_messages">Нет сохраненных сообщений</string>
+    <string name="no_subscriptions">Нет подписки</string>
+    <string name="no_thank_you">Нет, спасибо</string>
+    <string name="none">Никто</string>
+    <string name="normal">Нормальный</string>
+    <string msgid="6610465462668679431" name="not_selected">"Не выбрано"</string>
+    <string name="notifications">Уведомления</string>
+    <string name="number">Число</string>
+    <string name="off">от</string>
+    <string name="ok">Хорошо</string>
+    <string name="on">На</string>
+    <string name="only_when_im_here">Только когда я здесь</string>
+    <string name="or">или же</string>
+    <string name="organizations">организации</string>
+    <string name="other">Другой</string>
+    <string name="other_communities">Другие сообщества</string>
+    <string name="p_q_r_s">ФХЦЧ</string>
+    <string name="page_number">Номер страницы:</string>
+    <string name="password">пароль</string>
+    <string name="password_protected_pdf_file">Защищенный паролем PDF-файл:</string>
+    <string name="password_toggle_content_description">Показать пароль</string>
+    <string name="passwords_dont_match">Passwords don\'t match</string>
+    <string name="pending">в ожидании</string>
+    <string name="people">люди</string>
+    <string name="permission_read_storage_rationale">Для выбора файлов требуется разрешение на чтение.</string>
+    <string name="personal_alert">Личное оповещение</string>
+    <string name="personal_communities">Персональные сообщества</string>
+    <string name="personal_community">Личное сообщество</string>
+    <string name="physical">физический</string>
+    <string name="ping_alert">Ping Alert</string>
+    <string name="please_check_your_network_connection_try_again">Проверьте подключение к сети и повторите попытку.</string>
+    <string name="please_ensure_you_entered_name_and_contact_method">Убедитесь, что вы ввели имя и контактный метод.</string>
+    <string name="please_enter_alert_body">Введите тело предупреждения</string>
+    <string name="please_enter_alert_title">Введите название предупреждения</string>
+    <string name="please_enter_an_alert_type">Выберите тип предупреждения.</string>
+    <string name="please_enter_name_of_community">Введите название своего сообщества.</string>
+    <string name="please_enter_password_for_pdf">введите пароль для PDF</string>
+    <string name="please_input_the_message_into_the_help_box">Введите сообщение в поле справки.</string>
+    <string name="please_select_a_group">Выберите группу, с которой вы \ n хотите связаться</string>
+    <string name="please_select_another">ПОЖАЛУЙСТА, ВЫБИРАЙТЕ ДРУГОЙ</string>
+    <string name="please_sign_in">Пожалуйста войдите</string>
+    <string name="powered_by_inourcommunity">Работает на InOurCommunity</string>
+    <string name="previous">предыдущий</string>
+    <string msgid="5941395253238309765" name="range_end">"Конец диапазона"</string>
+    <string msgid="7097486360902471446" name="range_start">"Начало диапазона"</string>
+    <string name="read_less">Читать меньше</string>
+    <string name="read_more">Прочитайте больше</string>
+    <string name="receive_regular_alerts">Получать регулярные оповещения</string>
+    <string name="received">Получено</string>
+    <string name="region">Область, край</string>
+    <string name="region_monitoring">Мониторинг региона</string>
+    <string name="register">регистр</string>
+    <string name="regular_alert">Регулярное оповещение</string>
+    <string name="reject_end_call">Отклонить / завершить вызов</string>
+    <string name="remove_invite">Remove Invite</string>
+    <string name="required_field">Это поле обязательно к заполнению.</string>
+    <string name="reset_password">Сброс пароля</string>
+    <string name="reset_your_password">Сбросить пароль</string>
+    <string name="respond">ОТВЕТ НА ПРЕДЛАГАЕМЫЙ АЛЕРТ</string>
+    <string name="response_hint">Введите ответ здесь ..</string>
+    <string name="retry">Retry</string>
+    <string name="returning_subscriber_str">Возвращающийся подписчик</string>
+    <string name="save">Сохранить</string>
+    <string name="save_changes">Сохранить изменения</string>
+    <string name="save_edits">Сохранить изменения</string>
+    <string name="save_failed_check_internet_connection">Сохранить сбой. Проверьте подключение к Интернету и повторите попытку.</string>
+    <string name="save_message">Сохранить сообщение</string>
+    <string name="saved">Сохраненный.</string>
+    <string name="saved_messages">Сохраненные сообщения</string>
+    <string name="sd_permissions">Разрешения SD</string>
+    <string name="sd_permissions_required_message">Для правильной работы приложения необходимы разрешения SD, пожалуйста, примите разрешения SD и повторите попытку.</string>
+    <string name="search">Поиск</string>
+    <string name="search_by_current_location">Поиск по текущему местоположению</string>
+    <string name="search_by_email">Search by Email</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="search_for_communities">Поиск сообществ</string>
+    <string name="search_for_group">Поиск группы</string>
+    <string name="search_keywords">Ключевые слова поиска</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Поиск"</string>
+    <string name="search_nkeywords">Ключевые слова поиска</string>
+    <string name="see_full_message">Смотрите полное сообщение</string>
+    <string name="select_a_community">Выберите сообщество</string>
+    <string name="select_a_method">Выберите метод</string>
+    <string name="select_a_source">Выберите источник</string>
+    <string name="select_alert_type">Выберите тип предупреждения</string>
+    <string name="select_files">Выбрать файлы</string>
+    <string name="select_primary_community">Выберите Основное сообщество</string>
+    <string name="select_thumbnail">Выберите миниатюру:</string>
+    <string name="select_your_age">Выберите свой возраст</string>
+    <string name="select_your_gender">Выбери свой пол</string>
+    <string msgid="6043586758067023" name="selected">"Выбрано"</string>
+    <string name="send">послать</string>
+    <string name="send_a_message">Отправить сообщение</string>
+    <string name="send_alert_to_community">Отправить сообщение для сообщества</string>
+    <string name="send_invite_save_contact">Отправить приглашение и сохранить контакт</string>
+    <string name="send_message">undefined</string>
+    <string name="send_to">Отправить</string>
+    <string name="send_to_all">Отправить всем подписчикам этого сообщества</string>
+    <string name="send_to_specific">Отправить конкретному подписчику или группам</string>
+    <string name="send_to_specific_subscribers_or_groups">Отправить отдельным подписчикам или группам</string>
+    <string name="server_client_id">592871569708-6vaog0bbf8d7b48kj7j7au4ga0oaa916.apps.googleusercontent.com</string>
+    <string name="set">Задавать</string>
+    <string name="set_language_to">Установите язык для</string>
+    <string name="settings">настройки</string>
+    <string name="severe_weather">Суровая погода</string>
+    <string name="severe_weather_warnings">Предупреждения о суровой погоде</string>
+    <string name="short_description">Краткое описание (название)</string>
+    <string name="sign_in">Войти в систему</string>
+    <string name="some_error">Некоторая ошибка</string>
+    <string name="sound_alert">Звуковое оповещение</string>
+    <string name="status">Статус</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">">999"</string>
+    <string name="stop_speaking">Хватит говорить</string>
+    <string name="submit">Отправить</string>
+    <string name="subscribe">Подписывайся</string>
+    <string name="suggested_alerts">Рекомендуемые предупреждения</string>
+    <string name="suggested_groups">Рекомендуемые группы</string>
+    <string name="support">Служба поддержки</string>
+    <string msgid="2561197295334830845" name="switch_role">"Переключатель"</string>
+    <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Вкладка"</string>
+    <string name="tap_here">Нажмите здесь</string>
+    <string name="tap_icon_to_get_directions_to_community">Нажмите значок, чтобы получить направление в сообщество.</string>
+    <string name="tap_to_enter_message">Нажмите, чтобы ввести сообщение</string>
+    <string msgid="5946805113151406391" name="template_percent">"Процентов: <ns1:g id="PERCENTAGE">%1$d</ns1:g>."</string>
+    <string name="text_to_speech">Текст в речь</string>
+    <string name="the_tenant_has_already_ended_call">Арендатор уже завершил звонок</string>
+    <string name="there_are_no_available_community_managers_consider">Нет доступных менеджеров сообщества. Вместо этого отправьте текстовое предупреждение.</string>
+    <string name="there_are_no_members_to_show">There are no members to show</string>
+    <string name="there_was_an_error_initializing_tts_engine">Произошла ошибка при инициализации TTS Engine</string>
+    <string name="there_was_an_error_playing_the_alert">Произошла ошибка при воспроизведении предупреждения</string>
+    <string name="there_was_error_connecting">Ошибка подключения к серверу</string>
+    <string name="there_was_error_connecting_to_server">Произошла ошибка подключения к серверу. Проверьте подключение к Интернету.</string>
+    <string name="there_was_error_sending_request">Произошла ошибка отправки вашего запроса.</string>
+    <string name="this_building_cannot_be_contacted">С этим зданием нельзя связаться</string>
+    <string name="this_community_does_not_have_messages">У этого сообщества нет сообщений</string>
+    <string name="this_community_is_password_protected">Это сообщество защищено паролем, вы должны подписаться на его сообщения</string>
+    <string name="this_community_name_is_taken_choose_another">Это название сообщества принято. Выберите другое имя.</string>
+    <string name="this_email_is_already_registered">Этот почтовый адрес уже зарегистрирован.</string>
+    <string name="this_version_is_no_longer_supported">This version of In-telligent is no longer supported. Please update to the latest version.</string>
+    <string name="timer">часы работы:</string>
+    <string name="timestamp">Отметка</string>
+    <string name="title">заглавие</string>
+    <string msgid="3765533235322692011" name="tooltip_description">"Подсказка"</string>
+    <string msgid="3124740595719787496" name="tooltip_label">"Показать подсказку"</string>
+    <string name="total_members">Всего пользователей</string>
+    <string name="total_recipients">Всего получателей</string>
+    <string name="total_silence">Полная тишина</string>
+    <string name="total_silence_on">Полная тишина:</string>
+    <string name="traffic_nand_directions">ДВИЖЕНИЕ И НАПРАВЛЕНИЯ</string>
+    <string name="translate">Переведите</string>
+    <string name="translate_to">Перевести на</string>
+    <string name="type_comment_here">Введите комментарий здесь</string>
+    <string name="type_of_alert">Тип предупреждения</string>
+    <string name="ucrop_crop">Обрезать</string>
+    <string name="ucrop_label_edit_photo">Редактировать фото</string>
+    <string name="ucrop_label_original">Оригинал</string>
+    <string name="ucrop_menu_crop">Обрезать</string>
+    <string name="ucrop_rotate">Повернуть</string>
+    <string name="ucrop_scale">Масштабировать</string>
+    <string name="unable_to_create_community_check_connection">Не удалось создать сообщество. Проверьте подключение и повторите попытку.</string>
+    <string name="unable_to_save_changes_check_connetion">Не удалось сохранить изменения. Проверьте подключение и повторите попытку.</string>
+    <string name="unable_updated_location">Невозможно получить актуальное местоположение.</string>
+    <string name="unread">Непрочитанный</string>
+    <string name="unread_messages">Непрочитанные сообщения</string>
+    <string name="unsave">Unsave</string>
+    <string name="unsave_message">Unsave Message</string>
+    <string name="unspecified">Неопределенные</string>
+    <string name="unsubscribe">Отказаться от подписки</string>
+    <string name="up_to_10_terms">До 10 сроков</string>
+    <string name="update">Update</string>
+    <string name="uploading_attachment_for_notification">Загрузка вложения для уведомления</string>
+    <string name="uploading_attachment_for_personal_community">Загрузка приложения для личного сообщества</string>
+    <string name="urgent">неотложный</string>
+    <string name="user_invited">Пользователь приглашен</string>
+    <string name="version_no_longer_available">New update available!</string>
+    <string name="view">Посмотреть</string>
+    <string name="view_alerts">Просмотр предупреждений</string>
+    <string name="view_members">Просмотр новых публикаций</string>
+    <string name="viewed">Рассматриваемый</string>
+    <string name="virtual">виртуальный</string>
+    <string name="w_x_y_z">WXYZ</string>
+    <string name="when_you_send_members_will_hear">* Когда вы отправляете срочное или аварийное предупреждение в сообщество, участники будут слышать звуковой сигнал</string>
+    <string name="would_you_like_to_call_your_community_manager">Вы хотите позвонить своему менеджеру сообщества?</string>
+    <string name="would_you_like_to_create_personal_community">Вы хотите создать личное сообщество для отправки сообщений семье и друзьям?</string>
+    <string name="would_you_like_to_perm_delete_contact">Вы хотите окончательно удалить этот контакт?</string>
+    <string name="yes">да</string>
+    <string name="you_are_now_subscribed_to">Теперь вы подписаны на ""</string>
+    <string name="you_are_now_subscribed_to_the_community">Теперь вы подписаны на сообщество.</string>
+    <string name="you_were_invited_to_join_a_comunnity">Вы были приглашены присоединиться к %1$d</string>
+    <string name="your_alert_is_uploading_now">Ваше оповещение загружается сейчас</string>
+    <string name="your_invitation_is_no_longer_valid">Ваше приглашение больше не действительна</string>
+    <string name="your_request_has_been_sent_to_support_team">Ваш запрос отправлен в службу поддержки.</string>
+    <string name="zip_code_city_or_keyword">Почтовый индекс, город или ключевое слово</string>
+    <string name="zipcode">Почтовый индекс</string>
+</resources>

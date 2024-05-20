@@ -1,0 +1,174 @@
+package com.sca.in_telligent.ui.auth.register;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import com.facebook.CallbackManager;
+import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.tasks.Task;
+import com.sca.in_telligent.R;
+import com.sca.in_telligent.openapi.data.network.model.CheckEmailResponse;
+import com.sca.in_telligent.openapi.data.network.model.FacebookLoginRequest;
+import com.sca.in_telligent.openapi.data.network.model.GoogleLoginRequest;
+import com.sca.in_telligent.openapi.data.network.model.SignUpRequest;
+import com.sca.in_telligent.ui.auth.login.LoginActivity;
+import com.sca.in_telligent.ui.auth.logout.LogoutActivity;
+import com.sca.in_telligent.ui.base.BaseActivity;
+import com.sca.in_telligent.util.CommonUtils;
+import javax.inject.Inject;
+
+public class SignupDemographicsActivity extends BaseActivity implements SignupDemographicsMvpView,
+    OnConnectionFailedListener {
+
+  private static final String TAG = "SignupDemographics";
+
+  @Inject
+  SignupDemographicsMvpPresenter<SignupDemographicsMvpView> mPresenter;
+
+  @BindView(R.id.inputName)
+  EditText inputName;
+
+  @BindView(R.id.inputEmail)
+  EditText inputEmail;
+
+  @BindView(R.id.btnGoToSignupPassword)
+  Button buttonGoToSignupPassword;
+
+  @BindView(R.id.btnGoToLogin)
+  TextView buttonGoToLogin;
+
+  @BindView(R.id.btnLoginFacebookCustom)
+  ImageView buttonFacebook;
+
+  @BindView(R.id.btnLoginGooglePlus)
+  ImageView buttonGooglePlus;
+
+  CallbackManager callbackManager;
+
+  private static final int RC_SIGN_IN = 12332;
+
+  public static Intent getStartIntent(Context context) {
+    Intent intent = new Intent(context, SignupDemographicsActivity.class);
+    return intent;
+  }
+
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_signup_demographics);
+    getActivityComponent().inject(this);
+
+    setUnBinder(ButterKnife.bind(this));
+
+    mPresenter.onAttach(SignupDemographicsActivity.this);
+
+    callbackManager = CallbackManager.Factory.create();
+  }
+
+  @OnClick(R.id.btnGoToSignupPassword)
+  void signUpPasswordClick(View v) {
+    if (!isNetworkConnected()) {
+      showNetworkDialog();
+    } else {
+      String email = inputEmail.getText().toString();
+      if (email.length() > 0) {
+        mPresenter.checkEmailExists(email);
+      }
+    }
+    hideKeyboard();
+  }
+
+  @Override
+  public void proceedWithSignup(CheckEmailResponse checkEmailResponse) {
+    if (checkEmailResponse.isValid() && inputEmail.length() > 0 && inputName.length() > 0) {
+      SignUpRequest signUpRequest = new SignUpRequest();
+      signUpRequest.setEmail(inputEmail.getText().toString());
+      signUpRequest.setName(inputName.getText().toString());
+      startActivityWithDeeplink(
+          SignupPasswordActivity.getStartIntent(this).putExtra("signUpRequest", signUpRequest));
+    }
+  }
+
+  @Override
+  public void onFacebookConnected(LoginResult loginResult) {
+    FacebookLoginRequest facebookLoginRequest = new FacebookLoginRequest();
+    facebookLoginRequest.setFacebookAccessToken(loginResult.getAccessToken().getToken());
+    facebookLoginRequest.setDeviceId(CommonUtils.getDeviceId(this));
+    mPresenter.authFacebook(facebookLoginRequest);
+  }
+
+  @Override
+  public void goToLogout() {
+    startActivity(LogoutActivity.getStartIntent(this));
+  }
+
+  @OnClick(R.id.btnLoginFacebookCustom)
+  void facebookLoginClick(View v) {
+    mPresenter.loginFacebook(callbackManager);
+  }
+
+  @OnClick(R.id.btnLoginGooglePlus)
+  void googleLoginClick(View v) {
+    mPresenter.loginGoogle(RC_SIGN_IN);
+  }
+
+  @OnClick(R.id.btnGoToLogin)
+  void goToLogin(View v) {
+    startActivityWithDeeplink(LoginActivity.getStartIntent(this));
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == RC_SIGN_IN) {
+      // The Task returned from this call is always completed, no need to attach
+      // a listener.
+      Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+      try {
+        GoogleSignInAccount account = task.getResult(ApiException.class);
+        GoogleLoginRequest googleLoginRequest = new GoogleLoginRequest();
+        googleLoginRequest.setDeviceId(CommonUtils.getDeviceId(this));
+        googleLoginRequest.setGoogleAccessToken(account.getIdToken());
+        mPresenter.authGoogle(googleLoginRequest);
+      } catch (ApiException e) {
+        Log.d(TAG, "Google Login: result unsuccessful");
+        e.printStackTrace();
+      }
+    } else {
+      callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+  }
+
+  @Override
+  protected void setUp() {
+
+  }
+
+  @Override
+  protected void onDestroy() {
+    mPresenter.onDetach();
+    super.onDestroy();
+  }
+
+
+  @Override
+  public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    Log.d(TAG, "Google Login: onConnectionFailed: " + connectionResult.getErrorMessage());
+  }
+}

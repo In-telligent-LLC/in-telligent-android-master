@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.settings.account.AccountSettingsPresenter","classAnnotations":[],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter","com.sca.in_telligent.ui.settings.account.AccountSettingsMvpPresenter"],"superClasses":["com.sca.in_telligent.ui.base.BasePresenter","java.lang.Object"]}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F33</color>
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorAccent">#41b5d6</color>
+
+
+    <color name="black">#000000</color>
+    <color name="gray2">#333333</color>
+    <color name="gray59">#595959</color>
+    <color name="gray7b">#7b7b7b</color>
+    <color name="grayd">#dddddd</color>
+    <color name="grayf4">#f4f4f4</color>
+    <color name="grayf0">#f0f0f0f0</color>
+    <color name="white">#ffffff</color>
+
+    <color name="dial_start">#fefefe</color>
+    <color name="dial_end">#e1e1e1</color>
+    <color name="dial_end_pressed">#8b8b8b</color>
+    <color name="dial_border">#cfcfcf</color>
+
+    <color name="gray_main">#ebebeb</color>
+    <color name="tab_green">#b1c83e</color>
+    <color name="tab_gray">#919191</color>
+
+    <color name="tts_button_blue">#448ac3</color>
+    <color name="translate_button_black">#383838</color>
+
+    <color name="green">#b1ca2e</color>
+    <color name="lightgreen">#bbd531</color>
+
+    <color name="blue">#41b5d6</color>
+    <color name="darkblue">#0788ca</color>
+
+    <color name="red">#d33434</color>
+
+    <color name="yellow">#FFFF00</color>
+
+
+    <color name="light_blue1">#47D6F9</color>
+
+    <color name="light_blue2">#A2F1F8</color>
+
+    <color name="pete_light_blue">#2388c6</color>
+    <color name="orange">#FF6600</color>
+    <color name="darkGreen">#008000</color>
+
+    <color name="dull_lime">#33D652</color>
+    <color name="nugget">#BF9329</color>
+    <color name="thunderbird">#C7261B</color>
+</resources>

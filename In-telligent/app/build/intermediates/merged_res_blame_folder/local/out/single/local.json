@@ -1,0 +1,1654 @@
+[
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_traschcan.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_traschcan.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/xml_network_security_config.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_inset_margin.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/inset_margin.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_et.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/et.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_right_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/right_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_logo_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/logo_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_cross_mark.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/cross_mark.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_spinner_dropdown_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_pressed.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/call_pressed.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_image_header_border.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/image_header_border.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_contact_message.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_contact_message.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_lightning_red_transparent_bg.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/lightning_red_transparent_bg.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_communities_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_communities_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_call_end_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_call_end_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_icon_attachment.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/icon_attachment.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_suggested_image.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/suggested_image.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_create_group.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_create_group.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_group_normal_list_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/group_normal_list_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_new_message.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/new_message.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_personal_comm_white.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/personal_comm_white.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_forgot_password_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/forgot_password_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_closeup_phone.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/closeup_phone.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_communities.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_communities.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_intelligent_searches.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_intelligent_searches.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_gray_dot.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/gray_dot.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_contact_send_message_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/contact_send_message_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_audio_urgent_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/audio_urgent_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_reuters_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/reuters_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_woman_in_library.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/woman_in_library.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_inbox_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_inbox_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_sitting_with_books.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/sitting_with_books.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_contact_deliver_invitee_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/contact_deliver_invitee_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_edittext_bg.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/edittext_bg.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_personalcomm_green.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/personalcomm_green.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_audio_red_null.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/audio_red_null.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_call_end_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_call_end_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_local_information_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/local_information_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_add_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_add_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_arrow_left_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_arrow_left_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_saved_messages.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_saved_messages.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_news.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_news.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_text_icon_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/text_icon_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_account_settings.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_account_settings.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_notification_attachment_item_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/notification_attachment_item_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_green_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/green_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_total_silence_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/total_silence_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_zoom_in.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/zoom_in.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_abc_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/abc_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_blue_rect_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/blue_rect_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_emergency_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_emergency_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_member_list.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_member_list.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_contact_call.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_contact_call.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_add_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_add_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_sos.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_sos.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_eye.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_eye.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_arrow_left_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_arrow_left_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_menu.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_menu.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_toolbar_layout.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/toolbar_layout.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_traschcan.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_traschcan.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_attachment.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_attachment.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_06.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_06.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_blonde_girl_in_class.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/blonde_girl_in_class.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/color_tab_selected_indicator.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/color/tab_selected_indicator.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_start_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/start_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/xml_remote_config_defaults.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/xml/remote_config_defaults.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_icon_sos.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/icon_sos.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_settings_tab_selected.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/settings_tab_selected.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_location_on_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_location_on_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_personal_comm_gray_thumbnail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/personal_comm_gray_thumbnail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_inbox_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_inbox_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_search.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_search.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_field_required_layout.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/field_required_layout.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_alert_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/alert_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_view_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/view_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_icon_sos.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/icon_sos.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_edit_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_edit_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_usa_today_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/usa_today_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_splash.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_business_suit_guy.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/business_suit_guy.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_play_button.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/play_button.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_regularx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/regularx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_splash_screen_2.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/splash_screen_2.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_group_detail.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_group_detail.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_inbox_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_inbox_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_news_color_small.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/news_color_small.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_icon_attachment.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/icon_attachment.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_criticalxx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/criticalxx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_dial_number_background_normal.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/dial_number_background_normal.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_item_navigation_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/item_navigation_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_wired.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/wired.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_edit_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_edit_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_science_daily.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/science_daily.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_women_in_white_dress.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/women_in_white_dress.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_left_arrow_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/left_arrow_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_outline.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/outline.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_green_plus_sign.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/green_plus_sign.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_edit_member.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_edit_member.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_right_arrow_detail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/right_arrow_detail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_translate.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/icon_translate.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_science_daily_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/science_daily_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_light_blue_circle.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/light_blue_circle.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_personalcomm_green.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/personalcomm_green.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_message.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_message.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_picture_as_pdf_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_picture_as_pdf_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_bloomberg.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/bloomberg.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/menu_bottom_navigation_main.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/menu/bottom_navigation_main.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_logo_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/logo_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_attachment.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_attachment.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_edit_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_edit_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_audio_emergency_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/audio_emergency_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_communities.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_communities.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_edittext_send_message.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/edittext_send_message.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_invite_member.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_invite_member.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_status3.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/call_status3.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_saved_messages.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_saved_messages.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_logout.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_logout.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_zoom_out.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/zoom_out.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_card_view_elevation_background_drawable.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/card_view_elevation_background_drawable.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_personal_comm_bluecircle.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/personal_comm_bluecircle.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_arrow_right_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_arrow_right_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_down_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_down_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_account_support.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_account_support.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_eye.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_eye.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_settings.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_settings.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_notification_detail.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_notification_detail.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_search_bar_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/search_bar_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_news.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_news.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_contact_deliver_empty_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/contact_deliver_empty_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_man_leaning_on_wall.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/man_leaning_on_wall.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_arrow_right_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_arrow_right_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_guy_glasses_and_tablet.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/guy_glasses_and_tablet.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_alert_detail.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_alert_detail.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_list.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_list.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_contact.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_contact.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_communities.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_communities.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_green_progress_bar_drawable.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/green_progress_bar_drawable.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_contact_list.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_contact_list.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_arrow_right.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_arrow_right.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_close_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_close_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_add_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_add_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_group_list.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_group_list.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_status2.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/call_status2.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_tab_background_indicator.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/tab_background_indicator.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_splash_screen_2.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/splash_screen_2.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_new_message_x.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/new_message_x.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_bloomberg_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/bloomberg_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_text_voice_stop.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-xhdpi/icon_text_voice_stop.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_loginbutton_facebook.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/loginbutton_facebook.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_splash_screen_2.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/splash_screen_2.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_intro.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_intro.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_down_carrot.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_down_carrot.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_local_information.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/local_information.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_find_location_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/find_location_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_close_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_close_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_create_thumbnail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/create_thumbnail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_weather.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/weather.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_attachment.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_attachment.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_espn_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/espn_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_group_indicator.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/group_indicator.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_call_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_call_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_picture_as_pdf_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_picture_as_pdf_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_edit_pencil_icon.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/edit_pencil_icon.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_contact.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_contact.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_two_girls_looking_at_phone.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/two_girls_looking_at_phone.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_blue_circle.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/blue_circle.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_card_foreground.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/card_foreground.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_guy_with_glasses.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/guy_with_glasses.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_nyt_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/nyt_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_location_on_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_location_on_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_contact_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_contact_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_fox_news.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/fox_news.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_reuters_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/reuters_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_icon_list.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/icon_list.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_settings.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_settings.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_left_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/left_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_icon_emergency_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/icon_emergency_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_man_on_bike.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/man_on_bike.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_arm_at_baseball_game.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/arm_at_baseball_game.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_notification_settings.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_notification_settings.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_personalcomm_green.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/personalcomm_green.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/anim_fade_out.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/anim/fade_out.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_call_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_call_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_red_circle_button.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/red_circle_button.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_attachment_delete.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_attachment_delete.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_contact_list_group_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/contact_list_group_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_list.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_list.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_regularx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/regularx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_cnn.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/cnn.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_menu.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_menu.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_regularx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/regularx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_notification_item_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/notification_item_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_menu_white.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_menu_white.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_attachment_preview_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/attachment_preview_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_newyork_times_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/newyork_times_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_main.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_lobby_guy.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/lobby_guy.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_nav_showall.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/nav_showall.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_call_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_call_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ic_contact_tab.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ic_contact_tab.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_call_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_call_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_signup_password.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_signup_password.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_status1.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/call_status1.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_inbox_list_divider.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/inbox_list_divider.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_settings.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_logo_2.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/logo_2.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_group_indicator.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/group_indicator.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_personal_communities.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_personal_communities.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_edittext_search_group_white.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/edittext_search_group_white.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_emergency_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/emergency_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_close_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_close_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_call_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_call_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_panic.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_panic.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_gmail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/gmail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_emergency_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_emergency_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_audio_orange_null.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/audio_orange_null.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_generate_group.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_generate_group.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_couple_looking_at_tablet.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/couple_looking_at_tablet.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_logo_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/logo_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_menu_white.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_menu_white.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_splash_screen_2.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/splash_screen_2.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_message.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_message.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_group_detail_container.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_group_detail_container.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_usa_today_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/usa_today_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_inbox_list_divider.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/inbox_list_divider.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_fox_news_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/fox_news_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_add_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_add_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_local_information_selected.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/local_information_selected.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_contact_attachment_icon.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/contact_attachment_icon.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_edittext_search_group.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/edittext_search_group.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_tts_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/tts_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_inbox.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_inbox.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_group_gray_header_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/group_gray_header_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_under_development.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/under_development.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_outline.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/outline.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_settings.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_settings.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_blonde_with_phone.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/blonde_with_phone.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_text_voice.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-xhdpi/icon_text_voice.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_two_girls_at_football_game.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/two_girls_at_football_game.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_delivery_info.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_delivery_info.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_cnn_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/cnn_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_et_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/et_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_espn_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/espn_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_facebook_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/facebook_logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_inbox.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_inbox.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_dial_number_background_pressed.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/dial_number_background_pressed.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_default.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/call_default.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_arrow_right_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_arrow_right_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_icon_location.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/icon_location.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_total_silence_border.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/total_silence_border.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_green_plus_sign_small.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/green_plus_sign_small.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_checkmark.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/checkmark.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_down_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_down_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_logo_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/logo_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_search_bar_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/search_bar_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_left_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/left_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_usa_today.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/usa_today.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_sos.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_sos.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_women_plus_coffee_cup.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/women_plus_coffee_cup.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_inbox_notification_item_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/inbox_notification_item_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_science_daily_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/science_daily_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_pingx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/pingx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_edit_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_edit_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_call_end_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_call_end_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_reuters.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/reuters.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_elevator_women.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/elevator_women.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_settings_tab_unselected.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/settings_tab_unselected.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_message_view_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/message_view_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_black_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/black_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_group_suggested_header_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/group_suggested_header_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_girl_in_pink_sweater.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/girl_in_pink_sweater.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_wired_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/wired_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ping.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ping.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_personalcomm_green.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/personalcomm_green.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_fox_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/fox_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_green_circle_button.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/green_circle_button.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_abc.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/abc.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_05.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_05.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_call_end_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_call_end_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_transparent_to_gray_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/transparent_to_gray_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_splash_screen_2.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/splash_screen_2.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_text_default.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/text_default.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_sca_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/sca_logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_building_pin.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-xhdpi/building_pin.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_edit_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_edit_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/anim_fade_in.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_saved_messages.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_saved_messages.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_call_end_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_call_end_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_entertainment_tonight_news_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/entertainment_tonight_news_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_location.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_location.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_women_striped_dress.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/women_striped_dress.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_contact_deliver_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/contact_deliver_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_arrow_right.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_arrow_right.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_member_list_item_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/member_list_item_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_audio_orange.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/audio_orange.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_login_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/login_logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ic_groups_tab.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ic_groups_tab.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_blue_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/blue_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_spinner_list_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/spinner_list_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_cnn_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/cnn_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/xml_global_tracker.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/xml/global_tracker.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_life_safety.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/life_safety.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_personal_comm_gray.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/personal_comm_gray.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_notification_settings_empty_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/notification_settings_empty_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_location.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_location.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_inbox.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_inbox.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_audio_red.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/audio_red.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_alert_color_small.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/alert_color_small.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_status4.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/call_status4.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_twitter.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/twitter.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_text_pressed.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/text_pressed.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_blue_background_states.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/blue_background_states.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_women_looking_down.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/women_looking_down.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_list.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_list.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_menu.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_menu.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_inbox_notification_empty_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/inbox_notification_empty_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_communities_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_communities_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_menu_white.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_menu_white.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_close_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_close_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_translate_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/translate_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_inbox.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_inbox.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_sos.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_sos.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_02.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_02.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_dial_number_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/dial_number_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_member_location.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_member_location.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_progress_dialog.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/progress_dialog.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_life_safety_popup.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_life_safety_popup.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_call_icon_selector.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/call_icon_selector.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_icon_list.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/icon_list.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_add_white_24.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_add_white_24.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_incoming_call_popup.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_incoming_call_popup.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_up_carrot.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_up_carrot.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_personal_safety_popup.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_personal_safety_popup.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_twitter_logo.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/twitter_logo.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_contact_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_contact_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_notification_settings_list_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/notification_settings_list_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_01.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_01.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_04.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_04.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_bloomberg_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/bloomberg_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_arrow_left_black.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_arrow_left_black.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_personal_communities_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_personal_communities_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ic_inbox_tab.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ic_inbox_tab.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_loginbutton_googleplus.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/loginbutton_googleplus.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_signup_demographics.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_signup_demographics.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_suggested_image.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/suggested_image.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_reset_password.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_reset_password.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_communities_on.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_communities_on.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_waste_bin_gray.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_waste_bin_gray.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_delete_close_red.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/delete_close_red.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_message.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_message.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_abc_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/abc_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_default_thumbnail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/default_thumbnail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_contact_cancel_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/contact_cancel_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_arrow_right.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_arrow_right.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_alert_list.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_alert_list.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_picture_as_pdf_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_picture_as_pdf_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_fragment_created_group_detail.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/fragment_created_group_detail.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_newyork_times.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/newyork_times.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_man_at_convention.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/man_at_convention.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_group_list_empty_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/group_list_empty_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_news.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_news.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_activity_login.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_women_outside_on_wall.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/women_outside_on_wall.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_saved_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/saved_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_personalcomm_green.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/personalcomm_green.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_life_safetyx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/life_safetyx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_espn.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/espn.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_bing.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/bing.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxxhdpi_baseline_location_on_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxxhdpi/baseline_location_on_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_sm_settings.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/sm_settings.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_baseline_picture_as_pdf_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/baseline_picture_as_pdf_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_picture_as_pdf_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_picture_as_pdf_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_spinner_bg.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/spinner_bg.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_up_arrow.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_up_arrow.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_delivery_info_item_view.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/delivery_info_item_view.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_icon_checkbox_pen.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/icon_checkbox_pen.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_end_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/end_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_delete_close_gray.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/delete_close_gray.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_ic_menu_icon.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/ic_menu_icon.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_wired_selected.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/wired_selected.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_location.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_location.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_lightblue_button_background.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable/lightblue_button_background.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_baseline_location_on_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/baseline_location_on_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_regular.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/regular.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_baseline_location_on_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/baseline_location_on_white_48.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/layout_group_suggested_list_item.xml.flat",
+        "source": "com.sca.in_telligent.app-main-82:/layout/group_suggested_list_item.xml"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_left_arrow_detail.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/left_arrow_detail.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xhdpi_icon_eye.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xhdpi/icon_eye.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_weatherx.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/weatherx.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable_slideshow_image_03.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable/slideshow_image_03.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_icon_intelligent_searches.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-hdpi/icon_intelligent_searches.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_contact.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_contact.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_man_with_glasses.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/man_with_glasses.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_logo_new.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/logo_new.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-hdpi_kid_sitting_with_backpack.jpg.flat",
+        "source": "com.sca.in_telligent.app-main-82:/old_drawable/drawable-hdpi/kid_sitting_with_backpack.jpg"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_call.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_call.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-mdpi_icon_intelligent_searches.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-mdpi/icon_intelligent_searches.png"
+    },
+    {
+        "merged": "com.sca.in_telligent.app-merged_res-80:/drawable-xxhdpi_baseline_close_white_48.png.flat",
+        "source": "com.sca.in_telligent.app-main-82:/drawable-xxhdpi/baseline_close_white_48.png"
+    }
+]

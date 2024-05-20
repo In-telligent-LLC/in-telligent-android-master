@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.splash.SplashPresenter","classAnnotations":[],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter","com.sca.in_telligent.ui.splash.SplashMvpPresenter"],"superClasses":["com.sca.in_telligent.ui.base.BasePresenter","java.lang.Object"]}

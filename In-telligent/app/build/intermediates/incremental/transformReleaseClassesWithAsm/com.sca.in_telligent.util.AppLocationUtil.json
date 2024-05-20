@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.util.AppLocationUtil","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.LocationUtil"],"superClasses":["java.lang.Object"]}

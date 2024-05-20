@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sca.in_telligent.app-mergeLocalResources-78:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/Users/marianesantana/.gradle/caches/transforms-3/ff49bb35c3abd65cd67b34a659624ee5/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nieuwe melding</item>
+    <item quantity="other">%d nieuwe meldingen</item>
+  </plurals>
+    <string name="_120_mins">120 minuten</string>
+    <string name="_15_mins">15 minuten</string>
+    <string name="_30_mins">30 minuten</string>
+    <string name="_60_mins">60 minuten</string>
+    <string name="_8am_6pm_mon_fri">08:00-18:00 CST ma-vr</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigeren naar startpositie"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Omhoog navigeren"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Meer opties"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Klaar"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Alles tonen"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Een app selecteren"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"UIT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AAN"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Functie +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"spatie"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Zoeken…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Zoekopdracht wissen"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Zoekopdracht"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Zoeken"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Zoekopdracht verzenden"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Gesproken zoekopdracht"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Delen met"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Delen met <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Samenvouwen"</string>
+    <string name="about">Wat betreft</string>
+    <string name="accept_call">Oproep aannemen</string>
+    <string name="account">Account</string>
+    <string name="add">Toevoegen</string>
+    <string name="add_another_contact">Voeg een ander contact toe</string>
+    <string name="add_attachment">Voeg bijlage toe</string>
+    <string name="add_new">Voeg nieuw toe</string>
+    <string name="add_new_community">Voeg een nieuwe community toe</string>
+    <string name="add_pc">PC toevoegen</string>
+    <string name="age">Leeftijd</string>
+    <string name="alert_has_been_sent_to_community_manager">Alert is verzonden naar je Community Manager</string>
+    <string name="alert_language">Alert taal</string>
+    <string name="already_have_an_account">Heb je al een account?</string>
+    <string name="also_disable">Wilt u ook automatisch abonnement uitschakelen?</string>
+    <string name="always">Altijd</string>
+    <string name="are_you_ok">Gaat alles goed?</string>
+    <string name="are_you_sure_you_want_to_delete">Weet je zeker dat je wilt verwijderen ""</string>
+    <string name="are_you_sure_you_want_to_join">Weet je zeker dat je wilt meedoen?</string>
+    <string name="are_you_sure_you_want_to_logout">Weet je zeker dat je wilt uitloggen? Je stopt met het ontvangen van alle meldingen.</string>
+    <string name="are_you_sure_you_want_to_remove_from_community">Are you sure you want to remove %1$s from %2$s?</string>
+    <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
+    <string name="attachment_1_total">Bijlage: %1$d totaal</string>
+    <string name="attachments">Bijlagen</string>
+    <string name="attachments_too_large">Bijlagen te groot</string>
+    <string name="attachments_too_large_try_again">Bijlagen te groot. Probeer het opnieuw.</string>
+    <string name="attachments_total">Bijlagen</string>
+    <string name="back">Terug</string>
+    <string name="begin_call">Begin gesprek</string>
+    <string name="body">Lichaam</string>
+    <string name="bottomsheet_action_collapse">Het blad onderaan samenvouwen</string>
+    <string name="bottomsheet_action_expand">Het blad onderaan uitvouwen</string>
+    <string name="bottomsheet_action_expand_halfway">Half uitvouwen</string>
+    <string name="bottomsheet_drag_handle_clicked">Dubbelgetikt op handgreep voor slepen</string>
+    <string name="bottomsheet_drag_handle_content_description">Handgreep voor slepen</string>
+    <string name="by_community">Door de gemeenschap</string>
+    <string name="by_type">Op type</string>
+    <string name="call_1_708_428_6322">Bel: 1-708-428-6322</string>
+    <string name="call_1_866_991_6883_opt_2">Bel: 1-866-991-6883 opt 2</string>
+    <string name="call_active">Bel Actief</string>
+    <string name="call_community_manager">Call Community Manager</string>
+    <string name="call_disconnected">Oproep verbroken</string>
+    <string name="call_ended">Oproep beëindigd</string>
+    <string name="call_manager">Oproepbeheerder</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Beantwoorden"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Weigeren"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Ophangen"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Inkomend gesprek"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Actief gesprek"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Een inkomend gesprek screenen"</string>
+    <string name="cancel">annuleren</string>
+    <string name="change_naccount">Van account veranderen</string>
+    <string name="character_counter_content_description">%1$d van %2$d tekens opgegeven</string>
+    <string name="character_counter_overflowed_content_description">Tekenlimiet heeft %1$d van %2$d overschreden</string>
+    <string name="check_your_email_for_reset_link">Controleer uw e-mail voor de reset-link.</string>
+    <string name="clear_message">Bericht wissen</string>
+    <string name="clear_text_end_icon_content_description">Tekst wissen</string>
+    <string name="close">DICHTBIJ</string>
+    <string msgid="406453423630273620" name="close_drawer">"Navigatiemenu sluiten"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Blad sluiten"</string>
+    <string gender="unknown" name="com_facebook_device_auth_instructions">Ga naar &lt;b>facebook.com/device&lt;/b> en voer de bovenstaande code in.</string>
+    <string gender="unknown" name="com_facebook_image_download_unknown_error">Onverwachte fout bij downloaden van afbeelding.</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_message">Voor WebView-aanmelding is INTERNET-toestemming vereist</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_title">AndroidManifest-fout</string>
+    <string gender="unknown" name="com_facebook_like_button_liked">Vind ik leuk</string>
+    <string gender="unknown" name="com_facebook_like_button_not_liked">Vind ik leuk</string>
+    <string gender="unknown" name="com_facebook_loading">Laden…</string>
+    <string gender="unknown" name="com_facebook_loginview_cancel_action">Annuleren</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button">Aanmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_continue">Doorgaan met Facebook</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_long">Aanmelden met Facebook</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_action">Afmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_button">Afmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_as">Aangemeld als: %1$s</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_using_facebook">Aangemeld via Facebook</string>
+    <string gender="unknown" name="com_facebook_send_button_text">Verzenden</string>
+    <string gender="unknown" name="com_facebook_share_button_text">Delen</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions">Als je je account wilt koppelen, open je de Facebook-app op je mobiele apparaat en controleer je je meldingen.</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions_or">- OF -</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_cancel">Ben jij dit niet?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Doorgaan als %1$s</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_title">Aanmelding bevestigen</string>
+    <string gender="unknown" name="com_facebook_tooltip_default">Jij hebt de controle: bepaal welke informatie je met apps wilt delen.</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aanzetten</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s werkt niet, tenzij je Google Play-services aanzet.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play-services aanzetten</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installeren</string>
+    <string name="common_google_play_services_install_text">%1$s kan niet worden uitgevoerd zonder Google Play-services, die je nog niet op je apparaat hebt.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play-services ophalen</string>
+    <string name="common_google_play_services_notification_channel_name">Beschikbaarheid van Google Play-services</string>
+    <string name="common_google_play_services_notification_ticker">Fout met Google Play-services</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ondervindt problemen met Google Play-services. Probeer het opnieuw.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s kan niet worden uitgevoerd zonder Google Play-services, die niet worden ondersteund op je apparaat.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Updaten</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kan niet worden uitgevoerd, tenzij je Google Play-services updatet.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play-services updaten</string>
+    <string name="common_google_play_services_updating_text">%1$s kan niet worden uitgevoerd zonder Google Play-services, die momenteel worden geüpdatet.</string>
+    <string name="common_google_play_services_wear_update_text">Er is een nieuwe versie van Google Play-services vereist. De update wordt binnenkort automatisch uitgevoerd.</string>
+    <string name="common_open_on_phone">Openen op telefoon</string>
+    <string name="common_signin_button_text">Inloggen</string>
+    <string name="common_signin_button_text_long">Inloggen met Google</string>
+    <string name="communities">Gemeenschappen</string>
+    <string name="community_manager">Community manager</string>
+    <string name="community_members">Leden van de gemeenschap</string>
+    <string name="compressing_file_message">Comprimeren, even geduld…</string>
+    <string name="confirm_password">bevestig wachtwoord</string>
+    <string name="congratulations">Gefeliciteerd!</string>
+    <string name="connect">Aansluiten</string>
+    <string name="connecting">Aansluiten</string>
+    <string name="contact">Contact</string>
+    <string name="contact_profile">Contact profiel</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link naar klembord gekopieerd"</string>
+    <string name="could_not_get_current_location">Kon huidige locatie niet ophalen</string>
+    <string name="create">creëren</string>
+    <string name="create_a_group">Een groep maken</string>
+    <string name="create_a_new_group">Maak een nieuwe groep</string>
+    <string name="create_account">Maak een account aan</string>
+    <string name="create_personal_community">Maak een persoonlijke community</string>
+    <string name="create_thumbnail">Maak een miniatuur</string>
+    <string name="created">gemaakt</string>
+    <string name="created_on">Gemaakt op</string>
+    <string name="critical_alert">Kritieke waarschuwing</string>
+    <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Ongeldige invoer"</string>
+    <string msgid="6312721426453364202" name="default_popup_window_title">"Pop-upvenster"</string>
+    <string name="default_thumbnail">Standaardminiatuur</string>
+    <string name="delete">Verwijder</string>
+    <string name="delete_community">Community verwijderen</string>
+    <string name="delete_contact">Verwijder contact</string>
+    <string name="deliver_to">Deliver To</string>
+    <string name="delivery_information">Leveringsinformatie</string>
+    <string name="disable_auto_subscribe">Schakel Auto-abonneren uit</string>
+    <string name="disconnect">Loskoppelen</string>
+    <string name="do_you_want_disable_audible_alerts">Wilt u Audible Lightning Alerts uitschakelen?</string>
+    <string name="drawer_closed">Dichtbij</string>
+    <string name="drawer_open">Open</string>
+    <string msgid="1890207353314751437" name="dropdown_menu">"Dropdownmenu"</string>
+    <string name="edit">Bewerk</string>
+    <string name="edit_group">Groep bewerken</string>
+    <string name="edit_member">Lid bewerken</string>
+    <string name="edit_personal_community">Bewerk persoonlijke community</string>
+    <string name="edit_time">Tijd bewerken</string>
+    <string name="email">E-mail</string>
+    <string name="email_is_required">E-mail is verplicht</string>
+    <string name="email_searches_powered_by">E-mailzoekopdrachten Powered by</string>
+    <string name="email_support_in_telligent_com">E-mail: support@in-telligent.com</string>
+    <string name="email_support_surgeforward_com">E-mail: support@surgeforward.com</string>
+    <string name="emergency">noodgeval</string>
+    <string name="emergency_service">HULPVERLENINGSDIENSTEN</string>
+    <string name="enable_auto_subscribe">Schakel Auto-abonneren in</string>
+    <string name="end_call">Ophangen</string>
+    <string name="enter_contact_email">Voer e-mailadres van contactpersoon in</string>
+    <string name="enter_contact_name">Voer de naam van de contactpersoon in</string>
+    <string name="enter_contact_phone">Voer Contact Telefoon in</string>
+    <string name="enter_email">Voer email in</string>
+    <string name="enter_email_address">Vul email adres in</string>
+    <string name="enter_message">Voer bericht in</string>
+    <string name="enter_message_italic">undefined</string>
+    <string name="enter_name">Voer naam in</string>
+    <string name="enter_names_from_phone_contacts">Voer namen in via Telefooncontacten</string>
+    <string name="enter_password">Voer wachtwoord in</string>
+    <string name="enter_phone">Voer telefoon in</string>
+    <string name="enter_title">Voer titel in</string>
+    <string name="enter_title_italic">undefined</string>
+    <string name="entered">Ingevoerde</string>
+    <string name="error_icon_content_description">Fout</string>
+    <string name="exit">Uitgang</string>
+    <string name="exposed_dropdown_menu_content_description">Dropdownmenu tonen</string>
+    <string name="facebook_app_id">1830932323800441</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Link kopiëren"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Openen in browser"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Link delen"</string>
+    <string name="female">Vrouw</string>
+    <string name="filename">Bestandsnaam</string>
+    <string name="filter">FILTER: %1$s</string>
+    <string name="filters">filters</string>
+    <string name="find">Vind</string>
+    <string name="find_member">Zoek lid</string>
+    <string name="first_time_user_str">Eerste gebruiker</string>
+    <string name="forgot_password">VERGETEN / WACHTWOORD VERANDEREN</string>
+    <string name="forgot_password_enter_email_for_link">uw wachtwoord vergeten? Voer het e-mailadres in dat is gebruikt om uw account te maken en we sturen u een e-mail met een link om deze opnieuw in te stellen.</string>
+    <string name="frequency">Frequentie</string>
+    <string name="frequency_of_searches">Frequentie van zoekopdrachten</string>
+    <string name="full_name">Voor-en achternaam</string>
+    <string name="functionality_in_progress">Functionaliteit aan de gang.</string>
+    <string name="g_h_i">RECORD</string>
+    <string name="gender">Geslacht</string>
+    <string name="general_inquiries">Algemene vragen over nieuwsgierigen</string>
+    <string name="group_deleted">Groep verwijderd</string>
+    <string name="groups">groepen</string>
+    <string name="help_desk">Helpdesk</string>
+    <string name="helplines">Hulplijnen en hotlines</string>
+    <string name="hours">uren</string>
+    <string name="hours_8am_6pm_est_mon_fri">Openingstijden: 8:00 - 18:00 EST, Ma-Vr</string>
+    <string name="hours_of_silence">Hours of Silence</string>
+    <string name="icon_content_description">Icoon voor dialoogvenster</string>
+    <string name="ignore">Negeren</string>
+    <string msgid="6827826412747255547" name="in_progress">"Bezig"</string>
+    <string name="in_telligent_search_from_my_app">Nieuwsgierig zoeken vanuit mijn In-telligent-app:</string>
+    <string name="in_telligent_searches">Nieuwsgierige zoekopdrachten</string>
+    <string name="inbox">Postvak IN</string>
+    <string name="inbox_new">Postvak IN ()</string>
+    <string name="incoming_call">Binnenkomend telefoongesprek</string>
+    <string name="incoming_call_from">Inkomende oproep van</string>
+    <string name="incoming_call_from_tenant">Inkomende oproep van huurder</string>
+    <string msgid="7933458017204019916" name="indeterminate">"Gedeeltelijk aangevinkt"</string>
+    <string name="intelligent_and_all">Onbewuste en alle e-mails</string>
+    <string name="intelligent_and_imported">Intelligente en geïmporteerde e-mails</string>
+    <string name="intelligent_only">Alleen onfeilbaar</string>
+    <string name="interests">Interesses</string>
+    <string name="internet_searches_powered_by">Internetzoekopdrachten Powered by</string>
+    <string name="invalid_password">Ongeldig wachtwoord</string>
+    <string name="invite_again">Opnieuw uitnodigen</string>
+    <string name="invite_and_save_contact">Nodig uit en bewaar contact</string>
+    <string name="invite_new_member">Nodig een nieuw lid uit</string>
+    <string name="invite_others">Nodig anderen uit</string>
+    <string name="invite_others_to_join">Nodig anderen uit om mee te doen</string>
+    <string name="invite_sent">Uitnodiging verzonden.</string>
+    <string name="invited">Uitgenodigd</string>
+    <string name="item_view_role_description">Tabblad</string>
+    <string name="j_k_l">JKL</string>
+    <string name="join_now">DOE NU MEE</string>
+    <string name="joined">Geregistreerd</string>
+    <string name="label_select_picture">Selecteer afbeelding</string>
+    <string name="left">Links</string>
+    <string name="life_safety">Leven veiligheid</string>
+    <string name="lightning">Bliksem</string>
+    <string name="listen_to_emergency">Luister naar de alarmmelding voor noodgevallen</string>
+    <string name="listen_to_urgent">Luister naar de dringende geluidswaarschuwing</string>
+    <string name="local_ncalendar">LOKALE KALENDER</string>
+    <string name="local_ninformation">LOKALE INFORMATIE</string>
+    <string name="local_nnews">LOKAAL NIEUWS</string>
+    <string name="location_permissions">Locatie machtigingen</string>
+    <string name="location_permissions_confirm">Weet je het zeker?</string>
+    <string name="location_permissions_required_prompt">Locatiemachtigingen zijn vereist om de app correct te laten werken, accepteer locatierechten en probeer het opnieuw.</string>
+    <string name="location_services_timed_out">Locatieservices duurden uit</string>
+    <string name="log_in">LOG IN</string>
+    <string name="logout">Uitloggen</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Tempor en vitaliteit, zodat de moeite en verdriet, een aantal belangrijke dingen te eiusmod doen.</string>
+    <string name="m_n_o">MNO</string>
+    <string name="male">Mannetje</string>
+    <string name="material_clock_toggle_content_description">Selecteer a.m. of p.m.</string>
+    <string name="material_hour_24h_suffix">%1$s uur</string>
+    <string name="material_hour_selection">Selecteer uur</string>
+    <string name="material_hour_suffix">%1$s uur</string>
+    <string name="material_minute_selection">Minuten selecteren</string>
+    <string name="material_minute_suffix">%1$s minuten</string>
+    <string name="material_timepicker_am">a.m.</string>
+    <string name="material_timepicker_clock_mode_description">Schakel naar de klokmodus om de tijd in te voeren.</string>
+    <string name="material_timepicker_hour">Uur</string>
+    <string name="material_timepicker_minute">Minuut</string>
+    <string name="material_timepicker_pm">p.m.</string>
+    <string name="material_timepicker_select_time">Tijd selecteren</string>
+    <string name="material_timepicker_text_input_mode_description">Schakel naar de tekstinvoermodus om de tijd in te voeren.</string>
+    <string name="members_in_community">Leden in Gemeenschap</string>
+    <string name="menu">Menu</string>
+    <string name="message_feed">Message Feed</string>
+    <string name="message_is_saved">Uw bericht is opgeslagen</string>
+    <string name="message_not_saved">Er is een probleem opgetreden bij het opslaan van uw bericht</string>
+    <string name="messages">berichten</string>
+    <string name="messages_from">Berichten van</string>
+    <string name="more">…meer</string>
+    <string name="mtrl_badge_numberless_content_description">Nieuwe melding</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s verwijderen</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Meer dan %1$d nieuwe meldingen</string>
+    <string name="mtrl_picker_a11y_next_month">Naar volgende maand gaan</string>
+    <string name="mtrl_picker_a11y_prev_month">Naar vorige maand gaan</string>
+    <string name="mtrl_picker_announce_current_range_selection">Startdatumselectie: %1$s – Einddatumselectie: %2$s</string>
+    <string name="mtrl_picker_announce_current_selection">Huidige selectie: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">geen</string>
+    <string name="mtrl_picker_cancel">Annuleren</string>
+    <string name="mtrl_picker_confirm">OK</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selecteer een datum</string>
+    <string name="mtrl_picker_date_header_unselected">Geselecteerde datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolom met dagen: %1$s</string>
+    <string name="mtrl_picker_end_date_description">Einddatum %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ongeldige indeling.</string>
+    <string name="mtrl_picker_invalid_format_example">Voorbeeld: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gebruik: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ongeldig bereik.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">Naar het huidige jaar %1$d gaan</string>
+    <string name="mtrl_picker_navigate_to_year_description">Naar jaar %1$d navigeren</string>
+    <string name="mtrl_picker_out_of_range">Valt buiten bereik: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Startdatum - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – einddatum</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selecteer een periode</string>
+    <string name="mtrl_picker_range_header_unselected">Startdatum - einddatum</string>
+    <string name="mtrl_picker_save">Opslaan</string>
+    <string name="mtrl_picker_start_date_description">Startdatum %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Einddatum</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Startdatum</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">j</string>
+    <string name="mtrl_picker_today_description">Vandaag %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Overschakelen naar agenda-invoermodus</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tik om over te schakelen naar de agendaweergave</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Overschakelen naar tekstinvoermodus</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tik om over te schakelen naar de jaarweergave</string>
+    <string name="mtrl_timepicker_cancel">Annuleren</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
+    <string name="my_account">Mijn rekening</string>
+    <string name="my_communities">Mijn gemeenschappen</string>
+    <string name="my_info">Mijn informatie</string>
+    <string name="name">Naam</string>
+    <string name="name_your_community">Geef uw community een naam</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Navigatiemenu"</string>
+    <string name="near_me">Dicht bij mij</string>
+    <string name="never">Nooit</string>
+    <string name="never_mind">Laat maar</string>
+    <string name="newest_first">Nieuwste eerst</string>
+    <string name="news">Nieuws</string>
+    <string name="news_and_traffic">Nieuws en verkeer</string>
+    <string name="news_for">Nieuws voor</string>
+    <string name="news_from_my_in_telligent_app">Nieuws van mijn slimme app</string>
+    <string name="news_source">NIEUWSBRON</string>
+    <string name="news_source_feed_title">Nieuwsbron feedtitel</string>
+    <string name="next">volgende</string>
+    <string name="no">Nee</string>
+    <string name="no_alerts">Geen meldingen</string>
+    <string name="no_groups">Geen groepen</string>
+    <string name="no_le_support">Geen LE-ondersteuning.</string>
+    <string name="no_members">Geen leden</string>
+    <string name="no_personal_communities">Geen persoonlijke communities</string>
+    <string name="no_results_found">geen resultaten gevonden</string>
+    <string name="no_saved_messages">Geen opgeslagen berichten</string>
+    <string name="no_subscriptions">Geen abonnementen</string>
+    <string name="no_thank_you">Nee, dank u</string>
+    <string name="none">Geen</string>
+    <string name="normal">normaal</string>
+    <string msgid="6610465462668679431" name="not_selected">"Niet geselecteerd"</string>
+    <string name="notifications">meldingen</string>
+    <string name="number">Aantal</string>
+    <string name="off">Uit</string>
+    <string name="ok">OK</string>
+    <string name="on">Op</string>
+    <string name="only_when_im_here">Alleen wanneer ik hier ben</string>
+    <string name="or">of</string>
+    <string name="organizations">organisaties</string>
+    <string name="other">anders</string>
+    <string name="other_communities">Andere gemeenschappen</string>
+    <string name="p_q_r_s">PQRS</string>
+    <string name="page_number">Paginanummer:</string>
+    <string name="password">Wachtwoord</string>
+    <string name="password_protected_pdf_file">Wachtwoord beveiligd PDF-bestand:</string>
+    <string name="password_toggle_content_description">Wachtwoord tonen</string>
+    <string name="passwords_dont_match">Passwords don\'t match</string>
+    <string name="pending">In afwachting</string>
+    <string name="people">Mensen</string>
+    <string name="permission_read_storage_rationale">Opslag leesrechten zijn nodig om bestanden te selecteren.</string>
+    <string name="personal_alert">Persoonlijke waarschuwing</string>
+    <string name="personal_communities">Persoonlijke gemeenschappen</string>
+    <string name="personal_community">Persoonlijke gemeenschap</string>
+    <string name="physical">fysiek</string>
+    <string name="ping_alert">Ping Alert</string>
+    <string name="please_check_your_network_connection_try_again">Controleer uw netwerkverbinding en probeer het opnieuw.</string>
+    <string name="please_ensure_you_entered_name_and_contact_method">Zorg ervoor dat u een naam en contactmethode hebt ingevoerd.</string>
+    <string name="please_enter_alert_body">Voer een waarschuwingspagina in</string>
+    <string name="please_enter_alert_title">Voer een waarschuwingstitel in</string>
+    <string name="please_enter_an_alert_type">Selecteer een type melding.</string>
+    <string name="please_enter_name_of_community">Voer een naam in voor uw community.</string>
+    <string name="please_enter_password_for_pdf">Voer het wachtwoord voor PDF in</string>
+    <string name="please_input_the_message_into_the_help_box">Voer een bericht in het helpvenster in.</string>
+    <string name="please_select_a_group">Selecteer een groep waarmee u contact wilt opnemen</string>
+    <string name="please_select_another">SELECTEER EEN ANDERE</string>
+    <string name="please_sign_in">Log in alstublieft</string>
+    <string name="powered_by_inourcommunity">Mogelijk gemaakt door InOurCommunity</string>
+    <string name="previous">voorgaand</string>
+    <string msgid="5941395253238309765" name="range_end">"Einde bereik"</string>
+    <string msgid="7097486360902471446" name="range_start">"Start bereik"</string>
+    <string name="read_less">Lees minder</string>
+    <string name="read_more">Lees verder</string>
+    <string name="receive_regular_alerts">Regelmatige meldingen ontvangen</string>
+    <string name="received">Ontvangen</string>
+    <string name="region">Regio</string>
+    <string name="region_monitoring">Region Monitoring</string>
+    <string name="register">Registreren</string>
+    <string name="regular_alert">Regelmatige waarschuwing</string>
+    <string name="reject_end_call">Oproep weigeren / beëindigen</string>
+    <string name="remove_invite">Remove Invite</string>
+    <string name="required_field">Dit veld is verplicht.</string>
+    <string name="reset_password">Reset wachtwoord</string>
+    <string name="reset_your_password">Stel je wachtwoord opnieuw in</string>
+    <string name="respond">REAGEERT OP DE VOORGESTELDE WAARSCHUWING</string>
+    <string name="response_hint">Type antwoord hier ..</string>
+    <string name="retry">opnieuw proberen</string>
+    <string name="returning_subscriber_str">Terugkerende abonnee</string>
+    <string name="save">Opslaan</string>
+    <string name="save_changes">Wijzigingen opslaan</string>
+    <string name="save_edits">Bewaar bewerkingen</string>
+    <string name="save_failed_check_internet_connection">Opslaan mislukt. Controleer uw internetverbinding en probeer het opnieuw.</string>
+    <string name="save_message">Bericht opslaan</string>
+    <string name="saved">Opgeslagen.</string>
+    <string name="saved_messages">Opgeslagen berichten</string>
+    <string name="sd_permissions">SD-machtigingen</string>
+    <string name="sd_permissions_required_message">SD-machtigingen zijn vereist om de app correct te laten werken, accepteer SD-machtigingen en probeer het opnieuw.</string>
+    <string name="search">Zoeken</string>
+    <string name="search_by_current_location">Zoeken op huidige locatie</string>
+    <string name="search_by_email">Search by Email</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="search_for_communities">Zoeken naar community\'s</string>
+    <string name="search_for_group">Zoeken naar groep</string>
+    <string name="search_keywords">zoek sleutelwoorden</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Zoeken"</string>
+    <string name="search_nkeywords">zoek sleutelwoorden</string>
+    <string name="see_full_message">Zie het volledige bericht</string>
+    <string name="select_a_community">Selecteer een community</string>
+    <string name="select_a_method">Selecteer een methode</string>
+    <string name="select_a_source">Selecteer een bron</string>
+    <string name="select_alert_type">Selecteer Alert Type</string>
+    <string name="select_files">Selecteer bestand</string>
+    <string name="select_primary_community">Selecteer Primaire community</string>
+    <string name="select_thumbnail">Selecteer Thumbnail:</string>
+    <string name="select_your_age">Selecteer je leeftijd</string>
+    <string name="select_your_gender">Kies je geslacht</string>
+    <string msgid="6043586758067023" name="selected">"Geselecteerd"</string>
+    <string name="send">Sturen</string>
+    <string name="send_a_message">Stuur een bericht</string>
+    <string name="send_alert_to_community">Stuur een melding naar de community</string>
+    <string name="send_invite_save_contact">Verzend uitnodiging en bewaar contact</string>
+    <string name="send_message">undefined</string>
+    <string name="send_to">Verzenden naar</string>
+    <string name="send_to_all">Stuur naar alle abonnees van deze community</string>
+    <string name="send_to_specific">Stuur naar specifieke abonnee of groepen</string>
+    <string name="send_to_specific_subscribers_or_groups">Stuur naar specifieke abonnees of groepen</string>
+    <string name="server_client_id">592871569708-6vaog0bbf8d7b48kj7j7au4ga0oaa916.apps.googleusercontent.com</string>
+    <string name="set">set</string>
+    <string name="set_language_to">Stel taal in</string>
+    <string name="settings">instellingen</string>
+    <string name="severe_weather">Ernstig weer</string>
+    <string name="severe_weather_warnings">Ernstige weerswaarschuwingen</string>
+    <string name="short_description">Korte beschrijving (titel)</string>
+    <string name="sign_in">Aanmelden</string>
+    <string name="some_error">Een fout</string>
+    <string name="sound_alert">Geluidsmelding</string>
+    <string name="status">staat</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="stop_speaking">Stop met praten</string>
+    <string name="submit">voorleggen</string>
+    <string name="subscribe">abonneren</string>
+    <string name="suggested_alerts">Voorgestelde meldingen</string>
+    <string name="suggested_groups">Voorgestelde groepen</string>
+    <string name="support">Ondersteuning</string>
+    <string msgid="2561197295334830845" name="switch_role">"Overschakelen"</string>
+    <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Tabblad"</string>
+    <string name="tap_here">Klik hier</string>
+    <string name="tap_icon_to_get_directions_to_community">Tik op het pictogram om een ​​routebeschrijving naar de community te krijgen</string>
+    <string name="tap_to_enter_message">Tik om een ​​bericht in te voeren</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> procent."</string>
+    <string name="text_to_speech">Tekst naar spraak</string>
+    <string name="the_tenant_has_already_ended_call">De huurder heeft de oproep al beëindigd</string>
+    <string name="there_are_no_available_community_managers_consider">Er zijn geen community managers beschikbaar. Overweeg alstublieft om in plaats daarvan een sms-alert te sturen.</string>
+    <string name="there_are_no_members_to_show">There are no members to show</string>
+    <string name="there_was_an_error_initializing_tts_engine">Er is een fout opgetreden bij het initialiseren van de TTS-engine</string>
+    <string name="there_was_an_error_playing_the_alert">Er is een fout opgetreden bij het afspelen van de melding</string>
+    <string name="there_was_error_connecting">Er is een fout opgetreden bij het maken van verbinding met de server</string>
+    <string name="there_was_error_connecting_to_server">Er is een fout opgetreden bij het maken van verbinding met de server. Controleer je internetverbinding.</string>
+    <string name="there_was_error_sending_request">Er is een fout opgetreden bij het verzenden van uw verzoek.</string>
+    <string name="this_building_cannot_be_contacted">Er kan geen contact worden opgenomen met dit gebouw</string>
+    <string name="this_community_does_not_have_messages">Deze community heeft geen berichten</string>
+    <string name="this_community_is_password_protected">Deze community is beveiligd met een wachtwoord, je moet je abonneren om zijn berichten te zien</string>
+    <string name="this_community_name_is_taken_choose_another">Deze communitynaam wordt gebruikt. Kies alstublieft een andere naam.</string>
+    <string name="this_email_is_already_registered">Deze email is reeds geregistreerd.</string>
+    <string name="this_version_is_no_longer_supported">This version of In-telligent is no longer supported. Please update to the latest version.</string>
+    <string name="timer">uur:</string>
+    <string name="timestamp">tijdstempel</string>
+    <string name="title">Titel</string>
+    <string msgid="3765533235322692011" name="tooltip_description">"tooltip"</string>
+    <string msgid="3124740595719787496" name="tooltip_label">"tooltip tonen"</string>
+    <string name="total_members">Totaal aantal leden</string>
+    <string name="total_recipients">Totaal ontvangers</string>
+    <string name="total_silence">Totale stilte</string>
+    <string name="total_silence_on">Total Silence On:</string>
+    <string name="traffic_nand_directions">VERKEER EN ROUTEBESCHRIJVING</string>
+    <string name="translate">Vertalen</string>
+    <string name="translate_to">Vertalen naar</string>
+    <string name="type_comment_here">Typ hier Reactie</string>
+    <string name="type_of_alert">Type alarm</string>
+    <string name="ucrop_crop">Bijsnijden</string>
+    <string name="ucrop_label_edit_photo">Foto bewerken</string>
+    <string name="ucrop_label_original">Origineel</string>
+    <string name="ucrop_menu_crop">Bijsnijden</string>
+    <string name="ucrop_rotate">Draaien</string>
+    <string name="ucrop_scale">Schalen</string>
+    <string name="unable_to_create_community_check_connection">Kan community niet maken. Controleer je verbinding en probeer het opnieuw.</string>
+    <string name="unable_to_save_changes_check_connetion">Kan wijzigingen niet opslaan. Controleer je verbinding en probeer het opnieuw.</string>
+    <string name="unable_updated_location">Kan geen up-to-date locatie vinden.</string>
+    <string name="unread">Ongelezen</string>
+    <string name="unread_messages">ongelezen berichten</string>
+    <string name="unsave">Unsave</string>
+    <string name="unsave_message">Bericht opslaan</string>
+    <string name="unspecified">Niet gespecificeerd</string>
+    <string name="unsubscribe">Afmelden</string>
+    <string name="up_to_10_terms">Maximaal 10 termen</string>
+    <string name="update">Update</string>
+    <string name="uploading_attachment_for_notification">Bijlage uploaden voor melding</string>
+    <string name="uploading_attachment_for_personal_community">Bijlage uploaden voor persoonlijke gemeenschap</string>
+    <string name="urgent">Dringend</string>
+    <string name="user_invited">Uitgenodigde gebruiker</string>
+    <string name="version_no_longer_available">New update available!</string>
+    <string name="view">Uitzicht</string>
+    <string name="view_alerts">Waarschuwingen bekijken</string>
+    <string name="view_members">Bekijk leden</string>
+    <string name="viewed">bekeken</string>
+    <string name="virtual">virtueel</string>
+    <string name="w_x_y_z">W X Y Z</string>
+    <string name="when_you_send_members_will_hear">* Wanneer u een urgent of noodsignaal naar de community stuurt, horen de leden het waarschuwingsgeluid</string>
+    <string name="would_you_like_to_call_your_community_manager">Wil je je communitymanager bellen?</string>
+    <string name="would_you_like_to_create_personal_community">Wilt u een persoonlijke community maken om berichten naar familie en vrienden te verzenden?</string>
+    <string name="would_you_like_to_perm_delete_contact">Wilt u deze contactpersoon permanent verwijderen?</string>
+    <string name="yes">Ja</string>
+    <string name="you_are_now_subscribed_to">U bent nu geabonneerd op \'\'</string>
+    <string name="you_are_now_subscribed_to_the_community">"U bent nu geabonneerd op de community. "</string>
+    <string name="you_were_invited_to_join_a_comunnity">Je bent uitgenodigd om lid te worden van %1$d</string>
+    <string name="your_alert_is_uploading_now">Je melding is nu aan het uploaden</string>
+    <string name="your_invitation_is_no_longer_valid">Je uitnodiging is niet langer geldig</string>
+    <string name="your_request_has_been_sent_to_support_team">Uw aanvraag is verzonden aan het ondersteuningsteam.</string>
+    <string name="zip_code_city_or_keyword">Postcode, plaats of trefwoord</string>
+    <string name="zipcode">Postcode</string>
+</resources>

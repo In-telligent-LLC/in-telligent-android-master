@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:fillViewport="true"
+  android:fitsSystemWindows="true">
+
+  <android.support.constraint.Guideline
+    android:id="@+id/guideline_left"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.1"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <android.support.constraint.Guideline
+    android:id="@+id/guideline_right"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.9"
+    app:layout_constraintStart_toEndOf="parent"/>
+
+  <android.support.constraint.Guideline
+    android:id="@+id/logo_guideline_left"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.15"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <android.support.constraint.Guideline
+    android:id="@+id/logo_guideline_right"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.85"
+    app:layout_constraintStart_toEndOf="parent"/>
+
+  <ImageView
+    android:id="@+id/logo"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:adjustViewBounds="true"
+    android:contentDescription="SCA Logo"
+    android:src="@drawable/logo_new"
+    app:layout_constraintStart_toStartOf="@id/logo_guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/logo_guideline_right"/>
+
+  <TextView
+    android:id="@+id/textViewSignIn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/please_sign_in"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@+id/logo"/>
+
+  <EditText
+    android:id="@+id/inputUsername"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/edittext_bg"
+    android:ems="10"
+    android:fontFamily="sans-serif"
+    android:padding="10dp"
+    android:gravity="center"
+    android:hint="@string/email"
+    android:inputType="text"
+    android:textIsSelectable="false"
+    android:textSize="16sp"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@+id/textViewSignIn"/>
+
+  <EditText
+    android:id="@+id/inputPassword"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="3"
+    android:layout_marginTop="8dp"
+    android:padding="10dp"
+    android:background="@drawable/edittext_bg"
+    android:ems="10"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:hint="@string/password"
+    android:inputType="textPassword"
+    android:textIsSelectable="false"
+    android:textSize="16sp"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@+id/inputUsername"/>
+
+  <Button
+    android:id="@+id/btnLogin"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@color/green"
+    android:text="@string/sign_in"
+    android:padding="15dp"
+    android:textColor="@color/white"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@+id/inputPassword"/>
+
+  <TextView
+    android:id="@+id/btnForgotPassword"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:text="@string/forgot_password"
+    android:layout_marginTop="5dp"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/blue"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+
+  <TextView
+    android:id="@+id/btnGoToSignup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:layout_marginTop="5dp"
+    android:text="@string/join_now"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/blue"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+
+  <TextView
+    android:id="@+id/orLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:gravity="center"
+    android:text="@string/or"
+    android:textAllCaps="true"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@id/btnGoToSignup"/>
+
+  <ImageView
+    android:id="@+id/btnLoginFacebookCustom"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:adjustViewBounds="true"
+    android:src="@drawable/loginbutton_facebook"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@id/orLabel"/>
+
+  <ImageView
+    android:id="@+id/btnLoginGooglePlus"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:adjustViewBounds="true"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintTop_toBottomOf="@id/btnLoginFacebookCustom"
+    android:src="@drawable/loginbutton_googleplus"/>
+
+</android.support.constraint.ConstraintLayout>

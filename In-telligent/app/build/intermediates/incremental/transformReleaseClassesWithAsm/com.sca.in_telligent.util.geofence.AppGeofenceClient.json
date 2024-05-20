@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.util.geofence.AppGeofenceClient","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.geofence.GeofenceClient"],"superClasses":["java.lang.Object"]}

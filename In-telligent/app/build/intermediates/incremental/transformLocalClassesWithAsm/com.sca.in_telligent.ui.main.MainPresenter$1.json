@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.main.MainPresenter$1","classAnnotations":[],"interfaces":["java.lang.Runnable"],"superClasses":["java.util.TimerTask","java.lang.Object"]}

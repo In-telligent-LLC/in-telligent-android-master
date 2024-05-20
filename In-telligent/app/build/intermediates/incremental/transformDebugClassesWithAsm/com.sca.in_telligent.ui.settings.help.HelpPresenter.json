@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.ui.settings.help.HelpPresenter","classAnnotations":[],"interfaces":["com.sca.in_telligent.ui.base.MvpPresenter","com.sca.in_telligent.ui.settings.help.HelpMvpPresenter"],"superClasses":["com.sca.in_telligent.ui.base.BasePresenter","java.lang.Object"]}

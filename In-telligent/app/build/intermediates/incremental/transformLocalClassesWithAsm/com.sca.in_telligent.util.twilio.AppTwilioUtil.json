@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.util.twilio.AppTwilioUtil","classAnnotations":["javax.inject.Singleton"],"interfaces":["com.sca.in_telligent.util.twilio.TwilioUtil"],"superClasses":["java.lang.Object"]}

@@ -1,0 +1,1 @@
+{"className":"com.sca.in_telligent.receiver.FirebaseBroadcastReceiver","classAnnotations":[],"interfaces":[],"superClasses":["androidx.legacy.content.WakefulBroadcastReceiver","android.content.BroadcastReceiver","java.lang.Object"]}

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d neue Benachrichtigung</item>
+    <item quantity="other">%d neue Benachrichtigungen</item>
+  </plurals>
+    <string name="_120_mins">120 min</string>
+    <string name="_15_mins">15 Minuten</string>
+    <string name="_30_mins">30 Minuten</string>
+    <string name="_60_mins">60 min</string>
+    <string name="_8am_6pm_mon_fri">8.00 bis 18.00 Uhr CST Mo-Fr</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Zur Startseite"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Nach oben"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Weitere Optionen"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Fertig"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Alle anzeigen"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"App auswählen"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"AUS"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AN"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Strg +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Löschen"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Eingabetaste"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funktionstaste +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta-Taste +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Umschalttaste +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Leertaste"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym-Taste +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menütaste +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Suchen…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Suchanfrage löschen"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Suchanfrage"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Suche"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Anfrage senden"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Sprachsuche"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Teilen mit"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Mit <ns1:g id="APPLICATION_NAME">%s</ns1:g> teilen"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Minimieren"</string>
+    <string name="about">Über</string>
+    <string name="accept_call">Anruf annehmen</string>
+    <string name="account">Konto</string>
+    <string name="add">Hinzufügen</string>
+    <string name="add_another_contact">Einen weiteren Kontakt hinzufügen</string>
+    <string name="add_attachment">Anhang hinzufügen</string>
+    <string name="add_new">Neue hinzufügen</string>
+    <string name="add_new_community">Neue Community hinzufügen</string>
+    <string name="add_pc">PC hinzufügen</string>
+    <string name="age">Alter</string>
+    <string name="alert_has_been_sent_to_community_manager">Benachrichtigung wurde an Ihren Community Manager gesendet</string>
+    <string name="alert_language">Benachrichtigungssprache</string>
+    <string name="already_have_an_account">Hast du schon ein Konto?</string>
+    <string name="also_disable">Möchten Sie auch das automatische Abonnement deaktivieren?</string>
+    <string name="always">Immer</string>
+    <string name="are_you_ok">Geht es dir gut?</string>
+    <string name="are_you_sure_you_want_to_delete">Sind Sie sicher, dass Sie löschen möchten ""</string>
+    <string name="are_you_sure_you_want_to_join">Möchten Sie wirklich mitmachen?</string>
+    <string name="are_you_sure_you_want_to_logout">Möchten Sie sich wirklich abmelden? Sie werden keine Benachrichtigungen mehr erhalten.</string>
+    <string name="are_you_sure_you_want_to_remove_from_community">Are you sure you want to remove %1$s from %2$s?</string>
+    <string name="are_you_sure_you_want_to_unsubscribe_from_this_community">Are you sure you want to unsubscribe from this community?</string>
+    <string name="attachment_1_total">Anlage: %1$d insgesamt</string>
+    <string name="attachments">Anlagen</string>
+    <string name="attachments_too_large">Anlagen zu groß</string>
+    <string name="attachments_too_large_try_again">Anlagen zu groß Bitte versuche es erneut.</string>
+    <string name="attachments_total">Anlagen</string>
+    <string name="back">Zurück</string>
+    <string name="begin_call">Anruf beginnen</string>
+    <string name="body">Karosserie</string>
+    <string name="bottomsheet_action_collapse">Ansicht am unteren Rand minimieren</string>
+    <string name="bottomsheet_action_expand">Ansicht am unteren Rand maximieren</string>
+    <string name="bottomsheet_action_expand_halfway">Zur Hälfte maximieren</string>
+    <string name="bottomsheet_drag_handle_clicked">Auf Ziehpunkt doppelt getippt</string>
+    <string name="bottomsheet_drag_handle_content_description">Ziehpunkt</string>
+    <string name="by_community">Von Community</string>
+    <string name="by_type">Nach Typ</string>
+    <string name="call_1_708_428_6322">Rufen Sie an: 1-708-428-6322</string>
+    <string name="call_1_866_991_6883_opt_2">Anruf: 1-866-991-6883, opt 2</string>
+    <string name="call_active">Anruf aktiv</string>
+    <string name="call_community_manager">Rufen Sie den Community Manager an</string>
+    <string name="call_disconnected">Anruf getrennt</string>
+    <string name="call_ended">Anruf beendet</string>
+    <string name="call_manager">Den Manager rufen</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Annehmen"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Ablehnen"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Auflegen"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Eingehender Anruf"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Aktueller Anruf"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filter für eingehenden Anruf"</string>
+    <string name="cancel">Stornieren</string>
+    <string name="change_naccount">Account wechseln</string>
+    <string name="character_counter_content_description">Eingegebene Zeichen: %1$d von %2$d</string>
+    <string name="character_counter_overflowed_content_description">Zeichenbeschränkung überschritten: %1$d/%2$d</string>
+    <string name="check_your_email_for_reset_link">Überprüfen Sie Ihre E-Mail auf den Link zum Zurücksetzen.</string>
+    <string name="clear_message">Nachricht löschen</string>
+    <string name="clear_text_end_icon_content_description">Text löschen</string>
+    <string name="close">SCHLIESSEN</string>
+    <string msgid="406453423630273620" name="close_drawer">"Navigationsmenü schließen"</string>
+    <string msgid="7573152094250666567" name="close_sheet">"Tabelle schließen"</string>
+    <string gender="unknown" name="com_facebook_device_auth_instructions">Gehe zu &lt;b>facebook.com/device&lt;/b> und gib den oben angezeigten Code ein.</string>
+    <string gender="unknown" name="com_facebook_image_download_unknown_error">Unerwarteter Fehler beim Herunterladen eines Bildes.</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_message">WebView-Anmeldung erfordert INTERNET-Berechtigung</string>
+    <string gender="unknown" name="com_facebook_internet_permission_error_title">AndroidOffensichtlicher Fehler</string>
+    <string gender="unknown" name="com_facebook_like_button_liked">Gefällt dir</string>
+    <string gender="unknown" name="com_facebook_like_button_not_liked">Gefällt mir</string>
+    <string gender="unknown" name="com_facebook_loading">Wird geladen ...</string>
+    <string gender="unknown" name="com_facebook_loginview_cancel_action">Abbrechen</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button">Melde dich an</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_continue">Weiter mit Facebook</string>
+    <string gender="unknown" name="com_facebook_loginview_log_in_button_long">Mit Facebook anmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_action">Abmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_log_out_button">Abmelden</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_as">Angemeldet als: %1$s</string>
+    <string gender="unknown" name="com_facebook_loginview_logged_in_using_facebook">Mit Facebook angemeldet</string>
+    <string gender="unknown" name="com_facebook_send_button_text">Senden</string>
+    <string gender="unknown" name="com_facebook_share_button_text">Teilen</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions">Öffne die Facebook-App auf deinem Mobilgerät, um dich mit deinem Konto zu verbinden und nach Benachrichtigungen zu suchen.</string>
+    <string gender="unknown" name="com_facebook_smart_device_instructions_or">- ODER -</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_cancel">Das bist du nicht?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Weiter als %1$s</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_title">Anmeldung bestätigen</string>
+    <string gender="unknown" name="com_facebook_tooltip_default">Du bestimmst, welche Informationen du mit Apps teilen möchtest.</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivieren</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s funktioniert erst nach der Aktivierung der Google Play-Dienste.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play-Dienste aktivieren</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installieren</string>
+    <string name="common_google_play_services_install_text">Zur Nutzung von %1$s sind die Google Play-Dienste erforderlich, die auf deinem Gerät nicht installiert sind.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play-Dienste installieren</string>
+    <string name="common_google_play_services_notification_channel_name">Verfügbarkeit von Google Play-Diensten</string>
+    <string name="common_google_play_services_notification_ticker">Fehler bei Zugriff auf Google Play-Dienste</string>
+    <string name="common_google_play_services_unknown_issue">%1$s hat Probleme mit Google Play-Diensten. Bitte versuche es noch einmal.</string>
+    <string name="common_google_play_services_unsupported_text">Zur Nutzung von %1$s sind Google Play-Dienste erforderlich, die auf deinem Gerät nicht unterstützt werden.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualisieren</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s wird nur ausgeführt, wenn du die Google Play-Dienste aktualisierst.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play-Dienste aktualisieren</string>
+    <string name="common_google_play_services_updating_text">Zur Nutzung von %1$s sind Google Play-Dienste erforderlich, die gerade aktualisiert werden.</string>
+    <string name="common_google_play_services_wear_update_text">Eine neue Version der Google Play-Dienste wird benötigt. Diese wird in Kürze automatisch aktualisiert.</string>
+    <string name="common_open_on_phone">Auf Smartphone öffnen</string>
+    <string name="common_signin_button_text">Anmelden</string>
+    <string name="common_signin_button_text_long">Über Google anmelden</string>
+    <string name="communities">Gemeinschaften</string>
+    <string name="community_manager">Community Manager</string>
+    <string name="community_members">Community-Mitglieder</string>
+    <string name="compressing_file_message">Komprimieren, bitte warten…</string>
+    <string name="confirm_password">Passwort bestätigen</string>
+    <string name="congratulations">Herzliche Glückwünsche!</string>
+    <string name="connect">Verbinden</string>
+    <string name="connecting">Anschließen</string>
+    <string name="contact">Kontakt</string>
+    <string name="contact_profile">Kontaktprofil</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Link in Zwischenablage kopiert"</string>
+    <string name="could_not_get_current_location">Aktueller Standort konnte nicht abgerufen werden</string>
+    <string name="create">Erstellen</string>
+    <string name="create_a_group">Erstellen Sie eine Gruppe</string>
+    <string name="create_a_new_group">Erstellen Sie eine neue Gruppe</string>
+    <string name="create_account">Benutzerkonto anlegen</string>
+    <string name="create_personal_community">Persönliche Community erstellen</string>
+    <string name="create_thumbnail">Thumbnail erstellen</string>
+    <string name="created">Erstellt</string>
+    <string name="created_on">Erstellt am</string>
+    <string name="critical_alert">Kritische Warnung</string>
+    <string name="d_e_f">DEF</string>
+    <string msgid="8038256446254964252" name="default_error_message">"Ungültige Eingabe"</string>
+    <string msgid="6312721426453364202" name="default_popup_window_title">"Pop-up-Fenster"</string>
+    <string name="default_thumbnail">Standard-Miniaturbild</string>
+    <string name="delete">Löschen</string>
+    <string name="delete_community">Community löschen</string>
+    <string name="delete_contact">Kontakt löschen</string>
+    <string name="deliver_to">Liefern an</string>
+    <string name="delivery_information">Lieferinformationen</string>
+    <string name="disable_auto_subscribe">Deaktivieren Sie das automatische Abonnieren</string>
+    <string name="disconnect">Trennen</string>
+    <string name="do_you_want_disable_audible_alerts">Möchten Sie Audible Lightning Alerts deaktivieren?</string>
+    <string name="drawer_closed">Schließen</string>
+    <string name="drawer_open">Öffnen</string>
+    <string msgid="1890207353314751437" name="dropdown_menu">"Drop-down-Menü"</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="edit_group">Gruppe bearbeiten</string>
+    <string name="edit_member">Mitglied bearbeiten</string>
+    <string name="edit_personal_community">Persönliche Community bearbeiten</string>
+    <string name="edit_time">Bearbeitungszeit</string>
+    <string name="email">Email</string>
+    <string name="email_is_required">E-Mail ist erforderlich</string>
+    <string name="email_searches_powered_by">E-Mail-Suchen Powered by</string>
+    <string name="email_support_in_telligent_com">E-Mail: support@in-telligent.com</string>
+    <string name="email_support_surgeforward_com">E-Mail: support@surgeforward.com</string>
+    <string name="emergency">Notfall</string>
+    <string name="emergency_service">RETTUNGSDIENSTE</string>
+    <string name="enable_auto_subscribe">Aktivieren Sie das automatische Abonnieren</string>
+    <string name="end_call">Anruf beenden</string>
+    <string name="enter_contact_email">Geben Sie die Kontakt-E-Mail-Adresse ein</string>
+    <string name="enter_contact_name">Geben Sie den Kontaktnamen ein</string>
+    <string name="enter_contact_phone">Geben Sie Kontakttelefon ein</string>
+    <string name="enter_email">Email eingeben</string>
+    <string name="enter_email_address">E-Mail Adresse eingeben</string>
+    <string name="enter_message">Nachricht eingeben</string>
+    <string name="enter_message_italic">undefined</string>
+    <string name="enter_name">Name eingeben</string>
+    <string name="enter_names_from_phone_contacts">Geben Sie Namen aus den Telefonkontakten ein</string>
+    <string name="enter_password">Passwort eingeben</string>
+    <string name="enter_phone">Telefon eingeben</string>
+    <string name="enter_title">Titel eingeben</string>
+    <string name="enter_title_italic">undefined</string>
+    <string name="entered">Trat ein</string>
+    <string name="error_icon_content_description">Fehler</string>
+    <string name="exit">Ausgang</string>
+    <string name="exposed_dropdown_menu_content_description">Drop-down-Menü anzeigen</string>
+    <string name="facebook_app_id">1830932323800441</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Link kopieren"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Im Browser öffnen"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Link teilen"</string>
+    <string name="female">Weiblich</string>
+    <string name="filename">Dateiname</string>
+    <string name="filter">FILTER: %1$s</string>
+    <string name="filters">Filter</string>
+    <string name="find">Finden</string>
+    <string name="find_member">Mitglied suchen</string>
+    <string name="first_time_user_str">Erstbenutzer</string>
+    <string name="forgot_password">PASSWORT VERGESSEN / ÄNDERN</string>
+    <string name="forgot_password_enter_email_for_link">Haben Sie Ihr Passwort vergessen? Geben Sie einfach die E-Mail-Adresse ein, mit der Sie Ihr Konto erstellt haben, und wir senden Ihnen einen Link zum Zurücksetzen.</string>
+    <string name="frequency">Frequenz</string>
+    <string name="frequency_of_searches">Häufigkeit der Suche</string>
+    <string name="full_name">Vollständiger Name</string>
+    <string name="functionality_in_progress">Funktion läuft</string>
+    <string name="g_h_i">AUFNAHME</string>
+    <string name="gender">Geschlecht</string>
+    <string name="general_inquiries">Allgemeine Anfragen zu In-telligent</string>
+    <string name="group_deleted">Gruppe gelöscht</string>
+    <string name="groups">Gruppen</string>
+    <string name="help_desk">Beratungsstelle</string>
+    <string name="helplines">Helplines und Hotlines</string>
+    <string name="hours">Std</string>
+    <string name="hours_8am_6pm_est_mon_fri">Stunden: 8 - 18 Uhr EST Mo-Fr</string>
+    <string name="hours_of_silence">Stunden des Schweigens</string>
+    <string name="icon_content_description">Dialogfeldsymbol</string>
+    <string name="ignore">Ignorieren</string>
+    <string msgid="6827826412747255547" name="in_progress">"In Bearbeitung"</string>
+    <string name="in_telligent_search_from_my_app">In-telligent-Suche aus meiner In-telligent-App:</string>
+    <string name="in_telligent_searches">In-telligente Suchanfragen</string>
+    <string name="inbox">Posteingang</string>
+    <string name="inbox_new">Posteingang ()</string>
+    <string name="incoming_call">Eingehender Anruf</string>
+    <string name="incoming_call_from">Eingehender Anruf von</string>
+    <string name="incoming_call_from_tenant">Eingehender Anruf vom Mieter</string>
+    <string msgid="7933458017204019916" name="indeterminate">"Teilweise aktiviert"</string>
+    <string name="intelligent_and_all">In-telligent und alle E-Mails</string>
+    <string name="intelligent_and_imported">In-telligente und importierte E-Mails</string>
+    <string name="intelligent_only">Nur in telligent</string>
+    <string name="interests">Interessen</string>
+    <string name="internet_searches_powered_by">Internet-Suchanfragen Powered by</string>
+    <string name="invalid_password">Ungültiges Passwort</string>
+    <string name="invite_again">Erneut einladen</string>
+    <string name="invite_and_save_contact">Kontakt einladen und speichern</string>
+    <string name="invite_new_member">Neues Mitglied einladen</string>
+    <string name="invite_others">Andere einladen</string>
+    <string name="invite_others_to_join">Laden Sie andere ein, sich anzuschließen</string>
+    <string name="invite_sent">Einladung gesendet.</string>
+    <string name="invited">Eingeladen</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="j_k_l">JKL</string>
+    <string name="join_now">JETZT BEITRETEN</string>
+    <string name="joined">Beigetreten</string>
+    <string name="label_select_picture">Bild auswählen</string>
+    <string name="left">Links</string>
+    <string name="life_safety">Lebenssicherheit</string>
+    <string name="lightning">Blitz</string>
+    <string name="listen_to_emergency">Hören Sie den Alarmton</string>
+    <string name="listen_to_urgent">Hören Sie den dringenden Tonalarm</string>
+    <string name="local_ncalendar">LOKALER KALENDER</string>
+    <string name="local_ninformation">LOKALE INFORMATIONEN</string>
+    <string name="local_nnews">LOKALNACHRICHTEN</string>
+    <string name="location_permissions">Standortberechtigungen</string>
+    <string name="location_permissions_confirm">Bist du sicher?</string>
+    <string name="location_permissions_required_prompt">Standortberechtigungen sind erforderlich, damit die App ordnungsgemäß funktioniert. Akzeptieren Sie die Standortberechtigungen und versuchen Sie es erneut.</string>
+    <string name="location_services_timed_out">Zeitüberschreitung der Standortdienste</string>
+    <string name="log_in">EINLOGGEN</string>
+    <string name="logout">Ausloggen</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed tempor und Vitalität, so dass die Arbeit und die Trauer, einige wichtige Dinge eiusmod zu tun.</string>
+    <string name="m_n_o">MNO</string>
+    <string name="male">Männlich</string>
+    <string name="material_clock_toggle_content_description">Vormittags oder Nachmittags auswählen</string>
+    <string name="material_hour_24h_suffix">%1$s Stunden</string>
+    <string name="material_hour_selection">Stunde auswählen</string>
+    <string name="material_hour_suffix">%1$s Uhr</string>
+    <string name="material_minute_selection">Minuten auswählen</string>
+    <string name="material_minute_suffix">%1$s Minuten</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">In den Uhrzeitmodus wechseln, um die Uhrzeit einzugeben.</string>
+    <string name="material_timepicker_hour">Stunde</string>
+    <string name="material_timepicker_minute">Minute</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Uhrzeit auswählen</string>
+    <string name="material_timepicker_text_input_mode_description">In den Texteingabemodus wechseln, um die Uhrzeit einzugeben.</string>
+    <string name="members_in_community">Mitglieder in der Community</string>
+    <string name="menu">Speisekarte</string>
+    <string name="message_feed">Nachrichten-Feed</string>
+    <string name="message_is_saved">Ihre Nachricht wird gespeichert</string>
+    <string name="message_not_saved">Beim Speichern Ihrer Nachricht ist ein Problem aufgetreten</string>
+    <string name="messages">Mitteilungen</string>
+    <string name="messages_from">Nachrichten von</string>
+    <string name="more">…Mehr</string>
+    <string name="mtrl_badge_numberless_content_description">Neue Benachrichtigung</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s entfernen</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Mehr als %1$d neue Benachrichtigungen</string>
+    <string name="mtrl_picker_a11y_next_month">Zum nächsten Monat wechseln</string>
+    <string name="mtrl_picker_a11y_prev_month">Zum vorherigen Monat wechseln</string>
+    <string name="mtrl_picker_announce_current_range_selection">Ausgewähltes Startdatum: %1$s – Ausgewähltes Enddatum: %2$s</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuelle Auswahl: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">Keines</string>
+    <string name="mtrl_picker_cancel">Abbrechen</string>
+    <string name="mtrl_picker_confirm">OK</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Datum auswählen</string>
+    <string name="mtrl_picker_date_header_unselected">Ausgewähltes Datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Spalte \"Wochentag\": %1$s</string>
+    <string name="mtrl_picker_end_date_description">Enddatum %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ungültiges Format.</string>
+    <string name="mtrl_picker_invalid_format_example">Beispiel: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Format: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ungültiger Bereich.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">Zum aktuellen Jahr %1$d wechseln</string>
+    <string name="mtrl_picker_navigate_to_year_description">Zum Jahr %1$d wechseln</string>
+    <string name="mtrl_picker_out_of_range">Außerhalb des Bereichs: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Startdatum – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Enddatum</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Zeitraum auswählen</string>
+    <string name="mtrl_picker_range_header_unselected">Startdatum – Enddatum</string>
+    <string name="mtrl_picker_save">Speichern</string>
+    <string name="mtrl_picker_start_date_description">Startdatum %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Enddatum</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Startdatum</string>
+    <string name="mtrl_picker_text_input_day_abbr">T</string>
+    <string name="mtrl_picker_text_input_month_abbr">M</string>
+    <string name="mtrl_picker_text_input_year_abbr">J</string>
+    <string name="mtrl_picker_today_description">Heute %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">In den Kalendereingabemodus wechseln</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tippen, um zur Kalenderansicht zu wechseln</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">In den Texteingabemodus wechseln</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tippen, um zur Jahresansicht zu wechseln</string>
+    <string name="mtrl_timepicker_cancel">Abbrechen</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
+    <string name="my_account">Mein Konto</string>
+    <string name="my_communities">Meine Gemeinschaften</string>
+    <string name="my_info">Meine Information</string>
+    <string name="name">Name</string>
+    <string name="name_your_community">Benennen Sie Ihre Community</string>
+    <string msgid="542007171693138492" name="navigation_menu">"Navigationsmenü"</string>
+    <string name="near_me">In meiner Nähe</string>
+    <string name="never">noch nie</string>
+    <string name="never_mind">Keine Ursache</string>
+    <string name="newest_first">Das neuste zuerst</string>
+    <string name="news">Nachrichten</string>
+    <string name="news_and_traffic">Nachrichten &amp; Verkehr</string>
+    <string name="news_for">Nachrichten für</string>
+    <string name="news_from_my_in_telligent_app">Neuigkeiten aus meiner In-telligent-App</string>
+    <string name="news_source">NACHRICHTENQUELLE</string>
+    <string name="news_source_feed_title">Titel des Nachrichtenquellen-Feeds</string>
+    <string name="next">Nächster</string>
+    <string name="no">Nein</string>
+    <string name="no_alerts">Keine Alarme</string>
+    <string name="no_groups">Keine Gruppen</string>
+    <string name="no_le_support">Kein LE-Support.</string>
+    <string name="no_members">Keine Mitglieder</string>
+    <string name="no_personal_communities">Keine persönlichen Communities</string>
+    <string name="no_results_found">keine Ergebnisse gefunden</string>
+    <string name="no_saved_messages">Keine gespeicherten Nachrichten</string>
+    <string name="no_subscriptions">Keine Abonnements</string>
+    <string name="no_thank_you">Nein danke</string>
+    <string name="none">Keiner</string>
+    <string name="normal">Normal</string>
+    <string msgid="6610465462668679431" name="not_selected">"Nicht ausgewählt"</string>
+    <string name="notifications">Benachrichtigungen</string>
+    <string name="number">Nummer</string>
+    <string name="off">aus</string>
+    <string name="ok">OK</string>
+    <string name="on">Auf</string>
+    <string name="only_when_im_here">Nur wenn ich hier bin</string>
+    <string name="or">oder</string>
+    <string name="organizations">Organisationen</string>
+    <string name="other">Andere</string>
+    <string name="other_communities">Andere Gemeinschaften</string>
+    <string name="p_q_r_s">PQRS</string>
+    <string name="page_number">Seitennummer:</string>
+    <string name="password">Passwort</string>
+    <string name="password_protected_pdf_file">Passwortgeschützte PDF-Datei:</string>
+    <string name="password_toggle_content_description">Passwort anzeigen</string>
+    <string name="passwords_dont_match">Passwords don\'t match</string>
+    <string name="pending">steht aus</string>
+    <string name="people">Menschen</string>
+    <string name="permission_read_storage_rationale">Speicherleseberechtigung ist erforderlich, um Dateien auszuwählen.</string>
+    <string name="personal_alert">Persönlicher Alarm</string>
+    <string name="personal_communities">Persönliche Communities</string>
+    <string name="personal_community">Persönliche Community</string>
+    <string name="physical">Physisch</string>
+    <string name="ping_alert">Ping-Alarm</string>
+    <string name="please_check_your_network_connection_try_again">Bitte überprüfen Sie Ihre Netzwerkverbindung und versuchen Sie es erneut.</string>
+    <string name="please_ensure_you_entered_name_and_contact_method">Bitte stellen Sie sicher, dass Sie einen Namen und eine Kontaktmethode eingegeben haben.</string>
+    <string name="please_enter_alert_body">Bitte geben Sie eine Warnmeldung ein</string>
+    <string name="please_enter_alert_title">Bitte geben Sie einen Alert-Titel ein</string>
+    <string name="please_enter_an_alert_type">Bitte wählen Sie einen Alarmtyp aus.</string>
+    <string name="please_enter_name_of_community">Bitte geben Sie einen Namen für Ihre Community ein.</string>
+    <string name="please_enter_password_for_pdf">Bitte geben Sie das Passwort für PDF ein</string>
+    <string name="please_input_the_message_into_the_help_box">Bitte geben Sie eine Nachricht in das Hilfefeld ein.</string>
+    <string name="please_select_a_group">Bitte wählen Sie eine Gruppe aus, die Sie kontaktieren möchten</string>
+    <string name="please_select_another">BITTE WÄHLEN SIE EINEN ANDEREN</string>
+    <string name="please_sign_in">Bitte einloggen</string>
+    <string name="powered_by_inourcommunity">Unterstützt von InOurCommunity</string>
+    <string name="previous">Bisherige</string>
+    <string msgid="5941395253238309765" name="range_end">"Bereichsende"</string>
+    <string msgid="7097486360902471446" name="range_start">"Bereichsstart"</string>
+    <string name="read_less">Lese weniger</string>
+    <string name="read_more">Weiterlesen</string>
+    <string name="receive_regular_alerts">Regelmäßige Benachrichtigungen erhalten</string>
+    <string name="received">Empfangen</string>
+    <string name="region">Region</string>
+    <string name="region_monitoring">Region Überwachung</string>
+    <string name="register">Registrieren</string>
+    <string name="regular_alert">Regelmäßige Benachrichtigung</string>
+    <string name="reject_end_call">Anruf ablehnen / beenden</string>
+    <string name="remove_invite">Remove Invite</string>
+    <string name="required_field">Dieses Feld wird benötigt.</string>
+    <string name="reset_password">Passwort zurücksetzen</string>
+    <string name="reset_your_password">Setze dein Passwort zurück</string>
+    <string name="respond">Antwort auf eine vorgeschlagene Warnung</string>
+    <string name="response_hint">Geben Sie hier die Antwort ein ..</string>
+    <string name="retry">Wiederholen</string>
+    <string name="returning_subscriber_str">Wiederkehrender Abonnent</string>
+    <string name="save">sparen</string>
+    <string name="save_changes">Änderungen speichern</string>
+    <string name="save_edits">Bearbeitungen speichern</string>
+    <string name="save_failed_check_internet_connection">Speichern fehlgeschlagen. Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
+    <string name="save_message">Nachricht speichern</string>
+    <string name="saved">Gerettet.</string>
+    <string name="saved_messages">Gespeicherte Nachrichten</string>
+    <string name="sd_permissions">SD-Berechtigungen</string>
+    <string name="sd_permissions_required_message">SD-Berechtigungen sind erforderlich, damit die App ordnungsgemäß funktioniert. Akzeptieren Sie die SD-Berechtigungen, und versuchen Sie es erneut.</string>
+    <string name="search">Suche</string>
+    <string name="search_by_current_location">Suche nach aktuellem Standort</string>
+    <string name="search_by_email">Search by Email</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="search_for_communities">Suchen Sie nach Communities</string>
+    <string name="search_for_group">Suche nach Gruppe</string>
+    <string name="search_keywords">Suche Schlüsselwörter</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Suche"</string>
+    <string name="search_nkeywords">Suche Schlüsselwörter</string>
+    <string name="see_full_message">Vollständige Nachricht anzeigen</string>
+    <string name="select_a_community">Wählen Sie eine Community aus</string>
+    <string name="select_a_method">Wählen Sie eine Methode aus</string>
+    <string name="select_a_source">Wählen Sie eine Quelle aus</string>
+    <string name="select_alert_type">Wählen Sie den Alarmtyp aus</string>
+    <string name="select_files">Dateien auswählen</string>
+    <string name="select_primary_community">Wählen Sie Primary Community aus</string>
+    <string name="select_thumbnail">Miniaturansicht auswählen:</string>
+    <string name="select_your_age">Wählen Sie Ihr Alter aus</string>
+    <string name="select_your_gender">Wähle dein Geschlecht</string>
+    <string msgid="6043586758067023" name="selected">"Ausgewählt"</string>
+    <string name="send">Senden</string>
+    <string name="send_a_message">Eine Nachricht schicken</string>
+    <string name="send_alert_to_community">Alert an Community senden</string>
+    <string name="send_invite_save_contact">Einladung senden und speichern</string>
+    <string name="send_message">undefined</string>
+    <string name="send_to">Senden an</string>
+    <string name="send_to_all">Senden Sie an alle Abonnenten dieser Community</string>
+    <string name="send_to_specific">Senden Sie an einen bestimmten Abonnenten oder Gruppen</string>
+    <string name="send_to_specific_subscribers_or_groups">Senden Sie an bestimmte Abonnenten oder Gruppen</string>
+    <string name="server_client_id">592871569708-6vaog0bbf8d7b48kj7j7au4ga0oaa916.apps.googleusercontent.com</string>
+    <string name="set">einstellen</string>
+    <string name="set_language_to">Sprache einstellen auf</string>
+    <string name="settings">die Einstellungen</string>
+    <string name="severe_weather">Unwetter</string>
+    <string name="severe_weather_warnings">Unwetterwarnungen</string>
+    <string name="short_description">Kurzbeschreibung (Titel)</string>
+    <string name="sign_in">Einloggen</string>
+    <string name="some_error">Irgendein Fehler</string>
+    <string name="sound_alert">Sirenenalarm</string>
+    <string name="status">Status</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="stop_speaking">Hör auf zu reden</string>
+    <string name="submit">einreichen</string>
+    <string name="subscribe">Abonnieren</string>
+    <string name="suggested_alerts">Vorgeschlagene Warnungen</string>
+    <string name="suggested_groups">Vorgeschlagene Gruppen</string>
+    <string name="support">Unterstützung</string>
+    <string msgid="2561197295334830845" name="switch_role">"Wechseln"</string>
+    <string name="t_u_v">TUV</string>
+    <string msgid="1672349317127674378" name="tab">"Tab"</string>
+    <string name="tap_here">Hier drücken</string>
+    <string name="tap_icon_to_get_directions_to_community">Tippen Sie auf das Symbol, um eine Wegbeschreibung zur Community zu erhalten</string>
+    <string name="tap_to_enter_message">Tippen Sie auf, um die Nachricht einzugeben</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> Prozent."</string>
+    <string name="text_to_speech">Text zu Sprache</string>
+    <string name="the_tenant_has_already_ended_call">Der Mieter hat den Anruf bereits beendet</string>
+    <string name="there_are_no_available_community_managers_consider">Es sind keine Community-Manager verfügbar. Bitte überlegen Sie, stattdessen eine Textbenachrichtigung zu senden.</string>
+    <string name="there_are_no_members_to_show">There are no members to show</string>
+    <string name="there_was_an_error_initializing_tts_engine">Beim Initialisieren der TTS Engine ist ein Fehler aufgetreten</string>
+    <string name="there_was_an_error_playing_the_alert">Beim Abspielen der Warnung ist ein Fehler aufgetreten</string>
+    <string name="there_was_error_connecting">Beim Verbinden mit dem Server ist ein Fehler aufgetreten</string>
+    <string name="there_was_error_connecting_to_server">Beim Verbinden mit dem Server ist ein Fehler aufgetreten. Prüfe deine Internetverbindung.</string>
+    <string name="there_was_error_sending_request">Beim Senden Ihrer Anfrage ist ein Fehler aufgetreten.</string>
+    <string name="this_building_cannot_be_contacted">Dieses Gebäude kann nicht kontaktiert werden</string>
+    <string name="this_community_does_not_have_messages">Diese Community hat keine Nachrichten</string>
+    <string name="this_community_is_password_protected">Diese Community ist durch ein Passwort geschützt. Sie müssen sich anmelden, um die Nachrichten anzuzeigen</string>
+    <string name="this_community_name_is_taken_choose_another">Dieser Community-Name wird übernommen. Bitte wählen Sie einen anderen Namen.</string>
+    <string name="this_email_is_already_registered">Diese Email ist bereits registriert.</string>
+    <string name="this_version_is_no_longer_supported">This version of In-telligent is no longer supported. Please update to the latest version.</string>
+    <string name="timer">Stunden:</string>
+    <string name="timestamp">Zeitstempel</string>
+    <string name="title">Titel</string>
+    <string msgid="3765533235322692011" name="tooltip_description">"Kurzinfo"</string>
+    <string msgid="3124740595719787496" name="tooltip_label">"Kurzinfo anzeigen"</string>
+    <string name="total_members">Mitglieder insgesamt</string>
+    <string name="total_recipients">Empfänger insgesamt</string>
+    <string name="total_silence">Totale Stille</string>
+    <string name="total_silence_on">Totale Stille am:</string>
+    <string name="traffic_nand_directions">VERKEHR UND ANFAHRT</string>
+    <string name="translate">Übersetzen</string>
+    <string name="translate_to">Übersetzen ins</string>
+    <string name="type_comment_here">Kommentar hier eingeben</string>
+    <string name="type_of_alert">Art der Warnung</string>
+    <string name="ucrop_crop">Zuschneiden</string>
+    <string name="ucrop_label_edit_photo">Foto editieren</string>
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_menu_crop">Zuschneiden</string>
+    <string name="ucrop_rotate">Rotieren</string>
+    <string name="ucrop_scale">Skalieren</string>
+    <string name="unable_to_create_community_check_connection">Community kann nicht erstellt werden. Überprüfen Sie bitte Ihre Verbindung und versuchen Sie es erneut.</string>
+    <string name="unable_to_save_changes_check_connetion">Änderungen können nicht gespeichert werden. Überprüfen Sie bitte Ihre Verbindung und versuchen Sie es erneut.</string>
+    <string name="unable_updated_location">Es konnte kein aktueller Ort abgerufen werden.</string>
+    <string name="unread">Ungelesen</string>
+    <string name="unread_messages">ungelesene Nachrichten</string>
+    <string name="unsave">Unsicher</string>
+    <string name="unsave_message">Nachricht nicht speichern</string>
+    <string name="unspecified">Nicht spezifiziert</string>
+    <string name="unsubscribe">Abmelden</string>
+    <string name="up_to_10_terms">Bis zu 10 Begriffe</string>
+    <string name="update">Update</string>
+    <string name="uploading_attachment_for_notification">Anhang zur Benachrichtigung hochladen</string>
+    <string name="uploading_attachment_for_personal_community">Anhang für persönliche Community hochladen</string>
+    <string name="urgent">Dringend</string>
+    <string name="user_invited">Eingeladener Benutzer</string>
+    <string name="version_no_longer_available">New update available!</string>
+    <string name="view">Aussicht</string>
+    <string name="view_alerts">Alerts anzeigen</string>
+    <string name="view_members">Mitglieder anzeigen</string>
+    <string name="viewed">Gesehen</string>
+    <string name="virtual">Virtuell</string>
+    <string name="w_x_y_z">WXYZ</string>
+    <string name="when_you_send_members_will_hear">* Wenn Sie einen dringenden oder Notfallalarm an die Community senden, hören Mitglieder den Alarmton</string>
+    <string name="would_you_like_to_call_your_community_manager">Möchten Sie Ihren Community Manager anrufen?</string>
+    <string name="would_you_like_to_create_personal_community">Möchten Sie eine persönliche Community erstellen, um Nachrichten an Familie und Freunde zu senden?</string>
+    <string name="would_you_like_to_perm_delete_contact">Möchten Sie diesen Kontakt dauerhaft löschen?</string>
+    <string name="yes">Ja</string>
+    <string name="you_are_now_subscribed_to">Sie sind jetzt bei "" angemeldet.</string>
+    <string name="you_are_now_subscribed_to_the_community">U bent nu geabonneerd op de community.</string>
+    <string name="you_were_invited_to_join_a_comunnity">Sie wurden eingeladen, sich %1$d anzuschließen</string>
+    <string name="your_alert_is_uploading_now">Ihre Benachrichtigung wird gerade hochgeladen</string>
+    <string name="your_invitation_is_no_longer_valid">Ihre Einladung ist nicht mehr gültig</string>
+    <string name="your_request_has_been_sent_to_support_team">Ihre Anfrage wurde an das Support-Team gesendet.</string>
+    <string name="zip_code_city_or_keyword">Postleitzahl, Ort oder Stichwort</string>
+    <string name="zipcode">Postleitzahl</string>
+</resources>
